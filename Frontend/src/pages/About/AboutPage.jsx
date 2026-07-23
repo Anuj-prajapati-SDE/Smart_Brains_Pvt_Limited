@@ -1246,76 +1246,91 @@ const AboutPage = () => {
               </div>
 
               {/* Right Column: 9 Business Divisions Accordions (7 Cols) */}
-              <div className="lg:col-span-7 space-y-3.5" data-animate="fade-up">
-                {divisionsListData.map((div, idx) => {
-                  const isOpen = activeDivision === idx;
-                  return (
-                    <div 
-                      key={idx}
-                      className="border border-slate-200/60 dark:border-slate-800/50 rounded-2xl overflow-hidden bg-white dark:bg-[#121517] shadow-sm hover:shadow-md transition-all duration-300"
-                    >
-                      {/* Accordion Header */}
+              <div className="lg:col-span-7" data-animate="fade-up">
+                <div className="border-t border-slate-200 dark:border-slate-800/80">
+                  {divisionsListData.map((div, idx) => {
+                    const isOpen = activeDivision === idx;
+                    return (
                       <div 
-                        onClick={() => setActiveDivision(isOpen ? null : idx)}
-                        className="flex items-center justify-between p-4 cursor-pointer select-none bg-slate-50/20 dark:bg-slate-900/10 hover:bg-slate-50/60 dark:hover:bg-slate-900/20 transition-all duration-200"
+                        key={idx}
+                        className="border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0c0e0f] overflow-hidden group"
                       >
-                        <div className="flex items-center gap-3">
-                          {/* Accent bar */}
-                          <div className={`w-1.5 h-6 rounded-full ${div.barColor}`} />
-                          
-                          {/* Category Icon */}
-                          <div className="w-8 h-8 rounded-lg bg-white dark:bg-[#1c1f22] border border-slate-200/40 dark:border-slate-800/40 flex items-center justify-center flex-shrink-0 shadow-sm">
-                            {div.icon}
-                          </div>
-                          
-                          <h4 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-slate-800 dark:text-slate-200 leading-none">
-                            {div.title}
-                          </h4>
-                        </div>
-                        
-                        {/* Chevron Indicator */}
-                        <svg 
-                          className={`w-4 h-4 text-slate-400 dark:text-slate-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary dark:text-primary-fixed-dim' : ''}`}
-                          fill="none" 
-                          stroke="currentColor" 
-                          strokeWidth="2.5" 
-                          viewBox="0 0 24 24"
+                        {/* Accordion Header */}
+                        <div 
+                          onClick={() => setActiveDivision(isOpen ? null : idx)}
+                          className={`flex items-center justify-between py-5 md:py-6 px-4 md:px-6 cursor-pointer select-none transition-colors duration-300 ${
+                            isOpen ? 'bg-slate-50/50 dark:bg-[#111416]' : 'hover:bg-slate-50/30 dark:hover:bg-[#111416]/50'
+                          }`}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </div>
+                          <div className="flex items-center gap-5 md:gap-6">
+                            {/* Minimal Icon */}
+                            <div className={`w-8 h-8 flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${
+                              isOpen 
+                                ? 'text-primary dark:text-primary-fixed-dim' 
+                                : 'text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-300'
+                            }`}>
+                              {div.icon}
+                            </div>
+                            
+                            <h4 className={`text-base md:text-[19px] font-medium tracking-tight transition-colors duration-300 ${
+                              isOpen ? 'text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white'
+                            }`}>
+                              {div.title}
+                            </h4>
+                          </div>
+                          
+                          {/* Minimal Chevron */}
+                          <div className={`flex-shrink-0 flex items-center justify-center transition-transform duration-300 ${
+                            isOpen ? 'text-primary dark:text-primary-fixed-dim rotate-180' : 'text-slate-300 dark:text-slate-600 group-hover:text-slate-500 dark:group-hover:text-slate-400'
+                          }`}>
+                            <svg 
+                              className="w-5 h-5"
+                              fill="none" 
+                              stroke="currentColor" 
+                              strokeWidth="1.5" 
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </div>
+                        </div>
 
-                      {/* Expandable Accordion Panel */}
-                      <div 
-                        className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[500px] opacity-100 border-t border-slate-100 dark:border-slate-800/30' : 'max-h-0 opacity-0 pointer-events-none'}`}
-                      >
-                        <div className="p-4 md:p-5 space-y-4 bg-white/50 dark:bg-[#121517]/50">
-                          {/* Description */}
-                          <p className="text-[12px] sm:text-xs text-slate-500 dark:text-slate-400 leading-relaxed max-w-2xl">
-                            {getDivisionDesc(div.title)}
-                          </p>
+                        {/* Expandable Accordion Panel */}
+                        <div 
+                          className={`transition-all duration-300 ease-in-out overflow-hidden bg-slate-50/50 dark:bg-[#111416] ${
+                            isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+                          }`}
+                        >
+                          <div className="pb-6 px-4 md:px-6 md:pl-[4.5rem] space-y-6">
+                            {/* Description */}
+                            <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl font-light">
+                              {getDivisionDesc(div.title)}
+                            </p>
 
-                          {/* Sub-services Grid */}
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            {div.items.map((item, itemIdx) => (
-                              <div 
-                                key={itemIdx}
-                                className="group/pill flex items-center gap-3 p-3 rounded-xl bg-slate-50/60 dark:bg-slate-900/30 border border-slate-100 dark:border-slate-800/60 hover:bg-white dark:hover:bg-[#1a1d20] hover:border-slate-200 dark:hover:border-slate-700/60 hover:shadow-sm hover:scale-[1.01] transition-all duration-300 cursor-pointer"
-                              >
-                                <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-white dark:bg-[#1e2226] text-slate-500 dark:text-slate-400 group-hover/pill:bg-primary dark:group-hover/pill:bg-primary-fixed-dim group-hover/pill:text-white dark:group-hover/pill:text-slate-900 transition-all duration-300 shadow-sm flex-shrink-0">
-                                  {item.icon}
+                            {/* Minimal Sub-services List */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
+                              {div.items.map((item, itemIdx) => (
+                                <div 
+                                  key={itemIdx}
+                                  className="flex items-start gap-3 group/sub cursor-pointer"
+                                >
+                                  <div className="mt-0.5 flex-shrink-0 text-slate-300 dark:text-slate-600 group-hover/sub:text-primary dark:group-hover/sub:text-primary-fixed-dim transition-colors duration-300">
+                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                  </div>
+                                  <span className="text-sm text-slate-700 dark:text-slate-300 group-hover/sub:text-primary dark:group-hover/sub:text-primary-fixed-dim transition-colors duration-300 leading-snug">
+                                    {item.label}
+                                  </span>
                                 </div>
-                                <span className="text-[10px] sm:text-[11px] font-bold text-slate-700 dark:text-slate-300 group-hover/pill:text-primary dark:group-hover/pill:text-primary-fixed-dim leading-snug transition-colors duration-200">
-                                  {item.label}
-                                </span>
-                              </div>
-                            ))}
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
 
             </div>
