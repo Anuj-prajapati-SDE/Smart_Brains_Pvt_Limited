@@ -97,12 +97,12 @@ const TeamMemberCard = ({ member }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="pt-16">
-      <div className="relative bg-white dark:bg-[#111416] rounded-[24px] shadow-[0_15px_40px_rgba(0,0,0,0.04)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.2)] border border-slate-200/60 dark:border-slate-800/60 p-8 flex flex-col justify-between h-full group hover:shadow-xl transition-all duration-300">
+    <div className="pt-12 sm:pt-16">
+      <div className="relative bg-white dark:bg-[#111416] rounded-[24px] shadow-[0_15px_40px_rgba(0,0,0,0.04)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.2)] border border-slate-200/60 dark:border-slate-800/60 p-5 sm:p-6 md:p-8 flex flex-col justify-between h-full group hover:shadow-xl transition-all duration-300">
         
         {/* Profile Avatar (Top-Right Offset) */}
         <div 
-          className="absolute -top-[65px] right-[10%] w-[130px] h-[130px] bg-white dark:bg-[#111416] p-2 shadow-[0_4px_15px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_15px_rgba(0,0,0,0.3)] overflow-hidden flex items-center justify-center flex-shrink-0"
+          className="absolute -top-[45px] sm:-top-[55px] md:-top-[65px] right-4 sm:right-6 md:right-[10%] w-[90px] h-[90px] sm:w-[110px] sm:h-[110px] md:w-[130px] md:h-[130px] bg-white dark:bg-[#111416] p-1.5 sm:p-2 shadow-[0_4px_15px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_15px_rgba(0,0,0,0.3)] overflow-hidden flex items-center justify-center flex-shrink-0"
           style={{ borderRadius: "50%" }}
         >
           <img
@@ -114,16 +114,16 @@ const TeamMemberCard = ({ member }) => {
         </div>
 
         {/* Header Content */}
-        <div className="pr-[120px] mb-4 flex flex-col gap-2">
-          <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight leading-snug">
+        <div className="pr-[85px] sm:pr-[105px] md:pr-[120px] mb-4 flex flex-col gap-1.5 sm:gap-2">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight leading-snug">
             {member.name}
           </h3>
-          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
             — {member.role}
           </p>
           
           {/* Rating stars */}
-          <div className="mt-2">
+          <div className="mt-1 sm:mt-2">
             <StarRating rating={member.rating} />
           </div>
         </div>
@@ -159,7 +159,7 @@ const AboutCoreTeam = () => {
   return (
     <section
       id="cards"
-      className="relative py-10 bg-slate-50/50 dark:bg-[#080b0c] border-b border-slate-200/80 dark:border-slate-800/80"
+      className="relative py-10 bg-slate-50/50 dark:bg-[#080b0c] border-b border-slate-200/80 dark:border-slate-800/80 overflow-hidden"
     >
       <div className="max-w-[1280px] mx-auto px-gutter">
         {/* Section Header */}

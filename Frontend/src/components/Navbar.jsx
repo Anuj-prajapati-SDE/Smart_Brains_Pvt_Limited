@@ -182,14 +182,14 @@ const Navbar = () => {
       name: "Staff Augmentation",
       path: "/staffing/augmentation"
     },
-    {
-      name: "Remote IT Staffing *",
-      path: "/staffing/remote"
-    },
-    {
-      name: "Project Based Staffing *",
-      path: "/staffing/project"
-    },
+    // {
+    //   name: "Remote IT Staffing *",
+    //   path: "/staffing/remote"
+    // },
+    // {
+    //   name: "Project Based Staffing *",
+    //   path: "/staffing/project"
+    // },
   ]
 
   const hireSubmenu = [
@@ -266,7 +266,7 @@ const Navbar = () => {
               <span className={`absolute bottom-0 left-0 h-[1px] rounded-full bg-gradient-to-r from-[#002a58] to-[#004080] dark:from-[#a9c7ff] dark:to-[#004080] transition-all duration-300 ${location.pathname === '/partner' || location.hash === '#partner' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
             </Link>
 
-            <Link
+            {/* <Link
               className={`relative group font-body-md text-body-md transition-colors duration-200 pb-1 flex items-center gap-xs ${location.pathname === '/#business' || location.hash === '#business'
                 ? 'text-primary dark:text-primary-fixed-dim'
                 : 'text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim'
@@ -281,7 +281,7 @@ const Navbar = () => {
                 keyboard_arrow_down
               </span>
               <span className={`absolute bottom-0 left-0 h-[1px] rounded-full bg-gradient-to-r from-[#002a58] to-[#004080] dark:from-[#a9c7ff] dark:to-[#004080] transition-all duration-300 ${location.pathname === '/#business' || location.hash === '#business' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
-            </Link>
+            </Link> */}
             <Link
               className={`relative group font-body-md text-body-md transition-colors duration-200 pb-1 ${location.pathname === '/contact-us'
                 ? 'text-primary dark:text-primary-fixed-dim'
@@ -294,10 +294,10 @@ const Navbar = () => {
             </Link>
           </nav>
           <div className="flex items-center gap-sm">
-            <button className="hidden lg:flex items-center text-primary font-bold px-sm py-xs hover:opacity-80 transition-opacity">
+            {/* <button className="hidden lg:flex items-center text-primary font-bold px-sm py-xs hover:opacity-80 transition-opacity">
               <span className="material-symbols-outlined mr-xs">search</span>
-            </button>
-            <button className="hidden md:inline-block group relative overflow-hidden rounded-full bg-primary hover:bg-primary-container text-on-primary dark:bg-primary-fixed-dim dark:hover:bg-primary-fixed dark:text-on-primary-fixed px-sm py-[8px] md:px-md md:py-sm font-bold uppercase text-label-sm tracking-wider shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
+            </button> */}
+            <Link to={'/contact-us'} className="hidden md:inline-block group relative overflow-hidden rounded-full bg-primary hover:bg-primary-container text-on-primary dark:bg-primary-fixed-dim dark:hover:bg-primary-fixed dark:text-on-primary-fixed px-sm py-[8px] md:px-md md:py-sm font-bold uppercase text-label-sm tracking-wider shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
               <span className="relative flex gap-x-1 overflow-hidden h-[14px] leading-[14px]">
                 {["G", "e", "t", " ", "i", "n", " ", "T", "o", "u", "c", "h"].map((word, idx) => (
                   <span key={idx} className="relative inline-block overflow-hidden h-[14px]">
@@ -316,7 +316,7 @@ const Navbar = () => {
                   </span>
                 ))}
               </span>
-            </button>
+            </Link>
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -339,120 +339,122 @@ const Navbar = () => {
           onMouseEnter={() => handleMouseEnter('business')}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="flex flex-row flex-wrap justify-center items-center gap-md"> 
+          <div className="flex flex-row flex-wrap justify-center items-center gap-md">
 
-        {/* I make changes here for staffing drowdown menu */}
-        {businesses.map((business, index) => {
-            const isStaffing = business.path === "/staffing";
+            {/* I make changes here for staffing drowdown menu */}
+            {businesses.map((business, index) => {
+              const isStaffing = business.path === "/staffing";
 
-            const isHire = business.path === "/hire-train-deploy";
+              const isHire = business.path === "/hire-train-deploy";
 
-           return (
+              return (
 
-<div key={index} className="relative group"
+                <div key={index} className="relative group"
 
-onMouseEnter={()=>{ if(isStaffing) setActiveBusinessSubmenu("staffing");
+                  onMouseEnter={() => {
+                    if (isStaffing) setActiveBusinessSubmenu("staffing");
 
-if(isHire) setActiveHireSubmenu("hire"); }}
+                    if (isHire) setActiveHireSubmenu("hire");
+                  }}
 
-onMouseLeave={()=>{ setActiveBusinessSubmenu(null); setActiveHireSubmenu(null); }}>
+                  onMouseLeave={() => { setActiveBusinessSubmenu(null); setActiveHireSubmenu(null); }}>
 
-<Link to={business.path} onClick={handleSubLinkClick}
+                  <Link to={business.path} onClick={handleSubLinkClick}
 
-className=" relative flex items-center gap-1 text-[14px] font-semibold pb-2 px-1 hover:text-primary " >
+                    className=" relative flex items-center gap-1 text-[14px] font-semibold pb-2 px-1 hover:text-primary " >
 
-{business.name}
-
-
-{(isStaffing || isHire) && (
-
-<span
-className={` material-symbols-outlined text-[18px] duration-300
-
-${activeBusinessSubmenu==="staffing" || activeHireSubmenu==="hire"?"rotate-180":""}`}>
-
-keyboard_arrow_down
-
-</span>
-
-)}
-
-<span className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary transition-all duration-300 group-hover:w-full"/>
-
-</Link>
+                    {business.name}
 
 
+                    {(isStaffing || isHire) && (
 
-{/* STAFFING */}
+                      <span
+                        className={` material-symbols-outlined text-[18px] duration-300
 
-{isStaffing && (
+${activeBusinessSubmenu === "staffing" || activeHireSubmenu === "hire" ? "rotate-180" : ""}`}>
 
-<div
+                        keyboard_arrow_down
 
-className={` absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[260px] rounded-2xl bg-white shadow-lg border p-3 duration-300
+                      </span>
 
-${activeBusinessSubmenu==="staffing"?"opacity-100 visible":"opacity-0 invisible"}`}>
+                    )}
 
-{staffingSubmenu.map((item,i)=>(
+                    <span className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary transition-all duration-300 group-hover:w-full" />
 
-<Link
-
-key={i}
-
-to={item.path}
-
-className=" block px-4 py-3 rounded-xl hover:bg-slate-100 ">
-
-{item.name}
-
-</Link>
-
-))}
-
-</div>
-
-)}
+                  </Link>
 
 
 
-{/* HIRE */}
+                  {/* STAFFING */}
 
-{isHire && (
+                  {isStaffing && (
 
-<div
+                    <div
 
-className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[260px] rounded-2xl bg-white shadow-lg border p-3 duration-300
+                      className={` absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[260px] rounded-2xl bg-white shadow-lg border p-3 duration-300
 
-${activeHireSubmenu==="hire"?"opacity-100 visible":"opacity-0 invisible"}`}>
+${activeBusinessSubmenu === "staffing" ? "opacity-100 visible" : "opacity-0 invisible"}`}>
 
-{hireSubmenu.map((item,i)=>(
+                      {staffingSubmenu.map((item, i) => (
 
-<Link key={i} to={item.path}
+                        <Link
 
-className="block px-4 py-3 rounded-xl hover:bg-slate-100">
+                          key={i}
 
-{item.name}
+                          to={item.path}
 
-</Link>
+                          className=" block px-4 py-3 rounded-xl hover:bg-slate-100 ">
 
-))}
+                          {item.name}
 
-</div>
+                        </Link>
 
-)}
+                      ))}
 
-</div>
+                    </div>
 
-);
+                  )}
 
-})}
 
-            
+
+                  {/* HIRE */}
+
+                  {isHire && (
+
+                    <div
+
+                      className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[260px] rounded-2xl bg-white shadow-lg border p-3 duration-300
+
+${activeHireSubmenu === "hire" ? "opacity-100 visible" : "opacity-0 invisible"}`}>
+
+                      {hireSubmenu.map((item, i) => (
+
+                        <Link key={i} to={item.path}
+
+                          className="block px-4 py-3 rounded-xl hover:bg-slate-100">
+
+                          {item.name}
+
+                        </Link>
+
+                      ))}
+
+                    </div>
+
+                  )}
+
+                </div>
+
+              );
+
+            })}
+
+
           </div>
         </div>
 
         {/* Hire, Train, Deploy*/}
-        
+
 
         {/* Projects Dropdown Menu (Desktop) */}
         <div

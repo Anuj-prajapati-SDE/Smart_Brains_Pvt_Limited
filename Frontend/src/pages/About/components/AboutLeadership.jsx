@@ -54,7 +54,7 @@ const LeadershipCard = ({ member, index }) => {
                 <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-contain object-top transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#001a38] via-[#001a38]/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
@@ -108,7 +108,7 @@ const LeadershipCard = ({ member, index }) => {
 
 const AboutLeadership = () => {
     return (
-        <section id="leadership" className="py-20 bg-gradient-to-b from-[#f8f9fa] to-white dark:from-[#080b0c] dark:to-[#0c0e0f] border-b border-outline-variant/20">
+        <section id="leadership" className="py-20 bg-gradient-to-b from-[#f8f9fa] to-white dark:from-[#080b0c] dark:to-[#0c0e0f] border-b border-outline-variant/20 overflow-hidden">
             <div className="max-w-[1280px] mx-auto px-gutter">
 
                 {/* Section Header */}
@@ -120,9 +120,9 @@ const AboutLeadership = () => {
                         Our Leadership Team
                     </h2>
                     <div className="w-16 h-1 bg-[#002a58] dark:bg-[#a9c7ff] mx-auto mt-4 rounded-full" />
-                    <p className="mt-4 text-sm sm:text-base text-slate-500 dark:text-slate-400 font-light leading-relaxed max-w-lg mx-auto">
+                    {/* <p className="mt-4 text-sm sm:text-base text-slate-500 dark:text-slate-400 font-light leading-relaxed max-w-lg mx-auto">
                         Guided by visionary leaders with decades of industry expertise, driving excellence across every vertical.
-                    </p>
+                    </p> */}
                 </div>
 
                 {/* 3-Card Leadership Grid */}

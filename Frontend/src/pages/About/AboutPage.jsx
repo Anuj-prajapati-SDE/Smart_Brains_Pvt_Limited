@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import AboutLeadership from "./components/AboutLeadership";
 import AboutCoreValues from "./components/AboutCoreValues";
 import AboutCoreTeam from "./components/AboutCoreTeam";
-import { Owner_1 } from "../../assets";
-import WaterMark from  '../../assets/fabicon.png';
+// import { Owner_1 } from "../../assets";
+// import WaterMark from  '../../assets/fabicon.png';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -537,256 +537,6 @@ const divisionsListData = [
     ]
   }
 ];
-
-// const TypewriterHeading = ({ text, className }) => {
-//   const containerRef = useRef(null);
-
-//   useEffect(() => {
-//     if (!containerRef.current) return;
-
-//     const ctx = gsap.context(() => {
-//       const chars = containerRef.current.querySelectorAll(".char-span");
-//       const cursor = containerRef.current.querySelector(".cursor-span");
-
-//       if (chars.length === 0) return;
-
-//       gsap.fromTo(chars,
-//         {
-//           opacity: 0,
-//           y: 8,
-//           scale: 0.9,
-//         },
-//         {
-//           opacity: 1,
-//           y: 0,
-//           scale: 1,
-//           stagger: 0.015,
-//           duration: 0.35,
-//           ease: "power2.out",
-//           scrollTrigger: {
-//             trigger: containerRef.current,
-//             start: "top 85%",
-//             toggleActions: "play none none none",
-//           },
-//           onStart: () => {
-//             if (cursor) gsap.set(cursor, { opacity: 1 });
-//           },
-//           onComplete: () => {
-//             if (cursor) {
-//               gsap.to(cursor, {
-//                 opacity: 0,
-//                 duration: 0.5,
-//                 delay: 0.5,
-//               });
-//             }
-//           }
-//         }
-//       );
-//     }, containerRef);
-
-//     return () => ctx.revert();
-//   }, [text]);
-
-//   const words = text.split(" ");
-
-//   return (
-//     <h4 ref={containerRef} className={className}>
-//       {words.map((word, wordIndex) => (
-//         <span key={wordIndex} className="inline-block whitespace-nowrap">
-//           {word.split("").map((char, charIndex) => (
-//             <span
-//               key={charIndex}
-//               className="char-span opacity-0 inline-block"
-//             >
-//               {char}
-//             </span>
-//           ))}
-//           {wordIndex < words.length - 1 && (
-//             <span className="char-span opacity-0 inline-block">
-//               {"\u00A0"}
-//             </span>
-//           )}
-//         </span>
-//       ))}
-//       <span
-//         className="cursor-span opacity-0 inline-block text-primary dark:text-[#a9c7ff] font-normal ml-0.5 animate-pulse"
-//       >
-//         |
-//       </span>
-//     </h4>
-//   );
-// };
-
-// const DirectorMessage = () => {
-//   const containerRef = useRef(null);
-
-//   useEffect(() => {
-//     if (!containerRef.current) return;
-
-//     const ctx = gsap.context(() => {
-//       const card = containerRef.current.querySelector(".director-card");
-//       const tag = containerRef.current.querySelector(".director-tag");
-//       const titleChars = containerRef.current.querySelectorAll(".director-title .char-span");
-//       const titleCursor = containerRef.current.querySelector(".director-title .cursor-span");
-//       const lineSeparator = containerRef.current.querySelector(".director-line");
-//       const quoteWords = containerRef.current.querySelectorAll(".director-quote .word-span");
-//       const paragraphs = containerRef.current.querySelectorAll(".director-para");
-//       const signature = containerRef.current.querySelector(".director-signature");
-//       const seal = containerRef.current.querySelector(".director-seal");
-
-//       const tl = gsap.timeline({
-//         scrollTrigger: {
-//           trigger: containerRef.current,
-//           start: "top 75%",
-//           toggleActions: "play none none none",
-//         }
-//       });
-
-//       tl.fromTo(card,
-//         { opacity: 0, y: 40, scale: 0.98 },
-//         { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out" }
-//       );
-
-//       tl.fromTo(tag,
-//         { opacity: 0, scale: 0.8 },
-//         { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)" },
-//         "-=0.4"
-//       );
-
-//       if (titleChars.length > 0) {
-//         tl.set(titleCursor, { opacity: 1 }, "-=0.2");
-//         tl.fromTo(titleChars,
-//           { opacity: 0, y: 4 },
-//           { opacity: 1, y: 0, stagger: 0.02, color:"#002a58",  duration: 0.25, ease: "power1.out" },
-//           "-=0.2"
-//         );
-//         tl.to(titleCursor, { opacity: 0, duration: 0.3, delay: 0.2 });
-//       }
-
-//       if (lineSeparator) {
-//         tl.fromTo(lineSeparator,
-//           { width: "0%" },
-//           { width: "64px", duration: 0.5, ease: "power2.inOut" },
-//           "-=0.4"
-//         );
-//       }
-
-//       if (quoteWords.length > 0) {
-//         tl.fromTo(quoteWords,
-//           { opacity: 0, y: 10 },
-//           { opacity: 1, y: 0, stagger: 0.03, duration: 0.5, ease: "power2.out" },
-//           "-=0.2"
-//         );
-//       }
-
-//       if (paragraphs.length > 0) {
-//         tl.fromTo(paragraphs,
-//           { opacity: 0, y: 15 },
-//           { opacity: 1, y: 0, stagger: 0.15, duration: 0.6, ease: "power2.out" },
-//           "-=0.2"
-//         );
-//       }
-
-//       if (signature) {
-//         tl.fromTo(signature,
-//           { opacity: 0, x: -20 },
-//           { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" },
-//           "-=0.3"
-//         );
-//       }
-
-//       if (seal) {
-//         tl.fromTo(seal,
-//           { opacity: 0, scale: 0.5, rotation: -45 },
-//           { opacity: 1, scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.5)" },
-//           "-=0.4"
-//         );
-//       }
-//     }, containerRef);
-
-//     return () => ctx.revert();
-//   }, []);
-
-//   const titleText = "Message from the Director";
-//   const titleWords = titleText.split(" ");
-//   const quoteText = "At SmartBrains, our journey has always been guided by a simple belief: innovation must create meaningful impact.";
-//   const quoteWords = quoteText.split(" ");
-
-//   return (
-//     <div ref={containerRef} className="lg:col-span-7 z-20 relative mt-6 lg:mt-0">
-//       <div className="director-card opacity-0 p-8 md:p-12 bg-white/95 dark:bg-[#111416]/95 border border-slate-200/80 dark:border-slate-800/80 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-md space-y-8 relative">
-//         <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/20 dark:border-primary-fixed-dim/20 rounded-tl-3xl pointer-events-none" />
-//         <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/20 dark:border-primary-fixed-dim/20 rounded-br-3xl pointer-events-none" />
-//         <div className="absolute -top-8 right-8 text-[120px] text-primary/5 dark:text-primary-fixed-dim/5 font-serif leading-none select-none pointer-events-none">
-//           “
-//         </div>
-//         <div className="space-y-3 relative z-10">
-//           <span className="director-tag opacity-0 inline-block text-[10px] tracking-widest font-extrabold text-primary dark:text-[#a9c7ff] uppercase bg-primary/5 dark:bg-[#a9c7ff]/15 px-3 py-1 rounded-md">
-//             DIRECTOR'S MESSAGE
-//           </span>
-//           <h2 className="director-title font-serif text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#0b4e95] to-blue-500 dark:from-[#a9c7ff] dark:to-white tracking-tight leading-tight mt-2 flex flex-wrap">
-//             {titleWords.map((word, wordIndex) => (
-//               <span key={wordIndex} className="inline-block whitespace-nowrap">
-//                 {word.split("").map((char, charIndex) => (
-//                   <span key={charIndex} className="char-span opacity-0 inline-block">
-//                     {char}
-//                   </span>
-//                 ))}
-//                 {wordIndex < titleWords.length - 1 && (
-//                   <span className="char-span opacity-0 inline-block">{"\u00A0"}</span>
-//                 )}
-//               </span>
-//             ))}
-//             <span className="cursor-span opacity-0 inline-block text-primary dark:text-[#a9c7ff] font-normal ml-0.5 animate-pulse">
-//               |
-//             </span>
-//           </h2>
-//           <div className="director-line w-0 h-1 bg-gradient-to-r from-primary to-blue-500 dark:from-[#a9c7ff] dark:to-white rounded-full" />
-//         </div>
-//         <div className="relative pl-6 border-l-4 border-primary dark:border-[#a9c7ff] py-1">
-//           <p className="director-quote font-serif italic text-lg sm:text-xl text-slate-800 dark:text-slate-100 leading-relaxed flex flex-wrap gap-x-1.5">
-//             {quoteWords.map((word, index) => (
-//               <span key={index} className="word-span opacity-0 inline-block">
-//                 {word}
-//               </span>
-//             ))}
-//           </p>
-//         </div>
-//         <div className="space-y-5 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-light">
-//           <p className="director-para opacity-0 text-justify">
-//             Over the years, we have successfully diversified into technology services, workforce solutions, skill development, infrastructure projects, agritech innovations, and educational initiatives. Our growth reflects our commitment to delivering excellence while creating opportunities for individuals, organizations, and communities.
-//           </p>
-//           <p className="director-para opacity-0 text-justify">
-//             As we move forward, we remain focused on building sustainable businesses, empowering youth through skills and employment, and enabling organizations to thrive in an increasingly digital world.
-//           </p>
-//           <p className="director-para opacity-0 font-normal text-primary dark:text-[#a9c7ff]">
-//             We thank our clients, partners, employees, and stakeholders for their continued trust and support.
-//           </p>
-//         </div>
-//         <div className="pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-6 relative z-10">
-//           <div className="director-signature opacity-0 space-y-1">
-//             <div className="mb-1">
-//               <svg className="w-32 h-10 text-primary dark:text-[#a9c7ff] opacity-85" viewBox="0 0 140 40" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-//                 <path d="M15 28c5-14 8-18 12-4s1 12 5 8 5-8 7-2 1 6 5 4 4-8 7-2 4 10 9 6-12 11-6M70 24c8-10 11-13 14-3s1 10 3 6 4-6 6-2 1 6 4 4c5-5 8-8 11-1 2 4 3 6 7 2" strokeWidth="2.2" />
-//                 <path d="M12 32c25-3 55-4 85-2 10 0 18-1 25-4" strokeWidth="1" opacity="0.5" />
-//               </svg>
-//             </div>
-//             <h4 className="font-serif text-xl font-bold text-primary dark:text-[#a9c7ff]">
-//               Mr. Ankit Gupta
-//             </h4>
-//             <span className="block text-[11px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-bold">
-//               Director, SMART BRAINS ENGINEERS & TECHNOLOGISTS PVT. LTD.
-//             </span>
-//           </div>
-//           <div className="director-seal opacity-0 w-16 h-16 text-primary dark:text-[#a9c7ff] pointer-events-none relative flex items-center justify-center">
-//             <div className="absolute inset-0 rounded-full border border-dashed border-current animate-spin" style={{ animationDuration: '45s' }} />
-//             <img src={WaterMark} alt="" />
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 const AboutPage = () => {
   const animRef = useScrollAnimation();
   const countRef = useCountUp();
@@ -802,17 +552,6 @@ const AboutPage = () => {
       return () => clearTimeout(timer);
     }
   }, [showCoreTeam]);
-
-  const handleCloseCoreTeam = () => {
-    const leadershipSection = document.getElementById("leadership");
-    if (leadershipSection) {
-      leadershipSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-    // Set a slight delay before triggering collapse to let scroll finish/start naturally
-    setTimeout(() => {
-      setShowCoreTeam(false);
-    }, 200);
-  };
 
   const [hoveredStateId, setHoveredStateId] = useState(null);
   const [selectedStateId, setSelectedStateId] = useState("up");
@@ -861,8 +600,15 @@ const AboutPage = () => {
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
+    const containerWidth = rect.width;
+    let x = e.clientX - rect.left + 15;
+    // Prevent tooltip from overflowing the right boundary of map container
+    if (x + 270 > containerWidth) {
+      x = e.clientX - rect.left - 275;
+    }
+    if (x < 10) x = 10;
     setTooltipPos({
-      x: e.clientX - rect.left + 15,
+      x,
       y: e.clientY - rect.top - 35
     });
   };
@@ -905,7 +651,7 @@ const AboutPage = () => {
         }
       `}</style>
       <main
-        className="mt-20 bg-background dark:bg-[#0c0e0f] text-on-surface"
+        className="mt-20 bg-background dark:bg-[#0c0e0f] text-on-surface overflow-x-hidden"
         ref={(el) => {
           animRef.current = el;
           countRef.current = el;
@@ -928,9 +674,9 @@ const AboutPage = () => {
                 <h3
                   data-animate="fade-up"
                   data-animate-delay="0.1"
-                  className="font-headline-xl text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]"
+                  className="font-headline-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]"
                 >
-                  Innovating Businesses,  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a9c7ff] to-white font-extrabold">Empowering People</span> &amp;Transforming Communities
+                  Innovating Businesses, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a9c7ff] to-white font-extrabold">Empowering People</span> &amp; Transforming Communities
                 </h3>
                 <p
                   data-animate="fade-up"
@@ -962,25 +708,7 @@ const AboutPage = () => {
         </section>
 
         {/* Corporate Overview Section */}
-        <section className="py-20 max-w-[1280px] mx-auto px-gutter">
-          {/* SmartBrains | InHydro Partner Header Block */}
-          {/* <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-200/80 dark:border-slate-800/80 pb-6 mb-12 gap-4">
-            <div className="flex items-center gap-4">
-              <div className="flex flex-col">
-                <span className="text-2xl font-black tracking-tight text-[#002a58] dark:text-white leading-none">SmartBrains</span>
-                <span className="text-[9px] uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold mt-1">Engineers & Technologist Pvt. Ltd.</span>
-              </div>
-              <div className="h-10 w-[1.5px] bg-slate-300 dark:bg-slate-700 mx-1" />
-              <div className="flex items-center gap-1.5 bg-green-500/5 dark:bg-green-500/10 px-3 py-1 rounded-xl border border-green-500/10">
-                <span className="text-lg font-black text-green-600 dark:text-green-400 tracking-tight">InHydro</span>
-                <span className="text-[8px] font-bold text-slate-400 align-super">TM</span>
-              </div>
-            </div>
-            <div className="text-left sm:text-right">
-              <span className="text-[10px] text-slate-400 dark:text-slate-500 font-bold block uppercase tracking-widest leading-none mb-1">Innovating Today</span>
-              <span className="text-sm font-bold text-[#002a58] dark:text-[#a9c7ff]">for a Sustainable Tomorrow</span>
-            </div>
-          </div> */}
+        <section className="py-20 max-w-[1280px] mx-auto px-gutter overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* Left Column: Heading, Description & Stats */}
             <div className="lg:col-span-5 space-y-7 lg:sticky lg:top-28">
@@ -1005,7 +733,7 @@ const AboutPage = () => {
               </div>
 
               {/* Counters Grid */}
-              <div data-animate="stagger-up" className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div data-animate="stagger-up" className="grid grid-cols-2 min-[480px]:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
                 {[
                   {
                     num: "16+",
@@ -1113,7 +841,7 @@ const AboutPage = () => {
             </div>
 
             {/* Right Column: Image Section */}
-            <div className="lg:col-span-7 w-full h-full min-h-[400px] lg:min-h-[480px]" data-animate="scale-up">
+            <div className="lg:col-span-7 w-full h-full min-h-[250px] sm:min-h-[350px] lg:min-h-[480px]" data-animate="scale-up">
               <div className="relative w-full h-full rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/40 shadow-2xl group bg-[#002a58]/5 dark:bg-[#a9c7ff]/5 backdrop-blur-sm flex flex-col justify-between">
                 {/* Decorative gradients */}
                 <div className="absolute top-0 right-0 w-60 h-60 rounded-full bg-blue-500/10 dark:bg-blue-400/15 blur-2xl pointer-events-none" />
@@ -1149,7 +877,7 @@ const AboutPage = () => {
           {/* Navy Highlight Footer Strip */}
           <div className="mt-12 bg-[#001c3d] text-white rounded-2xl p-5 md:p-6 shadow-lg border border-white/5 relative overflow-hidden group">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(30,144,255,0.08),transparent)] pointer-events-none" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-white/10 relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 lg:divide-x divide-white/10 relative z-10">
               <div className="flex items-start gap-3 pl-0 sm:pl-3 first:pl-0">
                 <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 text-[#a9c7ff] shadow-sm">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -1202,39 +930,39 @@ const AboutPage = () => {
         </section>
 
         {/* Mission & Vision Section */}
-        <section className="py-28 bg-gradient-to-b from-white via-slate-50/50 to-white dark:from-[#0c0e0f] dark:via-[#111416]/80 dark:to-[#0c0e0f] border-b border-outline-variant/15 relative overflow-hidden">
+        <section className="py-16 md:py-20 bg-gradient-to-b from-white via-slate-50/50 to-white dark:from-[#0c0e0f] dark:via-[#111416]/80 dark:to-[#0c0e0f] border-b border-outline-variant/15 relative overflow-hidden">
           {/* Decorative grid pattern & abstract circles */}
           <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.02] bg-[radial-gradient(#002a58_1px,transparent_1px)] [background-size:24px_24px]" />
-          <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-primary/5 dark:bg-primary-fixed-dim/2 blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-500/5 dark:bg-blue-400/2 blur-[120px] pointer-events-none" />
+          <div className="absolute top-[-10%] right-[-10%] w-[400px] h-[400px] rounded-full bg-primary/5 dark:bg-primary-fixed-dim/2 blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-blue-500/5 dark:bg-blue-400/2 blur-[100px] pointer-events-none" />
 
           <div className="max-w-[1280px] mx-auto px-gutter relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
 
               {/* Left Column: Visual Callout (5 Cols) */}
-              <div className="lg:col-span-5 flex flex-col justify-between p-8 md:p-10 rounded-3xl bg-gradient-to-br from-primary to-primary-container dark:from-[#121517] dark:to-[#080b0c] text-white border border-white/10 shadow-2xl relative overflow-hidden group min-h-[400px]">
+              <div className="lg:col-span-5 flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-gradient-to-br from-primary to-primary-container dark:from-[#121517] dark:to-[#080b0c] text-white border border-white/10 shadow-xl relative overflow-hidden group min-h-[320px]">
                 {/* Background grid representation */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:30px_30px]" />
                 {/* Glowing blob inside card */}
-                <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-white/10 dark:bg-primary-fixed-dim/10 blur-[60px] pointer-events-none group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-white/10 dark:bg-primary-fixed-dim/10 blur-[50px] pointer-events-none group-hover:scale-110 transition-transform duration-700" />
 
-                <div className="relative z-10 space-y-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-widest text-[#a9c7ff] backdrop-blur-md">
+                <div className="relative z-10 space-y-5">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[9px] font-bold uppercase tracking-widest text-[#a9c7ff] backdrop-blur-md">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#a9c7ff] animate-pulse" />
                     Innovating Today
                   </div>
-                  <h3 className="font-headline-lg text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight uppercase">
-                 Innovating Today For A  Sustainable<br />
+                  <h3 className="font-headline-lg text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight uppercase">
+                    Innovating Today For A Sustainable{" "}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a9c7ff] to-white">
-                      Tomorrrow
+                      Tomorrow
                     </span>
                   </h3>
-                  <p className="text-sm md:text-base text-slate-300 font-light leading-relaxed max-w-sm">
+                  <p className="text-xs md:text-sm text-slate-300 font-light leading-relaxed max-w-sm">
                     Through technology-driven integrated solutions, we aim to bridge gaps, build skills, and catalyze long-term sustainable growth for communities and enterprises alike.
                   </p>
                 </div>
 
-                <div className="relative z-10 pt-8 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
+                <div className="relative z-10 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
                   {/* <span className="uppercase tracking-widest font-bold">Purpose Driven</span> */}
                   {/* <span className="text-[#a9c7ff] font-semibold flex items-center gap-1">
                     SmartBrains
@@ -1258,13 +986,13 @@ const AboutPage = () => {
                         {/* Accordion Header */}
                         <div 
                           onClick={() => setActiveDivision(isOpen ? null : idx)}
-                          className={`flex items-center justify-between py-5 md:py-6 px-4 md:px-6 cursor-pointer select-none transition-colors duration-300 ${
+                          className={`flex items-center justify-between py-3 md:py-4 px-3 md:px-4 cursor-pointer select-none transition-colors duration-300 ${
                             isOpen ? 'bg-slate-50/50 dark:bg-[#111416]' : 'hover:bg-slate-50/30 dark:hover:bg-[#111416]/50'
                           }`}
                         >
-                          <div className="flex items-center gap-5 md:gap-6">
+                          <div className="flex items-center gap-4 md:gap-5">
                             {/* Minimal Icon */}
-                            <div className={`w-8 h-8 flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${
+                            <div className={`w-6 h-6 flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${
                               isOpen 
                                 ? 'text-primary dark:text-primary-fixed-dim' 
                                 : 'text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-300'
@@ -1272,7 +1000,7 @@ const AboutPage = () => {
                               {div.icon}
                             </div>
                             
-                            <h4 className={`text-base md:text-[19px] font-medium tracking-tight transition-colors duration-300 ${
+                            <h4 className={`text-sm md:text-base font-medium tracking-tight transition-colors duration-300 ${
                               isOpen ? 'text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white'
                             }`}>
                               {div.title}
@@ -1284,7 +1012,7 @@ const AboutPage = () => {
                             isOpen ? 'text-primary dark:text-primary-fixed-dim rotate-180' : 'text-slate-300 dark:text-slate-600 group-hover:text-slate-500 dark:group-hover:text-slate-400'
                           }`}>
                             <svg 
-                              className="w-5 h-5"
+                              className="w-4 h-4"
                               fill="none" 
                               stroke="currentColor" 
                               strokeWidth="1.5" 
@@ -1301,25 +1029,25 @@ const AboutPage = () => {
                             isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
                           }`}
                         >
-                          <div className="pb-6 px-4 md:px-6 md:pl-[4.5rem] space-y-6">
+                          <div className="pb-5 px-3 md:px-4 md:pl-[3.5rem] space-y-4">
                             {/* Description */}
-                            <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl font-light">
+                            <p className="text-[13px] md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl font-light">
                               {getDivisionDesc(div.title)}
                             </p>
 
                             {/* Minimal Sub-services List */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
                               {div.items.map((item, itemIdx) => (
                                 <div 
                                   key={itemIdx}
-                                  className="flex items-start gap-3 group/sub cursor-pointer"
+                                  className="flex items-start gap-2 group/sub cursor-pointer"
                                 >
                                   <div className="mt-0.5 flex-shrink-0 text-slate-300 dark:text-slate-600 group-hover/sub:text-primary dark:group-hover/sub:text-primary-fixed-dim transition-colors duration-300">
-                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                                     </svg>
                                   </div>
-                                  <span className="text-sm text-slate-700 dark:text-slate-300 group-hover/sub:text-primary dark:group-hover/sub:text-primary-fixed-dim transition-colors duration-300 leading-snug">
+                                  <span className="text-xs md:text-[13px] text-slate-700 dark:text-slate-300 group-hover/sub:text-primary dark:group-hover/sub:text-primary-fixed-dim transition-colors duration-300 leading-snug">
                                     {item.label}
                                   </span>
                                 </div>
@@ -1404,7 +1132,7 @@ const AboutPage = () => {
         <AboutLeadership />
         <AboutCoreTeam />
         {/* Footprints & Highlights Section */}
-        <section id="footprints" className="py-20 bg-gradient-to-b from-white to-[#f8f9fa] dark:from-[#0c0e0f] dark:to-[#080b0c] border-b border-outline-variant/20">
+        <section id="footprints" className="py-20 bg-gradient-to-b from-white to-[#f8f9fa] dark:from-[#0c0e0f] dark:to-[#080b0c] border-b border-outline-variant/20 overflow-hidden">
 
 
           <div className="max-w-[1280px] mx-auto px-gutter">
