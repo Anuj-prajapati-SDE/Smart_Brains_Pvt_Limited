@@ -660,7 +660,7 @@ const AboutPage = () => {
         {/* Hero Section */}
         <section className="relative min-h-[550px] lg:min-h-[600px] py-16 lg:py-24 flex items-center overflow-hidden bg-primary text-white">
           {/* Animated Background blur/glow blobs */}
-        
+
 
           <div className="relative z-10 max-w-[1280px] mx-auto px-gutter w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -689,35 +689,35 @@ const AboutPage = () => {
                   {/* <a href="#expertise" className="px-5 py-2.5 bg-white text-[#002a58] hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all font-semibold rounded-lg text-sm shadow-md">
                     Explore Verticals
                   </a> */}
-                  <Link to ="contact" className="px-5 py-2.5 bg-white/10 border border-white/20 text-white hover:bg-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all font-semibold rounded-lg text-sm backdrop-blur-md">
+                  <Link to="contact" className="px-5 py-2.5 bg-white/10 border border-white/20 text-white hover:bg-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all font-semibold rounded-lg text-sm backdrop-blur-md">
                     Contact Us
                   </Link>
                 </div>
               </div>
-  {/* Dynamic Background elements */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <svg className="absolute w-[500px] h-[500px] -top-10 -right-10 text-white" viewBox="0 0 100 100" fill="currentColor">
-            <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="2 4" />
-          </svg>
-          <svg className="absolute w-[400px] h-[400px] -bottom-20 -left-20 text-white" viewBox="0 0 100 100" fill="currentColor">
-            <rect x="10" y="10" width="80" height="80" rx="10" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="3 6" />
-          </svg>
-        </div>
+              {/* Dynamic Background elements */}
+              <div className="absolute inset-0 opacity-10 pointer-events-none">
+                <svg className="absolute w-[500px] h-[500px] -top-10 -right-10 text-white" viewBox="0 0 100 100" fill="currentColor">
+                  <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="2 4" />
+                </svg>
+                <svg className="absolute w-[400px] h-[400px] -bottom-20 -left-20 text-white" viewBox="0 0 100 100" fill="currentColor">
+                  <rect x="10" y="10" width="80" height="80" rx="10" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="3 6" />
+                </svg>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Corporate Overview Section */}
-        <section className="py-20 max-w-[1280px] mx-auto px-gutter overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <section className="py-20 max-w-[1400px] mx-auto px-gutter overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             {/* Left Column: Heading, Description & Stats */}
-            <div className="lg:col-span-5 space-y-7 lg:sticky lg:top-28">
+            <div className="lg:col-span-6 space-y-7 lg:sticky lg:top-28">
               <div data-animate="fade-up">
                 <span className="text-xs uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff] font-extrabold bg-[#002a58]/5 dark:bg-[#a9c7ff]/10 px-2.5 py-0.5 rounded">
                   About Us_
                 </span>
                 <h2 className="text-3xl md:text-4xl text-[#002a58] dark:text-white mt-3 font-extrabold tracking-tight leading-tight uppercase">
-                  Diversified Global Solutions_
+                  Diversified Global Solutions
                 </h2>
                 <div className="w-12 h-1 bg-gradient-to-r from-[#002a58] to-blue-500 dark:from-[#a9c7ff] dark:to-white mt-2 rounded-full" />
               </div>
@@ -733,7 +733,7 @@ const AboutPage = () => {
               </div>
 
               {/* Counters Grid */}
-              <div data-animate="stagger-up" className="grid grid-cols-2 min-[480px]:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+              <div data-animate="stagger-up" className="grid grid-cols-2 min-[480px]:grid-cols-3 lg:grid-cols-5 gap-3 w-full">
                 {[
                   {
                     num: "16+",
@@ -745,7 +745,7 @@ const AboutPage = () => {
                     )
                   },
                   {
-                    num: "16+",
+                    num: "20+",
                     label: "States Presence",
                     icon: (
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -755,8 +755,8 @@ const AboutPage = () => {
                     )
                   },
                   {
-                    num: "400+",
-                    label: "Skilled Professionals",
+                    num: "1.5+",
+                    label: "Lakhs Skilled Professionals",
                     icon: (
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -764,8 +764,8 @@ const AboutPage = () => {
                     )
                   },
                   {
-                    num: "₹60+ Cr",
-                    label: "Revenue (FY 2024-25)",
+                    num: "75+",
+                    label: "Skill & CSR Project",
                     icon: (
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -782,12 +782,12 @@ const AboutPage = () => {
                     )
                   }
                 ].map((stat, idx) => (
-                  <div key={idx} className="flex flex-col items-center text-center p-3 rounded-2xl bg-[#002a58]/5 dark:bg-[#a9c7ff]/5 border border-slate-200/50 dark:border-slate-800/50 hover:bg-[#002a58]/10 dark:hover:bg-[#a9c7ff]/10 hover:scale-[1.03] transition-all duration-300">
-                    <div className="w-9 h-9 rounded-xl bg-[#002a58] dark:bg-[#a9c7ff] text-white dark:text-[#002a58] flex items-center justify-center mb-2 shadow-sm">
+                  <div key={idx} className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 rounded-2xl bg-[#002a58]/5 dark:bg-[#a9c7ff]/5 border border-slate-200/60 dark:border-slate-800/60 hover:bg-[#002a58]/10 dark:hover:bg-[#a9c7ff]/10 hover:border-[#002a58]/20 dark:hover:border-[#a9c7ff]/20 hover:scale-[1.02] transition-all duration-300 shadow-xs h-full w-full">
+                    <div className="w-9.5 h-9.5 rounded-xl bg-[#002a58] dark:bg-[#a9c7ff] text-white dark:text-[#002a58] flex items-center justify-center mb-2 shadow-xs shrink-0">
                       {stat.icon}
                     </div>
-                    <div className="text-base sm:text-lg font-bold text-[#002a58] dark:text-white leading-none">{stat.num}</div>
-                    <div className="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1.5 leading-tight">{stat.label}</div>
+                    <div className="text-base sm:text-lg font-extrabold text-[#002a58] dark:text-white leading-none whitespace-nowrap">{stat.num}</div>
+                    <div className="text-[10px] sm:text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1.5 leading-tight">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -796,7 +796,7 @@ const AboutPage = () => {
               <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#002a58] to-[#001229] p-5 shadow-lg border border-slate-800 flex flex-col justify-end min-h-[160px] group">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px] opacity-40" />
                 <div className="absolute -left-10 -bottom-10 w-40 h-40 rounded-full bg-blue-500/20 blur-[50px] pointer-events-none group-hover:scale-125 transition-all duration-700" />
-                
+
                 <div className="absolute bottom-0 right-0 left-0 h-28 opacity-25 group-hover:opacity-45 transition-opacity duration-500 pointer-events-none">
                   <svg className="w-full h-full text-blue-400" viewBox="0 0 400 100" preserveAspectRatio="none" fill="currentColor">
                     <rect x="10" y="40" width="15" height="60" />
@@ -826,37 +826,37 @@ const AboutPage = () => {
                     <line x1="305" y1="20" x2="350" y2="25" stroke="#60a5fa" strokeWidth="0.5" strokeDasharray="2,2" />
                   </svg>
                 </div>
-                
+
                 <div className="relative z-10">
                   <div className="flex items-center gap-1.5 mb-1">
                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
                     <span className="text-[10px] tracking-widest font-extrabold text-[#a9c7ff] uppercase">Nationwide Presence</span>
                   </div>
-                  <h4 className="text-md font-bold text-white tracking-tight">Pan-India Strategic Network</h4>
-                  <p className="text-[11px] text-slate-300 font-light mt-1 max-w-sm">
-                    Connecting industrial projects, green technology infrastructure, and youth training centers across the nation.
+                  <h4 className="text-md font-bold text-white tracking-tight">Building a skilled, inclusive, and future-ready workforce</h4>
+                  <p className="text-[11px] text-slate-300 font-light mt-1 max-w-2xl">
+                    In a world of growing complexity, our future rests on a foundation of adaptable knowledge. However, defining who needs how much of this knowledge and which specific aspect is challenging. SmartBrains has taken up this challenge and brought these areas to everyone; from high school to graduate students, to students in arts, commerce, and engineering and management, empowering India’s youth with market-ready, technology-driven skills to thrive in their careers.
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Right Column: Image Section */}
-            <div className="lg:col-span-7 w-full h-full min-h-[250px] sm:min-h-[350px] lg:min-h-[480px]" data-animate="scale-up">
+            <div className="lg:col-span-6 w-full h-full min-h-[250px] sm:min-h-[350px] lg:min-h-[480px]" data-animate="scale-up">
               <div className="relative w-full h-full rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/40 shadow-2xl group bg-[#002a58]/5 dark:bg-[#a9c7ff]/5 backdrop-blur-sm flex flex-col justify-between">
                 {/* Decorative gradients */}
                 <div className="absolute top-0 right-0 w-60 h-60 rounded-full bg-blue-500/10 dark:bg-blue-400/15 blur-2xl pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-60 h-60 rounded-full bg-emerald-500/5 dark:bg-emerald-400/10 blur-2xl pointer-events-none" />
-                
+
                 {/* Image */}
                 <img
                   alt="SmartBrains Industrial Engineering & Tech"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRGS7sikvrZMV-qPQyQ-R4F0QlJKxun8vk_Uy0jv4nMZN6eS1utAjOoqMjcfRx-8KfAU4mwYpQEUOzIvb1qWeg0a0HmPcgY6fYgJydbadC5WHQMU0cY6jUTndp7Cg3gJyvTifrlUTJ6M_XubLoCcHyRs4LkSg-PkWAfgAkYB2EDB-FQ_Gc9nL5g3zjly_5TMe9AzSkKujKpdtkOPiOruEoqqvLxalZq7I8GkTyUn_VH_CL-8iN9Dnp0g2rVDcafQfeN_b7JjRl3w"
                 />
-                
+
                 {/* Overlay Vignette / Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-                
+
                 {/* Text Caption Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
                   <div className="flex items-center gap-2 mb-1.5">
@@ -864,10 +864,10 @@ const AboutPage = () => {
                     <span className="text-[10px] tracking-widest font-extrabold text-[#a9c7ff] uppercase">Industrial Scale Execution</span>
                   </div>
                   <h3 className="text-lg md:text-xl font-bold text-white tracking-tight leading-tight">
-                    Diversified Engineering &amp; Technologist Projects
+                   Precision Skilling for Defined Career Outcomes.
                   </h3>
                   <p className="text-[12px] md:text-sm text-slate-200 font-light mt-2 max-w-xl leading-relaxed">
-                    Unifying heavy industrial engineering, state-of-the-art solar installations, IT service integrations, and customized skilling solutions across India.
+                    Equipping learners with job-ready skills, professional certifications, employability support, and entrepreneurial capabilities to thrive in today's evolving workforce.
                   </p>
                 </div>
               </div>
@@ -889,7 +889,7 @@ const AboutPage = () => {
                   <p className="text-[11px] text-slate-300 font-light leading-relaxed">Across multiple domains and industrial technologies.</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 pt-4 sm:pt-0 pl-0 sm:pl-4">
                 <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 text-[#a9c7ff] shadow-sm">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -979,43 +979,39 @@ const AboutPage = () => {
                   {divisionsListData.map((div, idx) => {
                     const isOpen = activeDivision === idx;
                     return (
-                      <div 
+                      <div
                         key={idx}
                         className="border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0c0e0f] overflow-hidden group"
                       >
                         {/* Accordion Header */}
-                        <div 
+                        <div
                           onClick={() => setActiveDivision(isOpen ? null : idx)}
-                          className={`flex items-center justify-between py-3 md:py-4 px-3 md:px-4 cursor-pointer select-none transition-colors duration-300 ${
-                            isOpen ? 'bg-slate-50/50 dark:bg-[#111416]' : 'hover:bg-slate-50/30 dark:hover:bg-[#111416]/50'
-                          }`}
+                          className={`flex items-center justify-between py-3 md:py-4 px-3 md:px-4 cursor-pointer select-none transition-colors duration-300 ${isOpen ? 'bg-slate-50/50 dark:bg-[#111416]' : 'hover:bg-slate-50/30 dark:hover:bg-[#111416]/50'
+                            }`}
                         >
                           <div className="flex items-center gap-4 md:gap-5">
                             {/* Minimal Icon */}
-                            <div className={`w-6 h-6 flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${
-                              isOpen 
-                                ? 'text-primary dark:text-primary-fixed-dim' 
-                                : 'text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-300'
-                            }`}>
+                            <div className={`w-6 h-6 flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${isOpen
+                              ? 'text-primary dark:text-primary-fixed-dim'
+                              : 'text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-300'
+                              }`}>
                               {div.icon}
                             </div>
-                            
-                            <h4 className={`text-sm md:text-base font-medium tracking-tight transition-colors duration-300 ${
-                              isOpen ? 'text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white'
-                            }`}>
+
+                            <h4 className={`text-sm md:text-base font-medium tracking-tight transition-colors duration-300 ${isOpen ? 'text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white'
+                              }`}>
                               {div.title}
                             </h4>
                           </div>
-                          
+
                           {/* Minimal Chevron */}
-                          <div className={`flex-shrink-0 flex items-center justify-center transition-transform duration-300 ${
-                            isOpen ? 'text-primary dark:text-primary-fixed-dim rotate-180' : 'text-slate-300 dark:text-slate-600 group-hover:text-slate-500 dark:group-hover:text-slate-400'
-                          }`}>
-                            <svg 
+                          <div className={`flex-shrink-0 flex items-center justify-center transition-transform duration-300 ${isOpen ? 'text-primary dark:text-primary-fixed-dim rotate-180' : 'text-slate-300 dark:text-slate-600 group-hover:text-slate-500 dark:group-hover:text-slate-400'
+                            }`}>
+                            <svg
                               className="w-4 h-4"
-                              fill="none" 
-                              stroke="currentColor" 
-                              strokeWidth="1.5" 
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
                               viewBox="0 0 24 24"
                             >
                               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -1024,10 +1020,9 @@ const AboutPage = () => {
                         </div>
 
                         {/* Expandable Accordion Panel */}
-                        <div 
-                          className={`transition-all duration-300 ease-in-out overflow-hidden bg-slate-50/50 dark:bg-[#111416] ${
-                            isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
-                          }`}
+                        <div
+                          className={`transition-all duration-300 ease-in-out overflow-hidden bg-slate-50/50 dark:bg-[#111416] ${isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+                            }`}
                         >
                           <div className="pb-5 px-3 md:px-4 md:pl-[3.5rem] space-y-4">
                             {/* Description */}
@@ -1038,7 +1033,7 @@ const AboutPage = () => {
                             {/* Minimal Sub-services List */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
                               {div.items.map((item, itemIdx) => (
-                                <div 
+                                <div
                                   key={itemIdx}
                                   className="flex items-start gap-2 group/sub cursor-pointer"
                                 >
@@ -1138,11 +1133,11 @@ const AboutPage = () => {
           <div className="max-w-[1280px] mx-auto px-gutter">
             {/* Section Header */}
             <div className="text-center max-w-2xl mx-auto mb-16" data-animate="fade-up">
-              <span className="text-xs uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff] font-bold">
+              {/* <span className="text-xs uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff] font-bold">
                 National Presence
-              </span>
+              </span> */}
               <h2 className="font-headline-lg text-3xl md:text-4xl text-[#002a58] dark:text-white mt-2 font-bold">
-                Key Highlights &amp; Our Footprints
+                Key Highlights
               </h2>
               <div className="w-16 h-1 bg-[#002a58] dark:bg-[#a9c7ff] mx-auto mt-4 rounded-full" />
             </div>
@@ -1161,7 +1156,7 @@ const AboutPage = () => {
                 </div>
               </div>
 
-              {/* Card 2: Turnover I MAKE CHANGES HERE */} 
+              {/* Card 2: Turnover I MAKE CHANGES HERE */}
               <div className="p-6 rounded-2xl bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/40 shadow-sm flex items-center gap-4 hover:shadow-md transition-all">
                 <div className="w-12 h-12 rounded-xl bg-[#002a58]/5 dark:bg-[#a9c7ff]/10 flex items-center justify-center text-[#002a58] dark:text-[#a9c7ff]">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -1170,7 +1165,7 @@ const AboutPage = () => {
                 </div>
                 <div>
                   <div className="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold">Clients</div>
-                  <div className="text-2xl font-extrabold text-[#002a58] dark:text-white mt-0.5">540+</div>
+                  <div className="text-2xl font-extrabold text-[#002a58] dark:text-white mt-0.5">150+</div>
                   {/* <div className="text-[10px] text-slate-400">FY - 2024 - 25</div> */}
                 </div>
               </div>
@@ -1197,8 +1192,8 @@ const AboutPage = () => {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold">Outsourced Site Team</div>
-                  <div className="text-2xl font-extrabold text-[#002a58] dark:text-white mt-0.5">500+</div>
+                  <div className="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold">State Presence</div>
+                  <div className="text-2xl font-extrabold text-[#002a58] dark:text-white mt-0.5">20+</div>
                 </div>
               </div>
 
@@ -1207,7 +1202,7 @@ const AboutPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-lg">
               {[
                 {
-                  title: "15+ Years of Excellence",
+                  title: "16+ Years of Excellence",
                   desc: "Delivering innovative business solutions across diverse industries.",
                   icon: (
                     <svg className="w-6 h-6 text-[#002a58] dark:text-[#a9c7ff]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -1278,7 +1273,7 @@ const AboutPage = () => {
                 {/* State list cards selector */}
                 <div className="bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/40 p-5 rounded-2xl shadow-sm">
                   <h3 className="font-semibold text-lg text-slate-800 dark:text-white mb-4">
-                    Active States Footprint ({activeStatesList.length})
+                  Nationwide Presence
                   </h3>
                   <div className="flex flex-wrap gap-2 max-h-[220px] overflow-y-auto pr-1">
                     {activeStatesList.map((state) => {

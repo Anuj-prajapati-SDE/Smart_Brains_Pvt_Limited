@@ -50,22 +50,22 @@ const Footer = () => {
               <li>
                 <Link
                   className="text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-xs text-body-md"
-                  to="/steam"
+                  to="/skilling"
                 >
                   <span className="material-symbols-outlined text-[14px]">school</span>
-                  S.T.E.A.M. Education
+                  Skilling Project
                 </Link>
               </li>
               <li>
                 <Link
                   className="text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-xs text-body-md"
-                  to="/construction"
+                  to="/it-services"
                 >
                   <span className="material-symbols-outlined text-[14px]">precision_manufacturing</span>
-                  Construction Services
+                 IT & ITES Services
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   className="text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-xs text-body-md"
                   to="/business"
@@ -73,7 +73,7 @@ const Footer = () => {
                   <span className="material-symbols-outlined text-[14px]">groups</span>
                   Manpower Solutions
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -92,7 +92,7 @@ const Footer = () => {
                   About Us
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   className="text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-xs text-body-md"
                   to="/business"
@@ -100,14 +100,14 @@ const Footer = () => {
                   <span className="material-symbols-outlined text-[14px]">handshake</span>
                   Partner With Us
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   className="text-slate-300 hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-xs text-body-md"
                   to="/contact-us"
                 >
                   <span className="material-symbols-outlined text-[14px]">contact_support</span>
-                  Contact & Careers
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -141,7 +141,7 @@ const Footer = () => {
                 <span className="material-symbols-outlined text-[20px] text-primary-fixed-dim flex-shrink-0">mail</span>
                 <a href="mailto:
 info@smartbrains.com" className="hover:text-white transition-colors">
-info@smartbrains.com</a>
+info@smartbrains.in</a>
               </div>
               <div className="flex items-center gap-sm">
                 <span className="material-symbols-outlined text-[20px] text-primary-fixed-dim flex-shrink-0">language</span>
@@ -154,7 +154,7 @@ info@smartbrains.com</a>
         {/* Bottom Section (Divider + Copyright + Socials) */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-md text-center md:text-left">
           <div className="text-body-sm text-slate-400">
-            <p>© 2024 SmartBrains. All rights reserved. | <Link to="/privacy" className="hover:underline hover:text-white">Privacy Policy</Link> | <Link to="/terms" className="hover:underline hover:text-white">Terms of Service</Link></p>
+            <p>© 2026-27 SmartBrains. All rights reserved.</p>
           </div>
           
           {/* Circular Glassmorphic Social Buttons */}

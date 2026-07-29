@@ -241,13 +241,13 @@ const SkillingPage = () => {
               Skill Development &amp; CSR
             </h1>
             <p data-animate="fade-up" data-animate-delay="0.2" className="text-sm sm:text-base text-slate-300 font-light mb-6 leading-relaxed">
-              Placement-linked training courses configured alongside state skill missions, sector Councils, and technical global firms.
+              Employability and skill training program configured alongside state skill missions, sector skill Councils, and CSR centric initiatives.
             </p>
-            <div data-animate="fade-up" data-animate-delay="0.3">
+            {/* <div data-animate="fade-up" data-animate-delay="0.3">
               <Link to="/contact-us" className="inline-block px-5 py-3 bg-white text-primary hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all font-bold rounded-xl text-xs uppercase tracking-wider shadow-md">
                 Register For Batches
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -279,8 +279,8 @@ const SkillingPage = () => {
                 <div className="w-10 h-10 rounded-xl bg-[#002a58]/5 dark:bg-white/5 text-[#002a58] dark:text-white flex items-center justify-center mb-3 shadow-sm">
                   <GraduationCap className="w-5 h-5" />
                 </div>
-                <span className="text-2xl sm:text-3xl font-black text-[#002a58] dark:text-white">15K+</span>
-                <span className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1">Youth Trained</span>
+                <span className="text-2xl sm:text-3xl font-black text-[#002a58] dark:text-white">1.5+ </span>
+                <span className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1">Lakhs Youth Trained </span>
               </div>
               <div className="flex flex-col items-start">
                 <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-[#a9c7ff]/10 text-blue-600 dark:text-[#a9c7ff] flex items-center justify-center mb-3 shadow-sm">
@@ -294,13 +294,13 @@ const SkillingPage = () => {
                   <Handshake className="w-5 h-5" />
                 </div>
                 <span className="text-2xl sm:text-3xl font-black text-[#002a58] dark:text-white">50+</span>
-                <span className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1">CSR Partners</span>
+                <span className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1">Skill/CSR Partners</span>
               </div>
               <div className="flex flex-col items-start">
                 <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-[#a9c7ff]/10 text-blue-600 dark:text-[#a9c7ff] flex items-center justify-center mb-3 shadow-sm">
                   <Globe className="w-5 h-5" />
                 </div>
-                <span className="text-2xl sm:text-3xl font-black text-blue-600 dark:text-[#a9c7ff]">10+</span>
+                <span className="text-2xl sm:text-3xl font-black text-blue-600 dark:text-[#a9c7ff]">20+</span>
                 <span className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1">States Reached</span>
               </div>
             </div>

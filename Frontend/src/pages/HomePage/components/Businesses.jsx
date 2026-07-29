@@ -2,20 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const businessesData = [
-  {
-    name: "EPC Projects Oil,Gas & Energy",
-    subVerticals: ["Airports", "Data Center", "Defence & Aerospace", "Road, Metro & Rail"],
-    bgImage: "https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?q=80&w=500&auto=format&fit=crop",
-    largeImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop",
-    companyName: "SmartBrains Infrastructure Developers Ltd.",
-    companyCode: "SBINFRA",
-    companyDesc: "Developing world-class transport nodes, national defense systems, and high-performance secure data storage facilities.",
-    sharePrice: "₹452.85",
-    shareChange: "+1.85%"
-  },
-  {
+   {
     name: "Skilling Projects",
-    subVerticals: ["Power Generation", "Transmission", "Green Hydrogen", "Water Utility"],
+    subVerticals: ["NSDC Funded Partner", "100+ Skill Developement Project", "1.5+ Lakhs Trained Candidates", "40+ Training Centers", ],
     bgImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=500&auto=format&fit=crop",
     largeImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1000&auto=format&fit=crop",
     companyName: "SmartBrains Green Energy & Power Ltd.",
@@ -24,41 +13,8 @@ const businessesData = [
     sharePrice: "₹312.40",
     shareChange: "+2.40%"
   },
-  {
-    name: "Staffing Projects",
-    subVerticals: ["Ports & Terminals", "Logistics Parks", "Rail Logistics", "Cold Chain"],
-    bgImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=500&auto=format&fit=crop",
-    largeImage: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=1000&auto=format&fit=crop",
-    companyName: "SmartBrains Ports & Economic Zones Ltd.",
-    companyCode: "SBPORTS",
-    companyDesc: "Operating major international sea terminals, advanced dry ports, cargo logistics corridors, and temperature-controlled hubs.",
-    sharePrice: "₹680.10",
-    shareChange: "+0.95%"
-  },
-  {
-    name: "STEAM Education",
-    subVerticals: ["Cement", "Aggregates", "High-grade Steel", "Asphalt"],
-    bgImage: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
-    largeImage: "https://images.unsplash.com/photo-1535813547-99c456a41d4a?q=80&w=1000&auto=format&fit=crop",
-    companyName: "SmartBrains Cement & Steel Ltd.",
-    companyCode: "SBMATERIALS",
-    companyDesc: "Supplying core architectural assets with high-tensile reinforcement steel bars, aggregates, and eco-friendly cement brands.",
-    sharePrice: "₹248.30",
-    shareChange: "+1.20%"
-  },
-  {
-    name: "CSR Projects",
-    subVerticals: ["Broadcasting", "Entertainment", "Digital Publishing", "Out-of-home Media"],
-    bgImage: "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?q=80&w=500&auto=format&fit=crop",
-    largeImage: "https://images.unsplash.com/photo-1598257006458-087169a1f08d?q=80&w=1000&auto=format&fit=crop",
-    companyName: "SmartBrains Media Broadcasting Ltd.",
-    companyCode: "SBMEDIA",
-    companyDesc: "Connecting audiences through regional news channels, entertainment productions, and modern digital print spaces.",
-    sharePrice: "₹95.15",
-    shareChange: "+3.60%"
-  },
-  {
-    name: "IT Services",
+    {
+    name: "IT & ITES Services",
     subVerticals: ["Managed Hybrid Cloud ", "DevOPS and Automation", "Network and Security ", "Monitoring ", "Server Management", "Web Hosting", " Help Desk", "System Integration"],
     bgImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=500&auto=format&fit=crop",
     largeImage: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop",
@@ -69,7 +25,51 @@ const businessesData = [
     shareChange: "+0.80%"
   },
   {
-    name: "Construction and Earthworks",
+    name: "Vocational Labs",
+    subVerticals: ["Sports Venues", "Athlete Training", "Equipment & Gear", "Sports Tech"],
+    bgImage: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=500&auto=format&fit=crop",
+    largeImage: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=1000&auto=format&fit=crop",
+    companyName: "SmartBrains Sports & Arenas Ltd.",
+    companyCode: "SBSPORTS",
+    companyDesc: "Managing major regional sports complex infrastructures, athlete development academies, and tech-driven event hubs.",
+    sharePrice: "₹143.20",
+    shareChange: "+0.15%"
+  },
+   {
+    name: "Staffing Services",
+    subVerticals: ["Ports & Terminals", "Logistics Parks", "Rail Logistics", "Cold Chain"],
+    bgImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=500&auto=format&fit=crop",
+    largeImage: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=1000&auto=format&fit=crop",
+    companyName: "SmartBrains Ports & Economic Zones Ltd.",
+    companyCode: "SBPORTS",
+    companyDesc: "Operating major international sea terminals, advanced dry ports, cargo logistics corridors, and temperature-controlled hubs.",
+    sharePrice: "₹680.10",
+    shareChange: "+0.95%"
+  },
+   {
+    name: "CSR Projects",
+    subVerticals: ["Broadcasting", "Entertainment", "Digital Publishing", "Out-of-home Media"],
+    bgImage: "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?q=80&w=500&auto=format&fit=crop",
+    largeImage: "https://images.unsplash.com/photo-1598257006458-087169a1f08d?q=80&w=1000&auto=format&fit=crop",
+    companyName: "SmartBrains Media Broadcasting Ltd.",
+    companyCode: "SBMEDIA",
+    companyDesc: "Connecting audiences through regional news channels, entertainment productions, and modern digital print spaces.",
+    sharePrice: "₹95.15",
+    shareChange: "+3.60%"
+  },
+   {
+    name: "STEM Education",
+    subVerticals: ["Cement", "Aggregates", "High-grade Steel", "Asphalt"],
+    bgImage: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=500&auto=format&fit=crop",
+    largeImage: "https://images.unsplash.com/photo-1535813547-99c456a41d4a?q=80&w=1000&auto=format&fit=crop",
+    companyName: "SmartBrains Cement & Steel Ltd.",
+    companyCode: "SBMATERIALS",
+    companyDesc: "Supplying core architectural assets with high-tensile reinforcement steel bars, aggregates, and eco-friendly cement brands.",
+    sharePrice: "₹248.30",
+    shareChange: "+1.20%"
+  },
+   {
+    name: "AgriTech  & Hydroponics",
     subVerticals: ["Sports Venues", "Athlete Training", "Equipment & Gear", "Sports Tech"],
     bgImage: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=500&auto=format&fit=crop",
     largeImage: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=1000&auto=format&fit=crop",
@@ -80,27 +80,16 @@ const businessesData = [
     shareChange: "+0.15%"
   },
   {
-    name: "AgriTech Solutions SmartFarm Setup",
-    subVerticals: ["Sports Venues", "Athlete Training", "Equipment & Gear", "Sports Tech"],
-    bgImage: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=500&auto=format&fit=crop",
-    largeImage: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=1000&auto=format&fit=crop",
-    companyName: "SmartBrains Sports & Arenas Ltd.",
-    companyCode: "SBSPORTS",
-    companyDesc: "Managing major regional sports complex infrastructures, athlete development academies, and tech-driven event hubs.",
-    sharePrice: "₹143.20",
-    shareChange: "+0.15%"
-  },
-  {
-    name: "Vocational & STEM Labs",
-    subVerticals: ["Sports Venues", "Athlete Training", "Equipment & Gear", "Sports Tech"],
-    bgImage: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=500&auto=format&fit=crop",
-    largeImage: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=1000&auto=format&fit=crop",
-    companyName: "SmartBrains Sports & Arenas Ltd.",
-    companyCode: "SBSPORTS",
-    companyDesc: "Managing major regional sports complex infrastructures, athlete development academies, and tech-driven event hubs.",
-    sharePrice: "₹143.20",
-    shareChange: "+0.15%"
-  }
+    name: "EPC & Earthworks",
+    subVerticals: ["Airports", "Data Center", "Defence & Aerospace", "Road, Metro & Rail"],
+    bgImage: "https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?q=80&w=500&auto=format&fit=crop",
+    largeImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop",
+    companyName: "SmartBrains Infrastructure Developers Ltd.",
+    companyCode: "SBINFRA",
+    companyDesc: "Developing world-class transport nodes, national defense systems, and high-performance secure data storage facilities.",
+    sharePrice: "₹452.85",
+    shareChange: "+1.85%"
+  }, 
 ];
 
 const partnersData = [
@@ -437,7 +426,7 @@ const Businesses = () => {
               {/* Explore More link */}
               <div className="mt-xs">
                 <Link
-                  to={activeData.name === "IT Services" ? "/it-services" : activeData.name === "STEAM Education" ? "/steam" : "/construction"}
+                  to={activeData.name === "IT Services" ? "/it-services" : activeData.name === "STEAM Education" ? "/steam" : "/skilling"}
                   className="text-white hover:text-primary-fixed-dim transition-colors text-label-sm font-bold uppercase tracking-widest inline-flex items-center gap-xs relative group"
                 >
                   <span className="underline underline-offset-4 decoration-2">Explore More</span>

@@ -4,28 +4,28 @@ import './HeroPage.css'
 import {Hero_Slider_1,Hero_Slider_2,Hero_Slider_3,Hero_Slider_4, Hero_Slider_5, Hero_Slider_6, Hero_Slider_7, Hero_Slider_8,Hero_Slider_9} from '../../../assets/index'
 const slidesData = [
   {
-    name: "IT & ITeS Services",
-    des: "Transforming Businesses Through Technology.",
-    bgImage: Hero_Slider_1,
-    badge: "DIGITAL"
-  },
-  {
-    name: "Skilling & Training",
+    name: "Skilling Projects",
     des: "Building Future-Ready Talent & Workforce",
     bgImage: Hero_Slider_2,
     badge: "EMPOWER"
   },
   {
-    name: "Staffing Solutions",
+    name: "IT & ITeS Services",
+    des: "Transforming Businesses Through Technology.",
+    bgImage: Hero_Slider_1,
+    badge: "DIGITAL"
+  },
+   {
+    name: "Vocational Labs",
+    des: "Experiential Learning for Future Careers.",
+    bgImage: Hero_Slider_9,
+    badge: "DISCOVER"
+  },
+  {
+    name: "Staffing Serivces",
     des: "Delivering Talent That Drives Success.",
     bgImage: Hero_Slider_3,
     badge: "CONNECT"
-  },
-  {
-    name: "STEAM Education",
-    des: "Inspiring Creativity, Science & Innovation",
-    bgImage: Hero_Slider_4,
-    badge: "INNOVATE"
   },
   {
     name: "CSR Projects",
@@ -34,29 +34,26 @@ const slidesData = [
     badge: "IMPACT"
   },
   {
-    name: "EPC Projects (Oil, Gas & Energy)",
-    des: "Delivering Excellence in Infrastructure & Energy.",
-    bgImage: Hero_Slider_6,
-    badge: "ENGINEER"
+    name: "STEAM Education",
+    des: "Inspiring Creativity, Science & Innovation",
+    bgImage: Hero_Slider_4,
+    badge: "INNOVATE"
   },
-  {
-    name: "Construction & Earthwork",
-    des: "Shaping Infrastructure with Precision.",
-    bgImage: Hero_Slider_7,
-    badge: "BUILD"
-  },
-  {
-    name: "AgriTech Solutions & SmartFarm Setup",
+   {
+    name: "AgriTech  & Hydroponics",
     des: "Revolutionizing Agriculture Through Technology.",
     bgImage: Hero_Slider_8,
     badge: "GROW"
   },
   {
-    name: "Vocational & STEM Labs",
-    des: "Experiential Learning for Future Careers.",
-    bgImage: Hero_Slider_9,
-    badge: "DISCOVER"
-  }
+    name: "EPC & Earthworks",
+    des: "Delivering Excellence in Infrastructure & Energy.",
+    bgImage: Hero_Slider_6,
+    badge: "ENGINEER"
+  },
+ 
+ 
+ 
 ]
 
 const HeroPage = () => {
@@ -151,12 +148,12 @@ const HeroPage = () => {
                   rel="noopener noreferrer"
                   href=""
                 >
-                  <button className="seeMoreBtn group">
+                  {/* <button className="seeMoreBtn group">
                     <span>See More</span>
                     <span className="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1">
                       arrow_forward
                     </span>
-                  </button>
+                  </button> */}
                 </a>
               </div>
             </div>

@@ -123,9 +123,9 @@ const TeamMemberCard = ({ member }) => {
           </p>
           
           {/* Rating stars */}
-          <div className="mt-1 sm:mt-2">
+          {/* <div className="mt-1 sm:mt-2">
             <StarRating rating={member.rating} />
-          </div>
+          </div> */}
         </div>
 
         {/* Bio text */}
