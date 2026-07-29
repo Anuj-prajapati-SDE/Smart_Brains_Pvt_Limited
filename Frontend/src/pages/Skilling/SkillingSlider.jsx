@@ -5,21 +5,21 @@ const partnersData = [
   {
     id: 1,
     name: "State Skill Mission",
-    largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1780132733/Screenshot_319_xkuhku.png",
+    largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785359506/WhatsApp_Image_2026-07-29_at_5.17.17_PM_ju4xlh.jpg",
     companyName: "State Skill Mission Partnerships",
     companyDesc: "Empaneled with various State Skill Development Missions to empower youth across multiple states."
   },
   {
     id: 2,
     name: "Sector Skill Council",
-    largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1780132739/Screenshot_320_jwbmki.png",
+    largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785359605/WhatsApp_Image_2026-07-29_at_5.17.17_PM_b3kl7u.jpg",
     companyName: "Sector Skill Council Affiliations",
     companyDesc: "Aligned with national Sector Skill Councils for standardized curriculum and official certifications."
   },
   {
     id: 3,
     name: "Central Govt Schemes",
-    largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1780132747/Screenshot_321_rq4cua.png",
+    largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785359507/WhatsApp_Image_2026-07-29_at_5.17.17_PM_1_nqux0p.jpg",
     companyName: "Central Govt Skill Projects & Schemes",
     companyDesc: "Executing flagship central government skill development initiatives and employment programs."
   },
@@ -63,25 +63,31 @@ const SkillingSlider = () => {
       </div>
 
       {/* Top Right Controls & Active Category Bar */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-200/80 dark:border-slate-800/80 pb-4 mb-6 gap-3 w-full">
-        
-          {/* Right Side Buttons to Switch Images */}
-        <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap justify-start sm:justify-end shrink-0 w-full sm:w-auto">
-          {/* Category Pill Buttons */}
-          <div className="flex flex-wrap gap-1.5 sm:gap-2">
+      <div className="flex items-center justify-end border-b border-slate-200/80 dark:border-slate-800/80 pb-3 mb-6 w-full">
+        {/* Right Side Buttons to Switch Images */}
+        <div className="flex items-center justify-end shrink-0 w-full">
+          {/* Category Buttons */}
+          <div className="flex flex-wrap gap-4 sm:gap-6 justify-end w-full">
             {partnersData.map((item, index) => {
               const isActive = activePartner === index
               return (
                 <button
                   key={index}
                   onClick={() => setActivePartner(index)}
-                  className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 shadow-xs ${
+                  className={`relative pb-2.5 px-1 text-xs sm:text-sm font-extrabold transition-colors duration-300 group ${
                     isActive
-                      ? "bg-[#002a58] dark:bg-[#a9c7ff] text-white dark:text-[#002a58] shadow-md scale-[1.02]"
-                      : "bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                      ? "text-[#002a58] dark:text-[#a9c7ff]"
+                      : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
                   }`}
                 >
-                  {item.name}
+                  <span className="relative z-10">{item.name}</span>
+                  <span
+                    className={`absolute bottom-0 left-0 h-[3px] rounded-full transition-all duration-300 ease-out ${
+                      isActive
+                        ? "w-full bg-[#002a58] dark:bg-[#a9c7ff]"
+                        : "w-0 bg-transparent group-hover:w-full group-hover:bg-[#002a58]/30 dark:group-hover:bg-[#a9c7ff]/30"
+                    }`}
+                  />
                 </button>
               )
             })}
@@ -100,10 +106,10 @@ const SkillingSlider = () => {
         />
       </div>
 
-      {/* Outside Bottom Bar Section (Info on Left, Arrow Controls on Bottom Right) */}
-      <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#121517] border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
+      {/* Outside Bottom Bar Section (Arrow Controls on Bottom Right) */}
+      <div className="mt-4 flex items-center justify-end">
         {/* Arrow Buttons Outside Bottom Right */}
-        <div className="flex items-center gap-2 shrink-0 self-end sm:self-center">
+        <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={handlePrev}
             className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 hover:bg-[#002a58] hover:text-white dark:hover:bg-[#a9c7ff] dark:hover:text-[#002a58] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-center transition-all shadow-sm active:scale-95 group"

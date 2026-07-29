@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../assets/logo.png'
+import Logo from '../assets/footer_logo.png'
 const Footer = () => {
   return ( 
     <footer className="w-full bg-gradient-to-br from-[#001c3d] via-[#002a58] to-[#001124] dark:from-[#080b0c] dark:via-[#191c1d] dark:to-[#0c0e0f] text-on-primary dark:text-surface-variant pt-20 pb-10 border-t border-white/5">

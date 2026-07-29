@@ -160,11 +160,11 @@ const HomePage = () => {
               Why Choose SmartBrains
             </span>
             <h2 className="text-4xl md:text-5xl font-headline-lg text-primary mb-6 font-bold leading-tight">
-              Engineering <span className="bg-clip-text text-primary font-bold">Excellence</span>
+             Trusted <span className="bg-clip-text text-primary font-bold">Execution</span>
             </h2>
-            <p className="text-lg text-on-surface-variant">
-              Our commitment is reflected in our three-pillared approach to every project, delivering precision, timeliness, and unmatched quality.
-            </p>
+            {/* <p className="text-lg text-on-surface-variant">
+              Our  is reflected in our three-pillared approach to every project, delivering precision, timeliness, and unmatched quality.
+            </p> */}
           </div>
 
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -207,10 +207,10 @@ const HomePage = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-headline-md text-primary mb-2 group-hover:text-[#004080] dark:group-hover:text-[#a9c7ff] transition-colors">
-                    Advanced Machinery
+                   Integrated Solutions
                   </h4>
                   <p className="text-on-surface-variant leading-relaxed text-sm sm:text-base">
-                    We harness cutting-edge industrial technology and premium educational apparatus to ensure unparalleled precision and future-ready skills.
+                    We deliver end-to-end Skilling Projects, IT & ITeS Projects,  EPC, Agritech, STEM education, and digital transformation solutions through innovative design, advanced technology, and seamless execution.
                   </p>
                 </div>
               </div>
@@ -225,10 +225,10 @@ const HomePage = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-headline-md text-primary mb-2 group-hover:text-[#004080] dark:group-hover:text-[#a9c7ff] transition-colors">
-                    Timely Execution
+                   On-Time Delivery
                   </h4>
                   <p className="text-on-surface-variant leading-relaxed text-sm sm:text-base">
-                    Rigorous frameworks guarantee delivery on schedule, without ever compromising our elite quality standards.
+                   Our experienced project teams ensure timely execution through structured planning, efficient resource management, and uncompromising quality standards across every engagement.
                   </p>
                 </div>
               </div>
@@ -243,10 +243,10 @@ const HomePage = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-headline-md text-primary mb-2 group-hover:text-[#004080] dark:group-hover:text-[#a9c7ff] transition-colors">
-                    Excellent Craftsmanship
+               Technical Excellence
                   </h4>
                   <p className="text-on-surface-variant leading-relaxed text-sm sm:text-base">
-                    A legacy maintained by elite engineers and certified professionals, ensuring long-lasting industrial durability.
+                    Driven by highly qualified engineers, agronomists, educators, and technology professionals, we provide reliable, sustainable, and future-ready solutions that create long-term value
                   </p>
                 </div>
               </div>
@@ -558,11 +558,11 @@ const HomePage = () => {
             Connect with our specialists today to discuss your next industrial
             project or institutional curriculum upgrade.
           </p>
-          <div className="flex justify-center gap-md">
+          {/* <div className="flex justify-center gap-md">
             <button className="bg-on-primary text-primary px-xl py-sm font-bold uppercase text-label-sm tracking-widest transition-all hover:scale-105">
               Get a Consultation
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
     </main>

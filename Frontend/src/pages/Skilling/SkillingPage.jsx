@@ -17,6 +17,33 @@ import Skill_Development_5 from '../../assets/images/SkillingPage/sd5.png'
 import Skill_Development_6 from '../../assets/images/SkillingPage/sd6.png'
 import Skill_Development_7 from '../../assets/images/SkillingPage/sd7.png'
 import Skill_Development_8 from '../../assets/images/SkillingPage/sd8.png'
+import Skill_Development_9 from '../../assets/images/SkillingPage/sd8.png'
+import Skill_Development_10 from '../../assets/images/SkillingPage/sd8.png'
+import Skill_Development_11 from '../../assets/images/SkillingPage/sd8.png'
+import Skill_Development_12 from '../../assets/images/SkillingPage/sd8.png'
+import Skill_Development_13 from '../../assets/images/SkillingPage/sd8.png'
+import Skill_Development_14 from '../../assets/images/SkillingPage/sd8.png'
+import Skill_Development_15 from '../../assets/images/SkillingPage/sd8.png'
+import Skill_Development_16 from '../../assets/images/SkillingPage/sd8.png'
+
+import client_1 from '../../assets/images/our_clients/client_1.png'
+import client_2 from '../../assets/images/our_clients/client_2.png'
+import client_3 from '../../assets/images/our_clients/client_3.jpeg'
+import client_4 from '../../assets/images/our_clients/client_4.jpeg'
+import client_5 from '../../assets/images/our_clients/client_5.png'
+import client_6 from '../../assets/images/our_clients/client_6.png'
+import client_7 from '../../assets/images/our_clients/client_7.png'
+import client_8 from '../../assets/images/our_clients/client_8.png'
+import client_9 from '../../assets/images/our_clients/client_9.png'
+import client_10 from '../../assets/images/our_clients/client_10.png'
+import client_11 from '../../assets/images/our_clients/client_11.png'
+import client_12 from '../../assets/images/our_clients/client_12.png'
+import client_13 from '../../assets/images/our_clients/client_13.png'
+import client_14 from '../../assets/images/our_clients/client_14.png'
+import client_15 from '../../assets/images/our_clients/client_15.png'
+import client_16 from '../../assets/images/our_clients/client_16.png'
+import client_17 from '../../assets/images/our_clients/client_17.png'
+import client_18 from '../../assets/images/our_clients/client_18.png'
 
 const csrProjectsData = [
   {
@@ -152,6 +179,16 @@ const skillDevelopmentProjects = [
   { id: 6, image: Skill_Development_6, placeholder: "DDU-GKY AP 2022", alt: "DDU-GKY AP 2022" },
   { id: 7, image: Skill_Development_7, placeholder: "DDU-GKY UP 2018", alt: "DDU-GKY UP 2018" },
   { id: 8, image: Skill_Development_8, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
+  { id: 9, image: Skill_Development_9, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
+  { id: 10, image: Skill_Development_10, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
+  { id: 11, image: Skill_Development_11, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
+  { id: 12, image: Skill_Development_12, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
+  { id: 13, image: Skill_Development_13, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
+  { id: 14, image: Skill_Development_14, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
+  { id: 15, image: Skill_Development_15, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
+  { id: 16, image: Skill_Development_16, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
+  { id: 17, image: Skill_Development_17, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
+  { id: 18, image: Skill_Development_18, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
 ];
 
 const CsrCard = ({ proj }) => {
@@ -206,12 +243,24 @@ const CsrCard = ({ proj }) => {
 const SkillingPage = () => {
   const animRef = useScrollAnimation()
   const scrollContainerRef = useRef(null);
+  const skillProjectsRef = useRef(null);
 
   const scrollCsr = (direction) => {
     if (scrollContainerRef.current) {
       const { scrollLeft, clientWidth } = scrollContainerRef.current;
       const scrollAmount = clientWidth * 0.75;
       scrollContainerRef.current.scrollTo({
+        left: direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollSkillProjects = (direction) => {
+    if (skillProjectsRef.current) {
+      const { scrollLeft, clientWidth } = skillProjectsRef.current;
+      const scrollAmount = clientWidth * 0.75;
+      skillProjectsRef.current.scrollTo({
         left: direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
         behavior: 'smooth'
       });
@@ -371,29 +420,28 @@ const SkillingPage = () => {
   <SkillingSlider />
       {/* Smart Brains Skill Development Porject Section */}
       <section className="py-12 max-w-[1280px] mx-auto px-gutter relative overflow-hidden border-t border-slate-200/50 dark:border-slate-800/40">
-       
-
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10" data-animate="fade-up">
           <span className="text-xs uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff] font-extrabold bg-[#002a58]/5 dark:bg-[#a9c7ff]/10 px-3.5 py-1.5 rounded-lg">
             Corporate Social Responsibility
           </span>
           <h2 className="text-3xl md:text-4xl text-[#002a58] dark:text-white mt-4 font-black tracking-tight leading-tight uppercase">
-         Our Skills Development Projects
+            Our Skills Development Projects
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#002a58] via-blue-500 to-[#a9c7ff] mx-auto mt-4 rounded-full" />
-          
         </div>
 
-        {/* Fully responsive 8-image grid: 4 columns per row on desktop (lg), 2 on tablet (sm), 1 on mobile */}
-        <div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10"
+        {/* Horizontal Scroll Rail for Projects (2 rows x 4 cols = 8 images visible on desktop) */}
+        <div
+          ref={skillProjectsRef}
+          className="grid grid-rows-2 grid-flow-col auto-cols-full sm:auto-cols-[calc(50%-12px)] lg:auto-cols-[calc(25%-18px)] gap-6 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory relative z-10"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           data-animate="stagger-up"
         >
-          {skillDevelopmentProjects.map((proj, idx) => (
+          {skillDevelopmentProjects.map((proj) => (
             <div 
               key={proj.id}
-              className="bg-white dark:bg-[#121517]/40 border border-slate-100 dark:border-slate-800/40 rounded-xl p-5 flex flex-col justify-center items-center shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group relative overflow-hidden aspect-[1.6/1] w-full"
+              className="snap-start snap-always bg-white dark:bg-[#121517]/40 border border-slate-100 dark:border-slate-800/40 rounded-xl p-5 flex flex-col justify-center items-center shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group relative overflow-hidden aspect-[1.6/1]"
             >
               <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
                 {proj.image ? (
@@ -414,6 +462,35 @@ const SkillingPage = () => {
             </div>
           ))}
         </div>
+
+        {/* Bottom Control Section (Arrow Controls on Bottom Right) */}
+        <div className="flex items-center justify-end mt-4">
+          <div className="flex gap-3">
+            {/* Left Arrow Button */}
+            <button
+              onClick={() => scrollSkillProjects('left')}
+              className="w-10 h-10 rounded-full bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/60 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-[#002a58] hover:text-white dark:hover:bg-blue-500 dark:hover:text-slate-950 hover:border-transparent hover:shadow-md active:scale-95 transition-all duration-200"
+              aria-label="Previous Skill Project"
+              title="Previous Skill Project"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+            </button>
+
+            {/* Right Arrow Button */}
+            <button
+              onClick={() => scrollSkillProjects('right')}
+              className="w-10 h-10 rounded-full bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/60 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-[#002a58] hover:text-white dark:hover:bg-blue-500 dark:hover:text-slate-950 hover:border-transparent hover:shadow-md active:scale-95 transition-all duration-200"
+              aria-label="Next Skill Project"
+              title="Next Skill Project"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </section>
 
       
@@ -428,7 +505,7 @@ const SkillingPage = () => {
             Corporate Social Responsibility
           </span>
           <h2 className="text-3xl md:text-4xl text-[#002a58] dark:text-white mt-4 font-black tracking-tight leading-tight uppercase">
-            Major CSR Projects by SmartBrains_
+          OUR Major CSR Projects
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#002a58] to-blue-500 dark:from-[#a9c7ff] dark:to-white mx-auto mt-3 rounded-full" />
         </div>
@@ -478,6 +555,94 @@ const SkillingPage = () => {
           </div>
         </div>
       </section>
+
+        {/* Major Clients Section */}
+            <section className="py-24 bg-surface-container-low relative overflow-hidden">
+              {/* Inline Styles for Animation */}
+              <style>
+                {`
+              @keyframes scrollLeft {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+              @keyframes scrollRight {
+                0% { transform: translateX(-50%); }
+                100% { transform: translateX(0); }
+              }
+              .animate-scroll-left {
+                animation: scrollLeft 40s linear infinite;
+                will-change: transform;
+              }
+              .animate-scroll-right {
+                animation: scrollRight 40s linear infinite;
+                will-change: transform;
+              }
+              .pause-on-hover:hover .animate-scroll-left,
+              .pause-on-hover:hover .animate-scroll-right {
+                animation-play-state: paused;
+              }
+            `}
+              </style>
+      
+              {/* Decorative background blurs */}
+              <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/5 rounded-full blur-[80px] -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+              <div className="absolute top-1/2 right-0 w-72 h-72 bg-primary/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+      
+              <div className="max-w-[1280px] mx-auto px-gutter mb-16 relative z-10">
+                <div className="text-center">
+                  <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase mb-4 border border-primary/20">
+                    Trusted Worldwide
+                  </span>
+                  <h2 className="text-4xl md:text-5xl font-headline-lg text-on-surface leading-tight font-bold text-primary">
+                    Our Major <span className="text-primary font-extrabold">Clients</span>
+                  </h2>
+                </div>
+              </div>
+      
+              {/* Sliders Container */}
+              <div className="relative w-full flex flex-col gap-6 pause-on-hover z-10">
+      
+                {/* Fade Edges for the marquee effect */}
+                <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-surface-container-low to-transparent z-20 pointer-events-none"></div>
+                <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-surface-container-low to-transparent z-20 pointer-events-none"></div>
+      
+                {/* Row 1 - Left Scrolling */}
+                <div className="flex w-max animate-scroll-left gap-6 px-4">
+                  {[...Array(2)].map((_, i) => (
+                    <div key={`row1-${i}`} className="flex gap-6 items-center">
+                      {[
+                        { name: "BHUTANI", img: client_1 },
+                        { name: "KRISUMI", img: client_2 },
+                        { name: "ELAN", img: client_3 },
+                        { name: "TATA", img: client_4 },
+                        { name: "M3M", img: client_5 },
+                        { name: "DLF", img: client_6 },
+                        { name: "GODREJ", img: client_7 },
+                        { name: "L&T", img: client_8 },
+                        { name: "AMBUJA", img: client_9 },
+                        { name: "RELIANCE", img: client_10 },
+                        { name: "ADANI", img: client_11 },
+                        { name: "MAHINDRA", img: client_12 },
+                        { name: "WIPRO", img: client_13 },
+                        { name: "HDFC", img: client_14 },
+                        { name: "INFOSYS", img: client_15 },
+                        { name: "TCS", img: client_16 },
+                        { name: "ITC", img: client_17 },
+                        { name: "HCL", img: client_18 },
+                      ].map((client, j) => (
+                        <div key={j} className="flex items-center justify-center w-[200px] h-[90px] bg-white rounded-2xl shadow-sm border border-outline-variant/40 hover:border-primary/50 hover:shadow-md transition-all duration-300 cursor-pointer group p-4">
+                          <img
+                            src={client.img}
+                            alt={client.name}
+                            className="w-full h-full object-contain "
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
       {/* Connect With Us Section */}
       <section className="pb-10 max-w-[1280px] mx-auto px-gutter relative overflow-hidden">
         <div 
