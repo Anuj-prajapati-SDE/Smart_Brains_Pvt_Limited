@@ -1,5 +1,28 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
+const getBusinessRoute = (name) => {
+  switch (name) {
+    case "Skilling Projects":
+      return "/skilling";
+    case "IT & ITES Services":
+      return "/it-services";
+    case "Vocational Labs":
+      return "/vocational-labs";
+    case "Staffing Services":
+      return "/staffing";
+    case "CSR Projects":
+      return "/csr";
+    case "STEM Education":
+      return "/steam";
+    case "AgriTech & Hydroponics":
+      return "/agritech";
+    case "EPC & Earthworks":
+      return "/epc-oil-gas-energy";
+    default:
+      return "/skilling";
+  }
+};
 
 const businessesData = [
    {
@@ -162,6 +185,7 @@ const itServicesRoutes = {
 };
 
 const Businesses = () => {
+  const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState('verticals') // 'verticals' or 'companies'
   const [activeVertical, setActiveVertical] = useState(0)
   const [activePartner, setActivePartner] = useState(0)
@@ -253,7 +277,12 @@ const Businesses = () => {
                 return (
                   <div
                     key={index}
-                    onClick={() => setActiveVertical(index)}
+                    onMouseEnter={() => setActiveVertical(index)}
+                    onClick={() => {
+                      setActiveVertical(index)
+                      const targetRoute = getBusinessRoute(item.name)
+                      if (targetRoute) navigate(targetRoute)
+                    }}
                     className={`relative overflow-hidden cursor-pointer h-[90px] sm:h-[120px] rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-sm select-none group ${isActive
                         ? 'bg-gradient-to-r from-[#00142e] via-[#002a58] to-[#004080]'
                         : 'bg-slate-900 border border-outline-variant/30 hover:border-primary/50'
@@ -309,6 +338,7 @@ const Businesses = () => {
                 return (
                   <div
                     key={index}
+                    onMouseEnter={() => setActivePartner(index)}
                     onClick={() => setActivePartner(index)}
                     className={`relative overflow-hidden cursor-pointer h-[90px] sm:h-[120px] rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-sm select-none group ${isActive
                         ? 'bg-gradient-to-r from-[#00142e] via-[#002a58] to-[#004080]'
@@ -361,13 +391,22 @@ const Businesses = () => {
         </div>
 
         {/* Right Side: Active Vertical Detail Panel */}
-        <div className="lg:col-span-6 relative overflow-hidden rounded-lg min-h-[300px] sm:min-h-[400px] lg:min-h-[512px] shadow-lg group">
+        <div
+          onClick={() => {
+            if (activeTab === 'verticals') {
+              const targetRoute = getBusinessRoute(activeData.name)
+              if (targetRoute) navigate(targetRoute)
+            }
+          }}
+          className="lg:col-span-6 relative overflow-hidden rounded-lg min-h-[300px] sm:min-h-[400px] lg:min-h-[512px] shadow-lg group cursor-pointer"
+        >
           {/* Main Large Image */}
           <img
             src={activeData.largeImage}
             alt={activeData.name}
-            onClick={() => {
+            onClick={(e) => {
               if (activeTab === 'companies') {
+                e.stopPropagation()
                 setPopupImage(activeData.largeImage)
               }
             }}
@@ -404,7 +443,7 @@ const Businesses = () => {
                   return (
                     <React.Fragment key={i}>
                       {route ? (
-                        <Link to={route} className="hover:text-primary-fixed-dim cursor-pointer transition-colors duration-200 underline underline-offset-4 decoration-white/20 hover:decoration-primary-fixed-dim">
+                        <Link to={route} onClick={(e) => e.stopPropagation()} className="hover:text-primary-fixed-dim cursor-pointer transition-colors duration-200 underline underline-offset-4 decoration-white/20 hover:decoration-primary-fixed-dim">
                           {sub}
                         </Link>
                       ) : (
@@ -426,7 +465,8 @@ const Businesses = () => {
               {/* Explore More link */}
               <div className="mt-xs">
                 <Link
-                  to={activeData.name === "IT Services" ? "/it-services" : activeData.name === "STEAM Education" ? "/steam" : "/skilling"}
+                  to={getBusinessRoute(activeData.name)}
+                  onClick={(e) => e.stopPropagation()}
                   className="text-white hover:text-primary-fixed-dim transition-colors text-label-sm font-bold uppercase tracking-widest inline-flex items-center gap-xs relative group"
                 >
                   <span className="underline underline-offset-4 decoration-2">Explore More</span>

@@ -61,61 +61,60 @@ const AboutCoreValues = () => {
     <section className="relative py-20 bg-gradient-to-b from-[#f8f9fa] to-white dark:from-[#080b0c] dark:to-[#0c0e0f] border-b border-outline-variant/20 overflow-hidden">
       {/* Decorative background blur blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/[0.02] dark:bg-blue-400/[0.01] rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-indigo-500/[0.02] dark:bg-indigo-400/[0.01] rounded-full blur-[100px]" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#002a58]/3 dark:bg-[#a9c7ff]/3 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-500/3 dark:bg-blue-400/2 rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-[1280px] mx-auto px-gutter relative z-10">
         {/* Section Header */}
-        <div className="relative text-center max-w-3xl mx-auto mb-12" data-animate="fade-up">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/60 text-[9px] font-bold uppercase tracking-widest text-primary dark:text-primary-fixed-dim mb-3 shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+        <div className="relative text-center max-w-3xl mx-auto mb-14" data-animate="fade-up">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white dark:bg-[#121517] border border-slate-200/80 dark:border-slate-800/80 text-[9.5px] font-extrabold uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff] mb-3 shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#002a58] dark:bg-[#a9c7ff] animate-pulse" />
             Our Core Pillars
           </div>
-          <h3 className="font-headline-lg text-xl sm:text-2xl md:text-3xl text-primary dark:text-white mt-1.5 font-extrabold tracking-tight uppercase leading-snug">
+          <h3 className="font-headline-lg text-xl sm:text-2xl md:text-3xl text-[#002a58] dark:text-white mt-1.5 font-black tracking-tight uppercase leading-snug">
             OUR CORE VALUES DEFINE THE JOURNEY THAT IS, HAS BEEN, AND{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-primary-fixed-dim dark:to-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#002a58] via-blue-600 to-[#a9c7ff] dark:from-[#a9c7ff] dark:to-white font-black">
               ALWAYS WILL BE
             </span>
           </h3>
-          <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-primary-fixed-dim dark:to-white mx-auto mt-4 rounded-full shadow-sm" />
+          <div className="w-16 h-1 bg-gradient-to-r from-[#002a58] via-blue-600 to-[#a9c7ff] dark:from-[#a9c7ff] dark:to-white mx-auto mt-4 rounded-full shadow-xs" />
         </div>
 
-        {/* Values Cards Grid */} 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Values Cards Grid - Staggered Scroll Animations */} 
+        <div data-animate="stagger-up" className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {coreValues.map((value) => (
             <div
               key={value.id}
-              className="group relative flex flex-col items-start text-left p-5 rounded-2xl bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/40 shadow-sm hover:shadow-xl hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-500 overflow-hidden"
-              data-animate="fade-up"
+              className="group relative flex flex-col items-start text-left p-6 rounded-2xl bg-white dark:bg-[#121517] border border-slate-200/80 dark:border-slate-800/60 shadow-xs hover:shadow-xl hover:-translate-y-1.5 hover:border-[#002a58]/40 dark:hover:border-[#a9c7ff]/40 transition-all duration-500 ease-out overflow-hidden"
             >
               {/* Dynamic top highlight indicator line */}
-              <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-primary to-blue-500 dark:from-primary-fixed-dim dark:to-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-[#002a58] via-blue-600 to-[#a9c7ff] dark:from-[#a9c7ff] dark:to-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
-              {/* Watermark Number: Small & Subtle Outline */}
-              <span className="absolute top-4 right-5 text-2xl font-black text-slate-100 dark:text-slate-900/15 group-hover:text-primary dark:group-hover:text-primary-fixed-dim select-none pointer-events-none transition-colors duration-300 font-mono tracking-tighter">
+              {/* Watermark Number: Subtle Outline */}
+              <span className="absolute top-4 right-5 text-3xl font-black text-slate-100 dark:text-slate-800/40 group-hover:text-[#002a58]/20 dark:group-hover:text-[#a9c7ff]/30 group-hover:scale-110 transition-all duration-300 font-mono tracking-tighter pointer-events-none select-none">
                 {value.num}
               </span>
 
               {/* Flex Header with Icon and Title */}
-              <div className="flex items-center gap-3.5 mb-3.5 pr-8">
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center bg-primary/5 dark:bg-primary-fixed-dim/10 border border-slate-200/40 dark:border-slate-800/60 text-primary dark:text-primary-fixed-dim group-hover:bg-primary group-hover:text-white dark:group-hover:bg-primary-fixed-dim dark:group-hover:text-primary transition-all duration-300 shadow-sm`}>
-                  <div className="w-5 h-5 flex items-center justify-center">
+              <div className="flex items-center gap-3.5 mb-4 pr-8">
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-[#002a58]/8 dark:bg-[#a9c7ff]/12 border border-slate-200/50 dark:border-slate-800/80 text-[#002a58] dark:text-[#a9c7ff] group-hover:bg-[#002a58] group-hover:text-white dark:group-hover:bg-[#a9c7ff] dark:group-hover:text-[#002a58] group-hover:rotate-6 transition-all duration-300 shadow-xs shrink-0">
+                  <div className="w-5.5 h-5.5 flex items-center justify-center">
                     {value.icon}
                   </div>
                 </div>
                 <div>
-                  <span className="block text-[8px] tracking-widest font-extrabold text-slate-400 dark:text-slate-500 uppercase">
+                  <span className="block text-[8.5px] tracking-widest font-extrabold text-slate-400 dark:text-slate-500 uppercase">
                     {value.tag}
                   </span>
-                  <h3 className="text-base font-bold text-slate-800 dark:text-white group-hover:text-primary dark:group-hover:text-primary-fixed-dim transition-colors duration-300 leading-tight">
+                  <h3 className="text-base sm:text-[17px] font-bold text-slate-800 dark:text-white group-hover:text-[#002a58] dark:group-hover:text-[#a9c7ff] transition-colors duration-300 leading-tight mt-0.5">
                     {value.title}
                   </h3>
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
                 {value.description}
               </p>
             </div>

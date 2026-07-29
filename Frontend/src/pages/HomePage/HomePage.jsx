@@ -20,7 +20,7 @@ import client_15 from '../../assets/images/our_clients/client_15.png'
 import client_16 from '../../assets/images/our_clients/client_16.png'
 import client_17 from '../../assets/images/our_clients/client_17.png'
 import client_18 from '../../assets/images/our_clients/client_18.png'
-
+import Why_choose_image from '../../assets/images/AboutImage/AboutImage_1.jpeg'
 // import { Owner_1, Owner_2} from '../../assets/index';
 
 const ExpandableText = ({ text, limit = 120, className = "", isDarkBg = false }) => {
@@ -65,7 +65,7 @@ const HomePage = () => {
       <Businesses />
 
       {/* Service Cards Section (Bento Grid Style) */}
-      <section className="max-w-[1280px] mx-auto py-xl px-gutter">
+      {/* <section className="max-w-[1280px] mx-auto py-xl px-gutter">
         <div data-animate="fade-up" className="text-center mb-lg">
           <h2 className="font-headline-lg text-headline-lg text-primary mb-sm">
             Our Core Verticals
@@ -73,7 +73,7 @@ const HomePage = () => {
           <div className="h-1 w-20 bg-primary mx-auto" />
         </div>
         <div data-animate="stagger-up" className="grid grid-cols-1 md:grid-cols-12 gap-md h-auto md:h-[600px]">
-          {/* S.T.E.A.M. Education */}
+ 
           <div className="md:col-span-8 group relative overflow-hidden bg-white border border-outline-variant">
             <img
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -97,7 +97,6 @@ const HomePage = () => {
               </button>
             </div>
           </div>
-          {/* Construction Services */}
           <div className="md:col-span-4 group relative overflow-hidden bg-white border border-outline-variant">
             <img
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -121,7 +120,6 @@ const HomePage = () => {
               </button>
             </div>
           </div>
-          {/* Manpower Solutions */}
           <div className="md:col-span-12 group relative overflow-hidden bg-white border border-outline-variant h-64 md:h-auto">
             <img
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -146,7 +144,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Why Choose Us Section - Clean Modern Corporate */}
       <section className="bg-surface-container-low py-20 lg:py-28 overflow-hidden relative">
@@ -173,11 +171,11 @@ const HomePage = () => {
 
             {/* Left Side: Dramatic Image Presentation */}
             <div data-animate="fade-left" className="w-full lg:w-1/2 relative px-4 sm:px-10 lg:px-0">
-              <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5] sm:aspect-square shadow-2xl group">
+              <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] sm:aspect-square shadow-2xl group">
                 <img
-                  className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 group-hover:rotate-1"
+                  className="w-full h-full object-cover object-contain transition-transform duration-[2s] group-hover:scale-105"
                   alt="Architectural Excellence"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOhCJyuZucWPoYOTJXVe6X-vKoJu3YIF3eswSx8ubq7rHhI2YEY3WK1gRlTbzBN4-cV2c4GP1hUrMreOjmaPCl6Is5hDES6s3ZZM0xVz1ZXsTYE5HgR0XN60VzVCK27b_10wNEDv_f57As2xsObuBtGeniIHzV9fa4cLxWdQVnMhZVixhybaqPWeyVczB86nxBpuhGNLuitRCI_SjPJRRx4AX_1z_SI8qBUCJVp4NWCJU-7324o41SL3gBlg8tAkjNIGpm7L1lpg"
+                  src={Why_choose_image}
                 />
                 {/* Subtle Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent mix-blend-multiply opacity-60"></div>
@@ -187,7 +185,7 @@ const HomePage = () => {
               <div className="absolute -bottom-6 -left-2 sm:bottom-12 sm:-left-12 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 rounded-[1.5rem] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.15)] border border-white/50 dark:border-slate-800/50 z-20 hover:-translate-y-2 transition-transform duration-500">
                 <div className="flex items-center gap-4 sm:gap-6">
                   <div className="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#83aef5]">
-                    15<span className="text-[#83aef5]">+</span>
+                    16<span className="text-[#83aef5]">+</span>
                   </div>
                   <div className="text-xs sm:text-sm font-bold uppercase tracking-widest text-on-surface-variant border-l-2 border-outline-variant/30 pl-4 sm:pl-6 leading-relaxed">
                     Years of <br /> Dedicated <br /> Experience
@@ -328,7 +326,7 @@ const HomePage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-[1.5rem] border border-outline-variant/30 shadow-sm bg-white dark:bg-slate-900 group hover:shadow-md hover:border-primary/25 transition-all duration-300">
               <div className="bg-white dark:bg-[#111314] text-on-surface p-8 flex flex-col justify-center order-2 sm:order-1">
                 <h3 className="text-xl font-headline-md font-bold text-primary dark:text-[#a9c7ff] mb-4">
-                 Sustainability and CSR
+                  Sustainability and CSR
                 </h3>
                 <ExpandableText
                   text="We proudly support YUVA 2.0 project in New Delhi, empowering marginalized communities through solar PV training. Our comprehensive program safeguards youth from addiction, offering care, mentorship, and a purposeful life."

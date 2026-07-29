@@ -4,11 +4,11 @@ import { Owner_1, Owner_2, Owner_3 } from "../../../assets/index";
 const leadershipTeam = [
     {
         id: "ankit",
-        name: "Mr. Ankit Gupta",
+        name: "Ankit Gupta",
         role: "Director",
         image: Owner_1,
-        quote: "Empowering industries with specialized engineering skills and robust technical execution.",
-        highlights: ["15+ Years Industrial Experience", "Strategic Business Leadership", "Operational Excellence"],
+        quote: "Director",
+        highlights: ["Strategic Business Leadership", ],
         icon: (
           <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" />
@@ -17,11 +17,11 @@ const leadershipTeam = [
     },
     {
         id: "awneesh",
-        name: "Mr. Awneesh Yadav",
+        name: " Awneesh Yadav",
         role: "Director",
         image: Owner_2,
-        quote: "Driving academic-industry collaboration and national skilling initiatives to build future capability.",
-        highlights: ["Government Skilling Expert", "Vocational Training Innovation", "Public-Private Partnerships"],
+        quote: "Director",
+        highlights: ["Government Skilling Expert"],
         icon: (
             <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" />
@@ -30,11 +30,11 @@ const leadershipTeam = [
     },
     {
         id: "paritosh",
-        name: "Mr. Paritosh Gupta",
+        name: "Paritosh Gupta",
         role: "Director",
         image:Owner_3,
-        quote: "Bridging complex technical requirements with execution excellence on industrial-scale projects.",
-        highlights: ["EPC Project Execution", "Technical Project Consulting", "Industrial Infrastructure Design"],
+        quote: "Director",
+        highlights: ["Technical Project Consulting"],
         icon: (
            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" />
@@ -74,15 +74,15 @@ const LeadershipCard = ({ member, index }) => {
                     </h3>
                     <div className="relative pl-4 border-l-2 border-[#a9c7ff]/60">
                         <p className="text-xs sm:text-sm text-slate-200/90 italic font-light leading-relaxed">
-                            "{member.quote}"
+                            {member.quote}
                         </p>
                     </div>
                 </div>
             </div>
 
             {/* Card Content Section — Highlights */}
-            <div className="relative bg-white dark:bg-[#0f1419] p-5 sm:p-6 border-t-2 border-[#002a58] dark:border-[#a9c7ff]">
-                {/* Subtle pattern accent */}
+            {/* <div className="relative bg-white dark:bg-[#0f1419] p-5 sm:p-6 border-t-2 border-[#002a58] dark:border-[#a9c7ff]">
+               
                 <div className="absolute top-0 right-0 w-24 h-24 bg-[#002a58]/[0.03] dark:bg-[#a9c7ff]/[0.03] rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
 
                 <div className="flex flex-col gap-2.5 relative z-10">
@@ -98,7 +98,7 @@ const LeadershipCard = ({ member, index }) => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
 
             {/* Bottom accent line with gradient */}
             <div className="h-1 bg-gradient-to-r from-[#002a58] via-[#0050a0] to-[#a9c7ff]" />

@@ -89,154 +89,51 @@ const valuesList = [
 
 const divisionsListData = [
   {
-    title: "AGRITECH SOLUTIONS",
-    barColor: "bg-emerald-500",
-    textColor: "text-emerald-600 dark:text-emerald-400",
-    hoverBg: "hover:bg-emerald-50/10 dark:hover:bg-emerald-950/10",
-    borderTheme: "border-emerald-200/50 dark:border-emerald-800/40",
+    title: "SKILLING PROJECTS",
+    barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
+    textColor: "text-[#002a58] dark:text-[#a9c7ff]",
+    hoverBg: "hover:bg-[#002a58]/5 dark:hover:bg-[#a9c7ff]/10",
+    borderTheme: "border-[#002a58]/20 dark:border-[#a9c7ff]/20",
     icon: (
-      <svg className="w-5 h-5 text-emerald-600 dark:text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <rect x="3" y="3" width="18" height="12" rx="2" />
-        <path d="M9 15v4m6-4v4M6 19h12" />
-        <circle cx="12" cy="9" r="2" />
-        <path d="M12 7V9M12 9c-1 0-2 .5-2 1.5S11 12 12 12s2-.5 2-1.5S13 9 12 9z" />
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
       </svg>
     ),
     items: [
       {
-        label: "AgriTech Solutions",
+        label: "Skilling Projects",
         icon: (
-          <svg className="w-4 h-4 text-emerald-600 dark:text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 19V5M12 9c3 0 5-2 5-5M12 13c-3 0-5-2-5-5" />
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 20h9M3 20v-4M7 20V12M11 20V8M15 20V4" />
           </svg>
         )
       },
       {
-        label: "SmartFarm Setup",
+        label: "Training Programs",
         icon: (
-          <svg className="w-4 h-4 text-emerald-600 dark:text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21V12h6v9" />
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 2 3 3 6 3s6-1 6-3v-5" />
           </svg>
         )
       },
       {
-        label: "Vertical Farming Solutions",
+        label: "Assessment & Certification",
         icon: (
-          <svg className="w-4 h-4 text-emerald-600 dark:text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M4 6h16M4 12h16M4 18h16M7 3v18M17 3v18" />
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M9 12l2 2 4-4M19 21v-6a2 2 0 00-2-2H7a2 2 0 00-2 2v6" />
+            <path d="M12 2a4 4 0 100 8 4 4 0 000-8z" />
           </svg>
         )
       },
       {
-        label: "Hydroponics Systems",
+        label: "Placement Support",
         icon: (
-          <svg className="w-4 h-4 text-emerald-600 dark:text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 3v13M12 16c2.2 0 4 1.8 4 4s-1.8 4-4 4-4-1.8-4-4 1.8-4 4-4zm-4-7h8" />
-          </svg>
-        )
-      },
-      {
-        label: "Smart Monitoring & Automation",
-        icon: (
-          <svg className="w-4 h-4 text-emerald-600 dark:text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <rect x="3" y="3" width="18" height="12" rx="2" />
-            <circle cx="12" cy="9" r="2" />
-            <path d="M9 18h6" />
-          </svg>
-        )
-      }
-    ]
-  },
-  {
-    title: "SOLAR ENERGY SOLUTIONS",
-    barColor: "bg-amber-500",
-    textColor: "text-amber-600 dark:text-amber-400",
-    hoverBg: "hover:bg-amber-50/10 dark:hover:bg-amber-950/10",
-    borderTheme: "border-amber-200/50 dark:border-amber-800/40",
-    icon: (
-      <svg className="w-5 h-5 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="5" />
-        <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-      </svg>
-    ),
-    items: [
-      {
-        label: "Solar Power Systems",
-        icon: (
-          <svg className="w-4 h-4 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M4 4h16v16M4 12h16M12 4v16" />
-          </svg>
-        )
-      },
-      {
-        label: "On-Grid, Off-Grid & Hybrid Solutions",
-        icon: (
-          <svg className="w-4 h-4 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M3 12l9-9 9 9M5 12v8h14v-8M13 10l-3 4h4l-3 4" />
-          </svg>
-        )
-      },
-      {
-        label: "Rooftop & Ground Mounted Systems",
-        icon: (
-          <svg className="w-4 h-4 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M3 20h18M12 4l9 6H3l9-6zM6 12h4M14 12h4" />
-          </svg>
-        )
-      },
-      {
-        label: "Net Metering & Energy Optimization",
-        icon: (
-          <svg className="w-4 h-4 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="9" />
-            <path d="M12 12l3-3" />
-          </svg>
-        )
-      }
-    ]
-  },
-  {
-    title: "EPC PROJECTS (OIL, GAS & ENERGY)",
-    barColor: "bg-violet-500",
-    textColor: "text-violet-600 dark:text-violet-400",
-    hoverBg: "hover:bg-violet-50/10 dark:hover:bg-violet-950/10",
-    borderTheme: "border-violet-200/50 dark:border-violet-800/40",
-    icon: (
-      <svg className="w-5 h-5 text-violet-600 dark:text-violet-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M18 20V8l-6 4v8m-6 0V6l6 6v8" />
-      </svg>
-    ),
-    items: [
-      {
-        label: "EPC Projects (Oil, Gas & Energy)",
-        icon: (
-          <svg className="w-4 h-4 text-violet-600 dark:text-violet-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M3 21h18M10 21V8l4-2v15" />
-          </svg>
-        )
-      },
-      {
-        label: "Project Management",
-        icon: (
-          <svg className="w-4 h-4 text-violet-600 dark:text-violet-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 3a9 9 0 019 9H3a9 9 0 019-9zM6 12v3h12v-3" />
-          </svg>
-        )
-      },
-      {
-        label: "Engineering Design",
-        icon: (
-          <svg className="w-4 h-4 text-violet-600 dark:text-violet-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="4" />
-            <path d="M12 2v6M12 16v6M2 12h6M16 12h6" />
-          </svg>
-        )
-      },
-      {
-        label: "Procurement & Construction",
-        icon: (
-          <svg className="w-4 h-4 text-violet-600 dark:text-violet-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 21V3h4m0 0l6 4v4H9" />
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M16 11l2 2 4-4" />
           </svg>
         )
       }
@@ -244,12 +141,12 @@ const divisionsListData = [
   },
   {
     title: "IT & ITES SERVICES",
-    barColor: "bg-blue-600",
-    textColor: "text-blue-600 dark:text-blue-400",
-    hoverBg: "hover:bg-blue-50/10 dark:hover:bg-blue-950/10",
-    borderTheme: "border-blue-200/50 dark:border-blue-800/40",
+    barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
+    textColor: "text-[#002a58] dark:text-[#a9c7ff]",
+    hoverBg: "hover:bg-[#002a58]/5 dark:hover:bg-[#a9c7ff]/10",
+    borderTheme: "border-[#002a58]/20 dark:border-[#a9c7ff]/20",
     icon: (
-      <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="2" width="20" height="8" rx="2" />
         <rect x="2" y="14" width="20" height="8" rx="2" />
         <circle cx="6" cy="6" r="1" />
@@ -260,7 +157,7 @@ const divisionsListData = [
       {
         label: "IT & ITeS Services",
         icon: (
-          <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <rect x="3" y="3" width="18" height="12" rx="2" />
             <path d="M9 21h6M12 15v6" />
           </svg>
@@ -269,7 +166,7 @@ const divisionsListData = [
       {
         label: "Software Development",
         icon: (
-          <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M8 9l-3 3 3 3M16 9l3 3-3 3M13 5l-2 14" />
           </svg>
         )
@@ -277,7 +174,7 @@ const divisionsListData = [
       {
         label: "Cloud & Infrastructure",
         icon: (
-          <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M18 10a6 6 0 00-11-2 5 5 0 00-4 5c0 2.2 1.8 4 4 4h11c2.2 0 4-1.8 4-4 0-1.8-1.2-3.3-3-3.7z" />
           </svg>
         )
@@ -285,7 +182,7 @@ const divisionsListData = [
       {
         label: "Digital Transformation",
         icon: (
-          <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <rect x="5" y="5" width="14" height="14" rx="2" />
             <path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" />
           </svg>
@@ -293,160 +190,15 @@ const divisionsListData = [
       }
     ]
   },
-  {
-    title: "SKILLING PROJECTS",
-    barColor: "bg-sky-500",
-    textColor: "text-sky-600 dark:text-sky-400",
-    hoverBg: "hover:bg-sky-50/10 dark:hover:bg-sky-950/10",
-    borderTheme: "border-sky-200/50 dark:border-sky-800/40",
+ 
+    {
+    title: "STAFFING Services",
+    barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
+    textColor: "text-[#002a58] dark:text-[#a9c7ff]",
+    hoverBg: "hover:bg-[#002a58]/5 dark:hover:bg-[#a9c7ff]/10",
+    borderTheme: "border-[#002a58]/20 dark:border-[#a9c7ff]/20",
     icon: (
-      <svg className="w-5 h-5 text-sky-600 dark:text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-      </svg>
-    ),
-    items: [
-      {
-        label: "Skilling Projects",
-        icon: (
-          <svg className="w-4 h-4 text-sky-600 dark:text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 20h9M3 20v-4M7 20V12M11 20V8M15 20V4" />
-          </svg>
-        )
-      },
-      {
-        label: "Training Programs",
-        icon: (
-          <svg className="w-4 h-4 text-sky-600 dark:text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 2 3 3 6 3s6-1 6-3v-5" />
-          </svg>
-        )
-      },
-      {
-        label: "Assessment & Certification",
-        icon: (
-          <svg className="w-4 h-4 text-sky-600 dark:text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M9 12l2 2 4-4M19 21v-6a2 2 0 00-2-2H7a2 2 0 00-2 2v6" />
-            <path d="M12 2a4 4 0 100 8 4 4 0 000-8z" />
-          </svg>
-        )
-      },
-      {
-        label: "Placement Support",
-        icon: (
-          <svg className="w-4 h-4 text-sky-600 dark:text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-            <circle cx="9" cy="7" r="4" />
-            <path d="M16 11l2 2 4-4" />
-          </svg>
-        )
-      }
-    ]
-  },
-  {
-    title: "STEAM EDUCATION",
-    barColor: "bg-cyan-500",
-    textColor: "text-cyan-600 dark:text-cyan-400",
-    hoverBg: "hover:bg-cyan-50/10 dark:hover:bg-cyan-950/10",
-    borderTheme: "border-cyan-200/50 dark:border-cyan-800/40",
-    icon: (
-      <svg className="w-5 h-5 text-cyan-600 dark:text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 005 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z" />
-      </svg>
-    ),
-    items: [
-      {
-        label: "STEAM Education",
-        icon: (
-          <svg className="w-4 h-4 text-cyan-600 dark:text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M9 18h6M10 22h4M12 2a7 7 0 00-7 7c0 2.3 1.2 4.3 3 5.4v3.6h8v-3.6c1.8-1.1 3-3.1 3-5.4a7 7 0 00-7-7z" />
-          </svg>
-        )
-      },
-      {
-        label: "STEM Labs",
-        icon: (
-          <svg className="w-4 h-4 text-cyan-600 dark:text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M9 3h6M10 3v6.5L5.7 18.2a2 2 0 001.8 2.8h9a2 2 0 001.8-2.8L14 9.5V3" />
-          </svg>
-        )
-      },
-      {
-        label: "Robotics & Innovation Labs",
-        icon: (
-          <svg className="w-4 h-4 text-cyan-600 dark:text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M2 20h20M5 20V8l7-3 5 4v11M9 12h6" />
-          </svg>
-        )
-      },
-      {
-        label: "Curriculum & Training",
-        icon: (
-          <svg className="w-4 h-4 text-cyan-600 dark:text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M2 3h10v18H2zm20 0H12v18h10z" />
-          </svg>
-        )
-      }
-    ]
-  },
-  {
-    title: "CSR PROJECTS",
-    barColor: "bg-teal-500",
-    textColor: "text-teal-600 dark:text-teal-400",
-    hoverBg: "hover:bg-teal-50/10 dark:hover:bg-teal-950/10",
-    borderTheme: "border-teal-200/50 dark:border-teal-800/40",
-    icon: (
-      <svg className="w-5 h-5 text-teal-600 dark:text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-      </svg>
-    ),
-    items: [
-      {
-        label: "CSR Projects",
-        icon: (
-          <svg className="w-4 h-4 text-teal-600 dark:text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M3 12l9-9 9 9M5 12v8h14v-8M9 21v-6h6v6" />
-          </svg>
-        )
-      },
-      {
-        label: "Community Development",
-        icon: (
-          <svg className="w-4 h-4 text-teal-600 dark:text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-            <circle cx="9" cy="7" r="4" />
-          </svg>
-        )
-      },
-      {
-        label: "Education & Health",
-        icon: (
-          <svg className="w-4 h-4 text-teal-600 dark:text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-          </svg>
-        )
-      },
-      {
-        label: "Environment Sustainability",
-        icon: (
-          <svg className="w-4 h-4 text-teal-600 dark:text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="9" />
-            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10m0-20a15.3 15.3 0 00-4 10 15.3 15.3 0 004 10M2 12h20" />
-          </svg>
-        )
-      }
-    ]
-  },
-  {
-    title: "STAFFING PROJECTS",
-    barColor: "bg-slate-500",
-    textColor: "text-slate-600 dark:text-slate-400",
-    hoverBg: "hover:bg-slate-50/10 dark:hover:bg-slate-950/10",
-    borderTheme: "border-slate-200/50 dark:border-slate-800/40",
-    icon: (
-      <svg className="w-5 h-5 text-slate-600 dark:text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="7" width="20" height="14" rx="2" />
         <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
       </svg>
@@ -455,7 +207,7 @@ const divisionsListData = [
       {
         label: "Permanent Staffing",
         icon: (
-          <svg className="w-4 h-4 text-slate-600 dark:text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M12 22a10 10 0 100-20 10 10 0 000 20zM8 11h8m-8 3h6" />
           </svg>
         )
@@ -463,7 +215,7 @@ const divisionsListData = [
       {
         label: "Contract Staffing",
         icon: (
-          <svg className="w-4 h-4 text-slate-600 dark:text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="12" cy="12" r="10" />
             <path d="M12 6v6l4 2" />
           </svg>
@@ -472,7 +224,7 @@ const divisionsListData = [
       {
         label: "Executive Search",
         icon: (
-          <svg className="w-4 h-4 text-slate-600 dark:text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="11" cy="11" r="8" />
             <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
           </svg>
@@ -481,7 +233,7 @@ const divisionsListData = [
       {
         label: "Workforce Management",
         icon: (
-          <svg className="w-4 h-4 text-slate-600 dark:text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="12" cy="12" r="10" />
             <circle cx="12" cy="10" r="3" />
             <path d="M7 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
@@ -490,47 +242,251 @@ const divisionsListData = [
       }
     ]
   },
-  {
-    title: "CONSTRUCTION & EARTHWORK",
-    barColor: "bg-indigo-600",
-    textColor: "text-indigo-600 dark:text-indigo-400",
-    hoverBg: "hover:bg-indigo-50/10 dark:hover:bg-indigo-950/10",
-    borderTheme: "border-indigo-200/50 dark:border-indigo-800/40",
+   {
+    title: "CSR PROJECTS",
+    barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
+    textColor: "text-[#002a58] dark:text-[#a9c7ff]",
+    hoverBg: "hover:bg-[#002a58]/5 dark:hover:bg-[#a9c7ff]/10",
+    borderTheme: "border-[#002a58]/20 dark:border-[#a9c7ff]/20",
     icon: (
-      <svg className="w-5 h-5 text-indigo-600 dark:text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 22V4h6m0 0l8 6H10" />
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
       </svg>
     ),
     items: [
       {
-        label: "Civil Construction",
+        label: "CSR Projects",
         icon: (
-          <svg className="w-4 h-4 text-indigo-600 dark:text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M3 21h18M5 21V8l7-4 7 4v13M9 9h2M9 13h2M13 9h2M13 13h2" />
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 12l9-9 9 9M5 12v8h14v-8M9 21v-6h6v6" />
           </svg>
         )
       },
       {
-        label: "Infrastructure Development",
+        label: "Community Development",
         icon: (
-          <svg className="w-4 h-4 text-indigo-600 dark:text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M3 12h18M6 12v6M18 12v6M12 6v6M6 12C9 9 15 9 18 12" />
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
           </svg>
         )
       },
       {
-        label: "Earthwork & Excavation",
+        label: "Education & Health",
         icon: (
-          <svg className="w-4 h-4 text-indigo-600 dark:text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M2 18h12l4-8V4h-4v4l-4 6H2zM6 18H2v4h4z" />
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
           </svg>
         )
       },
       {
-        label: "Turnkey Solutions",
+        label: "Environment Sustainability",
         icon: (
-          <svg className="w-4 h-4 text-indigo-600 dark:text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3M15.5 7.5L18 5" />
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10m0-20a15.3 15.3 0 00-4 10 15.3 15.3 0 004 10M2 12h20" />
+          </svg>
+        )
+      }
+    ]
+  },
+   {
+    title: "SOLAR ENERGY SOLUTIONS",
+    barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
+    textColor: "text-[#002a58] dark:text-[#a9c7ff]",
+    hoverBg: "hover:bg-[#002a58]/5 dark:hover:bg-[#a9c7ff]/10",
+    borderTheme: "border-[#002a58]/20 dark:border-[#a9c7ff]/20",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <circle cx="12" cy="12" r="5" />
+        <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+      </svg>
+    ),
+    items: [
+      {
+        label: "Solar Power Systems",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M4 4h16v16M4 12h16M12 4v16" />
+          </svg>
+        )
+      },
+      {
+        label: "On-Grid, Off-Grid & Hybrid Solutions",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 12l9-9 9 9M5 12v8h14v-8M13 10l-3 4h4l-3 4" />
+          </svg>
+        )
+      },
+      {
+        label: "Rooftop & Ground Mounted Systems",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 20h18M12 4l9 6H3l9-6zM6 12h4M14 12h4" />
+          </svg>
+        )
+      },
+      {
+        label: "Net Metering & Energy Optimization",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 12l3-3" />
+          </svg>
+        )
+      }
+    ]
+  },
+  {
+    title: "STEAM EDUCATION",
+    barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
+    textColor: "text-[#002a58] dark:text-[#a9c7ff]",
+    hoverBg: "hover:bg-[#002a58]/5 dark:hover:bg-[#a9c7ff]/10",
+    borderTheme: "border-[#002a58]/20 dark:border-[#a9c7ff]/20",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 005 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z" />
+      </svg>
+    ),
+    items: [
+      {
+        label: "STEAM Education",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M9 18h6M10 22h4M12 2a7 7 0 00-7 7c0 2.3 1.2 4.3 3 5.4v3.6h8v-3.6c1.8-1.1 3-3.1 3-5.4a7 7 0 00-7-7z" />
+          </svg>
+        )
+      },
+      {
+        label: "STEM Labs",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M9 3h6M10 3v6.5L5.7 18.2a2 2 0 001.8 2.8h9a2 2 0 001.8-2.8L14 9.5V3" />
+          </svg>
+        )
+      },
+      {
+        label: "Robotics & Innovation Labs",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M2 20h20M5 20V8l7-3 5 4v11M9 12h6" />
+          </svg>
+        )
+      },
+      {
+        label: "Curriculum & Training",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M2 3h10v18H2zm20 0H12v18h10z" />
+          </svg>
+        )
+      }
+    ]
+  },
+  
+  {
+    title: "EPC & EARTHWORK",
+    barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
+    textColor: "text-[#002a58] dark:text-[#a9c7ff]",
+    hoverBg: "hover:bg-[#002a58]/5 dark:hover:bg-[#a9c7ff]/10",
+    borderTheme: "border-[#002a58]/20 dark:border-[#a9c7ff]/20",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M18 20V8l-6 4v8m-6 0V6l6 6v8" />
+      </svg>
+    ),
+    items: [
+      {
+        label: "EPC Projects (Oil, Gas & Energy)",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 21h18M10 21V8l4-2v15" />
+          </svg>
+        )
+      },
+      {
+        label: "Project Management",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 3a9 9 0 019 9H3a9 9 0 019-9zM6 12v3h12v-3" />
+          </svg>
+        )
+      },
+      {
+        label: "Engineering Design",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v6M12 16v6M2 12h6M16 12h6" />
+          </svg>
+        )
+      },
+      {
+        label: "Procurement & Construction",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M5 21V3h4m0 0l6 4v4H9" />
+          </svg>
+        )
+      }
+    ]
+  },
+   {
+    title: "AGRITECH  & HYDROPONICS",
+    barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
+    textColor: "text-[#002a58] dark:text-[#a9c7ff]",
+    hoverBg: "hover:bg-[#002a58]/5 dark:hover:bg-[#a9c7ff]/10",
+    borderTheme: "border-[#002a58]/20 dark:border-[#a9c7ff]/20",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <rect x="3" y="3" width="18" height="12" rx="2" />
+        <path d="M9 15v4m6-4v4M6 19h12" />
+        <circle cx="12" cy="9" r="2" />
+        <path d="M12 7V9M12 9c-1 0-2 .5-2 1.5S11 12 12 12s2-.5 2-1.5S13 9 12 9z" />
+      </svg>
+    ),
+    items: [
+      {
+        label: "AgriTech Solutions",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 19V5M12 9c3 0 5-2 5-5M12 13c-3 0-5-2-5-5" />
+          </svg>
+        )
+      },
+      {
+        label: "SmartFarm Setup",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21V12h6v9" />
+          </svg>
+        )
+      },
+      {
+        label: "Vertical Farming Solutions",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M4 6h16M4 12h16M4 18h16M7 3v18M17 3v18" />
+          </svg>
+        )
+      },
+      {
+        label: "Hydroponics Systems",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 3v13M12 16c2.2 0 4 1.8 4 4s-1.8 4-4 4-4-1.8-4-4 1.8-4 4-4zm-4-7h8" />
+          </svg>
+        )
+      },
+      {
+        label: "Smart Monitoring & Automation",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <rect x="3" y="3" width="18" height="12" rx="2" />
+            <circle cx="12" cy="9" r="2" />
+            <path d="M9 18h6" />
           </svg>
         )
       }
@@ -541,7 +497,7 @@ const AboutPage = () => {
   const animRef = useScrollAnimation();
   const countRef = useCountUp();
   const [showCoreTeam, setShowCoreTeam] = useState(false);
-  const [activeDivision, setActiveDivision] = useState(0);
+  const [activeDivision, setActiveDivision] = useState(null);
   const coreTeamRef = useRef(null);
 
   useEffect(() => {
@@ -732,14 +688,14 @@ const AboutPage = () => {
                 </p>
               </div>
 
-              {/* Counters Grid */}
-              <div data-animate="stagger-up" className="grid grid-cols-2 min-[480px]:grid-cols-3 lg:grid-cols-5 gap-3 w-full">
+              {/* Counters Grid - Responsive 3-Column Per Row Layout */}
+              <div data-animate="stagger-up" className="grid grid-cols-2 min-[540px]:grid-cols-3 gap-3.5 sm:gap-4 w-full">
                 {[
                   {
                     num: "16+",
                     label: "Years of Experience",
                     icon: (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                     )
@@ -748,7 +704,7 @@ const AboutPage = () => {
                     num: "20+",
                     label: "States Presence",
                     icon: (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
@@ -758,36 +714,60 @@ const AboutPage = () => {
                     num: "1.5+",
                     label: "Lakhs Skilled Professionals",
                     icon: (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     )
                   },
                   {
                     num: "75+",
-                    label: "Skill & CSR Project",
+                    label: "Skill & CSR Projects",
                     icon: (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                       </svg>
                     )
                   },
                   {
-                    num: "ISO",
+                    num: "ISO 9001",
                     label: "Certified Company",
                     icon: (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                    )
+                  },
+                  {
+                    num: "ISO 9001",
+                    label: "Certified Company",
+                    icon: (
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                       </svg>
                     )
                   }
                 ].map((stat, idx) => (
-                  <div key={idx} className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 rounded-2xl bg-[#002a58]/5 dark:bg-[#a9c7ff]/5 border border-slate-200/60 dark:border-slate-800/60 hover:bg-[#002a58]/10 dark:hover:bg-[#a9c7ff]/10 hover:border-[#002a58]/20 dark:hover:border-[#a9c7ff]/20 hover:scale-[1.02] transition-all duration-300 shadow-xs h-full w-full">
-                    <div className="w-9.5 h-9.5 rounded-xl bg-[#002a58] dark:bg-[#a9c7ff] text-white dark:text-[#002a58] flex items-center justify-center mb-2 shadow-xs shrink-0">
+                  <div
+                    key={idx}
+                    className="group relative flex flex-col items-center justify-between text-center p-4 sm:p-4.5 rounded-2xl bg-white dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 hover:border-[#002a58]/40 dark:hover:border-[#a9c7ff]/40 hover:bg-white dark:hover:bg-slate-900 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 min-h-[110px] sm:min-h-[120px] w-full overflow-hidden"
+                  >
+                    {/* Top Brand Gradient Line on Hover */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#002a58] to-transparent dark:via-[#a9c7ff] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    {/* Icon Badge */}
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#002a58] to-[#004080] dark:from-[#a9c7ff] dark:to-blue-400 text-white dark:text-[#002a58] flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform duration-300 shrink-0">
                       {stat.icon}
                     </div>
-                    <div className="text-base sm:text-lg font-extrabold text-[#002a58] dark:text-white leading-none whitespace-nowrap">{stat.num}</div>
-                    <div className="text-[10px] sm:text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1.5 leading-tight">{stat.label}</div>
+
+                    {/* Stat Number */}
+                    <div className="text-lg sm:text-xl md:text-2xl font-black text-[#002a58] dark:text-white leading-none whitespace-nowrap tracking-tight">
+                      {stat.num}
+                    </div>
+
+                    {/* Stat Label */}
+                    <div className="text-[10px] sm:text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1.5 leading-tight">
+                      {stat.label}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -864,7 +844,7 @@ const AboutPage = () => {
                     <span className="text-[10px] tracking-widest font-extrabold text-[#a9c7ff] uppercase">Industrial Scale Execution</span>
                   </div>
                   <h3 className="text-lg md:text-xl font-bold text-white tracking-tight leading-tight">
-                   Precision Skilling for Defined Career Outcomes.
+                    Precision Skilling for Defined Career Outcomes.
                   </h3>
                   <p className="text-[12px] md:text-sm text-slate-200 font-light mt-2 max-w-xl leading-relaxed">
                     Equipping learners with job-ready skills, professional certifications, employability support, and entrepreneurial capabilities to thrive in today's evolving workforce.
@@ -973,45 +953,63 @@ const AboutPage = () => {
                 </div>
               </div>
 
-              {/* Right Column: 9 Business Divisions Accordions (7 Cols) */}
+              {/* Right Column: 9 Business Divisions Interactive Dropdown Cards Grid (7 Cols) */}
               <div className="lg:col-span-7" data-animate="fade-up">
-                <div className="border-t border-slate-200 dark:border-slate-800/80">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 items-start">
                   {divisionsListData.map((div, idx) => {
                     const isOpen = activeDivision === idx;
                     return (
                       <div
                         key={idx}
-                        className="border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0c0e0f] overflow-hidden group"
+                        onClick={() => setActiveDivision(isOpen ? null : idx)}
+                        className={`group relative flex flex-col justify-between p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#121517] border transition-all duration-300 overflow-hidden cursor-pointer select-none ${isOpen
+                          ? "border-[#002a58] dark:border-[#a9c7ff] shadow-md bg-slate-50/50 dark:bg-slate-900/60"
+                          : "border-slate-200/80 dark:border-slate-800/80 hover:border-[#002a58]/40 dark:hover:border-[#a9c7ff]/40 shadow-xs hover:shadow-sm"
+                          }`}
                       >
-                        {/* Accordion Header */}
+                        {/* Left Accent Strip in Brand Navy/Ice-Blue */}
                         <div
-                          onClick={() => setActiveDivision(isOpen ? null : idx)}
-                          className={`flex items-center justify-between py-3 md:py-4 px-3 md:px-4 cursor-pointer select-none transition-colors duration-300 ${isOpen ? 'bg-slate-50/50 dark:bg-[#111416]' : 'hover:bg-slate-50/30 dark:hover:bg-[#111416]/50'
+                          className={`absolute left-0 top-0 bottom-0 w-1.2 transition-all duration-300 ${isOpen ? "bg-[#002a58] dark:bg-[#a9c7ff] opacity-100" : "bg-[#002a58] dark:bg-[#a9c7ff] opacity-60 group-hover:opacity-100"
                             }`}
-                        >
-                          <div className="flex items-center gap-4 md:gap-5">
-                            {/* Minimal Icon */}
-                            <div className={`w-6 h-6 flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${isOpen
-                              ? 'text-primary dark:text-primary-fixed-dim'
-                              : 'text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-300'
-                              }`}>
-                              {div.icon}
+                        />
+
+                        {/* Card Header (Spacious Height) */}
+                        <div className="flex items-center justify-between gap-3.5 pl-2 min-h-[52px] w-full">
+                          <div className="flex items-center gap-3.5 min-w-0">
+                            {/* Icon Badge using Brand Theme Color (Increased Size) */}
+                            <div
+                              className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-colors duration-300 shadow-xs ${isOpen
+                                ? "bg-[#002a58] text-white dark:bg-[#a9c7ff] dark:text-[#002a58]"
+                                : "bg-[#002a58]/10 dark:bg-[#a9c7ff]/15 text-[#002a58] dark:text-[#a9c7ff] group-hover:bg-[#002a58] group-hover:text-white dark:group-hover:bg-[#a9c7ff] dark:group-hover:text-[#002a58]"
+                                }`}
+                            >
+                              <div className="w-5.5 h-5.5 flex items-center justify-center">
+                                {div.icon}
+                              </div>
                             </div>
 
-                            <h4 className={`text-sm md:text-base font-medium tracking-tight transition-colors duration-300 ${isOpen ? 'text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white'
-                              }`}>
-                              {div.title}
-                            </h4>
+                            <div className="min-w-0">
+                              <h4 className="text-xs sm:text-[13.5px] font-extrabold uppercase tracking-wider text-[#002a58] dark:text-white leading-snug truncate">
+                                {div.title}
+                              </h4>
+                              <span className="text-[10.5px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-0.5 block">
+                                {div.items.length} Core Services
+                              </span>
+                            </div>
                           </div>
 
-                          {/* Minimal Chevron */}
-                          <div className={`flex-shrink-0 flex items-center justify-center transition-transform duration-300 ${isOpen ? 'text-primary dark:text-primary-fixed-dim rotate-180' : 'text-slate-300 dark:text-slate-600 group-hover:text-slate-500 dark:group-hover:text-slate-400'
-                            }`}>
+                          {/* Right-Side Dropdown Icon Button Badge (Increased Size) */}
+                          <div
+                            className={`w-9.5 h-9.5 rounded-xl flex items-center justify-center shrink-0 ml-2 transition-all duration-300 ${isOpen
+                              ? "bg-[#002a58] text-white dark:bg-[#a9c7ff] dark:text-[#002a58] shadow-xs"
+                              : "bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 group-hover:bg-[#002a58]/10 group-hover:text-[#002a58] dark:group-hover:bg-[#a9c7ff]/20 dark:group-hover:text-[#a9c7ff]"
+                              }`}
+                          >
                             <svg
-                              className="w-4 h-4"
+                              className={`w-5 h-5 transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`}
                               fill="none"
                               stroke="currentColor"
-                              strokeWidth="1.5"
+                              strokeWidth="2.5"
                               viewBox="0 0 24 24"
                             >
                               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -1019,35 +1017,24 @@ const AboutPage = () => {
                           </div>
                         </div>
 
-                        {/* Expandable Accordion Panel */}
+                        {/* Expandable Dropdown Content Panel */}
                         <div
-                          className={`transition-all duration-300 ease-in-out overflow-hidden bg-slate-50/50 dark:bg-[#111416] ${isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+                          className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[650px] opacity-100 mt-4 pt-4 border-t border-slate-200/80 dark:border-slate-800/80" : "max-h-0 opacity-0 pointer-events-none"
                             }`}
                         >
-                          <div className="pb-5 px-3 md:px-4 md:pl-[3.5rem] space-y-4">
-                            {/* Description */}
-                            <p className="text-[13px] md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl font-light">
-                              {getDivisionDesc(div.title)}
-                            </p>
+                          <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-300 font-normal leading-relaxed mb-4">
+                            {getDivisionDesc(div.title)}
+                          </p>
 
-                            {/* Minimal Sub-services List */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
-                              {div.items.map((item, itemIdx) => (
-                                <div
-                                  key={itemIdx}
-                                  className="flex items-start gap-2 group/sub cursor-pointer"
-                                >
-                                  <div className="mt-0.5 flex-shrink-0 text-slate-300 dark:text-slate-600 group-hover/sub:text-primary dark:group-hover/sub:text-primary-fixed-dim transition-colors duration-300">
-                                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                                    </svg>
-                                  </div>
-                                  <span className="text-xs md:text-[13px] text-slate-700 dark:text-slate-300 group-hover/sub:text-primary dark:group-hover/sub:text-primary-fixed-dim transition-colors duration-300 leading-snug">
-                                    {item.label}
-                                  </span>
+                          <div className="space-y-2.5 py-1">
+                            {div.items.map((item, itemIdx) => (
+                              <div key={itemIdx} className="flex items-center gap-3 text-slate-700 dark:text-slate-200 text-xs sm:text-[12.5px] font-medium">
+                                <div className="w-3.5 h-3.5 text-[#002a58] dark:text-[#a9c7ff] shrink-0 flex items-center justify-center">
+                                  {item.icon}
                                 </div>
-                              ))}
-                            </div>
+                                <span className="leading-snug">{item.label}</span>
+                              </div>
+                            ))}
                           </div>
                         </div>
                       </div>
@@ -1062,57 +1049,57 @@ const AboutPage = () => {
 
         {/* Core Values Section */}
         <section className="py-20 bg-gradient-to-b from-[#f8f9fa] to-white dark:from-[#121517] dark:to-[#0c0e0f] border-b border-outline-variant/15 relative overflow-hidden">
-          {/* Subtle Decorative Elements */}
+          {/* Subtle Decorative Background Elements */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-primary/2 dark:bg-primary-fixed-dim/1 rounded-full blur-[100px]" />
+            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#002a58]/3 dark:bg-[#a9c7ff]/3 rounded-full blur-[120px]" />
+            <div className="absolute top-1/3 left-10 w-60 h-60 bg-blue-500/3 rounded-full blur-[90px]" />
           </div>
 
           <div className="max-w-[1280px] mx-auto px-gutter relative z-10">
             {/* Section Header */}
-            <div className="relative text-center max-w-2xl mx-auto mb-12" data-animate="fade-up">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/60 text-[9px] font-bold uppercase tracking-widest text-primary dark:text-primary-fixed-dim mb-3 shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary dark:bg-primary-fixed-dim animate-pulse" />
+            <div className="relative text-center max-w-2xl mx-auto mb-14" data-animate="fade-up">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white dark:bg-[#121517] border border-slate-200/80 dark:border-slate-800/80 text-[9.5px] font-extrabold uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff] mb-3 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#002a58] dark:bg-[#a9c7ff] animate-pulse" />
                 Our Foundation
               </div>
-              <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary dark:text-white mt-1.5 font-black tracking-tight uppercase leading-snug">
+              <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#002a58] dark:text-white mt-1.5 font-black tracking-tight uppercase leading-snug">
                 OUR CORE VALUES
               </h2>
-              <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 dark:from-primary-fixed-dim dark:to-white mx-auto mt-4 rounded-full shadow-sm" />
+              <div className="w-16 h-1 bg-gradient-to-r from-[#002a58] via-blue-600 to-[#a9c7ff] dark:from-[#a9c7ff] dark:to-white mx-auto mt-4 rounded-full shadow-xs" />
             </div>
 
-            {/* Compact Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Staggered Scroll-Animated Grid */}
+            <div data-animate="stagger-up" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {valuesList.map((item) => (
                 <div
                   key={item.num}
-                  className="group relative flex flex-col items-start text-left p-5 rounded-2xl bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/40 shadow-sm hover:shadow-xl hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
-                  data-animate="fade-up"
+                  className="group relative flex flex-col items-start text-left p-6 rounded-2xl bg-white dark:bg-[#121517] border border-slate-200/80 dark:border-slate-800/60 shadow-xs hover:shadow-xl hover:-translate-y-1.5 hover:border-[#002a58]/40 dark:hover:border-[#a9c7ff]/40 transition-all duration-500 ease-out overflow-hidden"
                 >
-                  {/* Dynamic top highlight indicator line */}
-                  <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-primary to-blue-500 dark:from-primary-fixed-dim dark:to-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  {/* Dynamic Top Highlight Indicator Line */}
+                  <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-[#002a58] via-blue-600 to-[#a9c7ff] dark:from-[#a9c7ff] dark:to-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
                   {/* Watermark Number: Small & Subtle Outline */}
-                  <span className="absolute top-4 right-5 text-2xl font-black text-slate-100 dark:text-slate-900/15 group-hover:text-primary dark:group-hover:text-primary select-none pointer-events-none transition-colors duration-300 font-mono tracking-tighter">
+                  <span className="absolute top-4 right-5 text-3xl font-black text-slate-100 dark:text-slate-800/40 group-hover:text-[#002a58]/20 dark:group-hover:text-[#a9c7ff]/30 group-hover:scale-110 transition-all duration-300 font-mono tracking-tighter pointer-events-none select-none">
                     {item.num}
                   </span>
 
                   {/* Flex Header with Icon and Title */}
-                  <div className="flex items-center gap-3.5 mb-3.5 pr-8">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-primary/5 dark:bg-primary-fixed-dim/10 border border-slate-200/40 dark:border-slate-800/60 text-primary dark:text-primary-fixed-dim group-hover:bg-primary group-hover:text-white dark:group-hover:bg-primary-fixed-dim dark:group-hover:text-primary transition-all duration-300 shadow-sm">
+                  <div className="flex items-center gap-3.5 mb-4 pr-8">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-[#002a58]/8 dark:bg-[#a9c7ff]/12 border border-slate-200/50 dark:border-slate-800/80 text-[#002a58] dark:text-[#a9c7ff] group-hover:bg-[#002a58] group-hover:text-white dark:group-hover:bg-[#a9c7ff] dark:group-hover:text-[#002a58] group-hover:rotate-6 transition-all duration-300 shadow-xs shrink-0">
                       {item.icon}
                     </div>
                     <div>
-                      <span className="block text-[8px] tracking-widest font-extrabold text-slate-400 dark:text-slate-500 uppercase">
+                      <span className="block text-[8.5px] tracking-widest font-extrabold text-slate-400 dark:text-slate-500 uppercase">
                         {item.tag}
                       </span>
-                      <h3 className="text-base font-bold text-slate-800 dark:text-white group-hover:text-primary dark:group-hover:text-primary-fixed-dim transition-colors duration-300 leading-tight">
+                      <h3 className="text-base sm:text-[17px] font-bold text-slate-800 dark:text-white group-hover:text-[#002a58] dark:group-hover:text-[#a9c7ff] transition-colors duration-300 leading-tight mt-0.5">
                         {item.title}
                       </h3>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -1121,11 +1108,12 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Core Pillars Section */}
-        <AboutCoreValues />
-        {/* Our Leadership Team Section */}
+  {/* Our Leadership Team Section */}
         <AboutLeadership />
         <AboutCoreTeam />
+        {/* Core Pillars Section */}
+        <AboutCoreValues />
+      
         {/* Footprints & Highlights Section */}
         <section id="footprints" className="py-20 bg-gradient-to-b from-white to-[#f8f9fa] dark:from-[#0c0e0f] dark:to-[#080b0c] border-b border-outline-variant/20 overflow-hidden">
 
@@ -1137,7 +1125,7 @@ const AboutPage = () => {
                 National Presence
               </span> */}
               <h2 className="font-headline-lg text-3xl md:text-4xl text-[#002a58] dark:text-white mt-2 font-bold">
-                Key Highlights
+               Our Key Highlights
               </h2>
               <div className="w-16 h-1 bg-[#002a58] dark:bg-[#a9c7ff] mx-auto mt-4 rounded-full" />
             </div>
@@ -1273,7 +1261,7 @@ const AboutPage = () => {
                 {/* State list cards selector */}
                 <div className="bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/40 p-5 rounded-2xl shadow-sm">
                   <h3 className="font-semibold text-lg text-slate-800 dark:text-white mb-4">
-                  Nationwide Presence
+                    Nationwide Presence
                   </h3>
                   <div className="flex flex-wrap gap-2 max-h-[220px] overflow-y-auto pr-1">
                     {activeStatesList.map((state) => {
