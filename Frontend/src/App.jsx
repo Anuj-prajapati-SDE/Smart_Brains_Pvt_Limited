@@ -153,7 +153,7 @@ function App() {
         <Route path="/staffing" element={<StaffingPage />} />
         <Route path="/csr" element={<CSRPage />} />
         <Route path="/earthworks" element={<EarthworksPage />} />
-        <Route path="/agritech" element={<AgriTechPage />} />
+        <Route path="/agritech-hydroponices" element={<AgriTechPage />} />
         <Route path="/vocational-labs" element={<VocationalLabsPage />} />
 
         {/* Projects Dropdown Routes */}

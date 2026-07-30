@@ -141,7 +141,7 @@ const Navbar = () => {
     { name: <>Staffing</>, path: "/staffing" },
     { name: <>IT & ITES</>, path: "/it-services" },
     { name: <>Vocational Labs</>, path: "/vocational-labs" },
-    { name: <>AgriTech Solutions</>, path: "/agritech" },
+    { name: <>AgriTech Solutions</>, path: "/agritech-hydroponices" },
     { name: <>CSR</>, path: "/csr" },
     { name: <>EPC Oil, Gas & Energy</>, path: "/epc-oil-gas-energy" },
     // { name: <>STEAM</>, path: "/steam" },

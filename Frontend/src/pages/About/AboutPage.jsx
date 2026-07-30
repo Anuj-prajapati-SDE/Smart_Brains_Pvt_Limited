@@ -9,6 +9,7 @@ import AboutCoreTeam from "./components/AboutCoreTeam";
 // import WaterMark from  '../../assets/fabicon.png';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SkillingSlider from "../Skilling/SkillingSlider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -992,9 +993,9 @@ const AboutPage = () => {
                               <h4 className="text-xs sm:text-[13.5px] font-extrabold uppercase tracking-wider text-[#002a58] dark:text-white leading-snug truncate">
                                 {div.title}
                               </h4>
-                              <span className="text-[10.5px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-0.5 block">
+                              {/* <span className="text-[10.5px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-0.5 block">
                                 {div.items.length} Core Services
-                              </span>
+                              </span> */}
                             </div>
                           </div>
 
@@ -1111,6 +1112,7 @@ const AboutPage = () => {
   {/* Our Leadership Team Section */}
         <AboutLeadership />
         <AboutCoreTeam />
+        <SkillingSlider/>
         {/* Core Pillars Section */}
         <AboutCoreValues />
       

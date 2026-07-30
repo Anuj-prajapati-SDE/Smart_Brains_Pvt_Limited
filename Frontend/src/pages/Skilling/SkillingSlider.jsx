@@ -62,12 +62,12 @@ const SkillingSlider = () => {
         <div className="w-16 h-1 bg-gradient-to-r from-[#002a58] via-blue-500 to-[#a9c7ff] mx-auto mt-3 rounded-full" />
       </div>
 
-      {/* Top Right Controls & Active Category Bar */}
-      <div className="flex items-center justify-end border-b border-slate-200/80 dark:border-slate-800/80 pb-3 mb-6 w-full">
-        {/* Right Side Buttons to Switch Images */}
-        <div className="flex items-center justify-end shrink-0 w-full">
+      {/* Top Left Controls & Active Category Bar */}
+      <div className="flex items-center justify-start border-b border-slate-200/80 dark:border-slate-800/80 pb-3 mb-6 w-full">
+        {/* Left Side Buttons to Switch Images */}
+        <div className="flex items-center justify-start shrink-0 w-full">
           {/* Category Buttons */}
-          <div className="flex flex-wrap gap-4 sm:gap-6 justify-end w-full">
+          <div className="flex flex-wrap gap-4 sm:gap-6 justify-start w-full">
             {partnersData.map((item, index) => {
               const isActive = activePartner === index
               return (

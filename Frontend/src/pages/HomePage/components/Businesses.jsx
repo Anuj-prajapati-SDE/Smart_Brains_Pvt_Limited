@@ -16,7 +16,7 @@ const getBusinessRoute = (name) => {
     case "STEM Education":
       return "/steam";
     case "AgriTech & Hydroponics":
-      return "/agritech";
+      return "/agritech-hydroponices";
     case "EPC & Earthworks":
       return "/epc-oil-gas-energy";
     default:
@@ -28,8 +28,8 @@ const businessesData = [
    {
     name: "Skilling Projects",
     subVerticals: ["NSDC Funded Partner", "100+ Skill Developement Project", "1.5+ Lakhs Trained Candidates", "40+ Training Centers", ],
-    bgImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=500&auto=format&fit=crop",
-    largeImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1000&auto=format&fit=crop",
+    bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785414828/WhatsApp_Image_2026-07-30_at_6.03.12_PM_cuzklq.jpg",
+    largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785414828/WhatsApp_Image_2026-07-30_at_6.03.12_PM_cuzklq.jpg",
     companyName: "SmartBrains Green Energy & Power Ltd.",
     companyCode: "SBGREEN",
     companyDesc: "Pioneering sustainable power solutions through solar grids, wind turbine installations, and utility water purification.",
@@ -92,7 +92,7 @@ const businessesData = [
     shareChange: "+1.20%"
   },
    {
-    name: "AgriTech  & Hydroponics",
+    name: "AgriTech & Hydroponics",
     subVerticals: ["Green House - NVPH ", "CCPH", "Glass House", "Cold Room", "Speed Breeding", "HDPE Equippment Manufacturer", "Buy Back"],
     bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785357975/WhatsApp_Image_2026-07-29_at_8.13.15_PM_uxmcc7.jpg",
     largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785357975/WhatsApp_Image_2026-07-29_at_8.13.15_PM_uxmcc7.jpg",
@@ -105,8 +105,8 @@ const businessesData = [
   {
     name: "EPC & Earthworks",
     subVerticals: ["Design & Detailed Engineering", "Procurement ", "Manufacturing", "Fabrication ", "Civil & Earthworks", "Piling & Foundation", "Structural Works ", "Mechanical Installation"],
-    bgImage: "https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?q=80&w=500&auto=format&fit=crop",
-    largeImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop",
+    bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785414905/WhatsApp_Image_2026-07-30_at_6.04.22_PM_zssj2z.jpg",
+    largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785414905/WhatsApp_Image_2026-07-30_at_6.04.22_PM_zssj2z.jpg",
     companyName: "SmartBrains Infrastructure Developers Ltd.",
     companyCode: "SBINFRA",
     companyDesc: "Developing world-class transport nodes, national defense systems, and high-performance secure data storage facilities.",

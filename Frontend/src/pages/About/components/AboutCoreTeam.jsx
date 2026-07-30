@@ -31,7 +31,7 @@ const coreTeam = [
   },
   {
     id: 5,
-    name: "Satmanyu",
+    name: "Saptmanyu",
     role: "CFO",
     dept: "accounts",
     image: "https://images.unsplash.com/photo-1495603889488-42d1d66e5523?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&w=400",
