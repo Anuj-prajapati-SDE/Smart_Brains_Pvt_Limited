@@ -186,9 +186,7 @@ const skillDevelopmentProjects = [
   { id: 13, image: Skill_Development_13, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
   { id: 14, image: Skill_Development_14, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
   { id: 15, image: Skill_Development_15, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
-  { id: 16, image: Skill_Development_16, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
-  { id: 17, image: Skill_Development_17, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
-  { id: 18, image: Skill_Development_18, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
+  { id: 16, image: Skill_Development_16, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" }
 ];
 
 const CsrCard = ({ proj }) => {
