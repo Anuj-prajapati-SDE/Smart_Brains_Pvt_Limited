@@ -7,8 +7,17 @@ import APSSDC_Logo from '../../assets/images/SkillingPage/s1.png'
 import NTPC_Logo from '../../assets/images/SkillingPage/s2.png'
 import Powergrid_Logo from '../../assets/images/SkillingPage/s3.png'
 import GAIL_Logo from '../../assets/images/SkillingPage/s4.png'
+import GAIL_Logo_2 from '../../assets/images/SkillingPage/s5.png'
+import GAIL_Logo_3 from '../../assets/images/SkillingPage/s6.png'
+import GAIL_Logo_4 from '../../assets/images/SkillingPage/s7.png'
+import GAIL_Logo_5 from '../../assets/images/SkillingPage/s8.png'
+import GAIL_Logo_6 from '../../assets/images/SkillingPage/s9.png'
+import GAIL_Logo_7 from '../../assets/images/SkillingPage/s10.png'
+import GAIL_Logo_8 from '../../assets/images/SkillingPage/s11.png'
+import GAIL_Logo_9 from '../../assets/images/SkillingPage/s12.png'
 
-{/*Import Smart Brains Skill Development Porject Sction images */}
+
+{/*Import Smart Brains Skill Development Porject Sction images */ }
 import Skill_Development_1 from '../../assets/images/SkillingPage/sd1.png'
 import Skill_Development_2 from '../../assets/images/SkillingPage/sd2.png'
 import Skill_Development_3 from '../../assets/images/SkillingPage/sd3.png'
@@ -17,14 +26,16 @@ import Skill_Development_5 from '../../assets/images/SkillingPage/sd5.png'
 import Skill_Development_6 from '../../assets/images/SkillingPage/sd6.png'
 import Skill_Development_7 from '../../assets/images/SkillingPage/sd7.png'
 import Skill_Development_8 from '../../assets/images/SkillingPage/sd8.png'
-import Skill_Development_9 from '../../assets/images/SkillingPage/sd8.png'
-import Skill_Development_10 from '../../assets/images/SkillingPage/sd8.png'
-import Skill_Development_11 from '../../assets/images/SkillingPage/sd8.png'
-import Skill_Development_12 from '../../assets/images/SkillingPage/sd8.png'
-import Skill_Development_13 from '../../assets/images/SkillingPage/sd8.png'
-import Skill_Development_14 from '../../assets/images/SkillingPage/sd8.png'
-import Skill_Development_15 from '../../assets/images/SkillingPage/sd8.png'
-import Skill_Development_16 from '../../assets/images/SkillingPage/sd8.png'
+import Skill_Development_9 from '../../assets/images/SkillingPage/sd9.png'
+import Skill_Development_10 from '../../assets/images/SkillingPage/sd10.png'
+import Skill_Development_11 from '../../assets/images/SkillingPage/sd11.png'
+import Skill_Development_12 from '../../assets/images/SkillingPage/sd12.png'
+import Skill_Development_13 from '../../assets/images/SkillingPage/sd13.png'
+import Skill_Development_14 from '../../assets/images/SkillingPage/sd14.png'
+import Skill_Development_15 from '../../assets/images/SkillingPage/sd15.png'
+import Skill_Development_16 from '../../assets/images/SkillingPage/sd16.png'
+
+
 
 import client_1 from '../../assets/images/our_clients/client_1.png'
 import client_2 from '../../assets/images/our_clients/client_2.png'
@@ -88,84 +99,98 @@ const csrProjectsData = [
   },
   {
 
-    image: GAIL_Logo, // Assign GAIL_Logo here once imported
+    image: GAIL_Logo_2, // Assign GAIL_Logo here once imported
     logoPlaceholderText: "GAIL",
     description: (
       <>
-        SmartBrains comes under the MoU with GAIL Limited for the execution of "Skilling and Employability Program" at their centre SDI - Raebareli in <strong className="font-semibold text-slate-800 dark:text-white">Nov 2023</strong>. A <strong className="font-semibold text-slate-800 dark:text-white">target of 1020 candidates</strong> has been awarded to SmartBrains for the of PIO | Industial Electrician | Pipe Fitter | Data Entry Operator | Industrial Welder domain trainig. Its a residential Project along with food.
+        SmartBrains collaboration with Nasscom Foundation was taken place on Aug 2024.
+
+        The donor name was "GEN" which is consortium of all Anti-viruses.
+
+        Under the program 100+ EWS Female candidates were trained and Placed.
+
+        This project took place at Warangal in Sep - Dec 2024.
       </>
     )
   },
   {
 
-    image: GAIL_Logo, // Assign GAIL_Logo here once imported
+    image: GAIL_Logo_3, // Assign GAIL_Logo here once imported
     logoPlaceholderText: "GAIL",
     description: (
       <>
-        SmartBrains comes under the MoU with GAIL Limited for the execution of "Skilling and Employability Program" at their centre SDI - Raebareli in <strong className="font-semibold text-slate-800 dark:text-white">Nov 2023</strong>. A <strong className="font-semibold text-slate-800 dark:text-white">target of 1020 candidates</strong> has been awarded to SmartBrains for the of PIO | Industial Electrician | Pipe Fitter | Data Entry Operator | Industrial Welder domain trainig. Its a residential Project along with food.
+        SmartBrains signs MoU with Nasscom Foundation on Aug 2024 for effective utilization of HDFC Parivartan fund under Skilling and Employability of 450 candidates in BFSI & D.A.
+
+        This program is still under-going in 2 States and majorly it covers Noida and Delhi.
       </>
     )
   },
   {
 
-    image: GAIL_Logo, // Assign GAIL_Logo here once imported
+    image: GAIL_Logo_4, // Assign GAIL_Logo here once imported
     logoPlaceholderText: "GAIL",
     description: (
       <>
-        SmartBrains comes under the MoU with GAIL Limited for the execution of "Skilling and Employability Program" at their centre SDI - Raebareli in <strong className="font-semibold text-slate-800 dark:text-white">Nov 2023</strong>. A <strong className="font-semibold text-slate-800 dark:text-white">target of 1020 candidates</strong> has been awarded to SmartBrains for the of PIO | Industial Electrician | Pipe Fitter | Data Entry Operator | Industrial Welder domain trainig. Its a residential Project along with food.
+        martBrains signs MoU with Nasscom Foundation on Sep 2024 for effective utilization of Accenture fund under Skilling and Employability of 800 candidates in Cyber Security.
+
+        This program is still under-going in 2 States and majorly it covers Banglore [KA].
       </>
     )
   },
   {
 
-    image: GAIL_Logo, // Assign GAIL_Logo here once imported
+    image: GAIL_Logo_5, // Assign GAIL_Logo here once imported
     logoPlaceholderText: "GAIL",
     description: (
       <>
-        SmartBrains comes under the MoU with GAIL Limited for the execution of "Skilling and Employability Program" at their centre SDI - Raebareli in <strong className="font-semibold text-slate-800 dark:text-white">Nov 2023</strong>. A <strong className="font-semibold text-slate-800 dark:text-white">target of 1020 candidates</strong> has been awarded to SmartBrains for the of PIO | Industial Electrician | Pipe Fitter | Data Entry Operator | Industrial Welder domain trainig. Its a residential Project along with food.
+        Skill and Employability training for un-employed youth - CSR Project
+
+        SmartBrains receives the Work-order from Generation India Foundation in March 2025.
+
+        The major objective is to provide skill training and employability to 240 candidates at Jharkhand and Himachal Pradesh.
       </>
     )
   },
   {
 
-    image: GAIL_Logo, // Assign GAIL_Logo here once imported
+    image: GAIL_Logo_6, // Assign GAIL_Logo here once imported
     logoPlaceholderText: "GAIL",
     description: (
       <>
-        SmartBrains comes under the MoU with GAIL Limited for the execution of "Skilling and Employability Program" at their centre SDI - Raebareli in <strong className="font-semibold text-slate-800 dark:text-white">Nov 2023</strong>. A <strong className="font-semibold text-slate-800 dark:text-white">target of 1020 candidates</strong> has been awarded to SmartBrains for the of PIO | Industial Electrician | Pipe Fitter | Data Entry Operator | Industrial Welder domain trainig. Its a residential Project along with food.
+        In our pursuit of sustainable livelihoods, SmartBrains collaborates with SEEDAP to provide Skill and Employability training to un-employed youth of A.P under Udaan Program.Under this project, SmartBrains had set-up a high-end Lab for skilling and real-time project implementation
       </>
     )
   },
   {
 
-    image: GAIL_Logo, // Assign GAIL_Logo here once imported
+    image: GAIL_Logo_7, // Assign GAIL_Logo here once imported
     logoPlaceholderText: "GAIL",
     description: (
       <>
-        SmartBrains comes under the MoU with GAIL Limited for the execution of "Skilling and Employability Program" at their centre SDI - Raebareli in <strong className="font-semibold text-slate-800 dark:text-white">Nov 2023</strong>. A <strong className="font-semibold text-slate-800 dark:text-white">target of 1020 candidates</strong> has been awarded to SmartBrains for the of PIO | Industial Electrician | Pipe Fitter | Data Entry Operator | Industrial Welder domain trainig. Its a residential Project along with food.
+        SmartBrains collaboration with IL&FS, for imparting Placement Linked Vocational Skill Development Program at Guna (M.P) in July 2015. The purpose of this training is to provide employability in Oil and Gas Sector, the Job role was Instrumentation Technician for ITI Passouts, Diploma Passout and Three Year Engineering Diploma Holders
       </>
     )
   },
   {
 
-    image: GAIL_Logo, // Assign GAIL_Logo here once imported
+    image: GAIL_Logo_8, // Assign GAIL_Logo here once imported
     logoPlaceholderText: "GAIL",
     description: (
       <>
-        SmartBrains comes under the MoU with GAIL Limited for the execution of "Skilling and Employability Program" at their centre SDI - Raebareli in <strong className="font-semibold text-slate-800 dark:text-white">Nov 2023</strong>. A <strong className="font-semibold text-slate-800 dark:text-white">target of 1020 candidates</strong> has been awarded to SmartBrains for the of PIO | Industial Electrician | Pipe Fitter | Data Entry Operator | Industrial Welder domain trainig. Its a residential Project along with food.
+        SmartBrains stands proudly as the torchbearer of skills development in SDI - Vizag, a Not for Profit Society formed by major Government of India Public Sector Oil Companies under Ministry of Petroleum & Natural Gas for their CSR projects since Aug 2016. For employability and vocational training SmartBrains comes under MoU for quality and On-time delivery of project.
       </>
     )
   },
   {
 
-    image: GAIL_Logo, // Assign GAIL_Logo here once imported
+    image: GAIL_Logo_9, // Assign GAIL_Logo here once imported
     logoPlaceholderText: "GAIL",
     description: (
       <>
-        SmartBrains comes under the MoU with GAIL Limited for the execution of "Skilling and Employability Program" at their centre SDI - Raebareli in <strong className="font-semibold text-slate-800 dark:text-white">Nov 2023</strong>. A <strong className="font-semibold text-slate-800 dark:text-white">target of 1020 candidates</strong> has been awarded to SmartBrains for the of PIO | Industial Electrician | Pipe Fitter | Data Entry Operator | Industrial Welder domain trainig. Its a residential Project along with food.
+        SmartBrains teams up with NEEPCO in June 2017, as "Approved Training Partner" for execution of its program for the un-employed youth of Assam and Tripura.SmartBrains successfully completed training and placement of 280 youth who had completed their training in the domain of Consumer Energy Technician.
       </>
     )
-  }
+  },
 ];
 
 // Data structure for the 8 Skill Development Projects.
@@ -186,7 +211,7 @@ const skillDevelopmentProjects = [
   { id: 13, image: Skill_Development_13, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
   { id: 14, image: Skill_Development_14, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
   { id: 15, image: Skill_Development_15, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
-  { id: 16, image: Skill_Development_16, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" }
+  { id: 16, image: Skill_Development_16, placeholder: "DDU-GKY UP 2022", alt: "DDU-GKY UP 2022" },
 ];
 
 const CsrCard = ({ proj }) => {
@@ -299,12 +324,12 @@ const SkillingPage = () => {
         </div>
       </section>
 
-     {/* Skilling Slider Section */}
-   
+      {/* Skilling Slider Section */}
+
       <section className="py-16  sm:py-20 max-w-[1280px] mx-auto px-gutter relative overflow-hidden border-t border-slate-200/50 dark:border-slate-800/40">
         {/* Background Decorative Pattern */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.02] dark:opacity-[0.03] bg-[radial-gradient(#002a58_1px,transparent_1px)] [background-size:24px_24px]" />
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           {/* Left Column: Text Content & Stats */}
           <div className="lg:col-span-7 flex flex-col justify-center" data-animate="fade-up">
@@ -315,7 +340,7 @@ const SkillingPage = () => {
               Empowering India's Youth Through Skills
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-[#002a58] to-blue-500 dark:from-[#a9c7ff] dark:to-white mb-6 rounded-full" />
-            
+
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 font-light leading-relaxed mb-8 text-justify">
               Smart Brains bridges the gap between education and industry. In collaboration with state skill missions, sector councils, and premier corporate partners, we deliver high-impact, placement-linked vocational training to empower youth nationwide.
             </p>
@@ -415,7 +440,7 @@ const SkillingPage = () => {
         </div>
       </section>
       {/*Our Associations & Partnerships  Slider*/}
-  <SkillingSlider />
+      <SkillingSlider />
       {/* Smart Brains Skill Development Porject Section */}
       <section className="py-12 max-w-[1280px] mx-auto px-gutter relative overflow-hidden border-t border-slate-200/50 dark:border-slate-800/40">
         {/* Section Header */}
@@ -437,14 +462,14 @@ const SkillingPage = () => {
           data-animate="stagger-up"
         >
           {skillDevelopmentProjects.map((proj) => (
-            <div 
+            <div
               key={proj.id}
               className="snap-start snap-always bg-white dark:bg-[#121517]/40 border border-slate-100 dark:border-slate-800/40 rounded-xl p-5 flex flex-col justify-center items-center shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group relative overflow-hidden aspect-[1.6/1]"
             >
               <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
                 {proj.image ? (
-                  <img 
-                    src={proj.image} 
+                  <img
+                    src={proj.image}
                     alt={proj.alt}
                     className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
                   />
@@ -491,7 +516,7 @@ const SkillingPage = () => {
         </div>
       </section>
 
-      
+
       {/* Major CSR Projects Section */}
       <section className="py-10 max-w-[1280px] mx-auto px-gutter relative overflow-hidden border-t border-slate-200/50 dark:border-slate-800/40">
         {/* Decorative elements */}
@@ -503,7 +528,7 @@ const SkillingPage = () => {
             Corporate Social Responsibility
           </span>
           <h2 className="text-3xl md:text-4xl text-[#002a58] dark:text-white mt-4 font-black tracking-tight leading-tight uppercase">
-          OUR Major CSR Projects
+            OUR Major CSR Projects
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#002a58] to-blue-500 dark:from-[#a9c7ff] dark:to-white mx-auto mt-3 rounded-full" />
         </div>
@@ -554,11 +579,11 @@ const SkillingPage = () => {
         </div>
       </section>
 
-        {/* Major Clients Section */}
-            <section className="py-24 bg-surface-container-low relative overflow-hidden">
-              {/* Inline Styles for Animation */}
-              <style>
-                {`
+      {/* Major Clients Section */}
+      <section className="py-24 bg-surface-container-low relative overflow-hidden">
+        {/* Inline Styles for Animation */}
+        <style>
+          {`
               @keyframes scrollLeft {
                 0% { transform: translateX(0); }
                 100% { transform: translateX(-50%); }
@@ -580,70 +605,70 @@ const SkillingPage = () => {
                 animation-play-state: paused;
               }
             `}
-              </style>
-      
-              {/* Decorative background blurs */}
-              <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/5 rounded-full blur-[80px] -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
-              <div className="absolute top-1/2 right-0 w-72 h-72 bg-primary/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-      
-              <div className="max-w-[1280px] mx-auto px-gutter mb-16 relative z-10">
-                <div className="text-center">
-                  <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase mb-4 border border-primary/20">
-                    Trusted Worldwide
-                  </span>
-                  <h2 className="text-4xl md:text-5xl font-headline-lg text-on-surface leading-tight font-bold text-primary">
-                    Our Major <span className="text-primary font-extrabold">Clients</span>
-                  </h2>
-                </div>
+        </style>
+
+        {/* Decorative background blurs */}
+        <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/5 rounded-full blur-[80px] -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+        <div className="absolute top-1/2 right-0 w-72 h-72 bg-primary/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+
+        <div className="max-w-[1280px] mx-auto px-gutter mb-16 relative z-10">
+          <div className="text-center">
+            <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase mb-4 border border-primary/20">
+              Trusted Worldwide
+            </span>
+            <h2 className="text-4xl md:text-5xl font-headline-lg text-on-surface leading-tight font-bold text-primary">
+              Our Major <span className="text-primary font-extrabold">Clients</span>
+            </h2>
+          </div>
+        </div>
+
+        {/* Sliders Container */}
+        <div className="relative w-full flex flex-col gap-6 pause-on-hover z-10">
+
+          {/* Fade Edges for the marquee effect */}
+          <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-surface-container-low to-transparent z-20 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-surface-container-low to-transparent z-20 pointer-events-none"></div>
+
+          {/* Row 1 - Left Scrolling */}
+          <div className="flex w-max animate-scroll-left gap-6 px-4">
+            {[...Array(2)].map((_, i) => (
+              <div key={`row1-${i}`} className="flex gap-6 items-center">
+                {[
+                  { name: "BHUTANI", img: client_1 },
+                  { name: "KRISUMI", img: client_2 },
+                  { name: "ELAN", img: client_3 },
+                  { name: "TATA", img: client_4 },
+                  { name: "M3M", img: client_5 },
+                  { name: "DLF", img: client_6 },
+                  { name: "GODREJ", img: client_7 },
+                  { name: "L&T", img: client_8 },
+                  { name: "AMBUJA", img: client_9 },
+                  { name: "RELIANCE", img: client_10 },
+                  { name: "ADANI", img: client_11 },
+                  { name: "MAHINDRA", img: client_12 },
+                  { name: "WIPRO", img: client_13 },
+                  { name: "HDFC", img: client_14 },
+                  { name: "INFOSYS", img: client_15 },
+                  { name: "TCS", img: client_16 },
+                  { name: "ITC", img: client_17 },
+                  { name: "HCL", img: client_18 },
+                ].map((client, j) => (
+                  <div key={j} className="flex items-center justify-center w-[200px] h-[90px] bg-white rounded-2xl shadow-sm border border-outline-variant/40 hover:border-primary/50 hover:shadow-md transition-all duration-300 cursor-pointer group p-4">
+                    <img
+                      src={client.img}
+                      alt={client.name}
+                      className="w-full h-full object-contain "
+                    />
+                  </div>
+                ))}
               </div>
-      
-              {/* Sliders Container */}
-              <div className="relative w-full flex flex-col gap-6 pause-on-hover z-10">
-      
-                {/* Fade Edges for the marquee effect */}
-                <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-surface-container-low to-transparent z-20 pointer-events-none"></div>
-                <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-surface-container-low to-transparent z-20 pointer-events-none"></div>
-      
-                {/* Row 1 - Left Scrolling */}
-                <div className="flex w-max animate-scroll-left gap-6 px-4">
-                  {[...Array(2)].map((_, i) => (
-                    <div key={`row1-${i}`} className="flex gap-6 items-center">
-                      {[
-                        { name: "BHUTANI", img: client_1 },
-                        { name: "KRISUMI", img: client_2 },
-                        { name: "ELAN", img: client_3 },
-                        { name: "TATA", img: client_4 },
-                        { name: "M3M", img: client_5 },
-                        { name: "DLF", img: client_6 },
-                        { name: "GODREJ", img: client_7 },
-                        { name: "L&T", img: client_8 },
-                        { name: "AMBUJA", img: client_9 },
-                        { name: "RELIANCE", img: client_10 },
-                        { name: "ADANI", img: client_11 },
-                        { name: "MAHINDRA", img: client_12 },
-                        { name: "WIPRO", img: client_13 },
-                        { name: "HDFC", img: client_14 },
-                        { name: "INFOSYS", img: client_15 },
-                        { name: "TCS", img: client_16 },
-                        { name: "ITC", img: client_17 },
-                        { name: "HCL", img: client_18 },
-                      ].map((client, j) => (
-                        <div key={j} className="flex items-center justify-center w-[200px] h-[90px] bg-white rounded-2xl shadow-sm border border-outline-variant/40 hover:border-primary/50 hover:shadow-md transition-all duration-300 cursor-pointer group p-4">
-                          <img
-                            src={client.img}
-                            alt={client.name}
-                            className="w-full h-full object-contain "
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Connect With Us Section */}
       <section className="pb-10 max-w-[1280px] mx-auto px-gutter relative overflow-hidden">
-        <div 
+        <div
           className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#002a58] via-[#004080] to-blue-900 text-white p-8 md:p-12 shadow-2xl flex flex-col items-center text-center gap-8"
           data-animate="fade-up"
         >
@@ -663,19 +688,19 @@ const SkillingPage = () => {
 
           {/* Buttons CTA */}
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center items-center relative z-10">
-            <Link 
-              to="/contact-us" 
+            <Link
+              to="/contact-us"
               className="inline-flex justify-center items-center px-6 py-3.5 bg-white text-primary hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg text-center w-full sm:w-auto"
             >
               Contact Us Now
             </Link>
-           
+
           </div>
         </div>
       </section>
-    
 
-      
+
+
     </main>
   )
 }
