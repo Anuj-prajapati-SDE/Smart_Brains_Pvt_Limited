@@ -21,26 +21,26 @@ const ContactUs = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   // FAQ state
-  const [activeFaq, setActiveFaq] = useState(null);
+  // const [activeFaq, setActiveFaq] = useState(null);
 
-  const faqItems = [
-    {
-      question: "What industries does SmartBrains serve?",
-      answer: "SmartBrains is a diversified conglomerate working across S.T.E.A.M. Education & Vocational Training, Civil Infrastructure & Engineering Services, IT Services & Cloud Infrastructure, Manpower Staffing, and CSR Project implementation."
-    },
-    {
-      question: "How do I apply for career opportunities at SmartBrains?",
-      answer: "You can send your resume directly to our HR department via email at hr@smartbrains.in, or fill out the contact form specifying 'Careers & HR' in the inquiry topic. Our recruiting team will review your profile against active positions."
-    },
-    {
-      question: "Are your S.T.E.A.M. education labs aligned with school curricula?",
-      answer: "Yes, our S.T.E.A.M. programs, experiential learning modules, and hands-on laboratory kits are designed in strict alignment with CBSE, ICSE, and state boards, integrated with NEP 2020 guidelines."
-    },
-    {
-      question: "Can we request custom civil engineering consultancy?",
-      answer: "Absolutely. We provide engineering consultancy, earthwork coordination, civil project staffing, and industrial plant logistics. Reach out through our contact form with details about your site parameters and objectives."
-    }
-  ];
+  // const faqItems = [
+  //   {
+  //     question: "What industries does SmartBrains serve?",
+  //     answer: "SmartBrains is a diversified conglomerate working across S.T.E.A.M. Education & Vocational Training, Civil Infrastructure & Engineering Services, IT Services & Cloud Infrastructure, Manpower Staffing, and CSR Project implementation."
+  //   },
+  //   {
+  //     question: "How do I apply for career opportunities at SmartBrains?",
+  //     answer: "You can send your resume directly to our HR department via email at hr@smartbrains.in, or fill out the contact form specifying 'Careers & HR' in the inquiry topic. Our recruiting team will review your profile against active positions."
+  //   },
+  //   {
+  //     question: "Are your S.T.E.A.M. education labs aligned with school curricula?",
+  //     answer: "Yes, our S.T.E.A.M. programs, experiential learning modules, and hands-on laboratory kits are designed in strict alignment with CBSE, ICSE, and state boards, integrated with NEP 2020 guidelines."
+  //   },
+  //   {
+  //     question: "Can we request custom civil engineering consultancy?",
+  //     answer: "Absolutely. We provide engineering consultancy, earthwork coordination, civil project staffing, and industrial plant logistics. Reach out through our contact form with details about your site parameters and objectives."
+  //   }
+  // ];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -256,12 +256,12 @@ const ContactUs = () => {
                     </div>
                     <div className="space-y-1.5">
                       <h4 className="font-bold text-slate-800 dark:text-white text-xs uppercase tracking-wider">
-                        Email &amp; Phone Inquiries
+                       Contact Us
                       </h4>
                       <div className="text-sm text-slate-600 dark:text-slate-300">
-                        <span className="block font-medium">General: <a href="mailto:info@smartbrains.in" className="text-[#002a58] dark:text-[#a9c7ff] hover:underline">info@smartbrains.in</a></span>
-                        <span className="block font-medium">Careers: <a href="mailto:hr@smartbrains.in" className="text-[#002a58] dark:text-[#a9c7ff] hover:underline">hr@smartbrains.in</a></span>
-                        <span className="block mt-1 font-medium">Telephone: <a href="tel:+911204616600" className="text-slate-800 dark:text-white hover:underline">+91-120-4616600</a></span>
+                        <span className="block font-medium"><a href="mailto:info@smartbrains.in" className="text-[#002a58] dark:text-[#a9c7ff] hover:underline">info@smartbrains.in</a></span>
+                        <span className="block font-medium"><a href="mailto:hr@smartbrains.in" className="text-[#002a58] dark:text-[#a9c7ff] hover:underline">hr@smartbrains.in</a></span>
+                        <span className="block mt-1 font-medium"><a href="tel:+911204616600" className="text-slate-800 dark:text-white hover:underline">+91 9891108002</a></span>
                       </div>
                     </div>
                   </div>

@@ -227,7 +227,7 @@ const Businesses = () => {
 
   return (
     <section
-      className="max-w-[1280px] mx-auto px-gutter bg-surface scroll-mt-10"
+      className="max-w-[1280px] mx-auto px-gutter bg-surface scroll-mt-10 mb-20"
       id='business'
     >
 

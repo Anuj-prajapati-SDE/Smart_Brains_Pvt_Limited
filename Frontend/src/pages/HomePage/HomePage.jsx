@@ -21,6 +21,7 @@ import client_16 from '../../assets/images/our_clients/client_16.png'
 import client_17 from '../../assets/images/our_clients/client_17.png'
 import client_18 from '../../assets/images/our_clients/client_18.png'
 import Why_choose_image from '../../assets/images/AboutImage/AboutImage_1.jpeg'
+import { Link } from 'react-router-dom'
 // import { Owner_1, Owner_2} from '../../assets/index';
 
 const ExpandableText = ({ text, limit = 120, className = "", isDarkBg = false }) => {
@@ -64,90 +65,8 @@ const HomePage = () => {
       {/* Conglomerate Businesses Grid Dashboard Section */}
       <Businesses />
 
-      {/* Service Cards Section (Bento Grid Style) */}
-      {/* <section className="max-w-[1280px] mx-auto py-xl px-gutter">
-        <div data-animate="fade-up" className="text-center mb-lg">
-          <h2 className="font-headline-lg text-headline-lg text-primary mb-sm">
-            Our Core Verticals
-          </h2>
-          <div className="h-1 w-20 bg-primary mx-auto" />
-        </div>
-        <div data-animate="stagger-up" className="grid grid-cols-1 md:grid-cols-12 gap-md h-auto md:h-[600px]">
- 
-          <div className="md:col-span-8 group relative overflow-hidden bg-white border border-outline-variant">
-            <img
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              data-alt="A focused high-tech laboratory setting where engineering students are interacting with advanced robotics and robotic arms. The room is bright with neutral tones and corporate blue accents. The lighting is clean and professional, highlighting the intricate mechanical details of the educational tools. The mood is innovative and collaborative, showcasing academic excellence in a modern facility."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNhzE9LnQVxBz8GFw6OdyWwEjkkN0EIaTzRoh1pwLRsApGU6Eebg_VFaywSUPwIGOn_SQzv0DeeiajdECT4rDbYv1IdtzMSVYrr-hyuIBlZECj5EA4SaUi7EBSRTKd0ufQL-L48YUPxaXOYVkxXHcEKvD3t0prkBw58OicnGrVyg_NsYhq13g5gytvFgwuSA9Dy_5AgsfMfqHzgYAqeRnEj6-rOSbCJpY9irCQwuWcngfPebfPnCWnagQzrUy0KPa87d7o9KYNIw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-lg text-on-primary">
-              <h3 className="font-headline-md text-headline-md mb-xs">
-                S.T.E.A.M. Education
-              </h3>
-              <p className="font-body-md text-body-md opacity-80 mb-md max-w-md">
-                Revolutionizing technical learning through industry-aligned
-                curriculum and hands-on laboratory experiences.
-              </p>
-              <button className="flex items-center font-bold text-label-sm tracking-widest uppercase group/btn">
-                Explore Curriculum{" "}
-                <span className="material-symbols-outlined ml-xs transition-transform group-hover/btn:translate-x-1">
-                  arrow_forward
-                </span>
-              </button>
-            </div>
-          </div>
-          <div className="md:col-span-4 group relative overflow-hidden bg-white border border-outline-variant">
-            <img
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              data-alt="A detailed architectural view of a high-rise construction framework against a clear blue sky. The focus is on the precision of the steel and concrete structures. The lighting is bright and crisp, highlighting the clean lines and industrial strength of the project. The aesthetic is modern and structured, reflecting professional construction services."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbj8EyKdbEkbdn_riAuhkQwiQmimJsavtrAH0qKSSHjO7IOg9dh-OdRP0R0ND2cyaZ06GePbCgHP6Lx0wDpP6Ou-3fxJi4TbQJpYE2N8_3MB7Y7AlJxwUIB4Nupuz4NA829-EkTr0oHtfpJwf_Yps84CbKb3PorG2hNHdUPf79ybw9RsQr64Nek7gD4MXT4-9l_bUGCEfZJNnplFoqOeYfgFJfzsr7uGWS4t2-l-Fi-j8yZDkrSNphxtjdxvC30BX_3RO_GywBDg"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-lg text-on-primary">
-              <h3 className="font-headline-md text-headline-md mb-xs">
-                Construction
-              </h3>
-              <p className="font-body-md text-body-md opacity-80 mb-md">
-                Turnkey infrastructure solutions delivered with engineering
-                precision.
-              </p>
-              <button className="flex items-center font-bold text-label-sm tracking-widest uppercase group/btn">
-                View Projects{" "}
-                <span className="material-symbols-outlined ml-xs transition-transform group-hover/btn:translate-x-1">
-                  arrow_forward
-                </span>
-              </button>
-            </div>
-          </div>
-          <div className="md:col-span-12 group relative overflow-hidden bg-white border border-outline-variant h-64 md:h-auto">
-            <img
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              data-alt="A professional group of diverse industrial engineers and technicians in a corporate boardroom setting, discussing blueprints and project schedules. The environment is high-end and corporate, with cool lighting and a focus on teamwork and leadership. The mood is confident and expert-driven, emphasizing the quality of human capital and manpower solutions."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHWsegsgX68iKsDzcjd3m2Yxlj7SjTkGi0KUn1KgauvhNvbK2IthtrXaS3MJUKVGWK3696NaK0sPfc7tohAFq435gQjrbaYK3VwVxD1rKz4sBFy2SeqsdIKjbKzAL58tgm_hJ8YfQU4u_3LIIgXU43vptxjd-_lE0LY9ROT5yMTjSZd7GM7wDZP98lqeuo940esE2s97PQ8E7dfUh8D51PtK_W8I6hf_iefYAb6ysp8MOFY7uKBJZ28vBVt9RpdXhpXAIMoTSiXA"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
-            <div className="absolute inset-y-0 left-0 p-lg text-on-primary flex flex-col justify-center max-w-xl">
-              <h3 className="font-headline-md text-headline-md mb-xs">
-                Manpower Solutions
-              </h3>
-              <p className="font-body-md text-body-md opacity-80 mb-md">
-                Connecting high-caliber technical talent with global industrial
-                giants for specialized project execution.
-              </p>
-              <button className="w-fit flex items-center font-bold text-label-sm tracking-widest uppercase group/btn">
-                Hire Talent{" "}
-                <span className="material-symbols-outlined ml-xs transition-transform group-hover/btn:translate-x-1">
-                  arrow_forward
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       {/* Why Choose Us Section - Clean Modern Corporate */}
-      <section className="bg-surface-container-low py-20 lg:py-28 overflow-hidden relative">
+      <section className="bg-surface-container-low py-20 lg:py-20 overflow-hidden relative">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
@@ -155,7 +74,7 @@ const HomePage = () => {
         <div className="max-w-[1280px] mx-auto px-gutter relative z-10">
 
           {/* Centered Header */}
-          <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
+          <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-16 lg:mb-10">
             <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase mb-4 border border-primary/20">
               Why Choose SmartBrains
             </span>
@@ -256,112 +175,135 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Leading with Empathy Section */}
-      <section className="bg-surface-container-low py-16 lg:py-16 overflow-hidden relative border-t border-b border-outline-variant/30">
-        {/* Decorative background blurs */}
-        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
-        <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+      {/* Leading with Empathy Section - Modern Classic Corporate */}
+      <section className="bg-slate-50 dark:bg-[#0c0e0f] py-20 lg:py-24 overflow-hidden relative border-t border-b border-slate-200/60 dark:border-white/5">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+        <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none opacity-[0.02] dark:opacity-[0.03] bg-[radial-gradient(#002a58_1px,transparent_1px)] [background-size:24px_24px]" />
 
         <div className="max-w-[1280px] mx-auto px-gutter relative z-10">
 
           {/* Centered Header */}
-          <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-8 lg:mb-10 ">
-            <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase mb-4 border border-primary/20">
-              Social Impact
+          <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-14">
+            <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 dark:bg-[#a9c7ff]/10 text-primary dark:text-[#a9c7ff] font-bold text-xs tracking-widest uppercase mb-4 border border-primary/20">
+              Social Impact &amp; Sustainability
             </span>
-            <h2 className="text-4xl md:text-5xl font-headline-lg text-primary mb-6 leading-tight">
-              Leading with <span className="text-primary bg-clip-text from-primary to-[#83aef5] font-bold">Empathy</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-black text-primary dark:text-white uppercase tracking-tight leading-tight font-serif">
+              Leading with <span className="text-primary dark:text-[#a9c7ff]">Empathy</span>
             </h2>
-            <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
+           
+            <div className="h-1 w-16 bg-primary dark:bg-[#a9c7ff] mx-auto mt-4 rounded-full" />
           </div>
 
-          {/* Grid of Cards */}
+          {/* 2x2 Grid of Split Cards */}
           <div data-animate="stagger-up" className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-            {/* Card 1: Progressing with Education */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-[1.5rem] border border-outline-variant/30 shadow-sm bg-white dark:bg-slate-900 group hover:shadow-md hover:border-primary/25 transition-all duration-300">
-              <div className="relative h-64 sm:h-auto overflow-hidden">
+            {/* Card 1: Education */}
+            <div className="grid grid-cols-1 sm:grid-cols-12 overflow-hidden rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-sm hover:shadow-xl hover:-translate-y-1 bg-primary text-white transition-all duration-300 group min-h-[260px]">
+              <div className="sm:col-span-5 relative h-52 sm:h-full overflow-hidden bg-slate-900">
                 <img
                   src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop"
-                  alt="Progressing with Education"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+                  alt="Advancing Education and Technology"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent sm:hidden" />
               </div>
-              <div className="bg-[#002a58] text-white p-8 flex flex-col justify-center">
-                <h3 className="text-xl font-headline-md font-bold mb-4">
-                  Advancing and Technology
-                </h3>
-                <ExpandableText
-                  text="SmartBrains plays a significant role in ensuring that every child, especially those from vulnerable communities, receives the opportunity to build a better future through education."
-                  limit={120}
-                  className="text-sm sm:text-body-md opacity-90 leading-relaxed font-body-md"
-                  isDarkBg={true}
-                />
+              <div className="sm:col-span-7 p-7 sm:p-8 flex flex-col justify-between bg-primary">
+                <div>
+                  <span className="inline-block px-2.5 py-1 bg-white/10 text-[#a9c7ff] rounded-md text-[10px] font-bold uppercase tracking-wider mb-3">
+                    Education &amp; Skilling
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-bold mb-3 leading-snug">
+                    Advancing Education &amp; Technology
+                  </h3>
+                  <ExpandableText
+                    text="SmartBrains plays a significant role in ensuring that every child, especially those from vulnerable communities, receives the opportunity to build a better future through education."
+                    limit={120}
+                    className="text-xs sm:text-sm opacity-90 leading-relaxed font-light"
+                    isDarkBg={true}
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Card 2: Model Villages */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-[1.5rem] border border-outline-variant/30 shadow-sm bg-white dark:bg-slate-900 group hover:shadow-md hover:border-primary/25 transition-all duration-300">
-              <div className="relative h-64 sm:h-auto overflow-hidden">
+            {/* Card 2: Model Vocational Labs */}
+            <div className="grid grid-cols-1 sm:grid-cols-12 overflow-hidden rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-sm hover:shadow-xl hover:-translate-y-1 bg-white dark:bg-[#121517] text-on-surface dark:text-white transition-all duration-300 group min-h-[260px]">
+              <div className="sm:col-span-5 relative h-52 sm:h-full overflow-hidden bg-slate-900">
                 <img
                   src="https://images.unsplash.com/photo-1508962914676-134849a727f0?q=80&w=600&auto=format&fit=crop"
-                  alt="Model Villages"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+                  alt="Model Vocational Labs and Training Centers"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <div className="bg-white dark:bg-[#111314] text-on-surface p-8 flex flex-col justify-center">
-                <h3 className="text-xl font-headline-md font-bold text-primary dark:text-[#a9c7ff] mb-4">
-                  Model Vocational Labs and Training Centers
-                </h3>
-                <ExpandableText
-                  text="We build sustainable villages, focusing on water, agriculture, health, education, community engagement, income generation, and entrepreneurship for a better society."
-                  limit={120}
-                  className="text-sm sm:text-body-md text-on-surface-variant dark:text-surface-variant opacity-90 leading-relaxed font-body-md"
-                  isDarkBg={false}
-                />
+              <div className="sm:col-span-7 p-7 sm:p-8 flex flex-col justify-between">
+                <div>
+                  <span className="inline-block px-2.5 py-1 bg-primary/10 dark:bg-[#a9c7ff]/10 text-primary dark:text-[#a9c7ff] rounded-md text-[10px] font-bold uppercase tracking-wider mb-3">
+                    Infrastructure &amp; Labs
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-bold text-primary dark:text-white mb-3 leading-snug">
+                    Model Vocational Labs &amp; Training Centers
+                  </h3>
+                  <ExpandableText
+                    text="We build sustainable villages, focusing on water, agriculture, health, education, community engagement, income generation, and entrepreneurship for a better society."
+                    limit={120}
+                    className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed"
+                    isDarkBg={false}
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Card 3: Empowering Youth */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-[1.5rem] border border-outline-variant/30 shadow-sm bg-white dark:bg-slate-900 group hover:shadow-md hover:border-primary/25 transition-all duration-300">
-              <div className="bg-white dark:bg-[#111314] text-on-surface p-8 flex flex-col justify-center order-2 sm:order-1">
-                <h3 className="text-xl font-headline-md font-bold text-primary dark:text-[#a9c7ff] mb-4">
-                  Sustainability and CSR
-                </h3>
-                <ExpandableText
-                  text="We proudly support YUVA 2.0 project in New Delhi, empowering marginalized communities through solar PV training. Our comprehensive program safeguards youth from addiction, offering care, mentorship, and a purposeful life."
-                  limit={120}
-                  className="text-sm sm:text-body-md text-on-surface-variant dark:text-surface-variant opacity-90 leading-relaxed font-body-md"
-                  isDarkBg={false}
-                />
+            {/* Card 3: Sustainability & CSR */}
+            <div className="grid grid-cols-1 sm:grid-cols-12 overflow-hidden rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-sm hover:shadow-xl hover:-translate-y-1 bg-white dark:bg-[#121517] text-on-surface dark:text-white transition-all duration-300 group min-h-[260px]">
+              <div className="sm:col-span-7 p-7 sm:p-8 flex flex-col justify-between order-2 sm:order-1">
+                <div>
+                  <span className="inline-block px-2.5 py-1 bg-primary/10 dark:bg-[#a9c7ff]/10 text-primary dark:text-[#a9c7ff] rounded-md text-[10px] font-bold uppercase tracking-wider mb-3">
+                    Community &amp; CSR
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-bold text-primary dark:text-white mb-3 leading-snug">
+                    Sustainability &amp; CSR Initiatives
+                  </h3>
+                  <ExpandableText
+                    text="We proudly support YUVA 2.0 project in New Delhi, empowering marginalized communities through solar PV training. Our comprehensive program safeguards youth from addiction, offering care, mentorship, and a purposeful life."
+                    limit={120}
+                    className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed"
+                    isDarkBg={false}
+                  />
+                </div>
               </div>
-              <div className="relative h-64 sm:h-auto overflow-hidden order-1 sm:order-2">
+              <div className="sm:col-span-5 relative h-52 sm:h-full overflow-hidden bg-slate-900 order-1 sm:order-2">
                 <img
                   src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=600&auto=format&fit=crop"
-                  alt="Empowering Youth"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+                  alt="Sustainability and CSR"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
             </div>
 
-            {/* Card 4: Embracing Sustainability */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-[1.5rem] border border-outline-variant/30 shadow-sm bg-white dark:bg-slate-900 group hover:shadow-md hover:border-primary/25 transition-all duration-300">
-              <div className="bg-[#002a58] text-white p-8 flex flex-col justify-center order-2 sm:order-1">
-                <h3 className="text-xl font-headline-md font-bold mb-4">
-                  AgriTech & Techlonology
-                </h3>
-                <ExpandableText
-                  text="As every living creature on this planet depends on nature for sustenance, environmental protection has become more important than ever before. We continue to pave this path of embracing sustainability & safeguarding the environment with our continuous efforts."
-                  limit={120}
-                  className="text-sm sm:text-body-md opacity-90 leading-relaxed font-body-md"
-                  isDarkBg={true}
-                />
+            {/* Card 4: AgriTech & Technology */}
+            <div className="grid grid-cols-1 sm:grid-cols-12 overflow-hidden rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-sm hover:shadow-xl hover:-translate-y-1 bg-primary text-white transition-all duration-300 group min-h-[260px]">
+              <div className="sm:col-span-7 p-7 sm:p-8 flex flex-col justify-between order-2 sm:order-1 bg-primary">
+                <div>
+                  <span className="inline-block px-2.5 py-1 bg-white/10 text-[#a9c7ff] rounded-md text-[10px] font-bold uppercase tracking-wider mb-3">
+                    AgriTech &amp; Green Tech
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-bold mb-3 leading-snug">
+                    AgriTech &amp; Technology Solutions
+                  </h3>
+                  <ExpandableText
+                    text="As every living creature on this planet depends on nature for sustenance, environmental protection has become more important than ever before. We continue to pave this path of embracing sustainability & safeguarding the environment with our continuous efforts."
+                    limit={120}
+                    className="text-xs sm:text-sm opacity-90 leading-relaxed font-light"
+                    isDarkBg={true}
+                  />
+                </div>
               </div>
-              <div className="relative h-64 sm:h-auto overflow-hidden order-1 sm:order-2">
+              <div className="sm:col-span-5 relative h-52 sm:h-full overflow-hidden bg-slate-900 order-1 sm:order-2">
                 <img
                   src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?q=80&w=600&auto=format&fit=crop"
-                  alt="Embracing Sustainability"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+                  alt="AgriTech and Technology"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                 />
               </div>
             </div>
@@ -371,7 +313,7 @@ const HomePage = () => {
       </section>
 
       {/* Major Clients Section */}
-      <section className="py-24 bg-surface-container-low relative overflow-hidden">
+      <section className="py-10 bg-surface-container-low relative overflow-hidden">
         {/* Inline Styles for Animation */}
         <style>
           {`
@@ -399,10 +341,7 @@ const HomePage = () => {
         </style>
 
         {/* Decorative background blurs */}
-        <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/5 rounded-full blur-[80px] -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
-        <div className="absolute top-1/2 right-0 w-72 h-72 bg-primary/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-
-        <div className="max-w-[1280px] mx-auto px-gutter mb-16 relative z-10">
+        <div className="max-w-[1280px] mx-auto px-gutter mb-10 relative z-10">
           <div className="text-center">
             <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase mb-4 border border-primary/20">
               Trusted Worldwide
@@ -457,97 +396,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      {/* Testimonial Section */}
-      {/* <section className="bg-surface-container py-xl">
-        <div className="max-w-[1280px] mx-auto px-gutter">
-          <div data-animate="fade-up" className="text-center mb-xl">
-            <h2 className="font-headline-lg text-headline-lg text-primary mb-sm">
-              What's Going On!
-            </h2>
-            <div className="h-1 w-20 bg-primary mx-auto" />
-          </div>
-          <div data-animate="stagger-up" className="grid grid-cols-1 md:grid-cols-3 gap-md">
-            
-            <div className="bg-white p-lg border border-outline-variant shadow-sm flex flex-col justify-between">
-              <div>
-                <div className="text-primary text-headline-xl leading-none font-serif mb-sm">
-                  "
-                </div>
-                <p className="font-body-md text-on-surface-variant italic mb-lg">
-                  SmartBrains has completely transformed our technical curriculum.
-                  The S.T.E.A.M. lab implementation was seamless, and our students
-                  are more engaged than ever.
-                </p>
-              </div>
-              <div className="flex items-center gap-sm">
-                <div className="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-on-primary-container font-bold flex-shrink-0">
-                  DR
-                </div>
-                <div>
-                  <h4 className="font-bold text-primary font-body-lg">
-                    Dr. Rajan Sharma
-                  </h4>
-                  <p className="text-label-sm text-on-surface-variant uppercase tracking-wide">
-                    Principal, The Millennium School
-                  </p>
-                </div>
-              </div>
-            </div>
-     
-            <div className="bg-white p-lg border border-outline-variant shadow-sm flex flex-col justify-between">
-              <div>
-                <div className="text-primary text-headline-xl leading-none font-serif mb-sm">
-                  "
-                </div>
-                <p className="font-body-md text-on-surface-variant italic mb-lg">
-                  Their structural engineering team delivered our project ahead of
-                  schedule. The precision and attention to detail were evident in
-                  every phase of the construction.
-                </p>
-              </div>
-              <div className="flex items-center gap-sm">
-                <div className="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-on-primary-container font-bold flex-shrink-0">
-                  AK
-                </div>
-                <div>
-                  <h4 className="font-bold text-primary font-body-lg">
-                    Anita Kapoor
-                  </h4>
-                  <p className="text-label-sm text-on-surface-variant uppercase tracking-wide">
-                    Project Director, Elite Infra
-                  </p>
-                </div>
-              </div>
-            </div>
-     
-            <div className="bg-white p-lg border border-outline-variant shadow-sm flex flex-col justify-between">
-              <div>
-                <div className="text-primary text-headline-xl leading-none font-serif mb-sm">
-                  "
-                </div>
-                <p className="font-body-md text-on-surface-variant italic mb-lg">
-                  The manpower solutions provided by SmartBrains have been
-                  instrumental in scaling our operations. They consistently deliver
-                  top-tier technical talent.
-                </p>
-              </div>
-              <div className="flex items-center gap-sm">
-                <div className="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-on-primary-container font-bold flex-shrink-0">
-                  MK
-                </div>
-                <div>
-                  <h4 className="font-bold text-primary font-body-lg">
-                    Michael K.
-                  </h4>
-                  <p className="text-label-sm text-on-surface-variant uppercase tracking-wide">
-                    HR Head, Global Tech
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
       {/* CTA Section */}
       <section data-animate="scale-up" className="bg-primary py-xl m-20 rounded-xl">
         <div className="max-w-[1280px] mx-auto px-gutter text-center text-on-primary">
@@ -558,11 +406,11 @@ const HomePage = () => {
             Connect with our specialists today to discuss your next industrial
             project or institutional curriculum upgrade.
           </p>
-          {/* <div className="flex justify-center gap-md">
-            <button className="bg-on-primary text-primary px-xl py-sm font-bold uppercase text-label-sm tracking-widest transition-all hover:scale-105">
-              Get a Consultation
-            </button>
-          </div> */}
+          <div className="flex justify-center gap-md">
+            <Link to={'/contact-us'} className="bg-on-primary text-primary px-xl py-sm font-bold uppercase text-label-sm tracking-widest transition-all hover:scale-105">
+                Contact Us
+            </Link>
+          </div>
         </div>
       </section>
     </main>
