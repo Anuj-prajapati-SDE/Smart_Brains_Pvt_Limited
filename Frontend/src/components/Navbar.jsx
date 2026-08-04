@@ -137,9 +137,9 @@ const Navbar = () => {
   }
 
   const businesses = [
-    { name: <>Skilling</>, path: "/skilling" },
+    { name: <>IT & ITeS</>, path: "/it-services" },
     { name: <>Staffing</>, path: "/staffing" },
-    { name: <>IT & ITES</>, path: "/it-services" },
+    { name: <>Skilling</>, path: "/skilling" },
     { name: <>Vocational Labs</>, path: "/vocational-labs" },
     { name: <>AgriTech Solutions</>, path: "/agritech-hydroponices" },
     { name: <>CSR</>, path: "/csr" },

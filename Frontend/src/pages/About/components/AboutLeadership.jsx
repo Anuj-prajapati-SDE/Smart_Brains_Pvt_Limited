@@ -32,7 +32,7 @@ const leadershipTeam = [
         id: "paritosh",
         name: "Paritosh Gupta",
         role: "Director",
-        image:Owner_3,
+        image:"https://res.cloudinary.com/dobfsabnz/image/upload/v1785837485/Gemini_Generated_Image_7rhacg7rhacg7rha_fjd9hg.png",
         quote: "Director",
         highlights: ["Technical Project Consulting"],
         icon: (

@@ -1,5 +1,3 @@
-import React from "react";
-
 const coreTeam = [
   {
     id: 1,
@@ -13,7 +11,7 @@ const coreTeam = [
     name: "Rajnesh Yadav",
     role: "Director",
     dept: "technology",
-    image: "https://images.unsplash.com/photo-1582003457856-20898dd7e1ea?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&w=400",
+    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785836787/Gemini_Generated_Image_ltl70lltl70lltl7_cfxlb3.png",
   },
   {
     id: 3,
@@ -27,35 +25,35 @@ const coreTeam = [
     name: "Binit Kumar",
     role: "PROJECT HEAD/IT",
     dept: "skills",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400",
+    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785841844/WhatsApp_Image_2026-08-04_at_4.37.52_PM_rjrqba.jpg",
   },
   {
     id: 5,
     name: "Saptmanyu Ray",
     role: "CFO",
     dept: "accounts",
-    image: "https://images.unsplash.com/photo-1495603889488-42d1d66e5523?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&w=400",
+    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785835584/Gemini_Generated_Image_4fo96i4fo96i4fo9_c7ihjy.png",
   },
   {
     id: 6,
     name: "Anand Panday",
     role: "PROJECT MANAGER",
     dept: "technology",
-    image: "https://images.unsplash.com/photo-1582003457856-20898dd7e1ea?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&w=400",
+    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785835070/WhatsApp_Image_2026-08-04_at_11.56.00_AM_1_jnuwss.jpg",
   },
   {
     id: 7,
     name: "Amit Singh",
     role: "PROJECT HEAD SKILL",
     dept: "accounts",
-    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785831998/Gemini_Generated_Image_q5zewpq5zewpq5ze_qvytch.png",
+    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785835958/ChatGPT_Image_Aug_4_2026_03_00_07_PM_ibvnty.png",
   },
   {
     id: 8,
     name: "Anmol Goyal",
     role: "PROJECT MANAGER FINANCE",
     dept: "skills",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400",
+    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785835723/Gemini_Generated_Image_tnct4rtnct4rtnct_g1xnp6.png",
   }
 ];
 
@@ -66,7 +64,7 @@ const TeamMemberCard = ({ member }) => {
       <div className="absolute top-0 inset-x-0 h-1 bg-[#002a58] dark:bg-[#a9c7ff] z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
       {/* Full Width Image Container (Medium Height) */}
-      <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-slate-100 dark:bg-slate-900">
+      <div className="relative w-full h-60 sm:h-72 overflow-hidden bg-slate-100 dark:bg-slate-900">
         <img
           src={member.image}
           alt={member.name}

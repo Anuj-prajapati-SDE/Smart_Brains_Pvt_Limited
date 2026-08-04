@@ -195,13 +195,13 @@ const HomePage = () => {
               <div className="sm:col-span-7 p-7 sm:p-8 flex flex-col justify-between relative z-10">
                 <div>
                   <span className="inline-block px-3 py-1 bg-white/10 text-[#a9c7ff] rounded-full text-[10px] font-extrabold uppercase tracking-widest border border-white/15 backdrop-blur-md mb-3">
-                    Education &amp; Skilling
+                      DIGITAL TRANSFORMATION IT SER
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold mb-3 leading-snug tracking-tight text-white group-hover:text-[#a9c7ff] transition-colors">
-                    DIGITAL TRANSFORMATION &amp; IT SERVICES
+                 Innovative IT Solutions for the Digital Enterprise
                   </h3>
                   <ExpandableText
-                    text="Innovative IT Solutions for the Digital Enterprise"
+                    text="We empower businesses with cutting-edge IT solutions, cloud technologies, enterprise applications, cybersecurity, and digital transformation services. Our experienced professionals help organizations modernize their infrastructure, improve operational efficiency, and accelerate business growth through innovative technology solutions."
                     limit={120}
                     className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed"
                     isDarkBg={true}
@@ -223,13 +223,13 @@ const HomePage = () => {
               <div className="sm:col-span-7 p-7 sm:p-8 flex flex-col justify-between relative z-10">
                 <div>
                   <span className="inline-block px-3 py-1 bg-primary/10 dark:bg-[#a9c7ff]/10 text-primary dark:text-[#a9c7ff] rounded-full text-[10px] font-extrabold uppercase tracking-widest border border-primary/20 dark:border-[#a9c7ff]/20 mb-3">
-                    Infrastructure &amp; Labs
+                  IT INFRASTRUCTURE &amp; DATA CENTERS
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-primary dark:text-white mb-3 leading-snug tracking-tight group-hover:text-[#004080] dark:group-hover:text-[#a9c7ff] transition-colors">
-                    IT INFRASTRUCTURE &amp; DATA CENTERS
+                    Modern Infrastructure & Managed IT Services
                   </h3>
                   <ExpandableText
-                    text="Modern Infrastructure & Managed IT Services"
+                    text="We design, deploy, and manage scalable IT infrastructure including data centers, cloud platforms, network architecture, server virtualization, storage solutions, and disaster recovery systems. Our services ensure maximum uptime, security, and business continuity for enterprises of all sizes."
                     limit={120}
                     className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed"
                     isDarkBg={false}

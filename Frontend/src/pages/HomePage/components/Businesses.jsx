@@ -26,7 +26,7 @@ const getBusinessRoute = (name) => {
 
 const businessesData = [
    {
-    name: "IT & ITES Services",
+    name: "IT & ITeS Services",
     subVerticals: ["Managed Hybrid Cloud ", "DevOPS and Automation", "Network and Security ", "Monitoring ", "Server Management", "Web Hosting", " Help Desk", "System Integration"],
     bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785358419/WhatsApp_Image_2026-07-29_at_8.16.54_PM_u4yakz.jpg",
     largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785358419/WhatsApp_Image_2026-07-29_at_8.16.54_PM_u4yakz.jpg",

@@ -91,57 +91,6 @@ const valuesList = [
 
 const divisionsListData = [
   {
-    title: "SKILLING PROJECTS",
-    barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
-    textColor: "text-[#002a58] dark:text-[#a9c7ff]",
-    hoverBg: "hover:bg-[#002a58]/5 dark:hover:bg-[#a9c7ff]/10",
-    borderTheme: "border-[#002a58]/20 dark:border-[#a9c7ff]/20",
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-      </svg>
-    ),
-    items: [
-      {
-        label: "Skilling Projects",
-        icon: (
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 20h9M3 20v-4M7 20V12M11 20V8M15 20V4" />
-          </svg>
-        )
-      },
-      {
-        label: "Training Programs",
-        icon: (
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 2 3 3 6 3s6-1 6-3v-5" />
-          </svg>
-        )
-      },
-      {
-        label: "Assessment & Certification",
-        icon: (
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M9 12l2 2 4-4M19 21v-6a2 2 0 00-2-2H7a2 2 0 00-2 2v6" />
-            <path d="M12 2a4 4 0 100 8 4 4 0 000-8z" />
-          </svg>
-        )
-      },
-      {
-        label: "Placement Support",
-        icon: (
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-            <circle cx="9" cy="7" r="4" />
-            <path d="M16 11l2 2 4-4" />
-          </svg>
-        )
-      }
-    ]
-  },
-  {
     title: "IT & ITES SERVICES",
     barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
     textColor: "text-[#002a58] dark:text-[#a9c7ff]",
@@ -192,8 +141,7 @@ const divisionsListData = [
       }
     ]
   },
- 
-    {
+   {
     title: "STAFFING Services",
     barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
     textColor: "text-[#002a58] dark:text-[#a9c7ff]",
@@ -244,6 +192,60 @@ const divisionsListData = [
       }
     ]
   },
+  {
+    title: "SKILLING PROJECTS",
+    barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
+    textColor: "text-[#002a58] dark:text-[#a9c7ff]",
+    hoverBg: "hover:bg-[#002a58]/5 dark:hover:bg-[#a9c7ff]/10",
+    borderTheme: "border-[#002a58]/20 dark:border-[#a9c7ff]/20",
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+      </svg>
+    ),
+    items: [
+      {
+        label: "Skilling Projects",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 20h9M3 20v-4M7 20V12M11 20V8M15 20V4" />
+          </svg>
+        )
+      },
+      {
+        label: "Training Programs",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 2 3 3 6 3s6-1 6-3v-5" />
+          </svg>
+        )
+      },
+      {
+        label: "Assessment & Certification",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M9 12l2 2 4-4M19 21v-6a2 2 0 00-2-2H7a2 2 0 00-2 2v6" />
+            <path d="M12 2a4 4 0 100 8 4 4 0 000-8z" />
+          </svg>
+        )
+      },
+      {
+        label: "Placement Support",
+        icon: (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M16 11l2 2 4-4" />
+          </svg>
+        )
+      }
+    ]
+  },
+  
+ 
+   
    {
     title: "CSR PROJECTS",
     barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
