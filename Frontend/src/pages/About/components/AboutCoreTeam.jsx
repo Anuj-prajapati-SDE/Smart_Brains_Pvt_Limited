@@ -53,7 +53,7 @@ const coreTeam = [
     name: "Anmol Goyal",
     role: "PROJECT MANAGER FINANCE",
     dept: "skills",
-    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785835723/Gemini_Generated_Image_tnct4rtnct4rtnct_g1xnp6.png",
+    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785834901/WhatsApp_Image_2026-08-04_at_12.00.08_PM_ipp5xf.jpg",
   }
 ];
 
