@@ -184,9 +184,9 @@ const HomePage = () => {
 
             {/* Card 1: Education */}
             <div className="grid grid-cols-1 sm:grid-cols-12 overflow-hidden rounded-3xl border border-white/10 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 bg-gradient-to-br from-primary via-[#002a58] to-[#00152b] text-white transition-all duration-500 group min-h-[280px] relative">
-              <div className="sm:col-span-5 relative h-56 sm:h-full overflow-hidden bg-slate-900">
+              <div className="sm:col-span-5 relative h-56 sm:h-full  overflow-hidden bg-slate-900">
                 <img
-                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop"
+                  src="https://res.cloudinary.com/dobfsabnz/image/upload/v1785850031/ChatGPT_Image_Aug_4_2026_06_55_52_PM_cojnmu.png"
                   alt="Advancing Education and Technology"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-85 group-hover:opacity-100"
                 />
@@ -195,7 +195,7 @@ const HomePage = () => {
               <div className="sm:col-span-7 p-7 sm:p-8 flex flex-col justify-between relative z-10">
                 <div>
                   <span className="inline-block px-3 py-1 bg-white/10 text-[#a9c7ff] rounded-full text-[10px] font-extrabold uppercase tracking-widest border border-white/15 backdrop-blur-md mb-3">
-                      DIGITAL TRANSFORMATION IT SER
+                      DIGITAL TRANSFORMATION
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold mb-3 leading-snug tracking-tight text-white group-hover:text-[#a9c7ff] transition-colors">
                  Innovative IT Solutions for the Digital Enterprise
@@ -214,7 +214,7 @@ const HomePage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-12 overflow-hidden rounded-3xl border border-slate-200/80 dark:border-slate-800/80 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 bg-white dark:bg-[#121517] text-on-surface dark:text-white transition-all duration-500 group min-h-[280px] relative">
               <div className="sm:col-span-5 relative h-56 sm:h-full overflow-hidden bg-slate-900">
                 <img
-                  src="https://images.unsplash.com/photo-1508962914676-134849a727f0?q=80&w=600&auto=format&fit=crop"
+                  src="https://res.cloudinary.com/dobfsabnz/image/upload/v1785851169/ChatGPT_Image_Aug_4_2026_07_15_50_PM_qcmacc.png"
                   alt="Model Vocational Labs and Training Centers"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -243,13 +243,13 @@ const HomePage = () => {
               <div className="sm:col-span-7 p-7 sm:p-8 flex flex-col justify-between order-2 sm:order-1 relative z-10">
                 <div>
                   <span className="inline-block px-3 py-1 bg-primary/10 dark:bg-[#a9c7ff]/10 text-primary dark:text-[#a9c7ff] rounded-full text-[10px] font-extrabold uppercase tracking-widest border border-primary/20 dark:border-[#a9c7ff]/20 mb-3">
-                    Security &amp; Risk
+                   ADVANCED DIGITAL SOLUTIONS
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-primary dark:text-white mb-3 leading-snug tracking-tight group-hover:text-[#004080] dark:group-hover:text-[#a9c7ff] transition-colors">
-                    CYBERSECURITY &amp; COMPLIANCE
+                  Building Intelligent Business Applications
                   </h3>
                   <ExpandableText
-                    text="Protecting Businesses in a Connected World"
+                    text="From custom software development to enterprise applications, web platforms, mobile applications, AI-powered solutions, and business process automation, we deliver scalable digital products that transform customer experiences and improve organizational productivity."
                     limit={120}
                     className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed"
                     isDarkBg={false}
@@ -258,9 +258,9 @@ const HomePage = () => {
               </div>
               <div className="sm:col-span-5 relative h-56 sm:h-full overflow-hidden bg-slate-900 order-1 sm:order-2">
                 <img
-                  src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=600&auto=format&fit=crop"
+                  src="https://res.cloudinary.com/dobfsabnz/image/upload/v1785852357/ChatGPT_Image_Aug_4_2026_07_24_41_PM_rtywrv.png"
                   alt="Sustainability and CSR"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-[80% 100%] transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
               </div>
@@ -271,13 +271,13 @@ const HomePage = () => {
               <div className="sm:col-span-7 p-7 sm:p-8 flex flex-col justify-between order-2 sm:order-1 relative z-10">
                 <div>
                   <span className="inline-block px-3 py-1 bg-white/10 text-[#a9c7ff] rounded-full text-[10px] font-extrabold uppercase tracking-widest border border-white/15 backdrop-blur-md mb-3">
-                    Software &amp; Applications
+                     CYBERSECURITY &amp; COMPLIANCE
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold mb-3 leading-snug tracking-tight text-white group-hover:text-[#a9c7ff] transition-colors">
-                    SOFTWARE DEVELOPMENT &amp; DIGITAL SOLUTIONS
+                    Protecting Businesses in a Connected World
                   </h3>
                   <ExpandableText
-                    text="Building Intelligent Business Applications"
+                    text="Our comprehensive cybersecurity solutions safeguard your digital assets through threat monitoring, endpoint protection, network security, vulnerability assessments, security audits, compliance management, and 24×7 Security Operations Center (SOC) services."
                     limit={120}
                     className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed"
                     isDarkBg={true}
@@ -286,7 +286,7 @@ const HomePage = () => {
               </div>
               <div className="sm:col-span-5 relative h-56 sm:h-full overflow-hidden bg-slate-900 order-1 sm:order-2">
                 <img
-                  src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?q=80&w=600&auto=format&fit=crop"
+                  src="https://res.cloudinary.com/dobfsabnz/image/upload/v1785851982/Screenshot_2026-08-04_192431_xbuxq9.png"
                   alt="AgriTech and Technology"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-85 group-hover:opacity-100"
                 />

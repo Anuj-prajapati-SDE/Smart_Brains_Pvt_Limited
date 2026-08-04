@@ -4,7 +4,7 @@ const coreTeam = [
     name: "Mrinal Bhargava",
     role: "Director",
     dept: "engineering",
-    image: "https://images.unsplash.com/photo-1495603889488-42d1d66e5523?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&w=400",
+    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785849226/ChatGPT_Image_Aug_4_2026_06_41_06_PM_zeivii.png",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const coreTeam = [
   {
     id: 4,
     name: "Binit Kumar",
-    role: "PROJECT HEAD/IT",
+    role: "PROJECT HEAD",
     dept: "skills",
     image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785841844/WhatsApp_Image_2026-08-04_at_4.37.52_PM_rjrqba.jpg",
   },
@@ -37,7 +37,7 @@ const coreTeam = [
   {
     id: 6,
     name: "Anand Panday",
-    role: "PROJECT MANAGER",
+    role: "PROJECT LEAD",
     dept: "technology",
     image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785835070/WhatsApp_Image_2026-08-04_at_11.56.00_AM_1_jnuwss.jpg",
   },
