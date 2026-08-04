@@ -3,7 +3,7 @@ import React from "react";
 const coreTeam = [
   {
     id: 1,
-    name: "Miss Minal Bhargava",
+    name: "Mrinal Bhargava",
     role: "Director",
     dept: "engineering",
     image: "https://images.unsplash.com/photo-1495603889488-42d1d66e5523?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&w=400",
@@ -17,21 +17,21 @@ const coreTeam = [
   },
   {
     id: 3,
-    name: "Parttha Sha",
+    name: "Partha Saha",
     role: "CTO",
     dept: "operations",
-    image: "https://images.unsplash.com/photo-1492447166138-50c3889fccb1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&w=400",
+    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785502237/WhatsApp_Image_2026-07-31_at_6.19.41_PM_qrusfx.jpg",
   },
   {
     id: 4,
-    name: "Binit",
+    name: "Binit Kumar",
     role: "PROJECT HEAD/IT",
     dept: "skills",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400",
   },
   {
     id: 5,
-    name: "Saptmanyu",
+    name: "Saptmanyu Ray",
     role: "CFO",
     dept: "accounts",
     image: "https://images.unsplash.com/photo-1495603889488-42d1d66e5523?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&w=400",
@@ -45,14 +45,14 @@ const coreTeam = [
   },
   {
     id: 7,
-    name: "Amit",
+    name: "Amit Singh",
     role: "PROJECT HEAD SKILL",
     dept: "accounts",
-    image: "https://images.unsplash.com/photo-1492447166138-50c3889fccb1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&w=400",
+    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785831998/Gemini_Generated_Image_q5zewpq5zewpq5ze_qvytch.png",
   },
   {
     id: 8,
-    name: "Anmol",
+    name: "Anmol Goyal",
     role: "PROJECT MANAGER FINANCE",
     dept: "skills",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400",

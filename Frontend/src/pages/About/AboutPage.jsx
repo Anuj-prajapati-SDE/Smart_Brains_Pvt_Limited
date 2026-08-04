@@ -10,6 +10,7 @@ import AboutCoreTeam from "./components/AboutCoreTeam";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SkillingSlider from "../Skilling/SkillingSlider";
+import CompanySlider from "../../components/CompanySlider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -1417,6 +1418,9 @@ const AboutPage = () => {
 
           </div>
         </section>
+        <CompanySlider/>
+
+        
       </main>
     </>
   );

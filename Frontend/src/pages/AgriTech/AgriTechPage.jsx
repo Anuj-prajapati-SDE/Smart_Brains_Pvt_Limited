@@ -578,6 +578,153 @@ const AgriTechPage = () => {
           ))}
         </div>
       </section>
+
+      {/* Why Choose SmartBrains AgriTech */}
+      <section className="py-24 max-w-[1280px] mx-auto px-gutter border-t border-slate-200/60 dark:border-slate-800/40">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 space-y-5" data-animate="fade-up">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-primary dark:text-[#a9c7ff]">
+              Why Choose SmartBrains
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary dark:text-white uppercase font-serif leading-tight">
+              Pioneering High-Yield Hydroponic Excellence
+            </h2>
+            <p className="text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed">
+              We bridge traditional farming with cutting-edge automation, custom nutrient formulations, and year-round operational reliability.
+            </p>
+
+            <div className="pt-4">
+              <Link
+                to="/contact-us"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white hover:bg-primary-container transition-all font-bold rounded-xl text-xs uppercase tracking-wider shadow-md"
+              >
+                <span>Schedule Feasibility Consultation</span>
+                <span className="material-symbols-outlined text-[16px]">chevron_right</span>
+              </Link>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6" data-animate="stagger-up">
+            {advantages.map((adv, idx) => (
+              <div
+                key={idx}
+                className="p-6 rounded-2xl bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-white/5 shadow-sm hover:border-primary/30 transition-all"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/10 dark:bg-[#a9c7ff]/10 text-primary dark:text-[#a9c7ff] flex items-center justify-center mb-4">
+                  <span className="material-symbols-outlined text-[22px]">{adv.icon}</span>
+                </div>
+                <h3 className="font-bold text-slate-800 dark:text-white mb-2 text-sm uppercase tracking-wide">
+                  {adv.title}
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                  {adv.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* Testimonial & Farm Showcase Slider Section */}
+      <section className="pb-16 sm:pb-20 max-w-[1280px] mx-auto px-gutter" data-animate="fade-up">
+        {/* Responsive 2-Column Card Slider (30% Left Fixed, 70% Right Slider) */}
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-primary dark:bg-[#121517] border border-slate-200/50 dark:border-white/10 grid grid-cols-1 lg:grid-cols-10 min-h-[380px] sm:min-h-[440px]">
+          
+          {/* Left Column: Fixed Content (30% width) */}
+          <div className="lg:col-span-3 p-6 sm:p-10 flex flex-col justify-between relative bg-primary dark:bg-[#121517] text-white">
+          
+          
+            {/* Fixed Heading & Content */}
+            <div className="my-auto space-y-4 relative z-10">
+              <span className="inline-block py-1 px-3 rounded-full bg-white/10 text-white font-bold text-[10px] sm:text-xs tracking-widest uppercase border border-white/20">
+                Farm Showcase
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold font-serif leading-tight text-white">
+                Pioneering Hydroponic Excellence
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-200 font-light leading-relaxed">
+                Explore real commercial polyhouses, high-density NFT systems, and automated climate solutions built and backed by SmartBrains & InHydro.
+              </p>
+            </div>
+
+            {/* Fixed Footer info */}
+            <div className="relative z-10 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
+              <span className="font-semibold text-slate-200">SmartBrains & InHydro</span>
+              <span className="text-[10px] bg-white/10 px-2.5 py-1 rounded-full font-mono border border-white/10">100+ Projects</span>
+            </div>
+          </div>
+
+          {/* Right Column: Sliding Image & Testimonial Showcase (70% width) */}
+          <div className="lg:col-span-7 relative h-[300px] sm:h-[380px] lg:h-auto bg-slate-900 overflow-hidden group">
+            {/* Top Right Live Badge */}
+            <div className="absolute top-4 right-4 z-20 bg-primary/90 dark:bg-black/80 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md border border-white/20 shadow-md">
+              Hydroponics Site Showcase
+            </div>
+
+            {/* Left Chevron Button */}
+            <button
+              onClick={() => setCurrentSlide((prev) => (prev === 0 ? testimonialSlides.length - 1 : prev - 1))}
+              className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/40 hover:bg-black/70 active:scale-95 text-white flex items-center justify-center transition-all z-30 backdrop-blur-md border border-white/20 shadow-lg"
+              aria-label="Previous slide"
+            >
+              <span className="material-symbols-outlined text-[22px]">chevron_left</span>
+            </button>
+
+            {/* Right Chevron Button */}
+            <button
+              onClick={() => setCurrentSlide((prev) => (prev + 1) % testimonialSlides.length)}
+              className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/40 hover:bg-black/70 active:scale-95 text-white flex items-center justify-center transition-all z-30 backdrop-blur-md border border-white/20 shadow-lg"
+              aria-label="Next slide"
+            >
+              <span className="material-symbols-outlined text-[22px]">chevron_right</span>
+            </button>
+
+            {/* Sliding Images */}
+            {testimonialSlides.map((slide, idx) => (
+              <img
+                key={slide.id}
+                src={slide.image}
+                alt={slide.author}
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out ${
+                  currentSlide === idx ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
+                }`}
+              />
+            ))}
+
+            {/* Gradient Overlay for Text Readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
+
+            {/* Dynamic Quote & Slide Indicators Overlay */}
+            <div className="absolute bottom-0 inset-x-0 p-4 sm:p-6 z-20 text-white flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+              <div className="space-y-1 max-w-xl">
+                <p className="text-xs sm:text-sm text-slate-100 font-light italic leading-relaxed font-serif">
+                  "{testimonialSlides[currentSlide].quote}"
+                </p>
+                <p className="text-[11px] sm:text-xs font-semibold text-slate-300">
+                  — {testimonialSlides[currentSlide].author}, <span className="font-normal text-slate-400">{testimonialSlides[currentSlide].location}</span>
+                </p>
+              </div>
+
+              {/* Slide Dots */}
+              <div className="flex items-center gap-1.5 shrink-0 self-center sm:self-end">
+                {testimonialSlides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      currentSlide === idx ? 'w-6 bg-white' : 'w-2 bg-white/40 hover:bg-white/70'
+                    }`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
 {/* Major Clients Section */}
       <section className="py-10 pb-20 relative overflow-hidden">
         {/* Inline Styles for Animation */}
@@ -662,120 +809,6 @@ const AgriTechPage = () => {
           </div>
         </div>
       </section>
-      {/* Why Choose SmartBrains AgriTech */}
-      <section className="py-24 max-w-[1280px] mx-auto px-gutter border-t border-slate-200/60 dark:border-slate-800/40">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5 space-y-5" data-animate="fade-up">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-primary dark:text-[#a9c7ff]">
-              Why Choose SmartBrains
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary dark:text-white uppercase font-serif leading-tight">
-              Pioneering High-Yield Hydroponic Excellence
-            </h2>
-            <p className="text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed">
-              We bridge traditional farming with cutting-edge automation, custom nutrient formulations, and year-round operational reliability.
-            </p>
-
-            <div className="pt-4">
-              <Link
-                to="/contact-us"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white hover:bg-primary-container transition-all font-bold rounded-xl text-xs uppercase tracking-wider shadow-md"
-              >
-                <span>Schedule Feasibility Consultation</span>
-                <span className="material-symbols-outlined text-[16px]">chevron_right</span>
-              </Link>
-            </div>
-          </div>
-
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6" data-animate="stagger-up">
-            {advantages.map((adv, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-white/5 shadow-sm hover:border-primary/30 transition-all"
-              >
-                <div className="w-10 h-10 rounded-xl bg-primary/10 dark:bg-[#a9c7ff]/10 text-primary dark:text-[#a9c7ff] flex items-center justify-center mb-4">
-                  <span className="material-symbols-outlined text-[22px]">{adv.icon}</span>
-                </div>
-                <h3 className="font-bold text-slate-800 dark:text-white mb-2 text-sm uppercase tracking-wide">
-                  {adv.title}
-                </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-                  {adv.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* Testimonial & Farm Showcase Slider Section */}
-      <section className="pb-16 sm:pb-20 max-w-[1280px] mx-auto px-gutter" data-animate="fade-up">
-      
-
-        {/* Responsive 2-Column Card Slider */}
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-primary dark:bg-[#121517] border border-slate-200/50 dark:border-white/10 grid grid-cols-1 lg:grid-cols-12 min-h-[380px] sm:min-h-[440px]">
-          
-          {/* Left Column: Testimonial Quote & Author */}
-          <div className="lg:col-span-6 p-6 sm:p-12 flex flex-col justify-between relative bg-primary dark:bg-[#121517] text-white">
-            
-            {/* Watermark Quote Decorative Icon */}
-            <div className="absolute top-4 right-6 opacity-10 pointer-events-none text-white select-none">
-              <span className="material-symbols-outlined text-[140px] sm:text-[180px] leading-none">format_quote</span>
-            </div>
-           
-             {/* Left Chevron Button */}
-            <button
-              onClick={() => setCurrentSlide((prev) => (prev === 0 ? testimonialSlides.length - 1 : prev - 1))}
-              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 text-white flex items-center justify-center transition-all z-20 backdrop-blur-sm border border-white/10"
-              aria-label="Previous slide"
-            >
-              <span className="material-symbols-outlined text-[22px]">chevron_left</span>
-            </button>
-
-            {/* Right Chevron Button */}
-            <button
-              onClick={() => setCurrentSlide((prev) => (prev + 1) % testimonialSlides.length)}
-              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 text-white flex items-center justify-center transition-all z-20 backdrop-blur-sm border border-white/10"
-              aria-label="Next slide"
-            >
-              <span className="material-symbols-outlined text-[22px]">chevron_right</span>
-            </button>
-
-            {/* Quote Content */}
-            <div className="my-auto px-6 sm:px-10 text-center space-y-6 relative z-10">
-              <p className="text-xs sm:text-base text-slate-100 font-light italic leading-relaxed min-h-[90px] flex items-center justify-center font-serif">
-                "{testimonialSlides[currentSlide].quote}"
-              </p>
-            </div>
-
-          
-
-          </div>
-
-          {/* Right Column: Sliding Image Showcase */}
-          <div className="lg:col-span-6 relative h-[260px] sm:h-[340px] lg:h-auto bg-slate-900 overflow-hidden">
-            {/* Top Right Live Badge */}
-            <div className="absolute top-4 right-4 z-20 bg-primary/90 dark:bg-black/80 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md border border-white/20 shadow-md">
-              Hydroponics Site Showcase
-            </div>
-
-            {testimonialSlides.map((slide, idx) => (
-              <img
-                key={slide.id}
-                src={slide.image}
-                alt={slide.author}
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out ${
-                  currentSlide === idx ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
-                }`}
-              />
-            ))}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-          </div>
-
-        </div>
-      </section>
-
       {/* Bottom CTA Banner */}
       <section className="pb-24 max-w-[1280px] mx-auto px-gutter" data-animate="fade-up">
         <div className="relative rounded-3xl bg-gradient-to-r from-primary via-[#003b7a] to-primary overflow-hidden p-8 sm:p-12 text-white shadow-2xl flex flex-col items-center text-center">

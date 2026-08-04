@@ -26,17 +26,6 @@ const getBusinessRoute = (name) => {
 
 const businessesData = [
    {
-    name: "Skilling Projects",
-    subVerticals: ["NSDC Funded Partner", "100+ Skill Developement Project", "1.5+ Lakhs Trained Candidates", "40+ Training Centers", ],
-    bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785414828/WhatsApp_Image_2026-07-30_at_6.03.12_PM_cuzklq.jpg",
-    largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785414828/WhatsApp_Image_2026-07-30_at_6.03.12_PM_cuzklq.jpg",
-    companyName: "SmartBrains Green Energy & Power Ltd.",
-    companyCode: "SBGREEN",
-    companyDesc: "Pioneering sustainable power solutions through solar grids, wind turbine installations, and utility water purification.",
-    sharePrice: "₹312.40",
-    shareChange: "+2.40%"
-  },
-    {
     name: "IT & ITES Services",
     subVerticals: ["Managed Hybrid Cloud ", "DevOPS and Automation", "Network and Security ", "Monitoring ", "Server Management", "Web Hosting", " Help Desk", "System Integration"],
     bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785358419/WhatsApp_Image_2026-07-29_at_8.16.54_PM_u4yakz.jpg",
@@ -46,17 +35,6 @@ const businessesData = [
     companyDesc: "Designing urban corporate complexes, integrated residential smart townships, high-performance IT parks, and retail corridors.",
     sharePrice: "₹820.70",
     shareChange: "+0.80%"
-  },
-  {
-    name: "Vocational Labs",
-    subVerticals: ["Vocational Labs", "STEM Labs" , "ATAL Tinkering Labs ", "EMRS Labs ", "AVTS Labs "],
-    bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785357971/WhatsApp_Image_2026-07-29_at_8.15.33_PM_yhcz5i.jpg",
-    largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785357971/WhatsApp_Image_2026-07-29_at_8.15.33_PM_yhcz5i.jpg",
-    companyName: "SmartBrains Sports & Arenas Ltd.",
-    companyCode: "SBSPORTS",
-    companyDesc: "Managing major regional sports complex infrastructures, athlete development academies, and tech-driven event hubs.",
-    sharePrice: "₹143.20",
-    shareChange: "+0.15%"
   },
    {
     name: "Staffing Services",
@@ -69,6 +47,30 @@ const businessesData = [
     sharePrice: "₹680.10",
     shareChange: "+0.95%"
   },
+   {
+    name: "Skilling Projects",
+    subVerticals: ["NSDC Funded Partner", "100+ Skill Developement Project", "1.5+ Lakhs Trained Candidates", "40+ Training Centers", ],
+    bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785829869/engineers-advanced-robotics-training-program-learning-design-program-robots-industrial-research-applications_1214173-53214_vx6grt.avif",
+    largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785829869/engineers-advanced-robotics-training-program-learning-design-program-robots-industrial-research-applications_1214173-53214_vx6grt.avif",
+    companyName: "SmartBrains Green Energy & Power Ltd.",
+    companyCode: "SBGREEN",
+    companyDesc: "Pioneering sustainable power solutions through solar grids, wind turbine installations, and utility water purification.",
+    sharePrice: "₹312.40",
+    shareChange: "+2.40%"
+  },
+   
+  {
+    name: "Vocational Labs",
+    subVerticals: ["Vocational Labs", "STEM Labs" , "ATAL Tinkering Labs ", "EMRS Labs ", "AVTS Labs "],
+    bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785357971/WhatsApp_Image_2026-07-29_at_8.15.33_PM_yhcz5i.jpg",
+    largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785357971/WhatsApp_Image_2026-07-29_at_8.15.33_PM_yhcz5i.jpg",
+    companyName: "SmartBrains Sports & Arenas Ltd.",
+    companyCode: "SBSPORTS",
+    companyDesc: "Managing major regional sports complex infrastructures, athlete development academies, and tech-driven event hubs.",
+    sharePrice: "₹143.20",
+    shareChange: "+0.15%"
+  },
+  
    {
     name: "CSR Projects",
     subVerticals: ["Livelihood", "Employability", "Quality Education", "Sustainability", "Water reuseability", "Renwable Energy"],

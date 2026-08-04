@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import WorldMapVector from "./components/WorldMapVector";
 
 const ContactUs = () => {
   const animRef = useScrollAnimation();
@@ -21,26 +22,26 @@ const ContactUs = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   // FAQ state
-  // const [activeFaq, setActiveFaq] = useState(null);
+  const [activeFaq, setActiveFaq] = useState(null);
 
-  // const faqItems = [
-  //   {
-  //     question: "What industries does SmartBrains serve?",
-  //     answer: "SmartBrains is a diversified conglomerate working across S.T.E.A.M. Education & Vocational Training, Civil Infrastructure & Engineering Services, IT Services & Cloud Infrastructure, Manpower Staffing, and CSR Project implementation."
-  //   },
-  //   {
-  //     question: "How do I apply for career opportunities at SmartBrains?",
-  //     answer: "You can send your resume directly to our HR department via email at hr@smartbrains.in, or fill out the contact form specifying 'Careers & HR' in the inquiry topic. Our recruiting team will review your profile against active positions."
-  //   },
-  //   {
-  //     question: "Are your S.T.E.A.M. education labs aligned with school curricula?",
-  //     answer: "Yes, our S.T.E.A.M. programs, experiential learning modules, and hands-on laboratory kits are designed in strict alignment with CBSE, ICSE, and state boards, integrated with NEP 2020 guidelines."
-  //   },
-  //   {
-  //     question: "Can we request custom civil engineering consultancy?",
-  //     answer: "Absolutely. We provide engineering consultancy, earthwork coordination, civil project staffing, and industrial plant logistics. Reach out through our contact form with details about your site parameters and objectives."
-  //   }
-  // ];
+  const faqItems = [
+    {
+      question: "What industries does SmartBrains serve?",
+      answer: "SmartBrains is a diversified conglomerate working across S.T.E.A.M. Education & Vocational Training, Civil Infrastructure & Engineering Services, IT Services & Cloud Infrastructure, Manpower Staffing, and CSR Project implementation."
+    },
+    {
+      question: "How do I apply for career opportunities at SmartBrains?",
+      answer: "You can send your resume directly to our HR department via email at hr@smartbrains.in, or fill out the contact form specifying 'Careers & HR' in the inquiry topic. Our recruiting team will review your profile against active positions."
+    },
+    {
+      question: "Are your S.T.E.A.M. education labs aligned with school curricula?",
+      answer: "Yes, our S.T.E.A.M. programs, experiential learning modules, and hands-on laboratory kits are designed in strict alignment with CBSE, ICSE, and state boards, integrated with NEP 2020 guidelines."
+    },
+    {
+      question: "Can we request custom civil engineering consultancy?",
+      answer: "Absolutely. We provide engineering consultancy, earthwork coordination, civil project staffing, and industrial plant logistics. Reach out through our contact form with details about your site parameters and objectives."
+    }
+  ];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -48,7 +49,6 @@ const ContactUs = () => {
       ...formData,
       [name]: value
     });
-    // Clear error for that field when user types
     if (errors[name]) {
       setErrors({
         ...errors,
@@ -87,7 +87,6 @@ const ContactUs = () => {
 
     setIsSubmitting(true);
 
-    // Simulate submission delay
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
@@ -100,7 +99,7 @@ const ContactUs = () => {
         subject: "",
         message: ""
       });
-    }, 1800);
+    }, 1500);
   };
 
   return (
@@ -120,12 +119,12 @@ const ContactUs = () => {
       `}</style>
 
       <main
-        className="mt-20 bg-background dark:bg-[#0c0e0f] text-on-surface"
+        className="mt-20 bg-surface dark:bg-[#0c0e0f] text-on-surface transition-colors duration-300"
         ref={animRef}
       >
 
         {/* Hero Banner Section */}
-        <section className="relative min-h-[400px] md:min-h-[450px] py-16 flex items-center overflow-hidden bg-primary text-white">
+        <section className="relative min-h-[380px] md:min-h-[420px] py-16 flex items-center overflow-hidden bg-primary text-white">
           <div className="absolute inset-0 z-0">
             {/* Ambient Background Grid */}
             <div className="absolute inset-0 bg-gradient-to-tr from-[#00152b] via-[#002a58] to-[#004080]/90" />
@@ -133,19 +132,11 @@ const ContactUs = () => {
             <div className="absolute top-1/4 left-1/3 w-72 h-72 rounded-full bg-blue-400/10 blur-[80px] pointer-events-none" />
             <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-sky-300/10 blur-[90px] pointer-events-none" />
           </div>
-          {/* Dynamic Background Elements */}
-          <div className="absolute inset-0 opacity-10 pointer-events-none">
-            <svg className="absolute w-[500px] h-[500px] -top-10 -right-10 text-white" viewBox="0 0 100 100" fill="currentColor">
-              <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="2 4" />
-            </svg>
-            <svg className="absolute w-[400px] h-[400px] -bottom-20 -left-20 text-white" viewBox="0 0 100 100" fill="currentColor">
-              <rect x="10" y="10" width="80" height="80" rx="10" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="3 6" />
-            </svg>
-          </div>
+
           <div className="relative z-10 max-w-[1280px] mx-auto px-gutter w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
-              {/* Left text info */}
+              {/* Left Column Text Info */}
               <div className="lg:col-span-8 space-y-5">
                 <div data-animate="fade-up" className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold uppercase tracking-widest text-[#a9c7ff] backdrop-blur-md">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#a9c7ff] animate-ping" />
@@ -167,30 +158,6 @@ const ContactUs = () => {
                 </p>
               </div>
 
-              {/* Right graphical card */}
-              {/* <div className="lg:col-span-4 hidden lg:flex justify-end" data-animate="scale-up">
-                <div className="relative p-5 bg-white/5 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md max-w-[320px] animate-float">
-                  <div className="flex items-center gap-1.5 pb-2.5 border-b border-white/10 mb-4">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider">
-                      <span className="material-symbols-outlined text-[16px] text-[#a9c7ff]">verified</span>
-                      Direct Channel
-                    </div>
-                    <p className="text-xs text-slate-300 font-light leading-relaxed">
-                      All inquiries are securely logged and routed to our respective vertical engineers and recruiters.
-                    </p>
-                    <div className="pt-2 flex items-center justify-between text-[11px] text-[#a9c7ff] font-semibold">
-                      <span>Response Rate: &lt; 24h</span>
-                      <span>Secure 256-bit</span>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-
             </div>
           </div>
         </section>
@@ -199,7 +166,7 @@ const ContactUs = () => {
         <section className="py-16 max-w-[1280px] mx-auto px-gutter">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-            {/* Left Column: Office details, careers, & FAQs */}
+            {/* Left Column: Office Details & FAQs */}
             <div className="lg:col-span-5 space-y-8" data-animate="fade-right">
               <div>
                 <span className="text-xs uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff] font-bold">
@@ -211,10 +178,10 @@ const ContactUs = () => {
                 <div className="w-12 h-1 bg-[#002a58] dark:bg-[#a9c7ff] rounded-full" />
               </div>
 
-              {/* Quick Info Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+              {/* Quick Info Cards */}
+              <div className="grid grid-cols-1 gap-4">
 
-                {/* Office 1 */}
+                {/* Office Card */}
                 <div className="p-5 rounded-2xl bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/40 shadow-sm hover:shadow-md transition-all">
                   <div className="flex items-start gap-4">
                     <div className="p-2.5 rounded-xl bg-[#002a58]/5 dark:bg-[#a9c7ff]/10 text-[#002a58] dark:text-[#a9c7ff] flex-shrink-0">
@@ -231,24 +198,7 @@ const ContactUs = () => {
                   </div>
                 </div>
 
-                {/* Office 2 */}
-                {/* <div className="p-5 rounded-2xl bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/40 shadow-sm hover:shadow-md transition-all">
-                  <div className="flex items-start gap-4">
-                    <div className="p-2.5 rounded-xl bg-[#002a58]/5 dark:bg-[#a9c7ff]/10 text-[#002a58] dark:text-[#a9c7ff] flex-shrink-0">
-                      <span className="material-symbols-outlined text-[24px]">domain</span>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-800 dark:text-white text-xs uppercase tracking-wider">
-                        Delhi Corporate Hub
-                      </h4>
-                      <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                        Business District, Innovation Hub,<br />Phase II, New Delhi, India
-                      </p>
-                    </div>
-                  </div>
-                </div> */}
-
-                {/* General Inquiry Details */}
+                {/* General & HR Contact Card */}
                 <div className="p-5 rounded-2xl bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/40 shadow-sm hover:shadow-md transition-all">
                   <div className="flex items-start gap-4">
                     <div className="p-2.5 rounded-xl bg-[#002a58]/5 dark:bg-[#a9c7ff]/10 text-[#002a58] dark:text-[#a9c7ff] flex-shrink-0">
@@ -256,12 +206,12 @@ const ContactUs = () => {
                     </div>
                     <div className="space-y-1.5">
                       <h4 className="font-bold text-slate-800 dark:text-white text-xs uppercase tracking-wider">
-                       Contact Us
+                        Direct Lines &amp; Support
                       </h4>
                       <div className="text-sm text-slate-600 dark:text-slate-300">
-                        <span className="block font-medium"><a href="mailto:info@smartbrains.in" className="text-[#002a58] dark:text-[#a9c7ff] hover:underline">info@smartbrains.in</a></span>
-                        <span className="block font-medium"><a href="mailto:hr@smartbrains.in" className="text-[#002a58] dark:text-[#a9c7ff] hover:underline">hr@smartbrains.in</a></span>
-                        <span className="block mt-1 font-medium"><a href="tel:+911204616600" className="text-slate-800 dark:text-white hover:underline">+91 9891108002</a></span>
+                        <span className="block font-medium">General: <a href="mailto:info@smartbrains.in" className="text-[#002a58] dark:text-[#a9c7ff] font-semibold hover:underline">info@smartbrains.in</a></span>
+                        <span className="block font-medium">Careers: <a href="mailto:hr@smartbrains.in" className="text-[#002a58] dark:text-[#a9c7ff] font-semibold hover:underline">hr@smartbrains.in</a></span>
+                        <span className="block mt-1 font-medium">Hotline: <a href="tel:+919891108002" className="text-slate-800 dark:text-white font-bold hover:underline">+91 9891108002</a></span>
                       </div>
                     </div>
                   </div>
@@ -270,11 +220,11 @@ const ContactUs = () => {
               </div>
 
               {/* FAQ Accordion Section */}
-              {/* <div className="pt-4 space-y-4">
+              <div className="pt-4 space-y-4">
                 <h3 className="font-bold text-lg text-slate-800 dark:text-white tracking-wide">
                   Common Questions
                 </h3>
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {faqItems.map((item, idx) => {
                     const isOpen = activeFaq === idx;
                     return (
@@ -302,7 +252,7 @@ const ContactUs = () => {
                     );
                   })}
                 </div>
-              </div> */}
+              </div>
 
             </div>
 
@@ -471,6 +421,85 @@ const ContactUs = () => {
           </div>
         </section>
 
+        {/* Global Footprint Showcase Section (Enhancing UX with Vector World Map) */}
+        <section className="py-12 max-w-[1280px] mx-auto px-gutter" data-animate="fade-up">
+          <div className="bg-[#00152b] text-white rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl relative overflow-hidden">
+            
+            {/* Vector World Map as Section Graphic */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
+              <WorldMapVector className="w-full h-full text-[#a9c7ff]" />
+            </div>
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Left Column: Section Title & Interactive Region Buttons */}
+              <div className="lg:col-span-6 space-y-4">
+                <span className="text-xs font-mono uppercase tracking-widest text-[#a9c7ff] font-bold">
+                  GLOBAL FOOTPRINT &amp; REACH
+                </span>
+                <h3 className="text-2xl md:text-3xl font-bold leading-tight">
+                  Connecting Industry &amp; Innovation Across Continents
+                </h3>
+                <p className="text-xs md:text-sm text-slate-300 font-light leading-relaxed">
+                  SmartBrains operates from our core Operations HQ in Noida, India, serving partner schools, infrastructure developers, and corporate enterprises across Asia-Pacific, the Middle East, and Europe.
+                </p>
+
+                {/* Region Selector Pills */}
+                {/* <div className="pt-2 flex flex-wrap gap-2">
+                  {Object.keys(globalRegions).map((regKey) => (
+                    <button
+                      key={regKey}
+                      onClick={() => setActiveRegion(regKey)}
+                      className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${
+                        activeRegion === regKey
+                          ? "bg-[#a9c7ff] text-[#001b3d] shadow-md font-bold"
+                          : "bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10"
+                      }`}
+                    >
+                      {regKey === "noida" ? "Noida HQ (India)" : regKey === "dubai" ? "Middle East" : regKey === "london" ? "Europe Hub" : "APAC Desk"}
+                    </button>
+                  ))}
+                </div> */}
+              </div>
+
+              {/* Right Column: Selected Location Detail Card */}
+              {/* <div className="lg:col-span-6">
+                <div className="p-6 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-[#a9c7ff] px-2.5 py-0.5 rounded bg-white/10">
+                      {globalRegions[activeRegion].status}
+                    </span>
+                    <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      Active Office
+                    </span>
+                  </div>
+
+                  <h4 className="text-lg font-bold text-white">
+                    {globalRegions[activeRegion].title}
+                  </h4>
+                  <p className="text-xs text-slate-300 font-light">
+                    {globalRegions[activeRegion].subtitle}
+                  </p>
+
+                  <div className="pt-2 border-t border-white/10 text-xs text-slate-200 space-y-1.5">
+                    <p className="flex items-center gap-2">
+                      <span className="material-symbols-outlined text-[16px] text-[#a9c7ff]">location_on</span>
+                      <span>{globalRegions[activeRegion].address}</span>
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <span className="material-symbols-outlined text-[16px] text-[#a9c7ff]">mail</span>
+                      <a href={`mailto:${globalRegions[activeRegion].email}`} className="hover:underline">{globalRegions[activeRegion].email}</a>
+                    </p>
+                  </div>
+                </div>
+              </div> */}
+
+            </div>
+
+          </div>
+        </section>
+
         {/* Location Map Section */}
         <section className="pb-20 max-w-[1280px] mx-auto px-gutter" data-animate="fade-up">
           <div className="bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/40 p-4 rounded-3xl shadow-lg overflow-hidden h-[450px] relative group">
@@ -478,7 +507,7 @@ const ContactUs = () => {
             {/* Map Frame Overlay */}
             <div className="absolute top-4 left-4 z-10 bg-white/90 dark:bg-[#121517]/90 border border-slate-200/60 dark:border-slate-800/60 p-4 rounded-2xl shadow-lg backdrop-blur-md max-w-sm hidden sm:block">
               <h4 className="font-bold text-slate-800 dark:text-white text-xs uppercase tracking-wider flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 SmartBrains Headquarters Location
               </h4>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-normal font-light">
@@ -493,9 +522,9 @@ const ContactUs = () => {
         {submitSuccess && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-gutter bg-slate-900/60 backdrop-blur-md">
             <div className="bg-white dark:bg-[#121517] border border-slate-200/80 dark:border-slate-800/80 p-8 rounded-3xl shadow-2xl max-w-md w-full text-center relative overflow-hidden transform animate-scale-up">
-              <div className="absolute top-0 inset-x-0 h-[4px] bg-green-500" />
+              <div className="absolute top-0 inset-x-0 h-[4px] bg-emerald-500" />
 
-              <div className="w-16 h-16 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center mx-auto mb-4 border border-green-500/20">
+              <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto mb-4 border border-emerald-500/20">
                 <span className="material-symbols-outlined text-[32px]">check_circle</span>
               </div>
 
