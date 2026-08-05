@@ -46,7 +46,7 @@ const coreTeam = [
     name: "Amit Singh",
     role: "PROJECT HEAD SKILL",
     dept: "accounts",
-    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785835958/ChatGPT_Image_Aug_4_2026_03_00_07_PM_ibvnty.png",
+    image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785909855/ChatGPT_Image_Aug_5_2026_11_33_12_AM_m15q3t.png",
   },
   {
     id: 8,

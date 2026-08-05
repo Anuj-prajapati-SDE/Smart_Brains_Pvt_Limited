@@ -91,7 +91,7 @@ const valuesList = [
 
 const divisionsListData = [
   {
-    title: "IT & ITES SERVICES",
+    title: "IT & ITeS SERVICES",
     barColor: "bg-[#002a58] dark:bg-[#a9c7ff]",
     textColor: "text-[#002a58] dark:text-[#a9c7ff]",
     hoverBg: "hover:bg-[#002a58]/5 dark:hover:bg-[#a9c7ff]/10",
