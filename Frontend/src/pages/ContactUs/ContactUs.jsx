@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import WorldMapVector from "./components/WorldMapVector";
 
@@ -16,32 +17,11 @@ const ContactUs = () => {
     message: ""
   });
 
-  // Validation state
+  // Validation & status state
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  // FAQ state
-  const [activeFaq, setActiveFaq] = useState(null);
-
-  const faqItems = [
-    {
-      question: "What industries does SmartBrains serve?",
-      answer: "SmartBrains is a diversified conglomerate working across S.T.E.A.M. Education & Vocational Training, Civil Infrastructure & Engineering Services, IT Services & Cloud Infrastructure, Manpower Staffing, and CSR Project implementation."
-    },
-    {
-      question: "How do I apply for career opportunities at SmartBrains?",
-      answer: "You can send your resume directly to our HR department via email at hr@smartbrains.in, or fill out the contact form specifying 'Careers & HR' in the inquiry topic. Our recruiting team will review your profile against active positions."
-    },
-    {
-      question: "Are your S.T.E.A.M. education labs aligned with school curricula?",
-      answer: "Yes, our S.T.E.A.M. programs, experiential learning modules, and hands-on laboratory kits are designed in strict alignment with CBSE, ICSE, and state boards, integrated with NEP 2020 guidelines."
-    },
-    {
-      question: "Can we request custom civil engineering consultancy?",
-      answer: "Absolutely. We provide engineering consultancy, earthwork coordination, civil project staffing, and industrial plant logistics. Reach out through our contact form with details about your site parameters and objectives."
-    }
-  ];
+  const [submitError, setSubmitError] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -81,13 +61,30 @@ const ContactUs = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+    setSubmitError("");
 
-    setTimeout(() => {
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      phone: formData.phone,
+      company: formData.company || "N/A",
+      vertical: formData.vertical,
+      subject: formData.subject,
+      message: formData.message,
+      reply_to: formData.email,
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
       setIsSubmitting(false);
       setSubmitSuccess(true);
       setFormData({
@@ -99,7 +96,13 @@ const ContactUs = () => {
         subject: "",
         message: ""
       });
-    }, 1500);
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+      setIsSubmitting(false);
+      setSubmitError(
+        err?.text || "Failed to send message via EmailJS. Please verify your credentials in .env file."
+      );
+    }
   };
 
   return (
@@ -209,9 +212,8 @@ const ContactUs = () => {
                         Direct Lines &amp; Support
                       </h4>
                       <div className="text-sm text-slate-600 dark:text-slate-300">
-                        <span className="block font-medium">General: <a href="mailto:info@smartbrains.in" className="text-[#002a58] dark:text-[#a9c7ff] font-semibold hover:underline">info@smartbrains.in</a></span>
-                        <span className="block font-medium">Careers: <a href="mailto:hr@smartbrains.in" className="text-[#002a58] dark:text-[#a9c7ff] font-semibold hover:underline">hr@smartbrains.in</a></span>
-                        <span className="block mt-1 font-medium">Hotline: <a href="tel:+919891108002" className="text-slate-800 dark:text-white font-bold hover:underline">+91 9891108002</a></span>
+                        <span className="block font-medium"> <a href="mailto:info@smartbrains.in" className="text-[#002a58] dark:text-[#a9c7ff] font-semibold hover:underline">info@smartbrains.in</a></span>
+                        <span className="block mt-1 font-medium"><a href="tel:+919891108002" className="text-slate-800 dark:text-white font-bold hover:underline">+91 9891108002</a></span>
                       </div>
                     </div>
                   </div>
@@ -220,7 +222,7 @@ const ContactUs = () => {
               </div>
 
               {/* FAQ Accordion Section */}
-              <div className="pt-4 space-y-4">
+              {/* <div className="pt-4 space-y-4">
                 <h3 className="font-bold text-lg text-slate-800 dark:text-white tracking-wide">
                   Common Questions
                 </h3>
@@ -252,7 +254,7 @@ const ContactUs = () => {
                     );
                   })}
                 </div>
-              </div>
+              </div> */}
 
             </div>
 
@@ -267,6 +269,13 @@ const ContactUs = () => {
                 <p className="text-xs text-slate-400 dark:text-slate-500 mb-6">
                   Fill out the secure form below. Mandatory fields are marked with <span className="text-red-500">*</span>
                 </p>
+
+                {submitError && (
+                  <div className="mb-4 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs font-medium flex items-center gap-2">
+                    <span className="material-symbols-outlined text-[18px]">error</span>
+                    <span>{submitError}</span>
+                  </div>
+                )}
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -351,12 +360,15 @@ const ContactUs = () => {
                       onChange={handleInputChange}
                       className="w-full px-4 py-2.5 text-sm rounded-xl bg-slate-50 dark:bg-[#181b1d] border border-slate-200 dark:border-slate-800 focus:border-[#002a58] dark:focus:border-[#a9c7ff] focus:ring-1 focus:ring-primary-fixed-dim focus:outline-none text-slate-800 dark:text-white transition-all"
                     >
-                      <option value="STEAM Education">S.T.E.A.M. Labs &amp; School Kits</option>
-                      <option value="Construction Services">EPC, Civil Earthwork &amp; Engineering</option>
-                      <option value="Manpower Solutions">Technical Recruitment &amp; Staffing</option>
-                      <option value="IT Services">Hybrid Cloud, DevOps &amp; Integration</option>
-                      <option value="Careers & HR">Careers &amp; HR (Job Seekers)</option>
-                      <option value="General Corporate Inquiry">Other General Inquiries</option>
+                      <option value="IT & ITeS Services">IT & ITeS Services</option>
+                      <option value="Staffing Services">Staffing Services</option>
+                      <option value="Skilling Projects">Skilling Projects</option>
+                      <option value="Vocational Labs">Vocational Labs</option>
+                      <option value="CSR Projects">CSR Projects</option>
+                      <option value="STEM Education">STEM Education</option>
+                      <option value="AgriTech & Hydroponics">AgriTech & Hydroponics</option>
+                      <option value="EPC & Earthworks">EPC & Earthworks</option>
+                      <option value="General Corporate Inquiry">General Corporate Inquiry</option>
                     </select>
                   </div>
 

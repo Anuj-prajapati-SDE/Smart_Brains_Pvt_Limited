@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>New Website Inquiry | SmartBrains</title>
+  <style type="text/css">
+    /* Reset styles */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    
+    /* Mobile Responsive Media Queries */
+    @media screen and (max-width: 600px) {
+      .email-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 0px !important;
+      }
+      .header-padding {
+        padding: 24px 20px !important;
+      }
+      .body-padding {
+        padding: 24px 20px !important;
+      }
+      .footer-padding {
+        padding: 24px 20px !important;
+      }
+      .mobile-title {
+        font-size: 20px !important;
+      }
+      .mobile-subtitle {
+        font-size: 12px !important;
+      }
+      .mobile-subject {
+        font-size: 16px !important;
+      }
+      /* Stack Table Rows on Mobile for clean reading */
+      .responsive-row td {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .responsive-row .label-td {
+        border-bottom: none !important;
+        padding-bottom: 4px !important;
+        background-color: #f8fafc !important;
+      }
+      .responsive-row .value-td {
+        padding-top: 4px !important;
+        padding-bottom: 12px !important;
+      }
+      .mobile-btn {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 14px 16px !important;
+        text-align: center !important;
+      }
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0b0f19; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; color: #1e293b;">
+
+  <!-- Outer Background Container -->
+  <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #0b0f19; padding: 20px 0;">
+    <tr>
+      <td align="center">
+
+        <!-- Main Email Card -->
+        <table role="presentation" class="email-container" width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 620px; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);">
+          
+          <!-- Top Accent Gradient Line -->
+          <tr>
+            <td height="5" style="background: linear-gradient(90deg, #002a58 0%, #0056b3 50%, #38bdf8 100%);"></td>
+          </tr>
+
+          <!-- Header -->
+          <tr>
+            <td class="header-padding" style="background-color: #00152b; padding: 32px 36px;">
+              <h1 class="mobile-title" style="margin: 0; font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; line-height: 1.2;">
+                SMARTBRAINS
+              </h1>
+              <p class="mobile-subtitle" style="margin: 4px 0 0 0; font-size: 13px; color: #94a3b8; font-weight: 400;">
+                Engineers &amp; Technologists Pvt. Ltd.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Body Content -->
+          <tr>
+            <td class="body-padding" style="padding: 32px 36px; background-color: #ffffff;">
+
+              <!-- Subject Banner -->
+              <div style="margin-bottom: 20px;">
+                <span style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: #64748b; letter-spacing: 0.8px;">Inquiry Subject</span>
+                <h2 class="mobile-subject" style="margin: 4px 0 0 0; font-size: 18px; font-weight: 700; color: #0f172a; line-height: 1.3;">
+                  {{subject}}
+                </h2>
+              </div>
+
+              <!-- Details Grid (Responsive Table) -->
+              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; margin-bottom: 24px; border-collapse: separate; border-spacing: 0;">
+                
+                <!-- Row 1: Sender Name -->
+                <tr class="responsive-row">
+                  <td class="label-td" width="36%" style="padding: 12px 16px; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px;">
+                    Sender Name
+                  </td>
+                  <td class="value-td" style="padding: 12px 16px; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; font-size: 14px; font-weight: 600; color: #0f172a;">
+                    {{from_name}}
+                  </td>
+                </tr>
+
+                <!-- Row 2: Email -->
+                <tr class="responsive-row">
+                  <td class="label-td" style="padding: 12px 16px; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px;">
+                    Email Address
+                  </td>
+                  <td class="value-td" style="padding: 12px 16px; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; font-size: 14px; font-weight: 600; word-break: break-word;">
+                    <a href="mailto:{{from_email}}" style="color: #0056b3; text-decoration: none;">{{from_email}}</a>
+                  </td>
+                </tr>
+
+                <!-- Row 3: Phone -->
+                <tr class="responsive-row">
+                  <td class="label-td" style="padding: 12px 16px; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px;">
+                    Phone Number
+                  </td>
+                  <td class="value-td" style="padding: 12px 16px; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; font-size: 14px; font-weight: 600; color: #0f172a;">
+                    <a href="tel:{{phone}}" style="color: #0f172a; text-decoration: none;">{{phone}}</a>
+                  </td>
+                </tr>
+
+                <!-- Row 4: Company -->
+                <tr class="responsive-row">
+                  <td class="label-td" style="padding: 12px 16px; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px;">
+                    Company / Entity
+                  </td>
+                  <td class="value-td" style="padding: 12px 16px; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; font-size: 14px; font-weight: 600; color: #0f172a;">
+                    {{company}}
+                  </td>
+                </tr>
+
+                <!-- Row 5: Vertical -->
+                <tr class="responsive-row">
+                  <td class="label-td" style="padding: 12px 16px; background-color: #f8fafc; font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px;">
+                    Department Scope
+                  </td>
+                  <td class="value-td" style="padding: 12px 16px; background-color: #ffffff; font-size: 14px; font-weight: 600; color: #002a58;">
+                    {{vertical}}
+                  </td>
+                </tr>
+
+              </table>
+
+              <!-- Message Description Box -->
+              <div style="margin-bottom: 28px;">
+                <span style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: #64748b; letter-spacing: 0.8px; display: block; margin-bottom: 6px;">
+                  Message Description
+                </span>
+                <div style="background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 16px; font-size: 14px; color: #334155; line-height: 1.6; white-space: pre-wrap; word-break: break-word;">
+{{message}}
+                </div>
+              </div>
+
+              <!-- Action Button -->
+              <div style="text-align: center; margin-bottom: 8px;">
+                <a href="mailto:{{from_email}}?subject=RE: {{subject}}" class="mobile-btn" style="display: inline-block; background-color: #002a58; color: #ffffff; text-decoration: none; padding: 14px 28px; border-radius: 10px; font-size: 14px; font-weight: 700; letter-spacing: 0.3px; box-shadow: 0 4px 12px rgba(0, 42, 88, 0.25);">
+                  Reply Directly to {{from_name}} &rarr;
+                </a>
+              </div>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td class="footer-padding" style="background-color: #00152b; padding: 24px 36px; text-align: center; color: #94a3b8; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+              <p style="margin: 0 0 6px 0; font-size: 13px; font-weight: 700; color: #ffffff;">
+                SmartBrains Engineers &amp; Technologists Pvt. Ltd.
+              </p>
+              <p style="margin: 0 0 12px 0; font-size: 11px; color: #64748b; line-height: 1.5;">
+                A-25, Sector 59, Noida, Uttar Pradesh - 201301, India | <a href="https://smartbrains.in" style="color: #38bdf8; text-decoration: none;">www.smartbrains.in</a>
+              </p>
+              <p style="margin: 0; font-size: 10px; color: #475569; line-height: 1.4;">
+                This email was generated automatically by the SmartBrains web portal.<br/>
+                Confidentiality Note: Intended solely for authorized internal operations &amp; business development reps.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

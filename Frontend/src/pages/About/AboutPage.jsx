@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import AboutLeadership from "./components/AboutLeadership";
 import AboutCoreValues from "./components/AboutCoreValues";
 import AboutCoreTeam from "./components/AboutCoreTeam";
+import AboutTimeline from "./components/AboutTimeline";
 // import { Owner_1 } from "../../assets";
 // import WaterMark from  '../../assets/fabicon.png';
 import gsap from "gsap";
@@ -1117,7 +1118,9 @@ const AboutPage = () => {
         <AboutCoreTeam />
         <SkillingSlider/>
         {/* Core Pillars Section */}
-        <AboutCoreValues />
+        <AboutCoreValues />  
+        {/* Timeline & Growth Journey Section */}
+        <AboutTimeline />
       
         {/* Footprints & Highlights Section */}
         <section id="footprints" className="py-20 bg-gradient-to-b from-white to-[#f8f9fa] dark:from-[#0c0e0f] dark:to-[#080b0c] border-b border-outline-variant/20 overflow-hidden">
