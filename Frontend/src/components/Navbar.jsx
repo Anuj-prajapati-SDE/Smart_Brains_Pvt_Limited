@@ -534,7 +534,7 @@ ${activeHireSubmenu === "hire" ? "opacity-100 visible" : "opacity-0 invisible"}`
               </div>
             </div>
 
-            <div className="flex flex-col border-b border-outline-variant/10 pb-xs">
+            {/* <div className="flex flex-col border-b border-outline-variant/10 pb-xs">
               <button
                 onClick={(e) => {
                   e.preventDefault();
@@ -565,7 +565,7 @@ ${activeHireSubmenu === "hire" ? "opacity-100 visible" : "opacity-0 invisible"}`
                   </Link>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             <Link
               className="py-xs px-sm font-bold text-body-md text-on-surface hover:text-primary dark:text-surface-variant dark:hover:text-primary-fixed-dim border-b border-outline-variant/10"
