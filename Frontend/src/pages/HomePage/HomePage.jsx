@@ -172,7 +172,7 @@ const HomePage = () => {
             <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 dark:bg-[#a9c7ff]/10 text-primary dark:text-[#a9c7ff] font-bold text-xs tracking-widest uppercase mb-4 border border-primary/20">
               Social Impact &amp; Sustainability
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-black text-primary dark:text-white uppercase tracking-tight leading-tight font-serif">
+            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-black text-primary dark:text-white uppercase tracking-tight leading-tight">
           Empowering Enterprises with Future-Ready Digital Solutions
             </h2>
            

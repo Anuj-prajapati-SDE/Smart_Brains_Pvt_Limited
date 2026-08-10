@@ -5,7 +5,7 @@ const getBusinessRoute = (name) => {
   switch (name) {
     case "Skilling Projects":
       return "/skilling";
-    case "IT & ITES Services":
+    case "IT & ITeS Services":
       return "/it-services";
     case "Vocational Labs":
       return "/vocational-labs";
@@ -27,7 +27,7 @@ const getBusinessRoute = (name) => {
 const businessesData = [
    {
     name: "IT & ITeS Services",
-    subVerticals: ["Managed Hybrid Cloud ", "DevOPS and Automation", "Network and Security ", "Monitoring ", "Server Management", "Web Hosting", " Help Desk", "System Integration"],
+    subVerticals: ["Managed Hybrid Cloud ", "DevOPS and Automation", "Network and Security ", "Monitoring ", "Server Management"],
     bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785358419/WhatsApp_Image_2026-07-29_at_8.16.54_PM_u4yakz.jpg",
     largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785358419/WhatsApp_Image_2026-07-29_at_8.16.54_PM_u4yakz.jpg",
     companyName: "SmartBrains Realty & Infrastructure Ltd.",
@@ -84,7 +84,7 @@ const businessesData = [
   },
    {
     name: "STEM Education",
-    subVerticals: ["Robotics & Automation", "Artificial Intelligence (AI)", "Internet of Things (IoT)", "Electronics & Embedded Systems", "3D Printing & Rapid Prototyping ", "AR/VR Learning", "Design Thinking & Innovation"],
+    subVerticals: ["Robotics & Automation", "Artificial Intelligence (AI)", "Internet of Things (IoT)", "Electronics & Embedded Systems"],
     bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785357970/WhatsApp_Image_2026-07-29_at_8.11.30_PM_l7rihx.jpg",
     largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785357970/WhatsApp_Image_2026-07-29_at_8.11.30_PM_l7rihx.jpg",
     companyName: "SmartBrains Cement & Steel Ltd.",
@@ -95,7 +95,7 @@ const businessesData = [
   },
    {
     name: "AgriTech & Hydroponics",
-    subVerticals: ["Green House - NVPH ", "CCPH", "Glass House", "Cold Room", "Speed Breeding", "HDPE Equippment Manufacturer", "Buy Back"],
+    subVerticals: ["Green House - NVPH ", "CCPH", "Glass House", "Cold Room", "Speed Breeding", ],
     bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785357975/WhatsApp_Image_2026-07-29_at_8.13.15_PM_uxmcc7.jpg",
     largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785357975/WhatsApp_Image_2026-07-29_at_8.13.15_PM_uxmcc7.jpg",
     companyName: "SmartBrains Sports & Arenas Ltd.",
@@ -106,7 +106,7 @@ const businessesData = [
   },
   {
     name: "EPC & Earthworks",
-    subVerticals: ["Design & Detailed Engineering", "Procurement ", "Manufacturing", "Fabrication ", "Civil & Earthworks", "Piling & Foundation", "Structural Works ", "Mechanical Installation"],
+    subVerticals: ["Design & Detailed Engineering", "Procurement ", "Manufacturing", "Fabrication ", "Civil & Earthworks"],
     bgImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785414905/WhatsApp_Image_2026-07-30_at_6.04.22_PM_zssj2z.jpg",
     largeImage: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785414905/WhatsApp_Image_2026-07-30_at_6.04.22_PM_zssj2z.jpg",
     companyName: "SmartBrains Infrastructure Developers Ltd.",

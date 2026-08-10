@@ -104,10 +104,7 @@ const AboutTimeline = () => {
             Empowering Progress Since 2009
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#002a58] dark:text-white uppercase tracking-tight leading-tight">
-            Our Journey &amp; Growth{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#002a58] via-blue-600 to-[#a9c7ff] dark:from-[#a9c7ff] dark:to-white">
-              Timeline
-            </span>
+            Our Journey
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#002a58] via-blue-500 to-[#a9c7ff] dark:from-[#a9c7ff] dark:to-white mx-auto mt-2.5 rounded-full" />
         </div>
