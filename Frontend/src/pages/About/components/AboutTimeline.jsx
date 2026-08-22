@@ -117,26 +117,26 @@ const AboutTimeline = () => {
           {/* ── LEFT COLUMN: Interactive Timeline Dashboard (col-span-7) ── */}
           <div className="lg:col-span-7 flex flex-col h-full">
 
-            {/* Desktop Dashboard Card in Crisp White Theme with Navy Accents */}
-            <div className="hidden lg:flex flex-col h-full w-full rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,42,88,0.07)] dark:shadow-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] select-none relative transition-all duration-300">
+            {/* Interactive Dashboard Card (Visible & Responsive on Mobile, Tablet & Desktop) */}
+            <div className="flex flex-col h-full w-full rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,42,88,0.07)] dark:shadow-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] select-none relative transition-all duration-300">
 
               {/* Header Bar with Year Selector Tabs */}
-              <div className="px-6 py-3.5 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md z-20">
-                <div className="flex items-center gap-2.5">
+              <div className="px-4 sm:px-6 py-3.5 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md z-20">
+                <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#002a58] dark:bg-[#a9c7ff]" />
                   <span className="text-xs font-black uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff]">
                     Milestone Matrix (2009 — 2026+)
                   </span>
                 </div>
 
-                {/* Corporate Interactive Year Buttons with Hover & Click */}
-                <div className="flex items-center gap-1.5">
+                {/* Corporate Interactive Year Buttons with Touch & Click */}
+                <div className="flex items-center gap-1.5 overflow-x-auto max-w-full pb-0.5 scrollbar-none">
                   {timelineEvents.map((evt, idx) => (
                     <button
                       key={idx}
                       onClick={() => setActiveIdx(idx)}
                       onMouseEnter={() => setActiveIdx(idx)}
-                      className={`px-3.5 py-1.5 rounded-lg text-xs font-black font-mono transition-all duration-200 ${activeIdx === idx
+                      className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-lg text-xs font-black font-mono shrink-0 transition-all duration-200 ${activeIdx === idx
                         ? "bg-[#002a58] text-white shadow-md shadow-[#002a58]/25 scale-105"
                         : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-[#002a58] dark:hover:text-white border border-slate-200/80 dark:border-slate-700"
                         }`}
@@ -492,49 +492,13 @@ const AboutTimeline = () => {
               </div>
 
               {/* Bottom Guidance Bar */}
-              <div className="px-6 py-3 bg-slate-50/90 dark:bg-slate-900/90 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              <div className="px-4 sm:px-6 py-3 bg-slate-50/90 dark:bg-slate-900/90 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                 <span className="flex items-center gap-1.5">
-                  <span className="text-[#002a58] dark:text-[#a9c7ff] font-bold">✦</span> Hover or click any milestone or year to inspect details
+                  <span className="text-[#002a58] dark:text-[#a9c7ff] font-bold">✦</span> 
                 </span>
                 <span className="font-mono text-[#002a58] dark:text-[#a9c7ff] text-xs font-bold">15+ YEARS OF EXCELLENCE</span>
               </div>
 
-            </div>
-
-            {/* Mobile / Tablet View */}
-            <div className="lg:hidden flex flex-col gap-4">
-              <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-                {timelineEvents.map((evt, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveIdx(idx)}
-                    onMouseEnter={() => setActiveIdx(idx)}
-                    className={`px-4 py-2 rounded-xl text-xs font-black font-mono shrink-0 transition-all ${activeIdx === idx
-                      ? "bg-[#002a58] text-white shadow-md"
-                      : "bg-white dark:bg-[#121517] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800"
-                      }`}
-                  >
-                    {evt.year}
-                  </button>
-                ))}
-              </div>
-
-              <div className="p-6 rounded-2xl bg-white dark:bg-[#121517] text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 shadow-md">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#002a58]/10 text-[#002a58] dark:bg-[#a9c7ff]/10 dark:text-[#a9c7ff]">
-                    {timelineEvents[activeIdx].tag}
-                  </span>
-                  <span className="text-xl font-black font-mono text-[#002a58] dark:text-[#a9c7ff]">
-                    {timelineEvents[activeIdx].year}
-                  </span>
-                </div>
-                <h3 className="text-lg font-black text-[#002a58] dark:text-white mb-2 uppercase tracking-wide">
-                  {timelineEvents[activeIdx].title}
-                </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
-                  {timelineEvents[activeIdx].desc}
-                </p>
-              </div>
             </div>
 
           </div>

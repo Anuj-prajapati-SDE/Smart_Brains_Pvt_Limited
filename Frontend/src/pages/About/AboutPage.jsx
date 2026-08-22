@@ -619,51 +619,38 @@ const AboutPage = () => {
         }}
       >
         {/* Hero Section */}
-        <section className="relative min-h-[550px] lg:min-h-[600px] py-16 lg:py-24 flex items-center overflow-hidden bg-primary text-white">
-          {/* Animated Background blur/glow blobs */}
-
-
+        <section className="relative min-h-[440px] sm:min-h-[480px] lg:min-h-[520px] py-16 sm:py-20 lg:py-24 flex items-center overflow-hidden bg-primary text-white">
           <div className="relative z-10 max-w-[1280px] mx-auto px-gutter w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="max-w-4xl space-y-4 sm:space-y-5">
+              <div data-animate="fade-up" className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold uppercase tracking-widest text-[#a9c7ff] backdrop-blur-md">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#a9c7ff] animate-ping" />
+                Established 2009
+              </div>
+              <h4
+                data-animate="fade-up"
+                data-animate-delay="0.1"
+                className="font-headline-xl text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-white leading-[1.2]"
+              >
+                Innovating Businesses, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a9c7ff] to-white font-extrabold">Empowering People</span> &amp; Transforming Communities
+              </h4>
+              <p
+                data-animate="fade-up"
+                data-animate-delay="0.2"
+                className="text-sm sm:text-base md:text-lg text-slate-300 font-light max-w-2xl leading-relaxed"
+              >
+                SmartBrains bridges industry needs with innovative education to build future-ready professionals.
+              </p>
+            
+            </div>
 
-              {/* Left Column: Typography & Text */}
-              <div className="lg:col-span-7 space-y-6">
-                <div data-animate="fade-up" className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold uppercase tracking-widest text-[#a9c7ff] backdrop-blur-md">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#a9c7ff] animate-ping" />
-                  Established 2009
-                </div>
-                <h3
-                  data-animate="fade-up"
-                  data-animate-delay="0.1"
-                  className="font-headline-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]"
-                >
-                  Innovating Businesses, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a9c7ff] to-white font-extrabold">Empowering People</span> &amp; Transforming Communities
-                </h3>
-                <p
-                  data-animate="fade-up"
-                  data-animate-delay="0.2"
-                  className="text-base md:text-lg text-slate-300 font-light max-w-xl leading-relaxed"
-                >
-                  SmartBrains bridges industry needs with innovative education to build future-ready professionals.
-                </p>
-                <div data-animate="fade-up" data-animate-delay="0.3" className="flex flex-wrap gap-4 pt-2">
-                  {/* <a href="#expertise" className="px-5 py-2.5 bg-white text-[#002a58] hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all font-semibold rounded-lg text-sm shadow-md">
-                    Explore Verticals
-                  </a> */}
-                  <Link to="contact" className="px-5 py-2.5 bg-white/10 border border-white/20 text-white hover:bg-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all font-semibold rounded-lg text-sm backdrop-blur-md">
-                    Contact Us
-                  </Link>
-                </div>
-              </div>
-              {/* Dynamic Background elements */}
-              <div className="absolute inset-0 opacity-10 pointer-events-none">
-                <svg className="absolute w-[500px] h-[500px] -top-10 -right-10 text-white" viewBox="0 0 100 100" fill="currentColor">
-                  <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="2 4" />
-                </svg>
-                <svg className="absolute w-[400px] h-[400px] -bottom-20 -left-20 text-white" viewBox="0 0 100 100" fill="currentColor">
-                  <rect x="10" y="10" width="80" height="80" rx="10" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="3 6" />
-                </svg>
-              </div>
+            {/* Dynamic Background elements */}
+            <div className="absolute inset-0 opacity-10 pointer-events-none">
+              <svg className="absolute w-[500px] h-[500px] -top-10 -right-10 text-white" viewBox="0 0 100 100" fill="currentColor">
+                <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="2 4" />
+              </svg>
+              <svg className="absolute w-[400px] h-[400px] -bottom-20 -left-20 text-white" viewBox="0 0 100 100" fill="currentColor">
+                <rect x="10" y="10" width="80" height="80" rx="10" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="3 6" />
+              </svg>
             </div>
           </div>
         </section>
@@ -1425,7 +1412,23 @@ const AboutPage = () => {
         </section>
         <CompanySlider/>
 
-        
+ {/* CTA Section */}
+      <section data-animate="scale-up" className="bg-primary py-xl m-20 rounded-xl">
+        <div className="max-w-[1280px] mx-auto px-gutter text-center text-on-primary">
+          <h2 className="font-headline-lg text-headline-lg mb-md">
+            Ready to Build the Future?
+          </h2>
+          <p className="font-body-lg text-body-lg mb-lg opacity-80 max-w-2xl mx-auto">
+            Connect with our specialists today to discuss your next industrial
+            project or institutional curriculum upgrade.
+          </p>
+          <div className="flex justify-center gap-md">
+            <Link to={'/contact-us'} className="bg-on-primary text-primary px-xl py-sm font-bold uppercase text-label-sm tracking-widest transition-all hover:scale-105">
+                Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>        
       </main>
     </>
   );

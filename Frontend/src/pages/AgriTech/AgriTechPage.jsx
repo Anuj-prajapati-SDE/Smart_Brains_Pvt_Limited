@@ -331,7 +331,7 @@ const AgriTechPage = () => {
             </span>
 
             {/* Section Title */}
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-primary dark:text-white tracking-tight uppercase font-serif leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-primary dark:text-white tracking-tight uppercase leading-tight">
               Hydroponics: Future of Farming
             </h2>
 
@@ -414,7 +414,7 @@ const AgriTechPage = () => {
           <span className="inline-block px-3 py-1 bg-primary/10 dark:bg-[#a9c7ff]/10 text-primary dark:text-[#a9c7ff] rounded-full text-[11px] font-bold uppercase tracking-widest mb-2">
             Core AgriTech Competencies
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-primary dark:text-white tracking-tight uppercase leading-tight font-serif">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-primary dark:text-white tracking-tight uppercase leading-tight">
             What We Do!
           </h2>
           <div className="w-12 h-1 bg-primary dark:bg-[#a9c7ff] mx-auto mt-2 rounded-full" />
@@ -469,7 +469,7 @@ const AgriTechPage = () => {
           
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12" data-animate="fade-up">
-            <h2 className="text-2xl sm:text-4xl font-semibold text-primary dark:text-white tracking-tight uppercase leading-tight font-serif">
+            <h2 className="text-2xl sm:text-4xl font-semibold text-primary dark:text-white tracking-tight uppercase leading-tight">
               Hydroponics Featured Products
             </h2>
             
@@ -538,7 +538,7 @@ const AgriTechPage = () => {
           <span className="inline-block px-3 py-1 bg-primary/10 dark:bg-[#a9c7ff]/10 text-primary dark:text-[#a9c7ff] rounded-full text-[11px] font-bold uppercase tracking-widest mb-2">
             Commercial Offerings
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-primary dark:text-white uppercase font-serif">
+          <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-primary dark:text-white uppercase">
             Our Hydroponics Services
           </h2>
           <div className="w-12 h-1 bg-primary dark:bg-[#a9c7ff] mx-auto mt-2.5 rounded-full" />
@@ -602,7 +602,7 @@ const AgriTechPage = () => {
             <span className="text-xs font-extrabold uppercase tracking-widest text-primary dark:text-[#a9c7ff]">
               Why Choose SmartBrains
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary dark:text-white uppercase font-serif leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary dark:text-white uppercase leading-tight">
               Pioneering High-Yield Hydroponic Excellence
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed">
@@ -656,7 +656,7 @@ const AgriTechPage = () => {
               <span className="inline-block py-1 px-3 rounded-full bg-white/10 text-white font-bold text-[10px] sm:text-xs tracking-widest uppercase border border-white/20">
                 Farm Showcase
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold font-serif leading-tight text-white">
+              <h3 className="text-xl sm:text-2xl font-bold leading-tight text-white">
                 Pioneering Hydroponic Excellence
               </h3>
               <p className="text-xs sm:text-sm text-slate-200 font-light leading-relaxed">
@@ -714,7 +714,7 @@ const AgriTechPage = () => {
             {/* Dynamic Quote & Slide Indicators Overlay */}
             <div className="absolute bottom-0 inset-x-0 p-4 sm:p-6 z-20 text-white flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
               {/* <div className="space-y-1 max-w-xl">
-                <p className="text-xs sm:text-sm text-slate-100 font-light italic leading-relaxed font-serif">
+                <p className="text-xs sm:text-sm text-slate-100 font-light italic leading-relaxed">
                   "{testimonialSlides[currentSlide].quote}"
                 </p>
                 <p className="text-[11px] sm:text-xs font-semibold text-slate-300">
@@ -836,7 +836,7 @@ const AgriTechPage = () => {
             <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs font-semibold uppercase tracking-widest text-[#a9c7ff] mb-4">
               Get Started Today
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-tight mb-4 font-serif leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-tight mb-4 leading-tight">
               Ready To Modernize Your Hydroponic Enterprise?
             </h2>
             <p className="text-xs sm:text-sm text-slate-200 font-light mb-8 leading-relaxed">

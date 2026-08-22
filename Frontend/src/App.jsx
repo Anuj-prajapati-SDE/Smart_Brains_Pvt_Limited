@@ -55,10 +55,15 @@ import EmergingTechnology from './pages/HireSubMenu/EmergingTechnology';
 import MainFrameTraining from './pages/HireSubMenu/MainFrameTraining';
 
 
-function ScrollToHash() {
+function ScrollToTopAndHash() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    // Disable browser automatic scroll restoration so every route transition starts at the top
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
     if (hash) {
       const id = hash.replace('#', '');
       const element = document.getElementById(id);
@@ -69,7 +74,19 @@ function ScrollToHash() {
         return () => clearTimeout(timer);
       }
     } else {
-      window.scrollTo(0, 0);
+      // Immediate scroll reset
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+
+      // Handle async DOM mount and layout shifts
+      const timer = setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }, 0);
+
+      return () => clearTimeout(timer);
     }
   }, [pathname, hash]);
 
@@ -112,7 +129,7 @@ function App() {
 
   return (
     <Router>
-      <ScrollToHash />
+      <ScrollToTopAndHash />
       <Navbar />
       <Routes>
 

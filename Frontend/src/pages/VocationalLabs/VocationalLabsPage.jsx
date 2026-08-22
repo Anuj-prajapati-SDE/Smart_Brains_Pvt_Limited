@@ -155,6 +155,15 @@ const VocationalLabsPage = () => {
             </div>
           </div>
         </div>
+             {/* Dynamic Background elements */}
+              <div className="absolute inset-0 opacity-10 pointer-events-none">
+                <svg className="absolute w-[500px] h-[500px] -top-10 -right-10 text-white" viewBox="0 0 100 100" fill="currentColor">
+                  <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="2 4" />
+                </svg>
+                <svg className="absolute w-[400px] h-[400px] -bottom-20 -left-20 text-white" viewBox="0 0 100 100" fill="currentColor">
+                  <rect x="10" y="10" width="80" height="80" rx="10" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="3 6" />
+                </svg>
+              </div>
       </section>
       
       {/* 7. IMPACT STATISTICS COUNTER BANNER */}
