@@ -311,9 +311,9 @@ const HomePage = () => {
             <span className="inline-block px-3 py-1 bg-white/10 text-[#a9c7ff] rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3 sm:mb-4 border border-white/15">
               Start Your Journey
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 tracking-tight uppercase leading-tight">
+            <h4 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-black mb-3 sm:mb-4 tracking-tight uppercase leading-tight">
               Ready to Build the Future?
-            </h2>
+            </h4>
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-200 font-light opacity-90 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed">
               Connect with our specialists today to discuss your next industrial project or institutional curriculum upgrade.
             </p>

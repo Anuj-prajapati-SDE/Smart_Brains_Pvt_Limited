@@ -447,7 +447,7 @@ const ContactUs = () => {
           <div className="bg-[#00152b] text-white rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl relative overflow-hidden">
             
             {/* Vector World Map as Section Graphic */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
+            <div className="absolute inset-0 opacity-20 pointer-events-none ">
               <WorldMapVector className="w-full h-full text-[#a9c7ff]" />
             </div>
 
@@ -463,58 +463,8 @@ const ContactUs = () => {
                 </h3>
                 <p className="text-xs md:text-sm text-slate-300 font-light leading-relaxed">
                   SmartBrains operates from our core Operations HQ in Noida, India, serving partner schools, infrastructure developers, and corporate enterprises across Asia-Pacific, the Middle East, and Europe.
-                </p>
-
-                {/* Region Selector Pills */}
-                {/* <div className="pt-2 flex flex-wrap gap-2">
-                  {Object.keys(globalRegions).map((regKey) => (
-                    <button
-                      key={regKey}
-                      onClick={() => setActiveRegion(regKey)}
-                      className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${
-                        activeRegion === regKey
-                          ? "bg-[#a9c7ff] text-[#001b3d] shadow-md font-bold"
-                          : "bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10"
-                      }`}
-                    >
-                      {regKey === "noida" ? "Noida HQ (India)" : regKey === "dubai" ? "Middle East" : regKey === "london" ? "Europe Hub" : "APAC Desk"}
-                    </button>
-                  ))}
-                </div> */}
+                </p> 
               </div>
-
-              {/* Right Column: Selected Location Detail Card */}
-              {/* <div className="lg:col-span-6">
-                <div className="p-6 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] uppercase font-bold tracking-widest text-[#a9c7ff] px-2.5 py-0.5 rounded bg-white/10">
-                      {globalRegions[activeRegion].status}
-                    </span>
-                    <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      Active Office
-                    </span>
-                  </div>
-
-                  <h4 className="text-lg font-bold text-white">
-                    {globalRegions[activeRegion].title}
-                  </h4>
-                  <p className="text-xs text-slate-300 font-light">
-                    {globalRegions[activeRegion].subtitle}
-                  </p>
-
-                  <div className="pt-2 border-t border-white/10 text-xs text-slate-200 space-y-1.5">
-                    <p className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-[16px] text-[#a9c7ff]">location_on</span>
-                      <span>{globalRegions[activeRegion].address}</span>
-                    </p>
-                    <p className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-[16px] text-[#a9c7ff]">mail</span>
-                      <a href={`mailto:${globalRegions[activeRegion].email}`} className="hover:underline">{globalRegions[activeRegion].email}</a>
-                    </p>
-                  </div>
-                </div>
-              </div> */}
 
             </div>
 
