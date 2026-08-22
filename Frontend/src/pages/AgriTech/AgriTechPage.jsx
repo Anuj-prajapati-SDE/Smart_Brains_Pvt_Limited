@@ -31,32 +31,48 @@ const AgriTechPage = () => {
       quote: "InHydro has a wide range of learning material which I used when entering the area of hydroponic farming. It must be said that their guides, tutorials, and workshops are very comprehensive and elaborate.",
       author: "Ravi Tiwari",
       location: "Haryana",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
-      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785496513/Wall-System_tmekfm.webp"
+      avatar: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786363029/1770055016189_gjjthp.jpg",
+      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786363029/1770055016189_gjjthp.jpg"
     },
     {
       id: 2,
       quote: "Setting up our commercial polyhouse and hydroponic farm with SmartBrains & InHydro was seamless. Their IoT climate controllers and nutrient advisory helped us double our yield in season one.",
       author: "Anand Sharma",
       location: "Punjab",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
-      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785496513/NFT-CHANNELS_achib0.webp"
+      avatar: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786363030/1770784979253_kjfwbq.jpg",
+      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786363030/1770784979253_kjfwbq.jpg"
     },
     {
       id: 3,
       quote: "The HaaS (Hydroponics as a Service) model eliminated our upfront CapEx risks. The team manages daily farm telemetry, water testing, and crop health with extreme professionalism.",
       author: "Priya Patel",
       location: "Gujarat",
-      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop",
-      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785496513/Dutch-Bucket1-_fkqaww.webp"
+      avatar: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786363029/1770393184788_s2zvld.jpg",
+      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786363029/1770393184788_s2zvld.jpg"
     },
     {
       id: 4,
       quote: "InHydro’s food-grade HDPE NFT channels and Dutch buckets are top-notch. UV-stabilized, highly durable, and designed for optimal nutrient flow. Highly recommended for commercial growers.",
       author: "Vikram Reddy",
       location: "Telangana",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
-      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1785496513/Untitled-design-74-e1769517128220_a2dcbn.webp"
+      avatar: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786363030/1769193984365_yqrbou.jpg",
+      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786363030/1769193984365_yqrbou.jpg"
+    },
+    {
+      id: 5,
+      quote: "InHydro’s food-grade HDPE NFT channels and Dutch buckets are top-notch. UV-stabilized, highly durable, and designed for optimal nutrient flow. Highly recommended for commercial growers.",
+      author: "Vikram Reddy",
+      location: "Telangana",
+      avatar: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786363032/1769270281708_xb6ym1.jpg",
+      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786363032/1769270281708_xb6ym1.jpg"
+    },
+    {
+      id: 6,
+      quote: "InHydro’s food-grade HDPE NFT channels and Dutch buckets are top-notch. UV-stabilized, highly durable, and designed for optimal nutrient flow. Highly recommended for commercial growers.",
+      author: "Vikram Reddy",
+      location: "Telangana",
+      avatar: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786363035/1778787518682_wwmmmo.jpg",
+      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786363035/1778787518682_wwmmmo.jpg"
     }
   ]
 
@@ -134,19 +150,19 @@ const AgriTechPage = () => {
     {
       id: 1,
       title: "HYDROPONICS FARM SOLUTIONS",
-      image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=800&auto=format&fit=crop",
+      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786364093/1767634010477_srtwyl.jpg",
       desc: "Complete setup of NFT systems, Dutch Buckets, Vertical Towers, Grow Bags and Indoor Farms for sustainable, high-yield crop production."
     },
     {
       id: 2,
       title: "GREENHOUSE INFRASTRUCTURE",
-      image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb231fc?q=80&w=800&auto=format&fit=crop",
+      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786364260/1767713951988_qqj8z9.jpg",
       desc: "Design and construction of climate-controlled greenhouses and polyhouses for commercial agriculture, protecting crops against environmental extremes."
     },
     {
       id: 3,
       title: "FARM AUTOMATION & IOT INTEGRATION",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
+      image: "https://res.cloudinary.com/dobfsabnz/image/upload/v1786364316/1767972469577_wodlgu.jpg",
       desc: "Smart farm automation with IoT sensors, climate control systems and remote monitoring — giving complete control over irrigation, nutrients and climate."
     },
     {
@@ -686,7 +702,7 @@ const AgriTechPage = () => {
                 key={slide.id}
                 src={slide.image}
                 alt={slide.author}
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out ${
+                className={`absolute inset-0 w-full h-full object-[90% 90%] transition-all duration-700 ease-in-out ${
                   currentSlide === idx ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
                 }`}
               />
@@ -697,14 +713,14 @@ const AgriTechPage = () => {
 
             {/* Dynamic Quote & Slide Indicators Overlay */}
             <div className="absolute bottom-0 inset-x-0 p-4 sm:p-6 z-20 text-white flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
-              <div className="space-y-1 max-w-xl">
+              {/* <div className="space-y-1 max-w-xl">
                 <p className="text-xs sm:text-sm text-slate-100 font-light italic leading-relaxed font-serif">
                   "{testimonialSlides[currentSlide].quote}"
                 </p>
                 <p className="text-[11px] sm:text-xs font-semibold text-slate-300">
                   — {testimonialSlides[currentSlide].author}, <span className="font-normal text-slate-400">{testimonialSlides[currentSlide].location}</span>
                 </p>
-              </div>
+              </div> */}
 
               {/* Slide Dots */}
               <div className="flex items-center gap-1.5 shrink-0 self-center sm:self-end">

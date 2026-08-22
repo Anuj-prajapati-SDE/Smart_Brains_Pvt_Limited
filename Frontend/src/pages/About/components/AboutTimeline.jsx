@@ -1,70 +1,77 @@
 import React, { useState } from "react";
 
-// ─── Timeline data ───────────────────────────────────────────────────────────
+// ─── Timeline data with brand-aligned content ──────────────────────────────
 const timelineEvents = [
   {
     year: "2009",
     title: "Foundation & Inception",
-    desc: "SmartBrains was incorporated in Noida to bridge technical talent gaps and deliver high-caliber engineering solutions.",
+    tag: "INCORPORATION IN NOIDA",
+    desc: "SmartBrains was established in Noida to bridge critical engineering talent gaps and deliver premier technical solutions.",
     iconPath: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
-    gradId: "grad-2009",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop",
   },
   {
     year: "2013",
     title: "Workforce Expansion",
-    desc: "Expanded across North India, establishing state-level vocational training centers and 50,000+ skilled talent pools.",
+    tag: "NORTH INDIA EXPANSION",
+    desc: "Expanded vocational training network across North India, building a 50,000+ skilled engineering talent pipeline.",
     iconPath: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
-    gradId: "grad-2013",
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1000&auto=format&fit=crop",
   },
   {
     year: "2017",
     title: "Multi-Vertical Growth",
-    desc: "Launched 6 core business divisions: EPC, IT & ITeS, Staffing, Solar, Hydroponics, and STEAM Education.",
+    tag: "6 BUSINESS DIVISIONS",
+    desc: "Diversified into 6 core divisions: EPC, IT & ITeS, Technical Staffing, Solar EPC, Hydroponics, and STEAM.",
     iconPath: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
-    gradId: "grad-2017",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop",
   },
   {
     year: "2020",
     title: "Pan-India Digital Reach",
-    desc: "Pioneered STEAM labs, digital workforce management systems, and remote skilling across 20+ states in India.",
+    tag: "20+ STATES NETWORK",
+    desc: "Scaled STEAM labs, modern digital workforce platforms, and remote skilling models across 20+ Indian states.",
     iconPath: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-    gradId: "grad-2020",
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1000&auto=format&fit=crop",
   },
   {
     year: "2023",
-    title: "Green Energy & CSR",
-    desc: "Rolled out Solar Energy EPC net-metering and AgriTech hydroponics setups to foster eco-sustainability.",
+    title: "Green Energy & Sustainability",
+    tag: "SOLAR EPC & AGRITECH",
+    desc: "Accelerated Solar EPC net-metering projects and state-of-the-art commercial Hydroponics AgriTech setups.",
     iconPath: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z",
-    gradId: "grad-2023",
+    image: "https://media.istockphoto.com/id/1291751221/photo/the-sales-department-scores-again.webp?a=1&b=1&s=612x612&w=0&k=20&c=eLEEzx6Bt0-Y3Cj2QKudklHo9sBd4vzXO4Fvt9eLzjk=",
   },
   {
     year: "2026+",
-    title: "Future Scale & Vision",
-    desc: "Empowering 1.5 Lakh+ professionals and driving AI-powered industrial workforce transformation nationwide.",
+    title: "Scale & AI Transformation",
+    tag: "1.5L+ WORKFORCE VISION",
+    desc: "Empowering 1.5 Lakh+ professionals with AI-enabled industrial workforce skilling and nationwide execution.",
     iconPath: "M13 10V3L4 14h7v7l9-11h-7z",
-    gradId: "grad-2026",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop",
   },
 ];
 
-// ─── SVG Geometry (viewBox 1440 × 600) ──────────────────────────────────────
-// Hub sits at bottom-left; fan spans upper-right region
-const CX = 165;     // hub center X
-const CY = 420;     // hub center Y
-const R_HUB = 100;  // hub circle radius
-const R_ARC = 280;  // arc (where dots & year labels live)
-const R_INNER_CARD = 310; // where content cards start
-const R_OUTER = 1500;     // fan tip (goes off-canvas right edge)
+// ─── SVG Geometry (viewBox 1100 × 680) ──────────────────────────────────────
+const CX = 100;       // hub center X
+const CY = 345;       // hub center Y
+const R_HUB = 98;     // increased hub circle radius
+const R_ARC = 195;    // arc radius
+const R_OUTER = 1200; // fan tip
 
-// 8 slices: top-grey  |  6 milestones  |  bottom-grey
+// Precise non-overlapping coordinates with guaranteed vertical spacing between cards
+const CARD_W = 300;
+const CARD_H = 80;
+
 const SLICES = [
-  { type: "intro",     start: -110, end: -88,  mid: -99,  fill: "#1e293b" },
-  { type: "milestone", start: -86,  end: -66,  mid: -76,  fill: "url(#grad-2009)", idx: 0 },
-  { type: "milestone", start: -64,  end: -44,  mid: -54,  fill: "url(#grad-2013)", idx: 1 },
-  { type: "milestone", start: -42,  end: -22,  mid: -32,  fill: "url(#grad-2017)", idx: 2 },
-  { type: "milestone", start: -20,  end: 0,    mid: -10,  fill: "url(#grad-2020)", idx: 3 },
-  { type: "milestone", start: 2,    end: 22,   mid: 12,   fill: "url(#grad-2023)", idx: 4 },
-  { type: "milestone", start: 24,   end: 44,   mid: 34,   fill: "url(#grad-2026)", idx: 5 },
-  { type: "outro",     start: 46,   end: 68,   mid: 57,   fill: "#334155" },
+  { type: "intro", start: -110, end: -88, mid: -99, fill: "#001834" },
+  { type: "milestone", start: -86, end: -66, mid: -76, fill: "url(#sb-slice-0)", idx: 0, cardX: 180, cardY: 22 },
+  { type: "milestone", start: -64, end: -42, mid: -53, fill: "url(#sb-slice-1)", idx: 1, cardX: 310, cardY: 118 },
+  { type: "milestone", start: -40, end: -18, mid: -29, fill: "url(#sb-slice-2)", idx: 2, cardX: 400, cardY: 214 },
+  { type: "milestone", start: -16, end: 6, mid: -5, fill: "url(#sb-slice-3)", idx: 3, cardX: 430, cardY: 310 },
+  { type: "milestone", start: 8, end: 30, mid: 19, fill: "url(#sb-slice-4)", idx: 4, cardX: 390, cardY: 406 },
+  { type: "milestone", start: 32, end: 54, mid: 43, fill: "url(#sb-slice-5)", idx: 5, cardX: 280, cardY: 502 },
+  { type: "outro", start: 56, end: 78, mid: 67, fill: "#001c3d" },
 ];
 
 function toRad(deg) { return (deg * Math.PI) / 180; }
@@ -82,318 +89,504 @@ function wedgePath(cx, cy, rIn, rOut, a0, a1) {
   return `M${p1.x} ${p1.y} L${p2.x} ${p2.y} A${rOut} ${rOut} 0 ${large} 1 ${p3.x} ${p3.y} L${p4.x} ${p4.y} A${rIn} ${rIn} 0 ${large} 0 ${p1.x} ${p1.y}Z`;
 }
 
-// Card placement: computed per slice in SVG space
-// Each card is a foreignObject anchored at a point on the arc + offset
-const CARD_W = 260;
-const CARD_H = 110;
-
-// ─── Component ───────────────────────────────────────────────────────────────
 const AboutTimeline = () => {
   const [activeIdx, setActiveIdx] = useState(2); // default highlight: 2017
 
   return (
-    <section className="py-10 md:py-14 w-full bg-gradient-to-b from-[#f8f9fa] via-white to-[#f8f9fa] dark:from-[#0c0e0f] dark:via-[#121517] dark:to-[#0c0e0f] border-b border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none opacity-[0.025] bg-[radial-gradient(#002a58_1px,transparent_1px)] [background-size:24px_24px]" />
+    <section className="py-12 md:py-16 w-full bg-gradient-to-b from-[#f8f9fa] via-white to-[#f8f9fa] dark:from-[#0a0d10] dark:via-[#101419] dark:to-[#0a0d10] border-b border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden">
+      {/* Subtle brand grid pattern */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#002a58_1.5px,transparent_1.5px)] [background-size:24px_24px]" />
 
-      <div className="w-full px-4 sm:px-6 lg:px-10 relative z-10">
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl mx-auto">
 
-        {/* ── Section Header ─────────────────────────────────────────────── */}
-        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white dark:bg-[#121517] border border-slate-200/80 dark:border-slate-800/80 text-[10px] font-extrabold uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff] mb-2 shadow-xs">
+        {/* ── Section Header ── */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-[#121517] border border-slate-200/90 dark:border-slate-800 text-xs font-black uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff] mb-3 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-[#002a58] dark:bg-[#a9c7ff] animate-pulse" />
-            Empowering Progress Since 2009
+            SmartBrains Evolution & Milestones
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#002a58] dark:text-white uppercase tracking-tight leading-tight">
-            Our Journey
+            Our Journey & Growth
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#002a58] via-blue-500 to-[#a9c7ff] dark:from-[#a9c7ff] dark:to-white mx-auto mt-2.5 rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-[#002a58] via-blue-600 to-[#a9c7ff] dark:from-[#a9c7ff] dark:to-white mx-auto mt-3 rounded-full" />
         </div>
 
-        {/* ── Desktop: Full-width SVG infographic ────────────────────────── */}
-        <div className="hidden lg:block w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-950 select-none">
-          {/*
-            viewBox = 1440 × 600
-            All content — wedges, arc, dots, year labels, content cards — lives
-            inside this single SVG so coordinates always match.
-          */}
-          <svg
-            viewBox="0 0 1440 600"
-            preserveAspectRatio="xMidYMid meet"
-            className="w-full"
-            style={{ display: "block" }}
-          >
-            <defs>
-              <linearGradient id="grad-2009" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#001c3d" /><stop offset="100%" stopColor="#004080" />
-              </linearGradient>
-              <linearGradient id="grad-2013" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#0f172a" /><stop offset="100%" stopColor="#1e3a8a" />
-              </linearGradient>
-              <linearGradient id="grad-2017" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#0369a1" /><stop offset="100%" stopColor="#0284c7" />
-              </linearGradient>
-              <linearGradient id="grad-2020" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#0f766e" /><stop offset="100%" stopColor="#0d9488" />
-              </linearGradient>
-              <linearGradient id="grad-2023" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#047857" /><stop offset="100%" stopColor="#059669" />
-              </linearGradient>
-              <linearGradient id="grad-2026" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#001c3d" /><stop offset="100%" stopColor="#002a58" />
-              </linearGradient>
-              <filter id="sliceShadow">
-                <feDropShadow dx="-2" dy="3" stdDeviation="5" floodColor="#000" floodOpacity="0.55" />
-              </filter>
-              <filter id="cardShadow">
-                <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#000" floodOpacity="0.6" />
-              </filter>
-            </defs>
+        {/* ── Main Layout: Perfectly Aligned 2-Column Grid (White Theme) ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
 
-            {/* ── Fan wedge slices ── */}
-            {SLICES.map((sl, i) => {
-              const active = sl.type === "milestone" && activeIdx === sl.idx;
-              return (
-                <path
-                  key={i}
-                  d={wedgePath(CX, CY, R_HUB, R_OUTER, sl.start, sl.end)}
-                  fill={sl.fill}
-                  stroke={active ? "#fff" : "#0f172a"}
-                  strokeWidth={active ? 2.5 : 0.8}
-                  filter="url(#sliceShadow)"
-                  style={{ cursor: sl.type === "milestone" ? "pointer" : "default", transition: "filter .2s" }}
-                  onClick={() => sl.type === "milestone" && setActiveIdx(sl.idx)}
-                />
-              );
-            })}
+          {/* ── LEFT COLUMN: Interactive Timeline Dashboard (col-span-7) ── */}
+          <div className="lg:col-span-7 flex flex-col h-full">
 
-            {/* ── Radial divider lines ── */}
-            {SLICES.map((sl, i) => {
-              const p1 = polar(CX, CY, R_HUB, sl.start);
-              const p2 = polar(CX, CY, R_OUTER, sl.start);
-              return (
-                <line key={`ray-${i}`}
-                  x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y}
-                  stroke="rgba(255,255,255,0.10)" strokeWidth="1" />
-              );
-            })}
+            {/* Desktop Dashboard Card in Crisp White Theme with Navy Accents */}
+            <div className="hidden lg:flex flex-col h-full w-full rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,42,88,0.07)] dark:shadow-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] select-none relative transition-all duration-300">
 
-            {/* ── White arc line ── */}
-            {(() => {
-              const arcStart = polar(CX, CY, R_ARC, -110);
-              const arcEnd   = polar(CX, CY, R_ARC, 68);
-              return (
-                <path
-                  d={`M${arcStart.x} ${arcStart.y} A${R_ARC} ${R_ARC} 0 0 1 ${arcEnd.x} ${arcEnd.y}`}
-                  fill="none" stroke="#fff" strokeWidth="2.2"
-                />
-              );
-            })()}
-
-            {/* ── Arc dots + year labels + content cards (all in SVG space) ── */}
-            {SLICES.filter(sl => sl.type === "milestone").map((sl) => {
-              const evt      = timelineEvents[sl.idx];
-              const active   = activeIdx === sl.idx;
-              const dot      = polar(CX, CY, R_ARC, sl.mid);
-              const yearPt   = polar(CX, CY, R_ARC - 38, sl.mid);
-              // Card anchor: a point further out along the mid-angle
-              const cardAnchor = polar(CX, CY, R_INNER_CARD + 40, sl.mid);
-
-              // Position card so it doesn't overlap hub
-              // Shift card left by half width to center on anchor
-              const cardX = cardAnchor.x - 10;
-              const cardY = cardAnchor.y - CARD_H / 2;
-
-              return (
-                <g key={sl.idx} style={{ cursor: "pointer" }} onClick={() => setActiveIdx(sl.idx)}>
-                  {/* Arc node dot */}
-                  <circle
-                    cx={dot.x} cy={dot.y}
-                    r={active ? 9 : 5.5}
-                    fill={active ? "#fff" : "#001c3d"}
-                    stroke="#fff"
-                    strokeWidth={active ? 3.5 : 1.5}
-                    style={{ transition: "r .2s" }}
-                  />
-
-                  {/* Year label */}
-                  <text
-                    x={yearPt.x} y={yearPt.y + 5}
-                    textAnchor="middle"
-                    fontSize={active ? 20 : 16}
-                    fontWeight="900"
-                    fontFamily="monospace"
-                    fill={active ? "#fbbf24" : "rgba(255,255,255,0.90)"}
-                    style={{ textShadow: "0 2px 6px #000", transition: "font-size .2s" }}
-                  >
-                    {evt.year}
-                  </text>
-
-                  {/* Content card as foreignObject – lives in SVG space → always aligned */}
-                  <foreignObject
-                    x={cardX}
-                    y={cardY}
-                    width={CARD_W}
-                    height={CARD_H}
-                    style={{ overflow: "visible" }}
-                  >
-                    <div
-                      style={{
-                        background: active ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.40)",
-                        border: active ? "1.5px solid rgba(255,255,255,0.35)" : "1px solid rgba(255,255,255,0.10)",
-                        borderRadius: "12px",
-                        padding: "10px 12px",
-                        width: `${CARD_W}px`,
-                        boxSizing: "border-box",
-                        backdropFilter: "blur(4px)",
-                        transition: "background .2s",
-                      }}
-                    >
-                      {/* Icon + title row */}
-                      <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", marginBottom: "6px" }}>
-                        <div style={{
-                          width: 28, height: 28, flexShrink: 0,
-                          background: "rgba(255,255,255,0.12)",
-                          borderRadius: "7px",
-                          display: "flex", alignItems: "center", justifyContent: "center",
-                          border: "1px solid rgba(255,255,255,0.20)",
-                        }}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="rgba(255,255,255,0.90)" strokeWidth="1.8"
-                            strokeLinecap="round" strokeLinejoin="round">
-                            <path d={evt.iconPath} />
-                          </svg>
-                        </div>
-                        <span style={{
-                          fontSize: "11px", fontWeight: 800,
-                          color: active ? "#fbbf24" : "#fff",
-                          textTransform: "uppercase", letterSpacing: "0.06em",
-                          lineHeight: 1.3,
-                        }}>
-                          {evt.title}
-                        </span>
-                      </div>
-                      {/* Description */}
-                      <p style={{
-                        fontSize: "10.5px", color: "rgba(203,213,225,0.90)",
-                        fontWeight: 300, lineHeight: 1.5, margin: 0,
-                      }}>
-                        {evt.desc}
-                      </p>
-                    </div>
-                  </foreignObject>
-                </g>
-              );
-            })}
-
-            {/* ── Central hub circle ── */}
-            <g>
-              <circle cx={CX} cy={CY} r={R_HUB + 6} fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="1.5" />
-              <circle cx={CX} cy={CY} r={R_HUB} fill="#060810" stroke="#fff" strokeWidth="3.5" />
-              <text x={CX} y={CY - 18} textAnchor="middle"
-                fontSize="18" fontWeight="900" fill="#fff" letterSpacing="3">
-                TIMELINE
-              </text>
-              <text x={CX} y={CY} textAnchor="middle"
-                fontSize="9" fontWeight="400" fill="rgba(148,163,184,0.9)" letterSpacing="0.5">
-                OUR EVOLUTION
-              </text>
-              <text x={CX} y={CY + 14} textAnchor="middle"
-                fontSize="9" fontWeight="300" fill="rgba(148,163,184,0.75)">
-                2009 — 2026+
-              </text>
-            </g>
-
-            {/* ── DESCRIPTION 1 – top-left corner (intro slice) ── */}
-            <foreignObject x="22" y="18" width="220" height="130">
-              <div style={{
-                color: "#94a3b8", fontSize: "10.5px", fontWeight: 300,
-                lineHeight: 1.55, textAlign: "left",
-              }}>
-                <div style={{
-                  fontSize: "10px", fontWeight: 800, color: "#cbd5e1",
-                  textTransform: "uppercase", letterSpacing: "0.10em", marginBottom: "4px",
-                }}>
-                  SmartBrains
-                </div>
-                Tech-enabled enterprise partner empowering engineering talent with sustainable, innovation-driven solutions across India.
-              </div>
-            </foreignObject>
-
-            {/* ── DESCRIPTION 2 – bottom-left corner (outro slice) ── */}
-            <foreignObject x="22" y="468" width="220" height="120">
-              <div style={{
-                color: "#94a3b8", fontSize: "10.5px", fontWeight: 300,
-                lineHeight: 1.55, textAlign: "left",
-              }}>
-                <div style={{
-                  fontSize: "10px", fontWeight: 800, color: "#cbd5e1",
-                  textTransform: "uppercase", letterSpacing: "0.10em", marginBottom: "4px",
-                }}>
-                  Vision 2030
-                </div>
-                Driving AI integration, green energy, and 1.5 Lakh+ skilled workforce footprint nationwide.
-              </div>
-            </foreignObject>
-
-          </svg>
-        </div>
-
-        {/* ── Mobile / Tablet fallback ────────────────────────────────────── */}
-        <div className="lg:hidden space-y-5">
-          {/* Year tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2">
-            {timelineEvents.map((evt, idx) => (
-              <button key={idx} onClick={() => setActiveIdx(idx)}
-                className={`px-4 py-2 rounded-xl text-xs font-black font-mono shrink-0 transition-all ${activeIdx === idx
-                  ? "bg-[#002a58] text-white shadow-md"
-                  : "bg-white dark:bg-[#121517] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800"
-                }`}>
-                {evt.year}
-              </button>
-            ))}
-          </div>
-
-          {/* Active card */}
-          <div className="p-5 rounded-2xl bg-slate-900 text-white border border-slate-800 shadow-xl">
-            <div className="flex items-center justify-between mb-2">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-blue-500/20 text-blue-300 border border-blue-400/30">
-                Milestone
-              </span>
-              <span className="text-2xl font-black font-mono text-amber-400">
-                {timelineEvents[activeIdx].year}
-              </span>
-            </div>
-            <h3 className="text-lg font-bold text-white mb-1.5 uppercase tracking-wide">
-              {timelineEvents[activeIdx].title}
-            </h3>
-            <p className="text-xs text-slate-300 leading-relaxed font-light">
-              {timelineEvents[activeIdx].desc}
-            </p>
-          </div>
-
-          {/* Full list */}
-          <div className="space-y-2.5 pt-3 border-t border-slate-200 dark:border-slate-800">
-            <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff] mb-3">
-              All Milestones (2009 — 2026+)
-            </h4>
-            {timelineEvents.map((item, idx) => (
-              <div key={idx} onClick={() => setActiveIdx(idx)}
-                className={`p-3.5 rounded-xl cursor-pointer transition-all border ${activeIdx === idx
-                  ? "bg-[#002a58] text-white border-[#002a58] shadow-lg"
-                  : "bg-white dark:bg-[#121517] text-slate-800 dark:text-white border-slate-200 dark:border-slate-800 hover:border-slate-400"
-                }`}>
-                <div className="flex items-center justify-between mb-0.5">
-                  <span className={`text-xs font-black font-mono ${activeIdx === idx ? "text-amber-300" : "text-[#002a58] dark:text-[#a9c7ff]"}`}>
-                    {item.year}
+              {/* Header Bar with Year Selector Tabs */}
+              <div className="px-6 py-3.5 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md z-20">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#002a58] dark:bg-[#a9c7ff]" />
+                  <span className="text-xs font-black uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff]">
+                    Milestone Matrix (2009 — 2026+)
                   </span>
                 </div>
-                <h5 className="text-xs font-bold uppercase">{item.title}</h5>
-                <p className={`text-[11px] mt-0.5 font-light ${activeIdx === idx ? "text-slate-200" : "text-slate-500 dark:text-slate-400"}`}>
-                  {item.desc}
+
+                {/* Corporate Interactive Year Buttons with Hover & Click */}
+                <div className="flex items-center gap-1.5">
+                  {timelineEvents.map((evt, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveIdx(idx)}
+                      onMouseEnter={() => setActiveIdx(idx)}
+                      className={`px-3.5 py-1.5 rounded-lg text-xs font-black font-mono transition-all duration-200 ${activeIdx === idx
+                        ? "bg-[#002a58] text-white shadow-md shadow-[#002a58]/25 scale-105"
+                        : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-[#002a58] dark:hover:text-white border border-slate-200/80 dark:border-slate-700"
+                        }`}
+                    >
+                      {evt.year}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Central SVG Canvas with Dynamic Active Milestone Backdrop Image */}
+              <div className="flex-1 w-full flex items-center justify-center p-1 relative overflow-hidden bg-gradient-to-b from-[#f8fafc] via-slate-50 to-[#f1f5f9] dark:from-[#020617] dark:via-[#090d16] dark:to-[#020617]">
+
+                {/* Background Ambient Active Era Image */}
+                <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                  <img
+                    key={activeIdx}
+                    src={timelineEvents[activeIdx].image}
+                    alt={timelineEvents[activeIdx].title}
+                    className="w-full h-full object-cover object-center opacity-10 dark:opacity-20 filter saturate-150 transition-all duration-700 ease-out scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-50/80 via-slate-50/60 to-transparent dark:from-[#020617]/90 dark:via-[#090d16]/75 dark:to-transparent" />
+                </div>
+
+                <svg
+                  viewBox="0 0 1100 680"
+                  preserveAspectRatio="xMidYMid meet"
+                  className="w-full h-full relative z-10"
+                  style={{ display: "block" }}
+                >
+                  <defs>
+                    {/* Vibrant SmartBrains Navy & Royal Gradients */}
+                    <linearGradient id="sb-slice-0" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#001834" /><stop offset="100%" stopColor="#002a58" />
+                    </linearGradient>
+                    <linearGradient id="sb-slice-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#002046" /><stop offset="100%" stopColor="#003b7a" />
+                    </linearGradient>
+                    <linearGradient id="sb-slice-2" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#002c60" /><stop offset="100%" stopColor="#004d9c" />
+                    </linearGradient>
+                    <linearGradient id="sb-slice-3" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#003778" /><stop offset="100%" stopColor="#005ec0" />
+                    </linearGradient>
+                    <linearGradient id="sb-slice-4" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#00418c" /><stop offset="100%" stopColor="#0070e6" />
+                    </linearGradient>
+                    <linearGradient id="sb-slice-5" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#002654" /><stop offset="100%" stopColor="#00458e" />
+                    </linearGradient>
+
+                    {/* SVG Image Patterns for Active Wedge Backgrounds */}
+                    {timelineEvents.map((evt, idx) => (
+                      <pattern
+                        key={`slice-pat-${idx}`}
+                        id={`sb-slice-img-${idx}`}
+                        patternUnits="userSpaceOnUse"
+                        width="1100"
+                        height="680"
+                      >
+                        <image
+                          href={evt.image}
+                          x="0"
+                          y="0"
+                          width="1100"
+                          height="680"
+                          preserveAspectRatio="xMidYMid slice"
+                        />
+                      </pattern>
+                    ))}
+                  </defs>
+
+                  {/* ── Fan wedge slices (Hover + Click) ── */}
+                  {SLICES.map((sl, i) => {
+                    const active = sl.type === "milestone" && activeIdx === sl.idx;
+                    return (
+                      <g key={`slice-grp-${i}`}>
+                        {/* Base Wedge with Gradient */}
+                        <path
+                          d={wedgePath(CX, CY, R_HUB, R_OUTER, sl.start, sl.end)}
+                          fill={sl.fill}
+                          stroke={active ? "#a9c7ff" : "rgba(255,255,255,0.15)"}
+                          strokeWidth={active ? 3 : 1}
+                          style={{
+                            cursor: sl.type === "milestone" ? "pointer" : "default",
+                            transition: "all .25s ease",
+                            opacity: sl.type === "milestone" && !active ? 0.92 : 1,
+                          }}
+                          onClick={() => sl.type === "milestone" && setActiveIdx(sl.idx)}
+                          onMouseEnter={() => sl.type === "milestone" && setActiveIdx(sl.idx)}
+                        />
+
+                        {/* Active Wedge Image Texture Overlay */}
+                        {active && (
+                          <path
+                            d={wedgePath(CX, CY, R_HUB, R_OUTER, sl.start, sl.end)}
+                            fill={`url(#sb-slice-img-${sl.idx})`}
+                            opacity="0.30"
+                            style={{
+                              pointerEvents: "none",
+                              mixBlendMode: "luminosity",
+                              transition: "opacity .3s ease",
+                            }}
+                          />
+                        )}
+                      </g>
+                    );
+                  })}
+
+                  {/* ── Radial divider lines ── */}
+                  {SLICES.map((sl, i) => {
+                    const p1 = polar(CX, CY, R_HUB, sl.start);
+                    const p2 = polar(CX, CY, R_OUTER, sl.start);
+                    return (
+                      <line
+                        key={`ray-${i}`}
+                        x1={p1.x}
+                        y1={p1.y}
+                        x2={p2.x}
+                        y2={p2.y}
+                        stroke="rgba(255,255,255,0.25)"
+                        strokeWidth="1.2"
+                      />
+                    );
+                  })}
+
+                  {/* ── Clean arc line ── */}
+                  {(() => {
+                    const arcStart = polar(CX, CY, R_ARC, -110);
+                    const arcEnd = polar(CX, CY, R_ARC, 78);
+                    return (
+                      <path
+                        d={`M${arcStart.x} ${arcStart.y} A${R_ARC} ${R_ARC} 0 0 1 ${arcEnd.x} ${arcEnd.y}`}
+                        fill="none"
+                        stroke="rgba(255,255,255,0.85)"
+                        strokeWidth="2.5"
+                      />
+                    );
+                  })()}
+
+                  {/* ── Arc dots + year labels + content cards (Hover + Click) ── */}
+                  {SLICES.filter(sl => sl.type === "milestone").map((sl) => {
+                    const evt = timelineEvents[sl.idx];
+                    const active = activeIdx === sl.idx;
+                    const dot = polar(CX, CY, R_ARC, sl.mid);
+                    const yearPt = polar(CX, CY, R_ARC - 38, sl.mid);
+
+                    return (
+                      <g
+                        key={sl.idx}
+                        style={{ cursor: "pointer" }}
+                        onClick={() => setActiveIdx(sl.idx)}
+                        onMouseEnter={() => setActiveIdx(sl.idx)}
+                      >
+                        {/* Active glow pulse ring on arc */}
+                        {active && (
+                          <circle
+                            cx={dot.x}
+                            cy={dot.y}
+                            r={14}
+                            fill="none"
+                            stroke="#ffffff"
+                            strokeWidth={2.5}
+                            opacity={0.85}
+                          />
+                        )}
+
+                        {/* Arc node dot */}
+                        <circle
+                          cx={dot.x}
+                          cy={dot.y}
+                          r={active ? 8 : 5.5}
+                          fill={active ? "#ffffff" : "#002a58"}
+                          stroke="#ffffff"
+                          strokeWidth={active ? 3 : 1.5}
+                          style={{ transition: "all .2s ease" }}
+                        />
+
+                        {/* Year label */}
+                        <text
+                          x={yearPt.x}
+                          y={yearPt.y + 4}
+                          textAnchor="middle"
+                          fontSize={active ? 16 : 13}
+                          fontWeight="900"
+                          fontFamily="monospace"
+                          fill={active ? "#ffffff" : "rgba(255,255,255,0.92)"}
+                          style={{
+                            textShadow: "0 2px 6px rgba(0,0,0,0.6)",
+                            transition: "all .2s ease",
+                          }}
+                        >
+                          {evt.year}
+                        </text>
+
+                        {/* Content card with clean white theme & navy highlights */}
+                        <foreignObject
+                          x={sl.cardX}
+                          y={sl.cardY}
+                          width={CARD_W}
+                          height={CARD_H}
+                          style={{ overflow: "visible" }}
+                        >
+                          <div
+                            style={{
+                              background: active
+                                ? `linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)), url("${evt.image}") center/cover`
+                                : "#ffffff",
+                              border: active
+                                ? "2.5px solid #002a58"
+                                : "1.5px solid rgba(0, 42, 88, 0.16)",
+                              borderRadius: "12px",
+                              padding: "7px 12px",
+                              width: `${CARD_W}px`,
+                              height: `${CARD_H}px`,
+                              boxSizing: "border-box",
+                              boxShadow: active
+                                ? "0 14px 30px -4px rgba(0, 42, 88, 0.35), 0 4px 10px rgba(0,0,0,0.08)"
+                                : "0 4px 14px -2px rgba(0, 42, 88, 0.10)",
+                              transform: active ? "scale(1.03)" : "scale(1)",
+                              transition: "all .25s cubic-bezier(0.4, 0, 0.2, 1)",
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                            }}
+                          >
+                            {/* Icon + Title + Year Badge */}
+                            <div style={{ display: "flex", alignItems: "center", gap: "7px", marginBottom: "4px" }}>
+                              <div
+                                style={{
+                                  width: 22,
+                                  height: 22,
+                                  flexShrink: 0,
+                                  background: active ? "#002a58" : "#eef2f6",
+                                  color: active ? "#ffffff" : "#002a58",
+                                  borderRadius: "6px",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  transition: "all .2s ease",
+                                }}
+                              >
+                                <svg
+                                  width="12"
+                                  height="12"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2.2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                >
+                                  <path d={evt.iconPath} />
+                                </svg>
+                              </div>
+
+                              <div style={{ flex: 1, minWidth: 0 }}>
+                                <div
+                                  style={{
+                                    fontSize: "11.5px",
+                                    fontWeight: 800,
+                                    color: "#002a58",
+                                    textTransform: "uppercase",
+                                    letterSpacing: "0.02em",
+                                    lineHeight: 1.15,
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                  }}
+                                >
+                                  {evt.title}
+                                </div>
+                              </div>
+
+                              <span
+                                style={{
+                                  fontSize: "10px",
+                                  fontWeight: 800,
+                                  fontFamily: "monospace",
+                                  padding: "1px 5px",
+                                  borderRadius: "4px",
+                                  background: active ? "#e0edff" : "#f1f5f9",
+                                  color: "#002a58",
+                                  flexShrink: 0,
+                                }}
+                              >
+                                {evt.year}
+                              </span>
+                            </div>
+
+                            {/* Description */}
+                            <p
+                              style={{
+                                fontSize: "10px",
+                                color: "#334155",
+                                fontWeight: 500,
+                                lineHeight: 1.35,
+                                margin: 0,
+                                display: "-webkit-box",
+                                WebkitLineClamp: 2,
+                                WebkitBoxOrient: "vertical",
+                                overflow: "hidden",
+                              }}
+                            >
+                              {evt.desc}
+                            </p>
+                          </div>
+                        </foreignObject>
+                      </g>
+                    );
+                  })}
+
+                  {/* ── Central hub circle ── */}
+                  <g>
+                    <circle cx={CX} cy={CY} r={R_HUB + 5} fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
+                    <circle cx={CX} cy={CY} r={R_HUB} fill="#002a58" stroke="#ffffff" strokeWidth="3" />
+                    <text
+                      x={CX}
+                      y={CY - 16}
+                      textAnchor="middle"
+                      fontSize="18"
+                      fontWeight="900"
+                      fill="#ffffff"
+                      letterSpacing="3"
+                    >
+                      TIMELINE
+                    </text>
+                    <text
+                      x={CX}
+                      y={CY + 4}
+                      textAnchor="middle"
+                      fontSize="10.5"
+                      fontWeight="800"
+                      fill="#a9c7ff"
+                      letterSpacing="1.2"
+                    >
+                      SMARTBRAINS
+                    </text>
+                    <text
+                      x={CX}
+                      y={CY + 22}
+                      textAnchor="middle"
+                      fontSize="11"
+                      fontWeight="800"
+                      fill="#ffffff"
+                      fontFamily="monospace"
+                    >
+                      2009 — 2026+
+                    </text>
+                  </g>
+
+                </svg>
+              </div>
+
+              {/* Bottom Guidance Bar */}
+              <div className="px-6 py-3 bg-slate-50/90 dark:bg-slate-900/90 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                <span className="flex items-center gap-1.5">
+                  <span className="text-[#002a58] dark:text-[#a9c7ff] font-bold">✦</span> Hover or click any milestone or year to inspect details
+                </span>
+                <span className="font-mono text-[#002a58] dark:text-[#a9c7ff] text-xs font-bold">15+ YEARS OF EXCELLENCE</span>
+              </div>
+
+            </div>
+
+            {/* Mobile / Tablet View */}
+            <div className="lg:hidden flex flex-col gap-4">
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+                {timelineEvents.map((evt, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveIdx(idx)}
+                    onMouseEnter={() => setActiveIdx(idx)}
+                    className={`px-4 py-2 rounded-xl text-xs font-black font-mono shrink-0 transition-all ${activeIdx === idx
+                      ? "bg-[#002a58] text-white shadow-md"
+                      : "bg-white dark:bg-[#121517] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800"
+                      }`}
+                  >
+                    {evt.year}
+                  </button>
+                ))}
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white dark:bg-[#121517] text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 shadow-md">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#002a58]/10 text-[#002a58] dark:bg-[#a9c7ff]/10 dark:text-[#a9c7ff]">
+                    {timelineEvents[activeIdx].tag}
+                  </span>
+                  <span className="text-xl font-black font-mono text-[#002a58] dark:text-[#a9c7ff]">
+                    {timelineEvents[activeIdx].year}
+                  </span>
+                </div>
+                <h3 className="text-lg font-black text-[#002a58] dark:text-white mb-2 uppercase tracking-wide">
+                  {timelineEvents[activeIdx].title}
+                </h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                  {timelineEvents[activeIdx].desc}
                 </p>
               </div>
-            ))}
+            </div>
+
           </div>
+
+          {/* ── RIGHT COLUMN: Company Story & Interactive Deep Dive (col-span-5) ── */}
+          <div className="lg:col-span-5 flex flex-col justify-between h-full bg-white dark:bg-[#0f172a] p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-[0_20px_50px_rgba(0,42,88,0.07)] dark:shadow-2xl relative overflow-hidden transition-all duration-300">
+
+            <div className="relative z-10 space-y-4">
+              {/* Header Title */}
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff]">
+                  Company Journey & Growth
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black text-[#002a58] dark:text-white mt-1 leading-snug">
+                  Building a Legacy of Technical Excellence
+                </h3>
+              </div>
+
+              {/* Story Copy */}
+              <div className="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                <p>
+                  Established in <strong className="text-[#002a58] dark:text-white font-semibold">2009 in Noida</strong>, SmartBrains was founded to bridge critical engineering talent gaps and deliver high-caliber technical solutions to rapidly evolving industries across India.
+                </p>
+                <p>
+                  Over the past decade and a half, our journey has expanded into <strong className="text-[#002a58] dark:text-white font-semibold">6 core business divisions</strong> — EPC, IT & ITeS, Technical Staffing, Solar Energy EPC, Hydroponics AgriTech, and STEAM Education.
+                </p>
+                <p>
+                  With a pan-India footprint active across <strong className="text-[#002a58] dark:text-white font-semibold">20+ states</strong> and over <strong className="text-[#002a58] dark:text-white font-semibold">1,50,000+ skilled professionals</strong>, SmartBrains continues to pioneer workforce transformation and sustainable green technologies.
+                </p>
+              </div>
+
+              {/* Selected Milestone Spotlight Box */}
+              <div className="p-4 sm:p-4.5 rounded-2xl bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3d] text-white shadow-lg relative overflow-hidden transition-all duration-300">
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-[9.5px] font-extrabold uppercase tracking-wider text-amber-300 bg-amber-400/15 px-2.5 py-0.5 rounded-full border border-amber-400/20">
+                    Era Spotlight • {timelineEvents[activeIdx].tag}
+                  </span>
+                  <span className="text-base sm:text-lg font-black font-mono text-amber-300">
+                    {timelineEvents[activeIdx].year}
+                  </span>
+                </div>
+                <h4 className="text-sm font-bold uppercase tracking-wide text-white mb-1">
+                  {timelineEvents[activeIdx].title}
+                </h4>
+                <p className="text-xs text-slate-200 leading-relaxed font-light">
+                  {timelineEvents[activeIdx].desc}
+                </p>
+              </div>
+            </div>
+
+          </div>
+
         </div>
 
       </div>

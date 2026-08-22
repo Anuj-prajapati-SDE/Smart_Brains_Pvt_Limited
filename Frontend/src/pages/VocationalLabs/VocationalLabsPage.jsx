@@ -99,12 +99,12 @@ const VocationalLabsPage = () => {
     { step: "04", title: "STEM Lab", subtitle: "NSQF Certified Staff", icon: "precision_manufacturing" },
     { step: "05", title: "Skill Development Lab", subtitle: "Lab Delivery", icon: "workspace_premium" },
     { step: "06", title: "Engineering Lab", subtitle: "Certified Youth", icon: "engineering" },
-    { step: "07", title: "Language Lab", subtitle: "Certified Youth", icon: "translate" },
-    { step: "08", title: "Robotics Lab", subtitle: "Certified Youth", icon: "smart_toy" },
+    // { step: "07", title: "Language Lab", subtitle: "Certified Youth", icon: "translate" },
+    // { step: "08", title: "Robotics Lab", subtitle: "Certified Youth", icon: "smart_toy" },
     { step: "09", title: "Innovation Lab", subtitle: "Certified Youth", icon: "lightbulb" },
     { step: "10", title: "Healthcare Training Lab", subtitle: "Certified Youth", icon: "medical_services" },
     { step: "11", title: "Agriculture Training Lab", subtitle: "Certified Youth", icon: "agriculture" },
-    { step: "12", title: "Industrial Training Lab", subtitle: "Certified Youth", icon: "factory" },
+    // { step: "12", title: "Industrial Training Lab", subtitle: "Certified Youth", icon: "factory" },
     { step: "13", title: "Renewable Energy Lab", subtitle: "Certified Youth", icon: "solar_power" },
     { step: "14", title: "IT/ITeS", subtitle: "Certified Youth", icon: "terminal" },
     { step: "15", title: "Retail Lab", subtitle: "Certified Youth", icon: "storefront" },
@@ -274,20 +274,16 @@ const VocationalLabsPage = () => {
                     Building Future-Ready Skills & Infrastructure
                     </h3>
                   </div>
-                  {/* <span className="text-[10px] px-3 py-1 rounded-full bg-white/10 text-white font-mono hidden sm:inline-block">
-                    NSQF COMPLIANT
-                  </span> */}
                 </div>
 
                 {/* 6-Step Workflow Diagram Cards */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                   {deliveryWorkflow.map((flow, idx) => (
                     <div key={idx} className="p-3 rounded-2xl bg-white/10 border border-white/10 text-center flex flex-col items-center justify-center space-y-2 hover:bg-white/15 transition-all">
-                      {/* <span className="text-[10px] font-mono text-[#a9c7ff] font-bold"> {flow.step}</span> */}
-                      <span className="material-symbols-outlined text-[24px] text-white">{flow.icon}</span>
+                  
+                      <span className="material-symbols-outlined text-[24px] text-white">{flow.icon} </span>
                       <div>
-                        <span className="text-[11px] font-bold text-white leading-tight block">{flow.title}</span>
-                        {/* <span className="text-[9px] text-slate-300 font-light block mt-0.5">{flow.subtitle}</span> */}
+                        <span className="text-[11px] font-bold text-white leading-tight block">{flow.title} </span>
                       </div>
                     </div>
                   ))}
