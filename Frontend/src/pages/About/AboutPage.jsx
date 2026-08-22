@@ -1412,23 +1412,40 @@ const AboutPage = () => {
         </section>
         <CompanySlider/>
 
- {/* CTA Section */}
-      <section data-animate="scale-up" className="bg-primary py-xl m-20 rounded-xl">
-        <div className="max-w-[1280px] mx-auto px-gutter text-center text-on-primary">
-          <h2 className="font-headline-lg text-headline-lg mb-md">
-            Ready to Build the Future?
-          </h2>
-          <p className="font-body-lg text-body-lg mb-lg opacity-80 max-w-2xl mx-auto">
-            Connect with our specialists today to discuss your next industrial
-            project or institutional curriculum upgrade.
-          </p>
-          <div className="flex justify-center gap-md">
-            <Link to={'/contact-us'} className="bg-on-primary text-primary px-xl py-sm font-bold uppercase text-label-sm tracking-widest transition-all hover:scale-105">
-                Contact Us
-            </Link>
+        {/* CTA Section */}
+        <section className="px-4 sm:px-6 lg:px-8 my-10 sm:my-14 lg:my-20">
+          <div
+            data-animate="scale-up"
+            className="max-w-[1280px] mx-auto bg-gradient-to-br from-primary via-[#003366] to-[#001f3f] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-16 text-center relative overflow-hidden shadow-2xl"
+          >
+            {/* Subtle Decorative Elements */}
+            <div className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-white/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/3" />
+            <div className="absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-[#a9c7ff]/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/3" />
+
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <span className="inline-block px-3 py-1 bg-white/10 text-[#a9c7ff] rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3 sm:mb-4 border border-white/15">
+                Start Your Journey
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 tracking-tight uppercase leading-tight">
+                Ready to Build the Future?
+              </h2>
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-200 font-light opacity-90 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed">
+                Connect with our specialists today to discuss your next industrial project or institutional curriculum upgrade.
+              </p>
+              <div className="flex justify-center">
+                <Link
+                  to="/contact-us"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-slate-100 px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold uppercase text-xs sm:text-sm tracking-widest shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
+                >
+                  <span>Contact Us</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>        
+        </section>        
       </main>
     </>
   );

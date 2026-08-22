@@ -49,33 +49,30 @@ const HomePage = () => {
       <Businesses />
 
       {/* Why Choose Us Section - Clean Modern Corporate */}
-      <section className="bg-surface-container-low py-20 lg:py-20 overflow-hidden relative">
+      <section className="bg-surface-container-low py-12 sm:py-16 lg:py-24 overflow-hidden relative">
         {/* Decorative Background Elements */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-primary/5 rounded-full blur-[80px] sm:blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-primary/5 rounded-full blur-[60px] sm:blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
 
-        <div className="max-w-[1280px] mx-auto px-gutter relative z-10">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-gutter relative z-10">
 
           {/* Centered Header */}
-          <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-16 lg:mb-10">
-            <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase mb-4 border border-primary/20">
+          <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
+            <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-bold text-[11px] sm:text-xs tracking-widest uppercase mb-3 sm:mb-4 border border-primary/20">
               Why Choose SmartBrains
             </span>
-            <h2 className="text-4xl md:text-5xl font-headline-lg text-primary mb-6 font-bold leading-tight">
-             Trusted <span className="bg-clip-text text-primary font-bold">Execution</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-headline-lg text-primary mb-3 sm:mb-4 font-bold leading-tight">
+              Trusted <span className="bg-clip-text text-primary font-bold">Execution</span>
             </h2>
-            {/* <p className="text-lg text-on-surface-variant">
-              Our  is reflected in our three-pillared approach to every project, delivering precision, timeliness, and unmatched quality.
-            </p> */}
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
 
             {/* Left Side: Dramatic Image Presentation */}
-            <div data-animate="fade-left" className="w-full lg:w-1/2 relative px-4 sm:px-10 lg:px-0">
-              <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] sm:aspect-square shadow-2xl group">
+            <div data-animate="fade-left" className="w-full lg:w-1/2 relative px-0 sm:px-4 lg:px-0 mb-4 sm:mb-6 lg:mb-0">
+              <div className="relative rounded-2xl sm:rounded-[2rem] overflow-hidden aspect-[4/3] sm:aspect-square md:aspect-[4/3] lg:aspect-square shadow-xl sm:shadow-2xl group w-full">
                 <img
-                  className="w-full h-full object-cover object-contain transition-transform duration-[2s] group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-[2s] group-hover:scale-105"
                   alt="Architectural Excellence"
                   src={Why_choose_image}
                 />
@@ -84,12 +81,12 @@ const HomePage = () => {
               </div>
 
               {/* Floating Stat Card */}
-              <div className="absolute -bottom-6 -left-2 sm:bottom-12 sm:-left-12 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 rounded-[1.5rem] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.15)] border border-white/50 dark:border-slate-800/50 z-20 hover:-translate-y-2 transition-transform duration-500">
-                <div className="flex items-center gap-4 sm:gap-6">
-                  <div className="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#83aef5]">
+              <div className="absolute -bottom-4 left-4 sm:bottom-6 sm:-left-4 lg:bottom-8 lg:-left-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-3.5 sm:p-5 lg:p-7 rounded-xl sm:rounded-[1.5rem] shadow-[0_15px_35px_-5px_rgba(0,0,0,0.15)] border border-white/60 dark:border-slate-800/60 z-20 hover:-translate-y-1 sm:hover:-translate-y-2 transition-transform duration-500 max-w-[calc(100%-2rem)] sm:max-w-none">
+                <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
+                  <div className="text-3xl sm:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#83aef5] shrink-0">
                     16<span className="text-[#83aef5]">+</span>
                   </div>
-                  <div className="text-xs sm:text-sm font-bold uppercase tracking-widest text-on-surface-variant border-l-2 border-outline-variant/30 pl-4 sm:pl-6 leading-relaxed">
+                  <div className="text-[10px] sm:text-xs lg:text-sm font-bold uppercase tracking-wider text-on-surface-variant border-l-2 border-outline-variant/30 pl-3 sm:pl-4 lg:pl-6 leading-tight sm:leading-relaxed">
                     Years of <br /> Dedicated <br /> Experience
                   </div>
                 </div>
@@ -97,58 +94,58 @@ const HomePage = () => {
             </div>
 
             {/* Right Side: Feature List */}
-            <div data-animate="stagger-up" className="w-full lg:w-1/2 flex flex-col gap-6 relative z-20 mt-8 lg:mt-0">
+            <div data-animate="stagger-up" className="w-full lg:w-1/2 flex flex-col gap-3.5 sm:gap-4 lg:gap-5 relative z-20 mt-4 sm:mt-6 lg:mt-0">
 
               {/* Item 1 */}
-              <div className="group bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-[2rem] border border-outline-variant/40 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-start relative overflow-hidden">
-                <div className="absolute right-0 top-0 w-32 h-32 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform duration-500"></div>
-                <div className="w-16 h-16 rounded-2xl bg-primary/5 group-hover:bg-primary/10 flex items-center justify-center shrink-0 transition-colors duration-500">
-                  <span className="material-symbols-outlined text-primary text-3xl">
+              <div className="group bg-white dark:bg-slate-900 p-4 sm:p-6 lg:p-7 rounded-2xl sm:rounded-[2rem] border border-outline-variant/40 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-1 flex flex-row gap-3.5 sm:gap-5 lg:gap-6 items-start relative overflow-hidden">
+                <div className="absolute right-0 top-0 w-24 sm:w-32 h-24 sm:h-32 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+                <div className="w-11 h-11 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-primary/5 group-hover:bg-primary/10 flex items-center justify-center shrink-0 transition-colors duration-500 mt-0.5">
+                  <span className="material-symbols-outlined text-primary text-2xl sm:text-3xl">
                     precision_manufacturing
                   </span>
                 </div>
-                <div>
-                  <h4 className="text-xl font-headline-md text-primary mb-2 group-hover:text-[#004080] dark:group-hover:text-[#a9c7ff] transition-colors">
-                   Integrated Solutions
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-base sm:text-lg lg:text-xl font-headline-md text-primary mb-1 sm:mb-2 group-hover:text-[#004080] dark:group-hover:text-[#a9c7ff] transition-colors font-bold">
+                    Integrated Solutions
                   </h4>
-                  <p className="text-on-surface-variant leading-relaxed text-sm sm:text-base">
-                    We deliver end-to-end Skilling Projects, IT & ITeS Projects,  EPC, Agritech, STEM education, and digital transformation solutions through innovative design, advanced technology, and seamless execution.
+                  <p className="text-on-surface-variant leading-relaxed text-xs sm:text-sm lg:text-base font-normal">
+                    We deliver end-to-end Skilling Projects, IT & ITeS Projects, EPC, Agritech, STEM education, and digital transformation solutions through innovative design, advanced technology, and seamless execution.
                   </p>
                 </div>
               </div>
 
               {/* Item 2 */}
-              <div className="group bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-[2rem] border border-outline-variant/40 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-start relative overflow-hidden">
-                <div className="absolute right-0 top-0 w-32 h-32 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform duration-500"></div>
-                <div className="w-16 h-16 rounded-2xl bg-primary/5 group-hover:bg-primary/10 flex items-center justify-center shrink-0 transition-colors duration-500">
-                  <span className="material-symbols-outlined text-primary text-3xl">
+              <div className="group bg-white dark:bg-slate-900 p-4 sm:p-6 lg:p-7 rounded-2xl sm:rounded-[2rem] border border-outline-variant/40 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-1 flex flex-row gap-3.5 sm:gap-5 lg:gap-6 items-start relative overflow-hidden">
+                <div className="absolute right-0 top-0 w-24 sm:w-32 h-24 sm:h-32 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+                <div className="w-11 h-11 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-primary/5 group-hover:bg-primary/10 flex items-center justify-center shrink-0 transition-colors duration-500 mt-0.5">
+                  <span className="material-symbols-outlined text-primary text-2xl sm:text-3xl">
                     schedule
                   </span>
                 </div>
-                <div>
-                  <h4 className="text-xl font-headline-md text-primary mb-2 group-hover:text-[#004080] dark:group-hover:text-[#a9c7ff] transition-colors">
-                   On-Time Delivery
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-base sm:text-lg lg:text-xl font-headline-md text-primary mb-1 sm:mb-2 group-hover:text-[#004080] dark:group-hover:text-[#a9c7ff] transition-colors font-bold">
+                    On-Time Delivery
                   </h4>
-                  <p className="text-on-surface-variant leading-relaxed text-sm sm:text-base">
-                   Our experienced project teams ensure timely execution through structured planning, efficient resource management, and uncompromising quality standards across every engagement.
+                  <p className="text-on-surface-variant leading-relaxed text-xs sm:text-sm lg:text-base font-normal">
+                    Our experienced project teams ensure timely execution through structured planning, efficient resource management, and uncompromising quality standards across every engagement.
                   </p>
                 </div>
               </div>
 
               {/* Item 3 */}
-              <div className="group bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-[2rem] border border-outline-variant/40 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-start relative overflow-hidden">
-                <div className="absolute right-0 top-0 w-32 h-32 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform duration-500"></div>
-                <div className="w-16 h-16 rounded-2xl bg-primary/5 group-hover:bg-primary/10 flex items-center justify-center shrink-0 transition-colors duration-500">
-                  <span className="material-symbols-outlined text-primary text-3xl">
+              <div className="group bg-white dark:bg-slate-900 p-4 sm:p-6 lg:p-7 rounded-2xl sm:rounded-[2rem] border border-outline-variant/40 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-1 flex flex-row gap-3.5 sm:gap-5 lg:gap-6 items-start relative overflow-hidden">
+                <div className="absolute right-0 top-0 w-24 sm:w-32 h-24 sm:h-32 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+                <div className="w-11 h-11 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-primary/5 group-hover:bg-primary/10 flex items-center justify-center shrink-0 transition-colors duration-500 mt-0.5">
+                  <span className="material-symbols-outlined text-primary text-2xl sm:text-3xl">
                     verified
                   </span>
                 </div>
-                <div>
-                  <h4 className="text-xl font-headline-md text-primary mb-2 group-hover:text-[#004080] dark:group-hover:text-[#a9c7ff] transition-colors">
-               Technical Excellence
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-base sm:text-lg lg:text-xl font-headline-md text-primary mb-1 sm:mb-2 group-hover:text-[#004080] dark:group-hover:text-[#a9c7ff] transition-colors font-bold">
+                    Technical Excellence
                   </h4>
-                  <p className="text-on-surface-variant leading-relaxed text-sm sm:text-base">
-                    Driven by highly qualified engineers, agronomists, educators, and technology professionals, we provide reliable, sustainable, and future-ready solutions that create long-term value
+                  <p className="text-on-surface-variant leading-relaxed text-xs sm:text-sm lg:text-base font-normal">
+                    Driven by highly qualified engineers, agronomists, educators, and technology professionals, we provide reliable, sustainable, and future-ready solutions that create long-term value.
                   </p>
                 </div>
               </div>
@@ -301,19 +298,36 @@ const HomePage = () => {
       {/* Major Clients Section */}
      <CompanySlider/>
       {/* CTA Section */}
-      <section data-animate="scale-up" className="bg-primary py-xl m-20 rounded-xl">
-        <div className="max-w-[1280px] mx-auto px-gutter text-center text-on-primary">
-          <h2 className="font-headline-lg text-headline-lg mb-md">
-            Ready to Build the Future?
-          </h2>
-          <p className="font-body-lg text-body-lg mb-lg opacity-80 max-w-2xl mx-auto">
-            Connect with our specialists today to discuss your next industrial
-            project or institutional curriculum upgrade.
-          </p>
-          <div className="flex justify-center gap-md">
-            <Link to={'/contact-us'} className="bg-on-primary text-primary px-xl py-sm font-bold uppercase text-label-sm tracking-widest transition-all hover:scale-105">
-                Contact Us
-            </Link>
+      <section className="px-4 sm:px-6 lg:px-8 my-10 sm:my-14 lg:my-20">
+        <div
+          data-animate="scale-up"
+          className="max-w-[1280px] mx-auto bg-gradient-to-br from-primary via-[#003366] to-[#001f3f] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-16 text-center relative overflow-hidden shadow-2xl"
+        >
+          {/* Subtle Decorative Elements */}
+          <div className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-white/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/3" />
+          <div className="absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-[#a9c7ff]/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/3" />
+
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <span className="inline-block px-3 py-1 bg-white/10 text-[#a9c7ff] rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3 sm:mb-4 border border-white/15">
+              Start Your Journey
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 tracking-tight uppercase leading-tight">
+              Ready to Build the Future?
+            </h2>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-200 font-light opacity-90 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed">
+              Connect with our specialists today to discuss your next industrial project or institutional curriculum upgrade.
+            </p>
+            <div className="flex justify-center">
+              <Link
+                to="/contact-us"
+                className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-slate-100 px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold uppercase text-xs sm:text-sm tracking-widest shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
+              >
+                <span>Contact Us</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
