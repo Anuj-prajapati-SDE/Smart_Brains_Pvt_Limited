@@ -1,146 +1,172 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
+import { motion, AnimatePresence } from 'framer-motion'
+import {
+  Flame,
+  Layers,
+  Cpu,
+  ShieldCheck,
+  CheckCircle2,
+  ArrowRight,
+  Sparkles,
+  Award,
+  Factory,
+  Compass,
+  Hammer,
+  GraduationCap,
+  FolderGit2,
+  Clock3,
+  TrendingUp,
+  HardHat,
+  Zap,
+  Activity,
+  FileText,
+  ChevronRight,
+  Shield,
+  Gauge,
+  Droplets,
+  Building,
+  Check,
+  PhoneCall
+} from 'lucide-react'
+
+// ─── Animation Presets ────────────────────────────────────────────────────────
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+  }),
+}
+
+function SectionBadge({ children }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 dark:bg-primary/25 text-primary dark:text-[#a9c7ff] border border-primary/20 dark:border-[#a9c7ff]/20 mb-4">
+      <Sparkles className="w-3.5 h-3.5 text-primary dark:text-[#a9c7ff]" />
+      {children}
+    </span>
+  )
+}
+
+function SectionHeading({ children, className = "", light = false }) {
+  return (
+    <h2 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight ${light ? "text-white" : "text-slate-900 dark:text-white"} ${className}`}>
+      {children}
+    </h2>
+  )
+}
 
 const EPCOilGasEnergyPage = () => {
   const animRef = useScrollAnimation()
+  const [activeTab, setActiveTab] = useState("feed")
 
-  // State for Image 2 Service Explorer Tab Selection
-  const [activeTab, setActiveTab] = useState(0)
-
-  // State for Modal
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedService, setSelectedService] = useState(null)
-  const [formSubmitted, setFormSubmitted] = useState(false)
-
-  // Image 1 Reference Data - Core Pillars
-  const corePillars = [
+  // Sector Solutions Data
+  const sectors = [
     {
-      id: "markets",
-      title: "Markets",
-      subtitle: "Energy Sector & Market Solutions",
-      image: "https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?q=80&w=1200&auto=format&fit=crop",
-      desc: "Smart Brains EPC delivers tailored, high value solutions across the entire energy value chain, grounded in engineering excellence, technology leadership, and proven project execution. We partner with leading global operators to optimize performance.",
-      bullets: [
-        "Downstream Refining & Petrochemicals",
-        "Offshore Marine & Subsea Terminals",
-        "Upstream Exploration & Gathering Loops",
-        "Clean Energy & Decarbonization Hubs"
-      ]
+      id: "downstream",
+      title: "Downstream & Refining",
+      subtitle: "Petrochemicals & Processing Units",
+      icon: Factory,
+      image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=900&auto=format&fit=crop",
+      desc: "Turnkey engineering for crude distillation, catalytic cracking, hydro-treating, and storage tank farm expansions with strict ASME adherence.",
+      metrics: "12+ Refineries Modernized",
+      tags: ["Hydro-Processing", "Petrochemical Loops", "Storage Terminals"]
     },
     {
-      id: "products-services",
-      title: "Products & Services",
-      subtitle: "Turnkey EPC & Engineering Portfolio",
-      image: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=1200&auto=format&fit=crop",
-      desc: "Our comprehensive portfolio of products and services is designed to support clients at every stage of the project lifecycle. From consulting, concept and FEED to EPC delivery, we combine leading technical capabilities with agile execution.",
-      bullets: [
-        "Turnkey EPCC Execution & Management",
-        "High-Pressure Pipeline Networks (API 5L)",
-        "DCS & SCADA Automated Control Nodes",
-        "Subsea Loading Arms & Trestle Facilities"
-      ]
+      id: "pipelines",
+      title: "Cross-Country Pipelines",
+      subtitle: "High-Pressure Transmission Networks",
+      icon: Gauge,
+      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=900&auto=format&fit=crop",
+      desc: "API 5L gas & hydrocarbon pipeline EPCC, horizontal directional drilling (HDD), automated valve stations, and SCADA telemetry.",
+      metrics: "3,500+ km Installed",
+      tags: ["API 5L Grade Pipes", "Automatic TIG Welding", "150-Bar Hydro-Testing"]
     },
     {
-      id: "technologies-innovation",
-      title: "Technologies & Innovation",
-      subtitle: "R&D, Decarbonization & Clean Tech",
-      image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=1200&auto=format&fit=crop",
-      desc: "Innovation is at the core of everything we do. By leveraging proprietary and licensed technologies, strategic partnerships, and continuous R&D at our labs, Smart Brains develops breakthrough solutions for a low-carbon future.",
-      bullets: [
-        "Digital Twin & Predictive CFD Simulation",
-        "Green Hydrogen & Ammonia Production",
-        "Carbon Capture, Utilization & Storage (CCUS)",
-        "SIL-3 Rated Emergency Shutdown Systems"
-      ]
+      id: "offshore",
+      title: "Offshore & Marine Terminals",
+      subtitle: "Subsea & Jetty Facilities",
+      icon: Droplets,
+      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=900&auto=format&fit=crop",
+      desc: "Single point mooring (SPM), marine loading arms, offshore topside modules, and subsea tie-backs built to withstand harsh marine environments.",
+      metrics: "15+ Marine Terminals",
+      tags: ["SPM Systems", "Subsea Manifolds", "Jetty Loading Arms"]
+    },
+    {
+      id: "cleantech",
+      title: "Clean Tech & Decarbonization",
+      subtitle: "Green Hydrogen & CCUS Hubs",
+      icon: Zap,
+      image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=900&auto=format&fit=crop",
+      desc: "Engineering the energy transition with carbon capture (CCUS), green hydrogen electrolysis plants, and clean ammonia storage facilities.",
+      metrics: "6 Active Pilot Hubs",
+      tags: ["Green Hydrogen", "Carbon Capture (CCUS)", "Cryogenic Storage"]
     }
   ]
 
-  // Image 2 Reference Data - Interactive Lifecycle & Services Matrix
-  const servicesMatrix = [
-    {
-      id: "overview",
-      navLabel: "GO TO SERVICES",
-      title: "Comprehensive Energy Asset Services",
-      subtitle: "Unlocking maximum value at every phase of your asset lifecycle",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000&auto=format&fit=crop",
-      desc: "Wherever you are on your energy journey, Smart Brains EPC has the expertise and experience to support. Find out how we unlock value at every stage of the energy asset life cycle through precision engineering, safety compliance, and operational efficiency.",
-      features: [
-        "End-to-End Asset Optimization",
-        "Safety & Environmental HAZOP Assurance",
-        "Cost-Efficient Procurement Networks",
-        "24/7 Operations & Maintenance Support"
-      ],
-      ctaText: "GO TO SERVICES",
-      badge: "LIFECYCLE OVERVIEW"
-    },
-    {
-      id: "development",
-      navLabel: "PROJECT DEVELOPMENT",
+  // Interactive Lifecycle Matrix Data
+  const lifecycleServices = {
+    feed: {
       title: "Feasibility & Front-End Engineering Design (FEED)",
-      subtitle: "De-risking capital investments before site mobilization",
+      badge: "Stage 01 • Conceptual & FEED",
+      icon: Compass,
       image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000&auto=format&fit=crop",
-      desc: "We perform comprehensive feasibility studies, GIS route mapping, soil load calculations, and conceptual design to lay a rock-solid foundation for complex energy projects.",
-      features: [
-        "ASME B31.3 & B31.8 Stress Profiling",
-        "Environmental Impact Clearances",
-        "3D CAD Model & Layout Reviews",
-        "CAPEX / OPEX Financial Modeling"
-      ],
-      ctaText: "EXPLORE DEVELOPMENT",
-      badge: "PHASE 01: DEVELOPMENT"
+      tagline: "De-risking multi-million dollar capital investments before site groundbreak.",
+      desc: "Our engineering teams perform comprehensive feasibility analyses, hydraulic simulations, route optimization, and rigorous HAZOP Stage 1-2 evaluations. We establish rock-solid design baselines to lock in accurate CAPEX estimates.",
+      highlights: [
+        "ASME B31.3 & B31.8 Pipeline Stress Profiling",
+        "Geotechnical & GIS Corridor LiDAR Mapping",
+        "Process Flow Diagrams (PFD) & P&IDs",
+        "Environmental Impact Assessment (EIA)"
+      ]
     },
-    {
-      id: "execution",
-      navLabel: "PROJECT EXECUTION",
-      title: "EPCC Construction & Turnkey Delivery",
-      subtitle: "World-class project management with zero compromise on quality",
-      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1000&auto=format&fit=crop",
-      desc: "From procuring certified API 5L line pipes to automatic TIG welding, hydrostatic pressure testing at 150 Bar, and SCADA integration, our EPC execution ensures flawless site startup.",
-      features: [
-        "100% NDT Radiography Inspection",
-        "Heavy Rigging & Lift Management",
-        "Just-In-Time Supply Chain Audits",
-        "Plant Startup & Hydro-Testing"
-      ],
-      ctaText: "DISCOVER EXECUTION",
-      badge: "PHASE 02: EXECUTION"
-    },
-    {
-      id: "training",
-      navLabel: "TRAINING AND COMPETENCE",
-      title: "Workforce Competence & Safety Academy",
-      subtitle: "Building elite technical teams for high-risk industrial environments",
+    procurement: {
+      title: "Global Strategic Procurement & Supply Chain",
+      badge: "Stage 02 • Sourcing & QA",
+      icon: ShieldCheck,
       image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1000&auto=format&fit=crop",
-      desc: "Our specialized technical skilling program equips engineers and operators with certified hands-on competencies in DCS operation, pressure vessel safety, and emergency response procedures.",
-      features: [
-        "Simulated Control Room Operations",
-        "ISO 45001 Safety Management",
-        "High-Pressure Valve Maintenance",
-        "HAZOP Stage 1-3 Certification"
-      ],
-      ctaText: "VIEW TRAINING PROGRAMS",
-      badge: "PHASE 03: COMPETENCE"
+      tagline: "Sourcing certified API-grade line pipes and high-integrity equipment globally.",
+      desc: "With established relationships across certified mill manufacturers worldwide, we orchestrate critical equipment sourcing, factory acceptance tests (FAT), and expedited international site logistics under strict quality audits.",
+      highlights: [
+        "API 5L Grade X65/X70 Pipe Mill Audits",
+        "High-Pressure Ball & Gate Valve Inspections",
+        "Third-Party Certified NDT & Material Testing",
+        "Just-In-Time (JIT) Heavy Equipment Logistics"
+      ]
     },
-    {
-      id: "our-work",
-      navLabel: "OUR WORK",
-      title: "Flagship Megaprojects & Track Record",
-      subtitle: "Demonstrated success across multi-billion dollar installations",
+    construction: {
+      title: "Turnkey EPCC Construction & Field Mobilization",
+      badge: "Stage 03 • Site Construction",
+      icon: Hammer,
+      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1000&auto=format&fit=crop",
+      desc: "Full site execution from civil grading and trenching to mechanized orbital welding, field joint coating, and hydrostatic pressure testing at 150 Bar — governed by our zero-LTI safety protocols.",
+      tagline: "World-class field execution with mechanized accuracy and zero safety compromise.",
+      highlights: [
+        "Automatic Mechanized Orbital TIG/MIG Welding",
+        "100% NDT Radiography & Ultrasonic Scans",
+        "Heavy Lift & Module Rigging Engineering",
+        "Hydrostatic Pipeline Testing at 150 Bar"
+      ]
+    },
+    commissioning: {
+      title: "SCADA Automation & Plant Commissioning",
+      badge: "Stage 04 • Startup & Handover",
+      icon: Cpu,
       image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000&auto=format&fit=crop",
-      desc: "Explore our proven portfolio of refinery expansions, cross-country gas pipelines, offshore gathering platforms, and green hydrogen pilot facilities built for top global operators.",
-      features: [
-        "45+ Major EPC Contracts Completed",
-        "99.8% On-Time Delivery Milestone Record",
-        "Zero-LTI Safety Standard Compliance",
-        "Multi-Country Logistics Network"
-      ],
-      ctaText: "EXPLORE OUR WORK",
-      badge: "PORTFOLIO & CASE STUDIES"
+      tagline: "Seamless integration of DCS, ESD, and telemetry for flawless startup.",
+      desc: "Deploying high-integrity pressure protection (SIL-3), SCADA control networks, pre-commissioning loop checks, and nitrogen purging to ensure safe, on-schedule commercial operations.",
+      highlights: [
+        "Distributed Control Systems (DCS) Integration",
+        "SIL-3 Rated Emergency Shutdown (ESD)",
+        "Nitrogen Purging & Gas-In Procedures",
+        "24/7 Operations & Maintenance Handover"
+      ]
     }
-  ]
+  }
 
-  // Phase Execution Data
+  // 4-Phase Execution Framework
   const phases = [
     {
       num: "01",
@@ -153,198 +179,207 @@ const EPCOilGasEnergyPage = () => {
       num: "02",
       name: "Detailed Engineering",
       duration: "Months 3 - 5",
-      desc: "Stress profiling of steel pipes, stress analysis of pipeline joints, DCS layout mapping, and valve node calculations.",
+      desc: "Stress profiling of steel pipes, pipeline joints, DCS layout architecture, and valve node calculations.",
       details: ["ASME B31.3 Stress Check", "3D CAD Model Review", "PLC Logic Diagrams"]
     },
     {
       num: "03",
       name: "Procurement & Logistics",
       duration: "Months 6 - 8",
-      desc: "Sourcing certified API 5L line pipes, high-pressure valves, and automated actuator assemblies from vetted manufacturers.",
+      desc: "Sourcing certified API 5L line pipes, high-pressure valves, and automated actuator assemblies.",
       details: ["API 5L Pipe Audits", "Actuator Factory Testing", "JIT Site Delivery"]
     },
     {
       num: "04",
       name: "Construction & Commission",
       duration: "Months 9 - 12",
-      desc: "Trenching, pipeline welding, non-destructive testing (NDT), hydrostatic testing, SCADA integration, and plant startup.",
+      desc: "Trenching, pipeline welding, non-destructive testing (NDT), hydrostatic testing, and SCADA plant startup.",
       details: ["Automatic TIG Welding", "100% NDT Testing", "Hydro-Testing at 150 Bar"]
     }
   ]
 
-  // Standards Compliance
-  // const complianceStandards = [
-  //   { code: "ASME B31.3 / B31.8", desc: "Chemical Plant & Transmission Piping Standards" },
-  //   { code: "API 5L & API 610", desc: "Line Pipe Specification & Centrifugal Pumps" },
-  //   { code: "ISO 9001 & 14001", desc: "Quality Management & Environmental Standards" },
-  //   { code: "SIL-3 SCADA", desc: "High-Integrity Pressure Protection & Safety Systems" }
-  // ]
 
-  const activeServiceData = servicesMatrix[activeTab]
+
+  const activeService = lifecycleServices[activeTab]
 
   return (
-    <main className="mt-20 min-h-screen bg-background dark:bg-[#0c0e0f] text-on-surface dark:text-white" ref={animRef}>
+    <main className="mt-20 min-h-screen bg-[#f8f9fa] dark:bg-[#0c0e0f] text-slate-900 dark:text-slate-100 transition-colors duration-300" ref={animRef}>
       
-      {/* =========================================================================
-          HERO SECTION (Strictly Brand Theme #002a58)
-         ========================================================================= */}
-      <section className="relative min-h-[560px] flex items-center bg-primary overflow-hidden border-b border-outline-variant/10">
-        {/* Background Image with Deep Primary Overlay */}
+      {/* ─── 1. HERO BANNER ─────────────────────────────────────────────────── */}
+      <section className="relative min-h-[580px] flex items-center bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] text-white overflow-hidden py-16">
         <div className="absolute inset-0 z-0">
           <img
-            className="w-full h-full object-cover opacity-25 scale-105 transition-transform duration-1000"
-            src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?q=80&w=1800&auto=format&fit=crop"
-            alt="Refinery plant at twilight"
+            className="w-full h-full object-cover opacity-15 mix-blend-luminosity scale-105"
+            src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1800&auto=format&fit=crop"
+            alt="EPC Industrial Plant at Twilight"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#001c3d] via-[#002a58]/95 to-[#002a58]/60" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#004080]/30 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#002a58] via-[#002a58]/95 to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(#a9c7ff_1px,transparent_1px)] [background-size:32px_32px] opacity-10" />
         </div>
-        
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-gutter relative z-10 w-full py-16">
-          <div className="max-w-3xl text-white">
-            <div data-animate="fade-up" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-[#a9c7ff] px-4 py-1.5 rounded-full text-xs uppercase tracking-widest font-extrabold mb-6 shadow-inner">
-              <span className="w-2 h-2 rounded-full bg-[#a9c7ff] animate-pulse"></span>
-              <span>Vertical Focus: EPC Oil, Gas &amp; Energy</span>
+
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-7">
+              <div
+                data-animate="fade-up"
+                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-[#a9c7ff] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-[#a9c7ff]" />
+                <span>Smart Brains EPC Industrial Division</span>
+              </div>
+
+              <h1
+                data-animate="fade-up"
+                data-animate-delay="0.1"
+                className="text-3xl sm:text-5xl lg:text-6xl font-black mb-6 tracking-tight leading-[1.1] uppercase text-white"
+              >
+                EPC Oil, Gas &amp; <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a9c7ff] via-sky-200 to-white">
+                  Energy Solutions
+                </span>
+              </h1>
+
+              <p
+                data-animate="fade-up"
+                data-animate-delay="0.2"
+                className="text-base sm:text-lg text-slate-200 font-light mb-8 max-w-2xl leading-relaxed"
+              >
+                Turnkey engineering, procurement, construction, and commissioning for industrial pipelines, refining complexes, offshore marine terminals, and clean energy infrastructure built under ASME, API, and ISO codes.
+              </p>
+
+              <div
+                data-animate="fade-up"
+                data-animate-delay="0.3"
+                className="flex flex-wrap items-center gap-4"
+              >
+                <Link
+                  to="/contact-us"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary hover:bg-[#a9c7ff] hover:text-[#002a58] transition-all duration-300 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-black/20 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <span>Request Engineering Consultation</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <a
+                  href="#service-matrix"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/25 text-white transition-all duration-300 font-semibold rounded-xl text-xs uppercase tracking-wider backdrop-blur-sm"
+                >
+                  <span>Explore Asset Lifecycle</span>
+                </a>
+              </div>
             </div>
-            
-            <h1 data-animate="fade-up" data-animate-delay="0.1" className="font-headline-xl text-3xl sm:text-5xl lg:text-6xl font-black mb-6 tracking-tight leading-none uppercase text-white">
-              EPC Oil, Gas &amp; <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a9c7ff] via-sky-200 to-white">
-                Energy Solutions
-              </span>
-            </h1>
-            
-            <p data-animate="fade-up" data-animate-delay="0.2" className="text-base sm:text-lg text-slate-200 font-light mb-8 leading-relaxed max-w-2xl">
-              Turnkey engineering, procurement, construction, and commissioning for industrial pipelines, refining loops, offshore terminals, and green-hydrogen facilities engineered under ASME, API, and ISO codes.
-            </p>
-            
-            <div data-animate="fade-up" data-animate-delay="0.3" className="flex flex-wrap items-center gap-4">
-              <button 
-                onClick={() => {
-                  setSelectedService(corePillars[0])
-                  setIsModalOpen(true)
-                }}
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary hover:bg-slate-100 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 font-extrabold rounded-full text-xs sm:text-sm uppercase tracking-wider group cursor-pointer"
-              >
-                <span>Request Technical Consultation</span>
-                <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </button>
-              
-              <a 
-                href="#service-matrix"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md rounded-full text-xs sm:text-sm uppercase tracking-wider font-semibold transition-all hover:scale-[1.02]"
-              >
-                <span>Explore Services Matrix</span>
-                <span className="material-symbols-outlined text-sm">expand_more</span>
-              </a>
+
+            {/* Right Quick Metric Cards */}
+            <div className="lg:col-span-5" data-animate="fade-up" data-animate-delay="0.25">
+              <div className="grid grid-cols-2 gap-4 bg-white/5 backdrop-blur-xl border border-white/15 rounded-3xl p-6 shadow-2xl">
+                {[
+                  { val: "45+", label: "Megaprojects Delivered", icon: HardHat },
+                  { val: "99.8%", label: "On-Time Milestone Record", icon: Clock3 },
+                  { val: "0.00", label: "LTI Safety Benchmark", icon: ShieldCheck },
+                  { val: "$2.5B+", label: "Capital Portfolio Managed", icon: TrendingUp },
+                ].map((item, idx) => {
+                  const Icon = item.icon
+                  return (
+                    <div
+                      key={idx}
+                      className="bg-white/10 hover:bg-white/15 border border-white/10 rounded-2xl p-4 transition-all duration-300 flex flex-col justify-between"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center mb-3 text-[#a9c7ff]">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+                          {item.val}
+                        </div>
+                        <div className="text-xs text-slate-300 font-medium mt-1">
+                          {item.label}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="relative flex items-center justify-center mb-5 overflow-hidden border-b border-outline-variant/10">
-       {/* Key Quick Stats Strip (White Background Cards) */}
-          <div data-animate="fade-up" data-animate-delay="0.4" className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-            <div className="bg-white dark:bg-[#161a24] text-slate-900 dark:text-white rounded-2xl p-5 shadow-xl border border-slate-100 dark:border-slate-800/80 border-l-4 border-l-primary dark:border-l-[#a9c7ff] transition-transform duration-300 hover:-translate-y-1">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-primary dark:text-[#a9c7ff]">45+</div>
-              <div className="text-xs uppercase font-extrabold text-slate-600 dark:text-slate-400 tracking-wider mt-1">Megaprojects Delivered</div>
-            </div>
 
-            <div className="bg-white dark:bg-[#161a24] text-slate-900 dark:text-white rounded-2xl p-5 shadow-xl border border-slate-100 dark:border-slate-800/80 border-l-4 border-l-primary dark:border-l-[#a9c7ff] transition-transform duration-300 hover:-translate-y-1">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-primary dark:text-[#a9c7ff]">99.8%</div>
-              <div className="text-xs uppercase font-extrabold text-slate-600 dark:text-slate-400 tracking-wider mt-1">On-Time Execution</div>
-            </div>
-
-            <div className="bg-white dark:bg-[#161a24] text-slate-900 dark:text-white rounded-2xl p-5 shadow-xl border border-slate-100 dark:border-slate-800/80 border-l-4 border-l-primary dark:border-l-[#a9c7ff] transition-transform duration-300 hover:-translate-y-1">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-primary dark:text-[#a9c7ff]">0.00</div>
-              <div className="text-xs uppercase font-extrabold text-slate-600 dark:text-slate-400 tracking-wider mt-1">LTI Safety Rate</div>
-            </div>
-
-            <div className="bg-white dark:bg-[#161a24] text-slate-900 dark:text-white rounded-2xl p-5 shadow-xl border border-slate-100 dark:border-slate-800/80 border-l-4 border-l-primary dark:border-l-[#a9c7ff] transition-transform duration-300 hover:-translate-y-1">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-primary dark:text-[#a9c7ff]">$2.5B+</div>
-              <div className="text-xs uppercase font-extrabold text-slate-600 dark:text-slate-400 tracking-wider mt-1">Capital Portfolio</div>
-            </div>
-          </div>
-      </section>
-
-      {/* =========================================================================
-          IMAGE 1 REFERENCE SECTION: Professional White Background Card Grid
-         ========================================================================= */}
-      <section className="bg-white dark:bg-[#0c0e0f] text-on-surface dark:text-white py-20 px-4 sm:px-6 lg:px-gutter relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
-        {/* Subtle Ambient Glows */}
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-primary/5 dark:bg-primary-fixed-dim/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-primary-container/5 dark:bg-primary-container/10 rounded-full blur-3xl pointer-events-none" />
-        
-        <div className="max-w-[1280px] mx-auto relative z-10">
+      {/* ─── 2. ENGINEERING STANDARDS & CODES SECTION ────────────────────────── */}
+      <section className="relative bg-white dark:bg-[#10141e] border-y border-slate-200/80 dark:border-slate-800 py-10 transition-colors duration-300">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Section Header */}
-          <div className="mb-14 text-center max-w-3xl mx-auto" data-animate="fade-up">
-            <span className="text-xs uppercase tracking-widest text-primary dark:text-[#a9c7ff] font-extrabold bg-primary/10 dark:bg-white/10 px-3.5 py-1.5 rounded-full border border-primary/20 dark:border-white/15">
-              Core Capabilities
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-primary dark:text-white mt-4 mb-3 font-headline-xl">
-              Markets, Solutions &amp; Innovation
-            </h2>
-      
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-100 dark:border-slate-800/80">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-[#a9c7ff]">
+                <Award className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[11px] font-extrabold uppercase tracking-widest text-primary dark:text-[#a9c7ff] block">
+                  Quality &amp; HSE Framework
+                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+                  Global Engineering Codes &amp; Regulatory Compliances
+                </h3>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>100% Certified Execution</span>
+              </span>
+            </div>
           </div>
 
-          {/* 3-Card Grid Matching Image 1 Layout (White Cards with Shadow & Theme Accent) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8" data-animate="stagger-up">
-            {corePillars.map((pillar) => (
-              <div 
-                key={pillar.id}
-                className="group bg-white dark:bg-[#161a24] border border-slate-200 dark:border-slate-800 rounded-3xl p-6 hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 transition-all duration-300 flex flex-col justify-between hover:-translate-y-2 shadow-xl hover:shadow-2xl"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+            {[
+              {
+                code: "ASME B31.3 / B31.8",
+                title: "Process & Gas Piping",
+                desc: "High-pressure transmission, hydraulic stress profiling, and refinery piping design.",
+                tag: "Mechanical Design"
+              },
+              {
+                code: "API 5L & API 610",
+                title: "Line Pipes & Pumps",
+                desc: "Certified Grade X65/X70 metallurgy, centrifugal pumping units, and API storage tanks.",
+                tag: "Materials & API"
+              },
+              {
+                code: "ISO 9001 / 14001 / 45001",
+                title: "Integrated HSE & QA",
+                desc: "Zero-harm environmental policies, ISO QA/QC traceability, and occupational safety.",
+                tag: "HSE Management"
+              },
+              {
+                code: "IEC 61508 / SIL-3",
+                title: "SCADA & Safety Systems",
+                desc: "High-integrity pressure protection (HIPPS), ESD logic, and DCS telemetry nodes.",
+                tag: "Instrumentation"
+              }
+            ].map((std, i) => (
+              <div
+                key={i}
+                className="group relative bg-slate-50/70 dark:bg-slate-900/60 hover:bg-white dark:hover:bg-slate-900 border border-slate-200/80 dark:border-slate-800 hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 rounded-2xl p-5 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 flex flex-col justify-between"
               >
                 <div>
-                  {/* Top Image Card with Curved Edges */}
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 shadow-md">
-                    <img 
-                      src={pillar.image} 
-                      alt={pillar.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
-                    <span className="absolute bottom-3 left-3 bg-primary/95 text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-md shadow-sm">
-                      {pillar.subtitle}
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md bg-primary/10 dark:bg-primary/20 text-primary dark:text-[#a9c7ff]">
+                      {std.tag}
                     </span>
+                    <CheckCircle2 className="w-4 h-4 text-primary dark:text-[#a9c7ff] opacity-80" />
                   </div>
 
-                  {/* Title and Circular Arrow Button Row */}
-                  <div className="flex items-center justify-between mb-4 gap-2">
-                    <h3 className="text-xl sm:text-2xl font-bold text-primary dark:text-white tracking-tight group-hover:text-primary-container dark:group-hover:text-[#a9c7ff] transition-colors">
-                      <span className="underline decoration-slate-300 dark:decoration-slate-700 underline-offset-4 group-hover:decoration-primary">
-                        {pillar.title}
-                      </span>
-                    </h3>
-
-                    {/* Circular Action Button */}
-                    <button
-                      onClick={() => {
-                        setSelectedService(pillar)
-                        setIsModalOpen(true)
-                      }}
-                      title={`View details for ${pillar.title}`}
-                      className="w-10 h-10 rounded-full border border-primary/30 dark:border-slate-700 flex items-center justify-center text-primary dark:text-[#a9c7ff] group-hover:bg-primary group-hover:text-white dark:group-hover:bg-[#a9c7ff] dark:group-hover:text-primary transition-all duration-300 shrink-0 hover:scale-110 cursor-pointer"
-                    >
-                      <span className="material-symbols-outlined text-lg">arrow_forward</span>
-                    </button>
-                  </div>
-
-                  {/* Paragraph Description */}
-                  <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm font-light leading-relaxed mb-6 line-clamp-4">
-                    {pillar.desc}
+                  <h4 className="text-base font-black text-slate-900 dark:text-white tracking-tight mb-1">
+                    {std.code}
+                  </h4>
+                  <p className="text-xs font-bold text-primary dark:text-[#a9c7ff] mb-2">
+                    {std.title}
                   </p>
-                </div>
-
-                {/* Bullets List Footer */}
-                <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                  <ul className="space-y-2">
-                    {pillar.bullets.slice(0, 2).map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-[11px] font-medium text-slate-700 dark:text-slate-300">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary dark:bg-[#a9c7ff]"></span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed font-light">
+                    {std.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -353,218 +388,250 @@ const EPCOilGasEnergyPage = () => {
         </div>
       </section>
 
-      {/* =========================================================================
-          IMAGE 2 REFERENCE SECTION: Interactive Service Explorer (Strict Theme Palette)
-         ========================================================================= */}
-      <section id="service-matrix" className="py-20 px-4 sm:px-6 lg:px-gutter bg-[#f8f9fa] dark:bg-[#11141c] text-on-surface dark:text-white border-y border-slate-200 dark:border-slate-800">
-        <div className="max-w-[1280px] mx-auto">
-          
-          {/* Section Header */}
-          <div className="mb-12" data-animate="fade-up">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-primary dark:text-[#a9c7ff]">
-              Asset Lifecycle Matrix
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary dark:text-white mt-1">
-              Integrated EPC Services &amp; Solutions
-            </h2>
+      {/* ─── 3. SECTOR CAPABILITIES MATRIX (4 Core Verticals) ────────────────── */}
+      <section className="py-20 bg-slate-50/60 dark:bg-[#0c0e0f]/50 transition-colors duration-300">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14" data-animate="fade-up">
+            <SectionBadge>Market Domains</SectionBadge>
+            <SectionHeading>Full-Spectrum Energy Infrastructure Engineering</SectionHeading>
+            <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+              Engineered with uncompromising precision across upstream, midstream, downstream, and clean technology hubs.
+            </p>
           </div>
 
-          {/* Image 2 Split Layout: Left Vertical Navigation & Right Display */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            
-            {/* Left Sidebar Menu (Matching Image 2 vertical list with brand primary indicator |) */}
-            <div className="lg:col-span-4 flex flex-col justify-start space-y-2 bg-white dark:bg-[#181c27] p-4 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm" data-animate="fade-right">
-              
-              <div className="px-4 py-3 text-xs uppercase tracking-widest font-extrabold text-slate-400 border-b border-slate-100 dark:border-slate-800 mb-2">
-                Navigation Menu
-              </div>
-
-              {servicesMatrix.map((item, idx) => {
-                const isActive = activeTab === idx
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => setActiveTab(idx)}
-                    className={`w-full text-left px-4 py-3.5 rounded-xl transition-all duration-200 flex items-center justify-between group cursor-pointer ${
-                      isActive 
-                        ? 'bg-slate-100 dark:bg-slate-800/80 shadow-sm' 
-                        : 'hover:bg-slate-50 dark:hover:bg-slate-800/40'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      {/* Brand Theme vertical bar indicator | */}
-                      <span 
-                        className={`font-black text-lg transition-colors ${
-                          isActive ? 'text-primary dark:text-[#a9c7ff]' : 'text-slate-300 dark:text-slate-600 group-hover:text-primary'
-                        }`}
-                      >
-                        |
-                      </span>
-                      
-                      <span className={`text-xs sm:text-sm font-extrabold tracking-wider uppercase transition-colors ${
-                        isActive ? 'text-primary dark:text-white' : 'text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200'
-                      }`}>
-                        {item.navLabel}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {sectors.map((sec) => {
+              const Icon = sec.icon
+              return (
+                <div
+                  key={sec.id}
+                  className="group bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div>
+                    {/* Visual Card Image */}
+                    <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-5 shadow-sm">
+                      <img
+                        src={sec.image}
+                        alt={sec.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#002a58]/80 via-transparent to-transparent" />
+                      <span className="absolute bottom-2.5 left-2.5 bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-md">
+                        {sec.metrics}
                       </span>
                     </div>
 
-                    {/* Right Arrow Icon */}
-                    <span className={`material-symbols-outlined text-sm transition-transform duration-200 ${
-                      isActive 
-                        ? 'text-primary dark:text-[#a9c7ff] translate-x-1' 
-                        : 'text-slate-300 dark:text-slate-600 group-hover:translate-x-1 group-hover:text-slate-400'
-                    }`}>
-                      arrow_forward
-                    </span>
-                  </button>
-                )
-              })}
-            </div>
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-3 text-primary dark:text-[#a9c7ff]">
+                      <Icon className="w-5 h-5" />
+                    </div>
 
-            {/* Right Display Panel Container (Matching Image 2 content card) */}
-            <div className="lg:col-span-8" data-animate="fade-left">
-              <div className="bg-white dark:bg-[#161a24] border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 sm:p-10 shadow-xl h-full flex flex-col justify-between">
-                
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                  
-                  {/* Left Thumbnail Image */}
-                  <div className="md:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md group">
-                    <img 
-                      src={activeServiceData.image} 
-                      alt={activeServiceData.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                    <span className="absolute top-3 left-3 bg-primary text-white text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-md">
-                      {activeServiceData.badge}
-                    </span>
-                  </div>
-
-                  {/* Right Copy Block */}
-                  <div className="md:col-span-7 space-y-4">
-                    <span className="text-[11px] uppercase tracking-widest font-extrabold text-primary dark:text-[#a9c7ff]">
-                      Featured Capabilities
-                    </span>
-
-                    <h3 className="text-2xl sm:text-3xl font-black text-primary dark:text-white tracking-tight leading-tight">
-                      {activeServiceData.title}
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white tracking-tight mb-1">
+                      {sec.title}
                     </h3>
-
-                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed">
-                      {activeServiceData.desc}
+                    <p className="text-xs text-primary dark:text-[#a9c7ff] font-semibold mb-3">
+                      {sec.subtitle}
                     </p>
 
-                    {/* Features Checklist */}
-                    <div className="pt-2">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {activeServiceData.features.map((feat, i) => (
-                          <div key={i} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 font-medium">
-                            <span className="w-1.5 h-1.5 rounded-full bg-primary dark:bg-[#a9c7ff]"></span>
-                            <span>{feat}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                    <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">
+                      {sec.desc}
+                    </p>
                   </div>
 
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 3: 4-Phase EPC Execution Framework
-         ========================================================================= */}
-      <section className="py-20 max-w-[1280px] mx-auto px-4 sm:px-gutter">
-        <div className="text-center max-w-3xl mx-auto mb-16" data-animate="fade-up">
-          <span className="text-xs uppercase tracking-widest text-primary dark:text-[#a9c7ff] font-extrabold">
-            Standard Operating Lifecycle
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-primary dark:text-white mt-1">
-            4-Phase Project Execution Framework
-          </h2>
-          
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-animate="stagger-up">
-          {phases.map((phase) => (
-            <div 
-              key={phase.num}
-              className="bg-white dark:bg-[#121620] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col justify-between group"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl font-black text-primary dark:text-[#a9c7ff] group-hover:text-primary-container transition-colors">
-                    {phase.num}
-                  </span>
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-md">
-                    {phase.duration}
-                  </span>
-                </div>
-
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-                  {phase.name}
-                </h3>
-
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed mb-4">
-                  {phase.desc}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <div className="space-y-1">
-                  {phase.details.map((d, i) => (
-                    <div key={i} className="text-[11px] text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-[14px] text-primary dark:text-[#a9c7ff]">check_circle</span>
-                      <span>{d}</span>
+                  <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
+                    <div className="flex flex-wrap gap-1.5">
+                      {sec.tags.map((t, idx) => (
+                        <span key={idx} className="text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-2.5 py-1 rounded-md">
+                          {t}
+                        </span>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 5: Bottom CTA / RFP Banner (Strict Brand Theme)
-         ========================================================================= */}
-      <section className="py-5 px-4 sm:px-gutter max-w-[1280px] mx-auto text-center" data-animate="scale-up">
-        <div className="bg-gradient-to-r from-[#001c3d] via-[#002a58] to-[#004080] rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <span className="inline-block bg-white/10 text-[#a9c7ff] border border-white/20 text-xs uppercase font-extrabold px-3.5 py-1 rounded-full mb-4">
-              Get In Touch With Engineering
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-black uppercase mb-4 tracking-tight">
-              Ready to Kickstart Your Energy Project?
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed mb-8">
-              Whether you need FEED studies, pipeline stress calculations, or full EPCC execution, Smart Brains is your trusted partner.
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-4">
-            
-
-              <Link
-                to="/contact-us"
-                className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold rounded-full transition-all text-xs sm:text-sm uppercase tracking-wider"
-              >
-                Contact Global Offices
-              </Link>
-            </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
+      {/* ─── 4. INTERACTIVE ASSET LIFECYCLE EXPLORER ────────────────────────── */}
+      <section id="service-matrix" className="py-20 bg-white dark:bg-[#0c0e0f] transition-colors duration-300">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14" data-animate="fade-up">
+            <SectionBadge>Asset Lifecycle Governance</SectionBadge>
+            <SectionHeading>End-to-End Turnkey Delivery Capabilities</SectionHeading>
+            <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+              Select any stage below to inspect our detailed engineering procedures and quality gates.
+            </p>
+          </div>
 
+          {/* Segmented Tab Navigation Buttons */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-8 no-scrollbar">
+            {[
+              { id: "feed", label: "01. Feasibility & FEED", icon: Compass },
+              { id: "procurement", label: "02. Strategic Procurement", icon: ShieldCheck },
+              { id: "construction", label: "03. EPCC Construction", icon: Hammer },
+              { id: "commissioning", label: "04. SCADA & Commissioning", icon: Cpu },
+            ].map((tab) => {
+              const Icon = tab.icon
+              const isActive = activeTab === tab.id
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shrink-0 ${
+                    isActive
+                      ? "bg-primary text-white shadow-lg shadow-primary/20 scale-[1.02]"
+                      : "bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800"
+                  }`}
+                >
+                  <Icon className={`w-4 h-4 ${isActive ? "text-[#a9c7ff]" : "text-slate-400"}`} />
+                  <span>{tab.label}</span>
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Active Lifecycle Display Card */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.35, ease: "easeInOut" }}
+              className="bg-slate-50/90 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 sm:p-10 shadow-sm"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                {/* Visual Thumbnail */}
+                <div className="lg:col-span-5 relative aspect-[16/11] rounded-2xl overflow-hidden shadow-md">
+                  <img
+                    src={activeService.image}
+                    alt={activeService.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#002a58]/75 via-transparent to-transparent" />
+                  <span className="absolute top-3 left-3 bg-primary text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-md shadow">
+                    {activeService.badge}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="lg:col-span-7 space-y-4">
+                  <span className="text-xs uppercase tracking-widest font-extrabold text-primary dark:text-[#a9c7ff]">
+                    {activeService.tagline}
+                  </span>
+
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+                    {activeService.title}
+                  </h3>
+
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-light">
+                    {activeService.desc}
+                  </p>
+
+                  <div className="pt-2">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
+                      Key Deliverables &amp; Code Checks:
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {activeService.highlights.map((feat, i) => (
+                        <div key={i} className="flex items-start gap-2 text-xs text-slate-800 dark:text-slate-200 font-medium">
+                          <CheckCircle2 className="w-4 h-4 text-primary dark:text-[#a9c7ff] mt-0.5 shrink-0" />
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* ─── 5. 4-PHASE EXECUTION TIMELINE ─────────────────────────────────── */}
+      <section className="py-20 bg-slate-50/60 dark:bg-[#0c0e0f]/50 transition-colors duration-300">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16" data-animate="fade-up">
+            <SectionBadge>Standardized Lifecycle</SectionBadge>
+            <SectionHeading>4-Phase Turnkey Project Governance</SectionHeading>
+            <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+              Standard operating procedures delivering zero-LTI safety benchmarks and on-time commissioning.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {phases.map((phase) => (
+              <div
+                key={phase.num}
+                className="bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 transition-all flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-3xl font-black text-primary dark:text-[#a9c7ff]">
+                      {phase.num}
+                    </span>
+                    <span className="text-[10px] uppercase font-bold tracking-wider px-3 py-1 bg-primary/10 dark:bg-primary/20 text-primary dark:text-[#a9c7ff] rounded-lg">
+                      {phase.duration}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                    {phase.name}
+                  </h3>
+
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-4">
+                    {phase.desc}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
+                  <div className="space-y-1.5">
+                    {phase.details.map((d, i) => (
+                      <div key={i} className="text-[11px] text-slate-600 dark:text-slate-300 flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-primary dark:text-[#a9c7ff]" />
+                        <span>{d}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 6. BOTTOM CTA / RFP BANNER ─────────────────────────────────────── */}
+      <section className="py-16 bg-white dark:bg-[#0c0e0f] transition-colors duration-300">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-2xl">
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#a9c7ff] mb-4">
+                EPC Industrial Partnerships
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black mb-4 tracking-tight">
+                Ready to Kickstart Your Energy Infrastructure Project?
+              </h2>
+              <p className="text-slate-200 text-sm sm:text-base mb-8 font-light leading-relaxed">
+                Whether you require FEED studies, pipeline stress calculations, or full turnkey EPCC site execution, Smart Brains is your trusted engineering partner.
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <Link
+                  to="/contact-us"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-primary hover:bg-[#a9c7ff] hover:text-[#002a58] font-bold text-xs uppercase tracking-wider shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <span>Request an RFP Consultation</span>
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </main>
   )
 }
 
 export default EPCOilGasEnergyPage
-
-

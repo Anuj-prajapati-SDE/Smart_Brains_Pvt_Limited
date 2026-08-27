@@ -149,7 +149,7 @@ function App() {
         <Route path="/staffing/project" element={<ProjectBased/>} />
 
         {/* Hire, Train, Deploy Routes */}
-        <Route path="/hire-train-deploy" element={<HIreTrainDeploy />} />
+        {/* <Route path="/hire-train-deploy" element={<HIreTrainDeploy />} /> */}
 
         {/* Hire Submenu Routes */}
         <Route path="/hire/web-development" element={<WebDevlopment />} />
@@ -161,7 +161,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage/>} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/steam" element={<SteamPage />} />
+        {/* <Route path="/steam" element={<SteamPage />} /> */}
         <Route path="/construction" element={<ConstructionPage />} />
 
         {/* Business Dropdown Routes */}
@@ -175,7 +175,7 @@ function App() {
 
         {/* Projects Dropdown Routes */}
         <Route path="/projects/technology-digital-infrastructure" element={<TechDigitalInfraPage />} />
-        <Route path="/projects/workforce-solutions" element={<WorkforceSolutionsPage />} />
+        {/* <Route path="/projects/workforce-solutions" element={<WorkforceSolutionsPage />} /> */}
         <Route path="/projects/education-skill-development" element={<EducationSkillDevPage />} />
         <Route path="/projects/agriculture-sustainability" element={<AgriSustainabilityPage />} />
 
