@@ -1,8 +1,7 @@
-import { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useScrollAnimation } from '../../hooks/useScrollAnimation'
+import { Link } from "react-router-dom";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import {
   Zap,
   DollarSign,
@@ -17,89 +16,81 @@ import {
   Factory,
   Radio,
   ShoppingBag,
-  PhoneCall,
   ArrowRight,
+  Sparkles,
+  ShieldCheck,
+  Building2,
+  Layers,
+  Award
 } from "lucide-react";
 
-// ─── Shared Animation Variants ───────────────────────────────────────────────
+// ─── Animation Presets ────────────────────────────────────────────────────────
 const fadeUp = {
-  hidden: { opacity: 0, y: 36 },
+  hidden: { opacity: 0, y: 30 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
 const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.7 } },
+  hidden: { opacity: 0, scale: 0.96 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
-function SectionLabel({ children }) {
+function SectionBadge({ children }) {
   return (
-    <span className="inline-block text-xs font-semibold tracking-[0.18em] uppercase text-blue-600 mb-3">
+    <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 dark:bg-primary/25 text-primary dark:text-[#a9c7ff] border border-primary/20 dark:border-[#a9c7ff]/20 mb-4">
+      <Sparkles className="w-3 h-3 text-primary dark:text-[#a9c7ff]" />
       {children}
     </span>
   );
 }
 
-function SectionHeading({ children, className = "" }) {
+function SectionHeading({ children, className = "", light = false }) {
   return (
-    <h2 className={`text-3xl md:text-4xl font-bold text-slate-900 leading-tight ${className}`}>
+    <h2 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight ${light ? "text-white" : "text-slate-900 dark:text-white"} ${className}`}>
       {children}
     </h2>
   );
 }
 
-// ─── 1. CONTRACT STAFFING OVERVIEW ───────────────────────────────────────────
-const badges = [
-  { label: "Scalable Hiring" },
-  { label: "Workforce Flexibility" },
-  { label: "Cost-Efficient" },
-];
-
-function OverviewSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-
+// ─── 1. HERO SECTION (Standalone) ─────────────────────────────────────────────
+function StandaloneHero() {
   return (
-    <>
+    <section className="relative min-h-[460px] flex items-center bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] text-white overflow-hidden py-14">
+      <div className="absolute inset-0 z-0">
+        <img
+          className="w-full h-full object-cover opacity-15 mix-blend-luminosity scale-105"
+          src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1600&auto=format&fit=crop"
+          alt="Contract Staffing Solutions"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#002a58] via-[#002a58]/90 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(#a9c7ff_1px,transparent_1px)] [background-size:28px_28px] opacity-10" />
+      </div>
 
-
- <section className="relative h-[480px] flex items-center bg-primary text-white overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            className="w-full h-full object-cover opacity-20"
-            src="https://visiontechtechnology.com/assets/images/services/contract-Staffing.jpg"
-            alt="Contract Staffing"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary to-transparent" />
-        </div>
-
-      <div className="max-w-[1280px] mx-auto px-gutter relative z-10 w-full">
-          <div className="max-w-2xl">
-            <span data-animate="fade-up" className="inline-block bg-white/10 border border-white/20 text-[#a9c7ff] px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
-              flexible hiring
-            </span>
-            <h1 data-animate="fade-up" data-animate-delay="0.1" className="font-headline-xl text-3xl sm:text-5xl font-black mb-4 tracking-tight leading-none uppercase">
-              Contract Staffing
-            </h1>
-            <p data-animate="fade-up" data-animate-delay="0.2" className="text-sm sm:text-base text-slate-300 font-light mb-6 leading-relaxed">
-              A hiring model where you can hire long-term worker of full-time employees directly onto your official payroll
-            </p>
-            <div data-animate="fade-up" data-animate-delay="0.3">
-              <Link to="/contact-us" className="inline-block px-5 py-3 bg-white text-primary hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all font-bold rounded-xl text-xs uppercase tracking-wider shadow-md">
-                Contact us button
-              </Link>
-            </div>
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="max-w-3xl">
+          <SectionBadge>Flexible Human Capital</SectionBadge>
+          <h1 className="text-3xl sm:text-5xl font-black mb-4 tracking-tight leading-tight uppercase text-white">
+            Contract <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a9c7ff] to-white">Staffing</span> Solutions
+          </h1>
+          <p className="text-base sm:text-lg text-slate-200 font-light mb-8 leading-relaxed max-w-2xl">
+            Scale specialized engineering, technical, and enterprise operations on-demand with fully compliant contractors deployed across short or long-term project cycles.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              to="/contact-us"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-primary hover:bg-[#a9c7ff] hover:text-[#002a58] transition-all duration-300 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-black/20 hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <span>Hire Contract Specialists</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
-        </section>
-
- </>
-
-
+      </div>
+    </section>
   );
 }
 
@@ -107,33 +98,33 @@ function OverviewSection() {
 const reasons = [
   {
     icon: Zap,
-    title: "Faster Hiring",
-    desc: "Tap into a pre-screened talent pool and onboard professionals in days, not months.",
+    title: "Rapid Deployment",
+    desc: "Tap into an active, pre-vetted talent pool to onboard specialized contractors in 48 to 72 hours.",
   },
   {
     icon: DollarSign,
     title: "Cost Optimization",
-    desc: "Eliminate full-time benefits overhead. Pay only for the skills you need, when you need them.",
+    desc: "Eliminate long-term fringe benefit overheads. Pay strictly for specialized capability during project cycles.",
   },
   {
     icon: Shuffle,
-    title: "Workforce Flexibility",
-    desc: "Scale your team up or down in response to project demands without long-term commitments.",
+    title: "Workforce Agility",
+    desc: "Seamlessly scale capacity up or down according to sudden project demands without structural friction.",
   },
   {
     icon: Users,
-    title: "Access to Skilled Talent",
-    desc: "Reach niche specialists across domains — from cloud architects to compliance analysts.",
+    title: "Niche Technical Skills",
+    desc: "Access specialized engineers, EPC project controllers, and IT specialists ready on day one.",
   },
   {
     icon: ClipboardList,
-    title: "Reduced Admin Burden",
-    desc: "We manage payroll, compliance, contracts, and documentation end-to-end.",
+    title: "Complete Compliance",
+    desc: "We manage payroll, statutory compliance (PF, ESIC, insurance), contracts, and background verifications.",
   },
   {
     icon: RefreshCw,
-    title: "Business Continuity",
-    desc: "Prevent operational gaps during transitions, expansions, or sudden workforce changes.",
+    title: "Zero Operational Lag",
+    desc: "Prevent project delays during transitions or expansions with continuous workforce coverage.",
   },
 ];
 
@@ -142,48 +133,58 @@ function WhySection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-24 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section ref={ref} className="py-20 bg-slate-50/60 dark:bg-[#0c0e0f]/50 transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="text-center max-w-2xl mx-auto mb-14"
         >
-          <SectionLabel>Why It Works</SectionLabel>
-          <SectionHeading>Why Enterprises Choose Contract Staffing</SectionHeading>
+          <SectionBadge>Enterprise Advantages</SectionBadge>
+          <SectionHeading>Why Leading Enterprises Choose Contract Staffing</SectionHeading>
+          <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+            Speed, compliance, and flexibility designed to keep complex projects on schedule and within budget.
+          </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reasons.map((r, i) => (
-            <motion.div
-              key={r.title}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.05}
-              className="group bg-white rounded-2xl p-7 border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-5 group-hover:bg-blue-700 transition-colors duration-300">
-                <r.icon size={22} className="text-blue-700 group-hover:text-white transition-colors duration-300" strokeWidth={1.8} />
-              </div>
-              <h3 className="text-slate-900 font-semibold text-base mb-2">{r.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">{r.desc}</p>
-            </motion.div>
-          ))}
+          {reasons.map((r, i) => {
+            const Icon = r.icon;
+            return (
+              <motion.div
+                key={r.title}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.06}
+                className="group bg-white dark:bg-slate-900/80 rounded-2xl p-7 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 transition-all duration-300 relative overflow-hidden"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all duration-300 text-primary dark:text-[#a9c7ff]">
+                  <Icon size={22} strokeWidth={2} />
+                </div>
+                <h3 className="text-slate-900 dark:text-white font-bold text-lg mb-2">
+                  {r.title}
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                  {r.desc}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-// ─── 3. OUR APPROACH / TIMELINE ──────────────────────────────────────────────
+// ─── 3. DEPLOYMENT TIMELINE ──────────────────────────────────────────────────
 const steps = [
-  { num: "01", title: "Understand Requirements", desc: "We begin with a detailed intake — your role specifications, timelines, and culture fit." },
-  { num: "02", title: "Source Talent", desc: "Our recruiters activate the network, leveraging sourcing channels suited to the domain." },
-  { num: "03", title: "Evaluate Candidates", desc: "Multi-stage screening — technical assessments, background checks, reference validation." },
-  { num: "04", title: "Deploy Workforce", desc: "Onboarding, documentation, and compliance handled seamlessly before day one." },
-  { num: "05", title: "Ongoing Support", desc: "Dedicated account managers ensure performance, retention, and smooth contract extension." },
+  { num: "01", title: "Intake & Scoping", desc: "Detailed mapping of project deliverables, technical skills, and duration requirements." },
+  { num: "02", title: "Targeted Sourcing", desc: "Our recruitment engine taps our 50k+ database and passive domain networks." },
+  { num: "03", title: "Rigorous Screening", desc: "Multi-tier technical evaluation, background validation, and compliance clearances." },
+  { num: "04", title: "Swift Onboarding", desc: "Seamless contract deployment, statutory documentation, and day-one orientation." },
+  { num: "05", title: "Active Governance", desc: "Dedicated account managers ensure continuous SLA tracking, payroll, and retention." },
 ];
 
 function TimelineSection() {
@@ -191,28 +192,30 @@ function TimelineSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section ref={ref} className="py-20 bg-white dark:bg-[#0c0e0f] overflow-hidden transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <SectionLabel>Our Approach</SectionLabel>
-          <SectionHeading>How We Deploy the Right Talent</SectionHeading>
+          <SectionBadge>Seamless Lifecycle</SectionBadge>
+          <SectionHeading>Our 5-Stage Contractor Deployment Process</SectionHeading>
+          <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+            A structured deployment workflow ensuring precision matching and zero compliance risk.
+          </p>
         </motion.div>
 
-        {/* Desktop horizontal timeline */}
+        {/* Desktop Horizontal Timeline */}
         <div className="hidden lg:block relative">
-          {/* connector line */}
-          <div className="absolute top-9 left-0 right-0 h-px bg-slate-200 z-0" />
+          <div className="absolute top-8 left-[8%] right-[8%] h-[2px] bg-slate-200 dark:bg-slate-800 z-0" />
           <motion.div
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 1.1, ease: "easeInOut", delay: 0.3 }}
+            transition={{ duration: 1.1, ease: "easeInOut", delay: 0.2 }}
             style={{ transformOrigin: "left" }}
-            className="absolute top-9 left-0 right-0 h-px bg-blue-600 z-10"
+            className="absolute top-8 left-[8%] right-[8%] h-[2px] bg-primary dark:bg-[#a9c7ff] z-10"
           />
           <div className="relative z-20 grid grid-cols-5 gap-4">
             {steps.map((s, i) => (
@@ -221,22 +224,22 @@ function TimelineSection() {
                 variants={fadeUp}
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
-                custom={i * 0.12}
-                className="flex flex-col items-center text-center"
+                custom={i * 0.1}
+                className="flex flex-col items-center text-center px-2"
               >
-                <div className="w-[72px] h-[72px] rounded-full border-4 border-white shadow-md bg-blue-700 flex items-center justify-center mb-5">
-                  <span className="text-white text-sm font-bold">{s.num}</span>
+                <div className="w-16 h-16 rounded-2xl border-4 border-white dark:border-slate-900 shadow-md bg-primary text-white flex items-center justify-center mb-5 font-black text-base">
+                  {s.num}
                 </div>
-                <h4 className="text-slate-900 font-semibold text-sm mb-2">{s.title}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">{s.desc}</p>
+                <h4 className="text-slate-900 dark:text-white font-bold text-base mb-2">{s.title}</h4>
+                <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Mobile vertical timeline */}
-        <div className="lg:hidden flex flex-col gap-8 relative">
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-slate-200" />
+        {/* Mobile Vertical Timeline */}
+        <div className="lg:hidden flex flex-col gap-8 relative pl-4">
+          <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-slate-200 dark:bg-slate-800" />
           {steps.map((s, i) => (
             <motion.div
               key={s.num}
@@ -244,14 +247,14 @@ function TimelineSection() {
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
               custom={i * 0.1}
-              className="flex gap-6 items-start"
+              className="flex gap-5 items-start"
             >
-              <div className="relative z-10 w-12 h-12 rounded-full bg-blue-700 flex-shrink-0 flex items-center justify-center shadow">
-                <span className="text-white text-xs font-bold">{s.num}</span>
+              <div className="relative z-10 w-12 h-12 rounded-xl bg-primary text-white flex-shrink-0 flex items-center justify-center font-bold text-sm shadow">
+                {s.num}
               </div>
-              <div className="pt-2">
-                <h4 className="text-slate-900 font-semibold text-sm mb-1">{s.title}</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
+              <div className="pt-1">
+                <h4 className="text-slate-900 dark:text-white font-bold text-base mb-1">{s.title}</h4>
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{s.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -263,19 +266,18 @@ function TimelineSection() {
 
 // ─── 4. STATS / IMPACT ───────────────────────────────────────────────────────
 const stats = [
-  { value: 95, suffix: "%", label: "Client Satisfaction" },
-  { value: 72, suffix: "h", label: "Faster Deployment" },
-  { value: 500, suffix: "+", label: "Professionals Network" },
-  { value: 90, suffix: "%", label: "Retention Support" },
+  { value: 95, suffix: "%", label: "Client Satisfaction Score" },
+  { value: 72, suffix: "h", label: "Average Deployment Speed" },
+  { value: 50, suffix: "k+", label: "Vetted Professional Talent" },
+  { value: 100, suffix: "%", label: "Statutory Compliance Rate" },
 ];
 
 function AnimatedCounter({ target, suffix, inView }) {
-  const count = useRef(0);
-  const [display, setDisplay] = React.useState(0);
+  const [display, setDisplay] = useState(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!inView) return;
-    const duration = 1800;
+    const duration = 1600;
     const step = target / (duration / 16);
     let current = 0;
     const interval = setInterval(() => {
@@ -287,7 +289,7 @@ function AnimatedCounter({ target, suffix, inView }) {
   }, [inView, target]);
 
   return (
-    <span className="text-5xl font-bold text-white tabular-nums">
+    <span className="text-4xl sm:text-5xl font-black text-white tabular-nums">
       {display}{suffix}
     </span>
   );
@@ -298,42 +300,34 @@ function StatsSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-24 bg-blue-800 relative overflow-hidden">
-      {/* subtle dot pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+    <section ref={ref} className="py-20 bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(#a9c7ff_1px,transparent_1px)] [background-size:32px_32px] opacity-10" />
+
+      <div className="relative max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center mb-14"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <SectionLabel>
-            <span className="text-blue-300">Staffing Impact</span>
-          </SectionLabel>
-          <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-            Numbers That Demonstrate Our Commitment
-          </h2>
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#a9c7ff] border border-white/20 mb-4">
+            <Award className="w-3.5 h-3.5" /> Proven Track Record
+          </span>
+          <SectionHeading light>Quantifiable Impact Delivered</SectionHeading>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
               variants={fadeUp}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              custom={i * 0.1}
-              className="text-center bg-white/10 rounded-2xl p-8 backdrop-blur-sm border border-white/10"
+              custom={i * 0.08}
+              className="text-center bg-white/10 dark:bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white/10 hover:border-white/25 transition-all"
             >
               <AnimatedCounter target={s.value} suffix={s.suffix} inView={inView} />
-              <p className="text-blue-200 text-sm mt-2 font-medium">{s.label}</p>
+              <p className="text-[#a9c7ff] text-sm mt-2 font-medium">{s.label}</p>
             </motion.div>
           ))}
         </div>
@@ -344,12 +338,12 @@ function StatsSection() {
 
 // ─── 5. INDUSTRIES WE SUPPORT ─────────────────────────────────────────────────
 const industries = [
-  { icon: Globe, name: "Information Technology", desc: "From DevOps to data engineering" },
-  { icon: TrendingUp, name: "BFSI", desc: "Risk, compliance, and fintech roles" },
-  { icon: HeartPulse, name: "Healthcare", desc: "Clinical, allied health, and HIT staff" },
-  { icon: Factory, name: "Manufacturing", desc: "Production, quality, and ops talent" },
-  { icon: Radio, name: "Telecom", desc: "Network, infrastructure, and support" },
-  { icon: ShoppingBag, name: "Retail & E-commerce", desc: "Merchandising, ops, and analytics" },
+  { icon: Globe, name: "Information Technology", desc: "Software engineering, cloud DevOps, cybersecurity, and data" },
+  { icon: Factory, name: "EPC, Oil & Gas & Energy", desc: "Process engineers, site controllers, pipeline specialists" },
+  { icon: HeartPulse, name: "Healthcare & Life Sciences", desc: "Clinical technicians, biomedical ops, health informatics" },
+  { icon: Building2, name: "Construction & Earthworks", desc: "Project managers, MEP supervisors, structural planners" },
+  { icon: Radio, name: "Telecom & Networks", desc: "Network engineers, 5G roll-out specialists, RF planners" },
+  { icon: ShoppingBag, name: "Retail & Supply Chain", desc: "Logistics ops, automation engineers, ERP analysts" },
 ];
 
 function IndustriesSection() {
@@ -357,37 +351,40 @@ function IndustriesSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-24 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section ref={ref} className="py-20 bg-slate-50/60 dark:bg-[#0c0e0f]/50 transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="text-center max-w-2xl mx-auto mb-14"
         >
-          <SectionLabel>Industries</SectionLabel>
-          <SectionHeading>Sectors We Serve</SectionHeading>
+          <SectionBadge>Domain Expertise</SectionBadge>
+          <SectionHeading>Sectors Powered By Our Contractors</SectionHeading>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {industries.map((ind, i) => (
-            <motion.div
-              key={ind.name}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.08}
-              className="flex items-start gap-4 bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all duration-300"
-            >
-              <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <ind.icon size={20} className="text-blue-700" strokeWidth={1.8} />
-              </div>
-              <div>
-                <h4 className="text-slate-900 font-semibold text-sm mb-1">{ind.name}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">{ind.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {industries.map((ind, i) => {
+            const Icon = ind.icon;
+            return (
+              <motion.div
+                key={ind.name}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.07}
+                className="flex items-start gap-4 bg-white dark:bg-slate-900/80 rounded-2xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0 text-primary dark:text-[#a9c7ff]">
+                  <Icon size={22} strokeWidth={2} />
+                </div>
+                <div>
+                  <h4 className="text-slate-900 dark:text-white font-bold text-base mb-1">{ind.name}</h4>
+                  <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{ind.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -396,12 +393,12 @@ function IndustriesSection() {
 
 // ─── 6. WHY PARTNER WITH US ───────────────────────────────────────────────────
 const partnerPoints = [
-  { label: "Full compliance management across labour laws and regulations" },
-  { label: "Quality-first screening with technical and cultural assessment" },
-  { label: "Dedicated account managers for seamless engagement" },
-  { label: "Scalable models — from single hire to bulk deployment" },
-  { label: "Transparent reporting and SLA-backed delivery" },
-  { label: "Post-deployment retention and performance monitoring" },
+  "100% statutory compliance across national and regional labor frameworks",
+  "Rigorous technical pre-screening and cultural compatibility evaluation",
+  "Dedicated single-point Account Managers with domain alignment",
+  "Transparent SLA-backed delivery with real-time reporting",
+  "Instant contractor replacement guarantee for uninterrupted continuity",
+  "Flexible transition models from contract-to-hire when needed",
 ];
 
 function WhyPartnerSection() {
@@ -409,65 +406,69 @@ function WhyPartnerSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left */}
+    <section ref={ref} className="py-20 bg-white dark:bg-[#0c0e0f] transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
           <div>
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={0}
-            >
-              <SectionLabel>Partnership</SectionLabel>
+            <motion.div variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
+              <SectionBadge>The Smart Brains Edge</SectionBadge>
               <SectionHeading className="mb-4">
-                What Sets Our Staffing Partnership Apart
+                A Strategic Staffing Partnership Built on Trust &amp; Execution
               </SectionHeading>
             </motion.div>
+
             <motion.p
               variants={fadeUp}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              custom={1}
-              className="text-slate-600 text-base leading-relaxed mb-8"
+              custom={0.1}
+              className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed mb-8"
             >
-              We don't just fill positions — we invest in long-term talent relationships that
-              benefit both your business and the professionals we place. Every engagement is
-              supported by dedicated professionals who understand your industry and priorities.
+              We don't just fill roster openings. We engineer agile talent pipelines that integrate seamlessly into your delivery timelines, maintaining peak operational velocity.
             </motion.p>
 
-            <ul className="space-y-4">
-              {partnerPoints.map((p, i) => (
+            <ul className="space-y-3.5">
+              {partnerPoints.map((point, i) => (
                 <motion.li
-                  key={p.label}
+                  key={i}
                   variants={fadeUp}
                   initial="hidden"
                   animate={inView ? "visible" : "hidden"}
-                  custom={i * 0.08 + 0.2}
+                  custom={i * 0.06 + 0.15}
                   className="flex items-start gap-3"
                 >
-                  <CheckCircle2 size={18} className="text-blue-600 mt-0.5 flex-shrink-0" strokeWidth={2} />
-                  <span className="text-slate-600 text-sm leading-relaxed">{p.label}</span>
+                  <CheckCircle2 size={18} className="text-primary dark:text-[#a9c7ff] mt-0.5 flex-shrink-0" strokeWidth={2.5} />
+                  <span className="text-slate-700 dark:text-slate-300 text-sm font-medium leading-relaxed">{point}</span>
                 </motion.li>
               ))}
             </ul>
+
+            <motion.div variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0.5} className="mt-8">
+              <Link
+                to="/contact-us"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all"
+              >
+                <span>Speak with an Account Executive</span>
+                <ArrowRight size={15} />
+              </Link>
+            </motion.div>
           </div>
 
-          {/* Right – Image */}
+          {/* Right Image */}
           <motion.div
             variants={fadeIn}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-200 aspect-[4/3]"
+            className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 aspect-[4/3]"
           >
             <img
-              src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=900&q=80"
-              alt="Enterprise business partnership"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80"
+              alt="Smart Brains Contract Staffing Partnership"
               className="w-full h-full object-cover"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-bl from-blue-900/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#002a58]/60 via-transparent to-transparent" />
           </motion.div>
         </div>
       </div>
@@ -477,105 +478,63 @@ function WhyPartnerSection() {
 
 // ─── 7. FINAL CTA ─────────────────────────────────────────────────────────────
 function CTASection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-
   return (
-    <section ref={ref} className="py-24 bg-slate-900">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          custom={0}
-        >
-          <span className="inline-block text-xs font-semibold tracking-[0.18em] uppercase text-blue-400 mb-4">
-            Get Started
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-            Build Flexible Teams<br />
-            <span className="text-blue-400">Faster</span>
-          </h2>
-        </motion.div>
-
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          custom={1}
-          className="text-slate-400 text-base mb-10 max-w-xl mx-auto leading-relaxed"
-        >
-          Let our staffing experts help you find the right contract professionals — on demand,
-          fully compliant, and ready to deliver from day one.
-        </motion.p>
-
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          custom={2}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <a
-            href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-colors duration-200 shadow-lg shadow-blue-900/40"
-          >
-            Contact Us <ArrowRight size={16} strokeWidth={2.5} />
-          </a>
-          <a
-            href="/services"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-semibold text-sm transition-colors duration-200"
-          >
-            <PhoneCall size={16} strokeWidth={2} />
-            Explore Services
-          </a>
-        </motion.div>
+    <section className="py-16 bg-slate-50 dark:bg-[#0c0e0f]/80">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-2xl">
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#a9c7ff] mb-4">
+              Get Started
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black mb-4 tracking-tight">
+              Ready to Accelerate Your Projects?
+            </h2>
+            <p className="text-slate-200 text-sm sm:text-base mb-8 font-light">
+              Connect with our staffing specialists to deploy compliant, high-performing contract talent within 48 to 72 hours.
+            </p>
+            <Link
+              to="/contact-us"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-primary hover:bg-[#a9c7ff] hover:text-[#002a58] font-bold text-xs uppercase tracking-wider shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <span>Consult Our Staffing Team</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-// --- 8. STAFFING PAGE WRAPPER COMPONENTS ─────────────────────────────────────────────
-
-export function ContractStaff () {
-  const animRef = useScrollAnimation()
-
-    return (
-    <main className="mt-20 min-h-screen bg-slate-50 dark:bg-[#0c0e0f] text-on-surface" ref={animRef}>
-      <WhySection />
-      <TimelineSection />
-      <StatsSection />
-      <IndustriesSection />
-      <WhyPartnerSection />
-      {/* <CTASection /> */}
-    </main>
-  );
-
-
-}
-
-
-// ─── ROOT EXPORT ──────────────────────────────────────────────────────────────
-
-const ContractStaffing= ()=> {
-  const animRef = useScrollAnimation()
-  
+// ─── TAB EMBED COMPONENT ───────────────────────────────────────────────────────
+export function ContractStaff() {
   return (
-    <main className="mt-20 min-h-screen bg-slate-50 dark:bg-[#0c0e0f] text-on-surface" ref={animRef}>
-      <OverviewSection />
+    <div className="w-full">
       <WhySection />
       <TimelineSection />
       <StatsSection />
       <IndustriesSection />
       <WhyPartnerSection />
-      {/* <CTASection /> */}
-    </main>
+      <CTASection />
+    </div>
   );
 }
 
+// ─── STANDALONE PAGE COMPONENT ────────────────────────────────────────────────
+const ContractStaffing = () => {
+  const animRef = useScrollAnimation();
 
+  return (
+    <main className="mt-20 min-h-screen bg-[#f8f9fa] dark:bg-[#0c0e0f] text-slate-900 dark:text-slate-100 transition-colors duration-300" ref={animRef}>
+      <StandaloneHero />
+      <WhySection />
+      <TimelineSection />
+      <StatsSection />
+      <IndustriesSection />
+      <WhyPartnerSection />
+      <CTASection />
+    </main>
+  );
+};
 
 export default ContractStaffing;
-
-
-// i comment ctc section because we have to add links in it 

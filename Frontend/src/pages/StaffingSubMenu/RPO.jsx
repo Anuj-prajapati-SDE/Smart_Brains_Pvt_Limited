@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Link } from 'react-router-dom'
-import { useScrollAnimation } from '../../hooks/useScrollAnimation'
+import { Link } from "react-router-dom";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import {
   Zap,
   Clock,
@@ -17,103 +17,81 @@ import {
   BarChart2,
   CheckCircle2,
   ArrowRight,
-  ChevronRight,
   Target,
-  Eye,
   Layers,
-  LineChart,
-  Building2,
   Globe,
-  ShieldCheck,
   RefreshCw,
+  Sparkles,
+  Award
 } from "lucide-react";
 
-// ─── Motion Presets ──────────────────────────────────────────────────────────
+// ─── Animation Presets ────────────────────────────────────────────────────────
 const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 30 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.58, delay: i * 0.09, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.58, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
 const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.7, ease: "easeOut" } },
+  hidden: { opacity: 0, scale: 0.96 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
-// ─── Shared Primitives ────────────────────────────────────────────────────────
-function Eyebrow({ children, inverted = false }) {
+function SectionBadge({ children }) {
   return (
-    <p className={`text-[11px] font-bold tracking-[0.22em] uppercase mb-3 flex items-center gap-2 ${inverted ? "text-sky-300" : "text-[#1A3A8F]"}`}>
-      <span className={`inline-block w-6 h-[2px] rounded-full ${inverted ? "bg-sky-400" : "bg-[#1A3A8F]"}`} />
+    <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 dark:bg-primary/25 text-primary dark:text-[#a9c7ff] border border-primary/20 dark:border-[#a9c7ff]/20 mb-4">
+      <Sparkles className="w-3 h-3 text-primary dark:text-[#a9c7ff]" />
       {children}
-    </p>
+    </span>
   );
 }
 
-function H2({ children, inverted = false, className = "" }) {
+function SectionHeading({ children, className = "", light = false }) {
   return (
-    <h2 className={`text-[1.95rem] md:text-[2.55rem] font-bold leading-[1.17] tracking-tight ${inverted ? "text-white" : "text-[#0D1F4E]"} ${className}`}>
+    <h2 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight ${light ? "text-white" : "text-slate-900 dark:text-white"} ${className}`}>
       {children}
     </h2>
   );
 }
 
-function Lead({ children, inverted = false, className = "" }) {
+// ─── 1. HERO SECTION (Standalone) ─────────────────────────────────────────────
+function StandaloneHero() {
   return (
-    <p className={`text-[0.9375rem] leading-[1.8] ${inverted ? "text-slate-300" : "text-slate-500"} ${className}`}>
-      {children}
-    </p>
-  );
-}
+    <section className="relative min-h-[460px] flex items-center bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] text-white overflow-hidden py-14">
+      <div className="absolute inset-0 z-0">
+        <img
+          className="w-full h-full object-cover opacity-15 mix-blend-luminosity scale-105"
+          src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=1600&auto=format&fit=crop"
+          alt="Recruitment Process Outsourcing (RPO)"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#002a58] via-[#002a58]/90 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(#a9c7ff_1px,transparent_1px)] [background-size:28px_28px] opacity-10" />
+      </div>
 
-function NavyRule() {
-  return <span className="block w-10 h-[3px] rounded-full bg-[#1A3A8F] mt-4 mb-7" />;
-}
-
-// ─── 1. RPO OVERVIEW ─────────────────────────────────────────────────────────
-const overviewBadges = [
-  { label: "End-to-End Hiring", sub: "Full-cycle recruitment support" },
-  { label: "Scalable Process", sub: "Adapts to your hiring volume" },
-  { label: "Talent Optimised", sub: "Quality-first acquisition model" },
-];
-
-function OverviewSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-
-  return (
-           <section className="relative h-[480px] flex items-center bg-primary text-white overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            className="w-full h-full object-cover opacity-20"
-            src="https://visiontechtechnology.com/assets/images/services/contract-Staffing.jpg"
-            alt="Contract Staffing"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary to-transparent" />
-        </div>
-
-      <div className="max-w-[1280px] mx-auto px-gutter relative z-10 w-full">
-          <div className="max-w-2xl">
-            <span data-animate="fade-up" className="inline-block bg-white/10 border border-white/20 text-[#a9c7ff] px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
-              END-TO-END TALENT
-            </span>
-            <h1 data-animate="fade-up" data-animate-delay="0.1" className="font-headline-xl text-3xl sm:text-5xl font-black mb-4 tracking-tight leading-none uppercase">
-              RPO
-            </h1>
-            <p data-animate="fade-up" data-animate-delay="0.2" className="text-sm sm:text-base text-slate-300 font-light mb-6 leading-relaxed">
-              A strategic hiring model where you outsource all or part of your permanent recruitment process to an expert external partner acting as a seamless extension of your HR team.
-            </p>
-            <div data-animate="fade-up" data-animate-delay="0.3">
-              <Link to="/contact-us" className="inline-block px-5 py-3 bg-white text-primary hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all font-bold rounded-xl text-xs uppercase tracking-wider shadow-md">
-                Contact us button
-              </Link>
-            </div>
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="max-w-3xl">
+          <SectionBadge>Enterprise Talent Acquisition</SectionBadge>
+          <h1 className="text-3xl sm:text-5xl font-black mb-4 tracking-tight leading-tight uppercase text-white">
+            Recruitment <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a9c7ff] to-white">Process Outsourcing</span> (RPO)
+          </h1>
+          <p className="text-base sm:text-lg text-slate-200 font-light mb-8 leading-relaxed max-w-2xl">
+            Transform and scale your hiring capabilities with a dedicated talent acquisition partner operating as an embedded, seamless extension of your internal HR team.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              to="/contact-us"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-primary hover:bg-[#a9c7ff] hover:text-[#002a58] transition-all duration-300 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-black/20 hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <span>Explore RPO Engagement</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
-        </section>
+      </div>
+    </section>
   );
 }
 
@@ -121,33 +99,33 @@ function OverviewSection() {
 const whyRpo = [
   {
     icon: Zap,
-    title: "Recruitment Efficiency",
-    desc: "Structured processes eliminate bottlenecks and keep hiring pipelines moving at consistent velocity.",
+    title: "Velocity & Agility",
+    desc: "Structured pipelines eliminate bottlenecks, accelerating mean time-to-hire by over 50%.",
   },
   {
     icon: Clock,
-    title: "Reduced Time to Hire",
-    desc: "Dedicated sourcing and screening teams cut mean-time-to-fill by removing the usual coordination delays.",
+    title: "Predictable Cost per Hire",
+    desc: "Lower agency spend through dedicated recruiter pods and optimized multi-channel sourcing.",
   },
   {
     icon: Star,
-    title: "Quality Candidate Experience",
-    desc: "Every touchpoint — from first contact to offer — is managed to protect and strengthen your employer brand.",
+    title: "Brand Elevation",
+    desc: "We protect and champion your employer brand across every touchpoint from first outreach to day-one onboarding.",
   },
   {
     icon: Users,
-    title: "Dedicated Hiring Teams",
-    desc: "Your RPO team functions as an embedded extension of your HR function, not an external agency.",
+    title: "Dedicated Pod Architecture",
+    desc: "Embedded recruiters, domain sourcers, and coordinators fully dedicated to your hiring targets.",
   },
   {
     icon: ArrowUpRight,
-    title: "Scalable Recruitment",
-    desc: "Surge hiring, seasonal peaks, or multi-location expansions — the model scales without internal strain.",
+    title: "On-Demand Scalability",
+    desc: "Ramp recruiter capacity up or down to match seasonal spikes, acquisitions, or plant expansions.",
   },
   {
     icon: TrendingDown,
-    title: "Lower Operational Effort",
-    desc: "Admin, compliance, reporting, and coordination are fully owned by the RPO team so your team stays focused.",
+    title: "Zero Admin Burden",
+    desc: "Compliance checks, background verification, SLA monitoring, and coordination handled end-to-end.",
   },
 ];
 
@@ -156,45 +134,41 @@ function WhyRPOSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-[#F4F7FC]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+    <section ref={ref} className="py-20 bg-slate-50/60 dark:bg-[#0c0e0f]/50 transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="max-w-xl mb-14"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <Eyebrow>Why RPO</Eyebrow>
-          <H2>The Case for Outsourcing<br />Your Recruitment Function</H2>
-          <NavyRule />
-          <Lead>
-            Internal recruitment teams are often resource-constrained against growing
-            hiring demand. RPO closes that gap with dedicated expertise and proven structure.
-          </Lead>
+          <SectionBadge>Strategic Value</SectionBadge>
+          <SectionHeading>The Business Case For RPO Partnership</SectionHeading>
+          <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+            Overcome resource constraints and convert ad-hoc recruitment into a predictable, high-yield talent engine.
+          </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {whyRpo.map((item, i) => (
-            <motion.div
-              key={item.title}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.07}
-              className="group relative bg-white rounded-2xl p-7 border border-slate-100 shadow-sm overflow-hidden hover:shadow-lg hover:border-[#1A3A8F]/20 transition-all duration-300"
-            >
-              <span className="absolute inset-x-0 top-0 h-[3px] bg-[#1A3A8F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 rounded-t-2xl" />
-              <div className="w-12 h-12 rounded-xl bg-[#EEF2FB] flex items-center justify-center mb-5 group-hover:bg-[#0D1F4E] transition-colors duration-300">
-                <item.icon
-                  size={20}
-                  strokeWidth={1.75}
-                  className="text-[#1A3A8F] group-hover:text-white transition-colors duration-300"
-                />
-              </div>
-              <h3 className="text-[#0D1F4E] font-semibold text-[0.9375rem] mb-2">{item.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
-            </motion.div>
-          ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {whyRpo.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.06}
+                className="group relative bg-white dark:bg-slate-900/80 rounded-2xl p-7 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all duration-300 text-primary dark:text-[#a9c7ff]">
+                  <Icon size={22} strokeWidth={2} />
+                </div>
+                <h3 className="text-slate-900 dark:text-white font-bold text-lg mb-2">{item.title}</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -205,28 +179,33 @@ function WhyRPOSection() {
 const stages = [
   {
     step: "Discover",
+    title: "Workforce Architecture",
     icon: Globe,
-    desc: "Align on hiring goals, workforce planning, role priorities, and intake process design.",
+    desc: "Mapping headcount forecasts, role competencies, SLAs, and employer value proposition.",
   },
   {
     step: "Source",
+    title: "Multi-Channel Sourcing",
     icon: Search,
-    desc: "Multi-channel talent sourcing — job boards, referrals, networks, and passive candidate pipelines.",
+    desc: "Deploying AI-driven talent hunting, passive networks, alumni databases, and referral systems.",
   },
   {
     step: "Screen",
+    title: "Competency Screening",
     icon: Filter,
-    desc: "Structured pre-screening: competency checks, background review, and qualification mapping.",
+    desc: "Structured pre-qualification, technical evaluation, and benchmark compliance checks.",
   },
   {
     step: "Hire",
+    title: "Offer & Onboarding",
     icon: CheckCircle2,
-    desc: "Interview coordination, offer management, and compliance-cleared documentation handled end-to-end.",
+    desc: "Interview logistics, offer negotiations, pre-boarding engagement, and documentation.",
   },
   {
     step: "Optimise",
+    title: "Analytics & Refinement",
     icon: RefreshCw,
-    desc: "Continuous data review, process refinement, and reporting to improve every hire cycle.",
+    desc: "Weekly KPI dashboards, funnel analytics, SLA audits, and continuous pipeline calibration.",
   },
 ];
 
@@ -235,79 +214,83 @@ function TransformationModel() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+    <section ref={ref} className="py-20 bg-white dark:bg-[#0c0e0f] overflow-hidden transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <Eyebrow>Transformation Model</Eyebrow>
-          <H2>How We Transform Your Recruitment</H2>
-          <NavyRule />
-          <Lead>
-            A structured, five-stage engagement model that converts ad-hoc hiring
-            into a repeatable, measurable, and continuously improving function.
-          </Lead>
+          <SectionBadge>Transformation Lifecycle</SectionBadge>
+          <SectionHeading>How We Optimize Your Entire Recruitment Process</SectionHeading>
+          <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+            A 5-stage transformation framework converting reactive hiring into a strategic advantage.
+          </p>
         </motion.div>
 
-        {/* Desktop: connected arc-style layout */}
-        <div className="hidden lg:grid grid-cols-5 gap-0 relative">
-          {/* Background connector track */}
-          <div className="absolute top-[52px] left-[10%] right-[10%] h-[2px] bg-slate-100" />
+        {/* Desktop connected layout */}
+        <div className="hidden lg:grid grid-cols-5 gap-4 relative">
+          <div className="absolute top-8 left-[8%] right-[8%] h-[2px] bg-slate-200 dark:bg-slate-800 z-0" />
           <motion.div
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
+            transition={{ duration: 1.1, ease: "easeInOut", delay: 0.2 }}
             style={{ transformOrigin: "left" }}
-            className="absolute top-[52px] left-[10%] right-[10%] h-[2px] bg-[#1A3A8F]"
+            className="absolute top-8 left-[8%] right-[8%] h-[2px] bg-primary dark:bg-[#a9c7ff] z-10"
           />
 
-          {stages.map((s, i) => (
-            <motion.div
-              key={s.step}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.12}
-              className="flex flex-col items-center text-center px-3"
-            >
-              {/* Node */}
-              <div className="relative z-10 w-[104px] h-[104px] rounded-full bg-white border-[3px] border-[#1A3A8F] flex flex-col items-center justify-center mb-6 shadow-md shadow-[#1A3A8F]/10">
-                <s.icon size={22} strokeWidth={1.75} className="text-[#1A3A8F] mb-1" />
-                <span className="text-[#0D1F4E] font-bold text-[11px] tracking-wide uppercase">{s.step}</span>
-              </div>
-              <p className="text-slate-500 text-xs leading-relaxed">{s.desc}</p>
-            </motion.div>
-          ))}
+          {stages.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <motion.div
+                key={s.step}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.1}
+                className="flex flex-col items-center text-center px-2 relative z-10"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center mb-4 shadow-md font-bold">
+                  <Icon size={24} strokeWidth={2} />
+                </div>
+                <span className="text-xs font-bold text-primary dark:text-[#a9c7ff] uppercase tracking-wider mb-1">
+                  Stage 0{i + 1} • {s.step}
+                </span>
+                <h4 className="text-slate-900 dark:text-white font-bold text-sm mb-2">{s.title}</h4>
+                <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{s.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Mobile: vertical stacked */}
-        <div className="lg:hidden flex flex-col gap-0 relative">
-          <div className="absolute left-6 top-6 bottom-6 w-[2px] bg-slate-100" />
-          <div
-            className="absolute left-6 top-6 w-[2px] bg-[#1A3A8F]"
-            style={{ height: inView ? "calc(100% - 24px)" : "0", transition: "height 1.4s ease" }}
-          />
-          {stages.map((s, i) => (
-            <motion.div
-              key={s.step}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.1}
-              className="flex gap-6 pb-10 last:pb-0"
-            >
-              <div className="relative z-10 w-12 h-12 rounded-full bg-[#1A3A8F] flex-shrink-0 flex items-center justify-center shadow-md">
-                <s.icon size={18} strokeWidth={1.8} className="text-white" />
-              </div>
-              <div className="pt-2">
-                <h4 className="text-[#0D1F4E] font-bold text-sm mb-1">{s.step}</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+        {/* Mobile vertical layout */}
+        <div className="lg:hidden flex flex-col gap-6 relative pl-4">
+          <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-slate-200 dark:bg-slate-800" />
+          {stages.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <motion.div
+                key={s.step}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.1}
+                className="flex gap-5 items-start relative z-10"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary text-white flex-shrink-0 flex items-center justify-center shadow">
+                  <Icon size={20} strokeWidth={2} />
+                </div>
+                <div className="pt-1">
+                  <span className="text-xs font-bold text-primary dark:text-[#a9c7ff] uppercase tracking-wider block">
+                    Stage 0{i + 1} • {s.step}
+                  </span>
+                  <h4 className="text-slate-900 dark:text-white font-bold text-base mb-1">{s.title}</h4>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{s.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -316,10 +299,10 @@ function TransformationModel() {
 
 // ─── 4. STATS / IMPACT ───────────────────────────────────────────────────────
 const stats = [
-  { target: 60, suffix: "%", label: "Faster Hiring", sub: "vs. traditional recruitment" },
-  { target: 85, suffix: "%", label: "Process Efficiency", sub: "reduction in manual effort" },
-  { target: 1000, suffix: "+", label: "Candidates Managed", sub: "across active engagements" },
-  { target: 95, suffix: "%", label: "Client Satisfaction", sub: "on delivery and quality" },
+  { target: 55, suffix: "%", label: "Reduction in Time-to-Hire" },
+  { target: 35, suffix: "%", label: "Reduction in Cost-per-Hire" },
+  { target: 50, suffix: "k+", label: "Active Talent Engagements" },
+  { target: 96, suffix: "%", label: "Hiring Manager SLA Rating" },
 ];
 
 function Counter({ target, suffix, inView }) {
@@ -335,8 +318,9 @@ function Counter({ target, suffix, inView }) {
     }, 16);
     return () => clearInterval(id);
   }, [inView, target]);
+
   return (
-    <span className="text-5xl md:text-6xl font-bold text-white tabular-nums leading-none">
+    <span className="text-4xl sm:text-5xl font-black text-white tabular-nums leading-none">
       {val}{suffix}
     </span>
   );
@@ -347,46 +331,34 @@ function StatsSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-[#0D1F4E] relative overflow-hidden">
-      {/* Structured grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.045]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-      {/* Soft radial light */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#1A3A8F]/30 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#1A3A8F]/20 blur-3xl pointer-events-none" />
+    <section ref={ref} className="py-20 bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(#a9c7ff_1px,transparent_1px)] [background-size:32px_32px] opacity-10" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-16">
+      <div className="relative max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center mb-16"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <Eyebrow inverted>Recruitment Impact</Eyebrow>
-          <H2 inverted>
-            The Numbers Behind<br />Our RPO Performance
-          </H2>
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#a9c7ff] border border-white/20 mb-4">
+            <Award className="w-3.5 h-3.5" /> Benchmarked Outcomes
+          </span>
+          <SectionHeading light>The Data Behind RPO Excellence</SectionHeading>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
               variants={fadeUp}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              custom={i * 0.1}
-              className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center"
+              custom={i * 0.08}
+              className="text-center bg-white/10 dark:bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white/10"
             >
               <Counter target={s.target} suffix={s.suffix} inView={inView} />
-              <p className="text-white font-semibold text-sm mt-3">{s.label}</p>
-              <p className="text-slate-400 text-xs mt-1">{s.sub}</p>
+              <p className="text-[#a9c7ff] text-sm mt-2 font-medium">{s.label}</p>
             </motion.div>
           ))}
         </div>
@@ -399,33 +371,33 @@ function StatsSection() {
 const capabilities = [
   {
     icon: Search,
-    title: "Talent Sourcing",
-    desc: "Multi-channel sourcing strategy combining active and passive candidate engagement.",
+    title: "Global Talent Hunting",
+    desc: "Active outreach across niche professional communities, passive databases, and industry conferences.",
   },
   {
     icon: Filter,
-    title: "Screening & Shortlisting",
-    desc: "Structured pre-qualification using role-specific frameworks and competency maps.",
+    title: "Structured Assessment",
+    desc: "Customized technical rubrics, coding benchmarks, psychometrics, and scenario interviews.",
   },
   {
     icon: ClipboardList,
-    title: "Assessment Design",
-    desc: "Custom assessments aligned to your technical, behavioural, and leadership requirements.",
+    title: "Employer Branding",
+    desc: "Crafting resonant job marketing, social campaigns, and career portal engagement to attract top 10% talent.",
   },
   {
     icon: CalendarCheck,
-    title: "Interview Coordination",
-    desc: "End-to-end scheduling, panel communication, and feedback collection managed seamlessly.",
+    title: "Logistics & Coordination",
+    desc: "End-to-end panel scheduling, candidate briefing, automated feedback loops, and interview debriefs.",
   },
   {
     icon: UserPlus,
-    title: "Onboarding Support",
-    desc: "Pre-joining engagement, documentation handling, and day-one readiness coordination.",
+    title: "Pre-Boarding & Integration",
+    desc: "Document collection, background verification, welcome packs, and day-one orientation alignment.",
   },
   {
     icon: BarChart2,
-    title: "Recruitment Analytics",
-    desc: "Live dashboards, SLA tracking, and funnel reporting for full hiring visibility.",
+    title: "Live KPI Dashboards",
+    desc: "Real-time visibility into hiring funnels, offer decline forensics, sourcer productivity, and diversity metrics.",
   },
 ];
 
@@ -434,42 +406,40 @@ function CapabilitiesSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-[#F4F7FC]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+    <section ref={ref} className="py-20 bg-slate-50/60 dark:bg-[#0c0e0f]/50 transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center max-w-xl mx-auto mb-14"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <Eyebrow>Capabilities</Eyebrow>
-          <H2>What Our RPO Service Covers</H2>
-          <NavyRule />
+          <SectionBadge>Operational Coverage</SectionBadge>
+          <SectionHeading>Full-Spectrum RPO Capabilities</SectionHeading>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {capabilities.map((c, i) => (
-            <motion.div
-              key={c.title}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.07}
-              className="group flex gap-5 bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-[#1A3A8F]/20 transition-all duration-300"
-            >
-              <div className="w-11 h-11 rounded-xl bg-[#EEF2FB] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0D1F4E] transition-colors duration-300">
-                <c.icon
-                  size={19}
-                  strokeWidth={1.75}
-                  className="text-[#1A3A8F] group-hover:text-white transition-colors duration-300"
-                />
-              </div>
-              <div>
-                <h4 className="text-[#0D1F4E] font-semibold text-sm mb-1.5">{c.title}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">{c.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {capabilities.map((c, i) => {
+            const Icon = c.icon;
+            return (
+              <motion.div
+                key={c.title}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.07}
+                className="flex items-start gap-4 bg-white dark:bg-slate-900/80 rounded-2xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0 text-primary dark:text-[#a9c7ff]">
+                  <Icon size={22} strokeWidth={2} />
+                </div>
+                <div>
+                  <h4 className="text-slate-900 dark:text-white font-bold text-base mb-1.5">{c.title}</h4>
+                  <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{c.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -478,12 +448,12 @@ function CapabilitiesSection() {
 
 // ─── 6. WHY PARTNER WITH US ──────────────────────────────────────────────────
 const partnerPoints = [
-  { label: "Dedicated RPO recruitment team embedded in your process" },
-  { label: "Scalable engagement — ramp up or down without disruption" },
-  { label: "Full hiring visibility through live reporting dashboards" },
-  { label: "Quality-gated process with SLA-backed delivery at every stage" },
-  { label: "Continuous improvement cycles based on data and feedback" },
-  { label: "Employer brand alignment maintained across all candidate touchpoints" },
+  "Dedicated RPO delivery leads embedded directly into your weekly HR scrums",
+  "Elastic capacity model: scale recruiter pods up or down without internal overhead",
+  "Full candidate transparency with live web-based recruitment analytics",
+  "Consistent adherence to rigorous quality gates and SLA benchmarks",
+  "Enhanced candidate experience boosting offer acceptance to record highs",
+  "Complete data ownership and ATS integration into your enterprise systems",
 ];
 
 function WhyPartnerSection() {
@@ -491,46 +461,53 @@ function WhyPartnerSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+    <section ref={ref} className="py-20 bg-white dark:bg-[#0c0e0f] transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left */}
           <div>
             <motion.div variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
-              <Eyebrow>Why Partner With Us</Eyebrow>
-              <H2>
-                A Recruitment Partner<br />
-                <span className="text-[#1A3A8F]">That Works Like Your Team</span>
-              </H2>
-              <NavyRule />
-            </motion.div>
-            <motion.div variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"} custom={1}>
-              <Lead className="mb-9">
-                We don't operate as a vendor sitting outside your business. Our RPO teams
-                integrate into your hiring workflow, adopt your values, and represent your
-                organization every step of the way.
-              </Lead>
+              <SectionBadge>Seamless HR Extension</SectionBadge>
+              <SectionHeading className="mb-4">
+                A Recruitment Engine Built Exclusively for Your Goals
+              </SectionHeading>
             </motion.div>
 
-            <ul className="space-y-4">
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              custom={0.1}
+              className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed mb-8"
+            >
+              We operate not as external headhunters, but as an embedded talent arm of your business. We adopt your culture, reflect your mission, and deliver measurable talent results.
+            </motion.p>
+
+            <ul className="space-y-3.5">
               {partnerPoints.map((p, i) => (
                 <motion.li
-                  key={p.label}
+                  key={i}
                   variants={fadeUp}
                   initial="hidden"
                   animate={inView ? "visible" : "hidden"}
-                  custom={i * 0.07 + 0.2}
+                  custom={i * 0.06 + 0.15}
                   className="flex items-start gap-3"
                 >
-                  <CheckCircle2
-                    size={17}
-                    strokeWidth={2.2}
-                    className="text-[#1A3A8F] mt-[2px] flex-shrink-0"
-                  />
-                  <span className="text-slate-600 text-sm leading-relaxed">{p.label}</span>
+                  <CheckCircle2 size={18} className="text-primary dark:text-[#a9c7ff] mt-0.5 flex-shrink-0" strokeWidth={2.5} />
+                  <span className="text-slate-700 dark:text-slate-300 text-sm font-medium leading-relaxed">{p}</span>
                 </motion.li>
               ))}
             </ul>
+
+            <motion.div variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0.5} className="mt-8">
+              <Link
+                to="/contact-us"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all"
+              >
+                <span>Request Custom RPO Proposal</span>
+                <ArrowRight size={15} />
+              </Link>
+            </motion.div>
           </div>
 
           {/* Right */}
@@ -538,18 +515,15 @@ function WhyPartnerSection() {
             variants={fadeIn}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="relative"
+            className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 aspect-[4/3]"
           >
-            <div className="rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 aspect-[4/3]">
-              <img
-                src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=900&q=80"
-                alt="Enterprise HR team in modern office"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0D1F4E]/20 to-transparent" />
-            </div>
-            <div className="absolute -bottom-5 -left-5 w-28 h-28 rounded-2xl border-2 border-[#1A3A8F]/10 -z-10" />
+            <img
+              src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=900&q=80"
+              alt="Smart Brains RPO Team at Work"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#002a58]/60 via-transparent to-transparent" />
           </motion.div>
         </div>
       </div>
@@ -557,42 +531,65 @@ function WhyPartnerSection() {
   );
 }
 
-// ─── 7. BUSINESS OUTCOMES ────────────────────────────────────────────────────
-
-
-// --- 9. Submenu ----
-
-export function RPOStaff (){
-  const animRef = useScrollAnimation()
-    return (
-    <main className="mt-20 min-h-screen bg-slate-50 dark:bg-[#0c0e0f] text-on-surface" ref={animRef}>
-      <WhyRPOSection />
-      <TransformationModel />
-      <StatsSection />
-      <CapabilitiesSection />
-      <WhyPartnerSection />
-      {/* <BusinessOutcomesSection /> */}
-      {/* <CTASection /> */}
-    </main>
-  );
-}
-
-
-// ─── ROOT EXPORT ──────────────────────────────────────────────────────────────
- function RPO() {
-  const animRef = useScrollAnimation()
+// ─── 7. FINAL CTA ─────────────────────────────────────────────────────────────
+function CTASection() {
   return (
-    <main className="mt-20 min-h-screen bg-slate-50 dark:bg-[#0c0e0f] text-on-surface" ref={animRef}>
-      <OverviewSection />
+    <section className="py-16 bg-slate-50 dark:bg-[#0c0e0f]/80">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-2xl">
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#a9c7ff] mb-4">
+              Scale Your Hiring
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black mb-4 tracking-tight">
+              Ready to Modernize Your Recruitment Function?
+            </h2>
+            <p className="text-slate-200 text-sm sm:text-base mb-8 font-light">
+              Connect with our enterprise talent strategists to scope an RPO engagement tailored to your hiring forecast.
+            </p>
+            <Link
+              to="/contact-us"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-primary hover:bg-[#a9c7ff] hover:text-[#002a58] font-bold text-xs uppercase tracking-wider shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <span>Consult Our RPO Specialists</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── TAB EMBED COMPONENT ───────────────────────────────────────────────────────
+export function RPOStaff() {
+  return (
+    <div className="w-full">
       <WhyRPOSection />
       <TransformationModel />
       <StatsSection />
       <CapabilitiesSection />
       <WhyPartnerSection />
-      {/* <BusinessOutcomesSection /> */}
-      {/* <CTASection /> */}
-    </main>
+      <CTASection />
+    </div>
   );
 }
+
+// ─── STANDALONE PAGE COMPONENT ────────────────────────────────────────────────
+const RPO = () => {
+  const animRef = useScrollAnimation();
+
+  return (
+    <main className="mt-20 min-h-screen bg-[#f8f9fa] dark:bg-[#0c0e0f] text-slate-900 dark:text-slate-100 transition-colors duration-300" ref={animRef}>
+      <StandaloneHero />
+      <WhyRPOSection />
+      <TransformationModel />
+      <StatsSection />
+      <CapabilitiesSection />
+      <WhyPartnerSection />
+      <CTASection />
+    </main>
+  );
+};
 
 export default RPO;

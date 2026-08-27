@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
-import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import {
   Settings,
   Users,
@@ -24,110 +24,80 @@ import {
   Shield,
   Zap,
   Eye,
-  ChevronRight,
   MonitorCheck,
   Cpu,
   Clock4,
+  Sparkles,
+  Award
 } from "lucide-react";
 
-// ─── Shared Motion ────────────────────────────────────────────────────────────
+// ─── Animation Presets ────────────────────────────────────────────────────────
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.58, delay: i * 0.09, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.58, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
 const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.72, ease: "easeOut" } },
+  hidden: { opacity: 0, scale: 0.96 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
-// ─── Shared Primitives ─────────────────────────────────────────────────────────
-function Eyebrow({ children, inverted = false }) {
+function SectionBadge({ children }) {
   return (
-    <p className={`text-[11px] font-bold tracking-[0.22em] uppercase mb-3 flex items-center gap-2 ${inverted ? "text-sky-300" : "text-[#1A3A8F]"}`}>
-      <span className={`inline-block w-6 h-[2px] rounded-full ${inverted ? "bg-sky-400" : "bg-[#1A3A8F]"}`} />
+    <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 dark:bg-primary/25 text-primary dark:text-[#a9c7ff] border border-primary/20 dark:border-[#a9c7ff]/20 mb-4">
+      <Sparkles className="w-3 h-3 text-primary dark:text-[#a9c7ff]" />
       {children}
-    </p>
+    </span>
   );
 }
 
-function H2({ children, inverted = false, className = "" }) {
+function SectionHeading({ children, className = "", light = false }) {
   return (
-    <h2 className={`text-[1.95rem] md:text-[2.55rem] font-bold leading-[1.17] tracking-tight ${inverted ? "text-white" : "text-[#0D1F4E]"} ${className}`}>
+    <h2 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight ${light ? "text-white" : "text-slate-900 dark:text-white"} ${className}`}>
       {children}
     </h2>
   );
 }
 
-function Lead({ children, inverted = false, className = "" }) {
+// ─── 1. HERO SECTION (Standalone) ─────────────────────────────────────────────
+function StandaloneHero() {
   return (
-    <p className={`text-[0.9375rem] leading-[1.8] ${inverted ? "text-slate-300" : "text-slate-500"} ${className}`}>
-      {children}
-    </p>
-  );
-}
+    <section className="relative min-h-[460px] flex items-center bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] text-white overflow-hidden py-14">
+      <div className="absolute inset-0 z-0">
+        <img
+          className="w-full h-full object-cover opacity-15 mix-blend-luminosity scale-105"
+          src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1600&auto=format&fit=crop"
+          alt="Managed Service Provider (MSP)"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#002a58] via-[#002a58]/90 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(#a9c7ff_1px,transparent_1px)] [background-size:28px_28px] opacity-10" />
+      </div>
 
-function NavyRule() {
-  return <span className="block w-10 h-[3px] rounded-full bg-[#1A3A8F] mt-4 mb-7" />;
-}
-
-// ─── 1. MSP OVERVIEW ─────────────────────────────────────────────────────────
-const overviewCards = [
-  {
-    icon: Shield,
-    label: "Service Ownership",
-    sub: "We take full accountability for delivery",
-  },
-  {
-    icon: Clock4,
-    label: "Operational Continuity",
-    sub: "Always-on managed support model",
-  },
-  {
-    icon: TrendingUp,
-    label: "Performance Delivery",
-    sub: "SLA-backed outcomes at every stage",
-  },
-];
-
-function OverviewSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-
-  return (
-          <section className="relative h-[480px] flex items-center bg-primary text-white overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            className="w-full h-full object-cover opacity-20"
-            src="https://visiontechtechnology.com/assets/images/services/contract-Staffing.jpg"
-            alt="Contract Staffing"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary to-transparent" />
-        </div>
-
-      <div className="max-w-[1280px] mx-auto px-gutter relative z-10 w-full">
-          <div className="max-w-2xl">
-            <span data-animate="fade-up" className="inline-block bg-white/10 border border-white/20 text-[#a9c7ff] px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
-              TOTAL VENDOR MANAGEMENT
-            </span>
-            <h1 data-animate="fade-up" data-animate-delay="0.1" className="font-headline-xl text-3xl sm:text-5xl font-black mb-4 tracking-tight leading-none uppercase">
-              MANAGED SERVICE PROVIDER
-            </h1>
-            <p data-animate="fade-up" data-animate-delay="0.2" className="text-sm sm:text-base text-slate-300 font-light mb-6 leading-relaxed">
-              A contingent workforce solution where an external expert assumes full responsibility for managing your temporary staffing, independent contractors, and third-party vendors to optimize spend and compliance
-            </p>
-            <div data-animate="fade-up" data-animate-delay="0.3">
-              <Link to="/contact-us" className="inline-block px-5 py-3 bg-white text-primary hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all font-bold rounded-xl text-xs uppercase tracking-wider shadow-md">
-                Contact us button
-              </Link>
-            </div>
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="max-w-3xl">
+          <SectionBadge>Total Workforce Governance</SectionBadge>
+          <h1 className="text-3xl sm:text-5xl font-black mb-4 tracking-tight leading-tight uppercase text-white">
+            Managed Service <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a9c7ff] to-white">Provider</span> (MSP)
+          </h1>
+          <p className="text-base sm:text-lg text-slate-200 font-light mb-8 leading-relaxed max-w-2xl">
+            End-to-end management of contingent talent, temporary staffing ecosystems, contractor payroll, and vendor networks — optimizing enterprise spend, compliance, and delivery performance.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              to="/contact-us"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-primary hover:bg-[#a9c7ff] hover:text-[#002a58] transition-all duration-300 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-black/20 hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <span>Explore MSP Solutions</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
-        </section>
+      </div>
+    </section>
   );
 }
 
@@ -135,33 +105,33 @@ function OverviewSection() {
 const services = [
   {
     icon: Settings,
-    title: "Operations Support",
-    desc: "Day-to-day operational functions managed through a structured support framework with defined SLAs.",
+    title: "Operations Governance",
+    desc: "Centralized day-to-day management of contingent talent, ensuring strict SLA enforcement and continuous support.",
   },
   {
     icon: Users,
-    title: "Dedicated Teams",
-    desc: "Purpose-built teams aligned to your business unit — skilled, trained, and accountable to your outcomes.",
+    title: "Vendor Management (VMS)",
+    desc: "Single-point coordination of multiple staffing suppliers, standardizing rates, contracts, and quality benchmarks.",
   },
   {
     icon: MonitorCheck,
-    title: "Service Monitoring",
-    desc: "Continuous oversight of service health, performance metrics, and escalation management.",
+    title: "Service Health Monitoring",
+    desc: "Real-time tracking of contractor deliverables, timekeeping, compliance adherence, and escalation matrices.",
   },
   {
     icon: BarChart2,
-    title: "Performance Management",
-    desc: "Regular reporting cadences, KPI reviews, and improvement actions built into the delivery model.",
+    title: "Spend & Rate Analytics",
+    desc: "Optimizing contingent labor costs through rate-card normalization, volume discounting, and bill-rate transparency.",
   },
   {
     icon: RefreshCw,
-    title: "Continuous Delivery",
-    desc: "Iterative delivery cycles that keep operations running smoothly without downtime or quality gaps.",
+    title: "Continuous Delivery Cycles",
+    desc: "Reliable, uninterrupted operational workflows that minimize downtime and prevent capacity bottlenecks.",
   },
   {
     icon: Layers,
-    title: "Scalable Execution",
-    desc: "Delivery capacity that grows or contracts with your business without rebuilding internal processes.",
+    title: "Elastic Scalability",
+    desc: "Agile capability expansion that scales alongside corporate initiatives without burdening internal HR.",
   },
 ];
 
@@ -170,41 +140,41 @@ function WhatWeManageSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-[#F4F7FC]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+    <section ref={ref} className="py-20 bg-slate-50/60 dark:bg-[#0c0e0f]/50 transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="max-w-xl mb-14"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <Eyebrow>What We Manage</Eyebrow>
-          <H2>Service Areas Under<br />Our Managed Delivery</H2>
-          <NavyRule />
-          <Lead>
-            We take ownership of the operational functions that matter most — freeing
-            your leadership to focus on strategy, not execution overhead.
-          </Lead>
+          <SectionBadge>Operational Scope</SectionBadge>
+          <SectionHeading>Functions Governed Under Our Managed Model</SectionHeading>
+          <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+            We assume full ownership of contingent workforce governance, liberating leadership to focus on core strategic milestones.
+          </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((s, i) => (
-            <motion.div
-              key={s.title}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.07}
-              className="group relative bg-white rounded-2xl p-7 border border-slate-100 shadow-sm overflow-hidden hover:shadow-lg hover:border-[#1A3A8F]/20 transition-all duration-300"
-            >
-              <span className="absolute inset-x-0 top-0 h-[3px] bg-[#1A3A8F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 rounded-t-2xl" />
-              <div className="w-12 h-12 rounded-xl bg-[#EEF2FB] flex items-center justify-center mb-5 group-hover:bg-[#0D1F4E] transition-colors duration-300">
-                <s.icon size={20} strokeWidth={1.75} className="text-[#1A3A8F] group-hover:text-white transition-colors duration-300" />
-              </div>
-              <h3 className="text-[#0D1F4E] font-semibold text-[0.9375rem] mb-2">{s.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
-            </motion.div>
-          ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <motion.div
+                key={s.title}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.06}
+                className="group relative bg-white dark:bg-slate-900/80 rounded-2xl p-7 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all duration-300 text-primary dark:text-[#a9c7ff]">
+                  <Icon size={22} strokeWidth={2} />
+                </div>
+                <h3 className="text-slate-900 dark:text-white font-bold text-lg mb-2">{s.title}</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{s.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -215,28 +185,33 @@ function WhatWeManageSection() {
 const deliverySteps = [
   {
     icon: Search,
-    step: "Understand",
-    desc: "We map your operational environment, stakeholders, service requirements, and performance expectations.",
+    step: "Discover",
+    title: "Environment Mapping",
+    desc: "Auditing supplier matrices, existing spend baselines, compliance risks, and project timelines.",
   },
   {
     icon: Rocket,
     step: "Deploy",
-    desc: "Dedicated teams are onboarded, tooled, and integrated into your processes with minimal disruption.",
+    title: "Transition & Setup",
+    desc: "Seamless onboarding of vendors and contractors onto standardized SLAs with zero project disruption.",
   },
   {
     icon: Activity,
     step: "Manage",
-    desc: "Active oversight of delivery performance, escalations, SLA compliance, and team health.",
+    title: "Program Governance",
+    desc: "Active day-to-day oversight of contractor performance, payroll processing, and compliance clearing.",
   },
   {
     icon: RefreshCw,
     step: "Optimize",
-    desc: "Data-driven improvement cycles reduce friction, increase throughput, and raise quality benchmarks.",
+    title: "Continuous Savings",
+    desc: "Ongoing rate renegotiations, process lean-out, and performance benchmarking to reduce total spend.",
   },
   {
     icon: TrendingUp,
     step: "Scale",
-    desc: "As your business grows, delivery capacity expands — maintaining quality without rebuilding from scratch.",
+    title: "Strategic Growth",
+    desc: "Expanding MSP support to new regional hubs, projects, or business units seamlessly.",
   },
 ];
 
@@ -245,91 +220,95 @@ function DeliveryModelSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+    <section ref={ref} className="py-20 bg-white dark:bg-[#0c0e0f] overflow-hidden transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <Eyebrow>Delivery Model</Eyebrow>
-          <H2>How Our Managed Model Works</H2>
-          <NavyRule />
-          <Lead>
-            A five-stage engagement framework that transitions your operations into a
-            managed service — structured, measurable, and built to last.
-          </Lead>
+          <SectionBadge>Execution Framework</SectionBadge>
+          <SectionHeading>How Our Managed Service Model Delivers</SectionHeading>
+          <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+            A 5-stage transition blueprint ensuring seamless governance, transparency, and cost efficiency.
+          </p>
         </motion.div>
 
-        {/* Desktop: connected blocks in a staggered two-row layout */}
-        <div className="hidden lg:block">
-          <div className="grid grid-cols-5 gap-4 relative">
-            {/* Connector line */}
-            <div className="absolute top-[52px] left-[10%] right-[10%] h-[2px] bg-slate-100" />
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-              transition={{ duration: 1.3, delay: 0.35, ease: "easeInOut" }}
-              style={{ transformOrigin: "left" }}
-              className="absolute top-[52px] left-[10%] right-[10%] h-[2px] bg-[#1A3A8F]"
-            />
-            {deliverySteps.map((s, i) => (
+        {/* Desktop connected layout */}
+        <div className="hidden lg:grid grid-cols-5 gap-4 relative">
+          <div className="absolute top-8 left-[8%] right-[8%] h-[2px] bg-slate-200 dark:bg-slate-800 z-0" />
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 1.1, ease: "easeInOut", delay: 0.2 }}
+            style={{ transformOrigin: "left" }}
+            className="absolute top-8 left-[8%] right-[8%] h-[2px] bg-primary dark:bg-[#a9c7ff] z-10"
+          />
+
+          {deliverySteps.map((s, i) => {
+            const Icon = s.icon;
+            return (
               <motion.div
                 key={s.step}
                 variants={fadeUp}
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
-                custom={i * 0.12}
-                className="flex flex-col items-center text-center px-2"
+                custom={i * 0.1}
+                className="flex flex-col items-center text-center px-2 relative z-10"
               >
-                <div className="relative z-10 w-[104px] h-[104px] rounded-full bg-white border-[3px] border-[#1A3A8F] flex flex-col items-center justify-center mb-6 shadow-md shadow-[#1A3A8F]/10">
-                  <s.icon size={22} strokeWidth={1.7} className="text-[#1A3A8F] mb-1" />
-                  <span className="text-[#0D1F4E] font-bold text-[11px] tracking-wide uppercase">{s.step}</span>
+                <div className="w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center mb-4 shadow-md font-bold">
+                  <Icon size={24} strokeWidth={2} />
                 </div>
-                <p className="text-slate-500 text-xs leading-relaxed">{s.desc}</p>
+                <span className="text-xs font-bold text-primary dark:text-[#a9c7ff] uppercase tracking-wider mb-1">
+                  Stage 0{i + 1} • {s.step}
+                </span>
+                <h4 className="text-slate-900 dark:text-white font-bold text-sm mb-2">{s.title}</h4>
+                <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{s.desc}</p>
               </motion.div>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
-        {/* Mobile: vertical */}
-        <div className="lg:hidden flex flex-col gap-0 relative">
-          <div className="absolute left-6 top-6 bottom-6 w-[2px] bg-slate-100" />
-          <div
-            className="absolute left-6 top-6 w-[2px] bg-[#1A3A8F] transition-all duration-[1400ms]"
-            style={{ height: inView ? "calc(100% - 24px)" : "0" }}
-          />
-          {deliverySteps.map((s, i) => (
-            <motion.div
-              key={s.step}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.1}
-              className="flex gap-6 pb-10 last:pb-0"
-            >
-              <div className="relative z-10 w-12 h-12 rounded-full bg-[#1A3A8F] flex-shrink-0 flex items-center justify-center shadow-md">
-                <s.icon size={18} strokeWidth={1.8} className="text-white" />
-              </div>
-              <div className="pt-2">
-                <h4 className="text-[#0D1F4E] font-bold text-sm mb-1">{s.step}</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+        {/* Mobile vertical layout */}
+        <div className="lg:hidden flex flex-col gap-6 relative pl-4">
+          <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-slate-200 dark:bg-slate-800" />
+          {deliverySteps.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <motion.div
+                key={s.step}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.1}
+                className="flex gap-5 items-start relative z-10"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary text-white flex-shrink-0 flex items-center justify-center shadow">
+                  <Icon size={20} strokeWidth={2} />
+                </div>
+                <div className="pt-1">
+                  <span className="text-xs font-bold text-primary dark:text-[#a9c7ff] uppercase tracking-wider block">
+                    Stage 0{i + 1} • {s.step}
+                  </span>
+                  <h4 className="text-slate-900 dark:text-white font-bold text-base mb-1">{s.title}</h4>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{s.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-// ─── 4. BUSINESS IMPACT / STATS ───────────────────────────────────────────────
+// ─── 4. STATS / IMPACT ───────────────────────────────────────────────────────
 const stats = [
-  { target: 24, suffix: "/7", label: "Managed Support", sub: "Always-on operational coverage" },
-  { target: 98, suffix: "%", label: "Service Quality", sub: "Consistently maintained across engagements" },
-  { target: 500, suffix: "+", label: "Projects Supported", sub: "Across enterprise clients" },
-  { target: 90, suffix: "%", label: "Operational Efficiency", sub: "Improvement from baseline" },
+  { target: 24, suffix: "/7", label: "Operational Helpdesk Support" },
+  { target: 98, suffix: "%", label: "Contract SLA Adherence" },
+  { target: 500, suffix: "+", label: "Enterprise Projects Managed" },
+  { target: 20, suffix: "%", label: "Average Contingent Cost Savings" },
 ];
 
 function Counter({ target, suffix, inView }) {
@@ -345,8 +324,9 @@ function Counter({ target, suffix, inView }) {
     }, 16);
     return () => clearInterval(id);
   }, [inView, target]);
+
   return (
-    <span className="text-5xl md:text-6xl font-bold text-white tabular-nums leading-none">
+    <span className="text-4xl sm:text-5xl font-black text-white tabular-nums leading-none">
       {val}{suffix}
     </span>
   );
@@ -357,44 +337,34 @@ function StatsSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-[#0D1F4E] relative overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-[0.045]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#1A3A8F]/30 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#1A3A8F]/20 blur-3xl pointer-events-none" />
+    <section ref={ref} className="py-20 bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(#a9c7ff_1px,transparent_1px)] [background-size:32px_32px] opacity-10" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-16">
+      <div className="relative max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center mb-16"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <Eyebrow inverted>Business Impact</Eyebrow>
-          <H2 inverted>
-            The Proof Is in the<br />Delivery
-          </H2>
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#a9c7ff] border border-white/20 mb-4">
+            <Award className="w-3.5 h-3.5" /> Quantifiable Governance
+          </span>
+          <SectionHeading light>Delivering Operational &amp; Financial ROI</SectionHeading>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
               variants={fadeUp}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              custom={i * 0.1}
-              className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center"
+              custom={i * 0.08}
+              className="text-center bg-white/10 dark:bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white/10"
             >
               <Counter target={s.target} suffix={s.suffix} inView={inView} />
-              <p className="text-white font-semibold text-sm mt-3">{s.label}</p>
-              <p className="text-slate-400 text-xs mt-1">{s.sub}</p>
+              <p className="text-[#a9c7ff] text-sm mt-2 font-medium">{s.label}</p>
             </motion.div>
           ))}
         </div>
@@ -405,12 +375,12 @@ function StatsSection() {
 
 // ─── 5. INDUSTRIES WE SUPPORT ─────────────────────────────────────────────────
 const industries = [
-  { icon: Cpu, name: "Information Technology", desc: "Infrastructure, cloud ops, and IT service management" },
-  { icon: Factory, name: "Manufacturing", desc: "Plant operations, quality control, and supply chain support" },
-  { icon: HeartPulse, name: "Healthcare", desc: "Clinical operations, health IT, and compliance management" },
-  { icon: Briefcase, name: "BFSI", desc: "Back-office ops, risk monitoring, and financial services delivery" },
-  { icon: Radio, name: "Telecom", desc: "Network operations, field delivery, and customer service support" },
-  { icon: ShoppingBag, name: "Retail & E-commerce", desc: "Fulfillment ops, analytics, and category management" },
+  { icon: Cpu, name: "Information Technology", desc: "IT service desks, DevOps, cloud engineering pods, system integrations" },
+  { icon: Factory, name: "Manufacturing & Heavy Engineering", desc: "Plant technicians, safety officers, maintenance teams, QA engineers" },
+  { icon: HeartPulse, name: "Healthcare & Life Sciences", desc: "Clinical technicians, lab operators, hospital support infrastructure" },
+  { icon: Briefcase, name: "BFSI & Fintech", desc: "Back-office transaction processors, compliance auditors, risk specialists" },
+  { icon: Radio, name: "Telecom & Fiber Networks", desc: "Field engineers, NOC monitors, RF survey specialists, infrastructure" },
+  { icon: ShoppingBag, name: "Supply Chain & Retail", desc: "Warehouse tech operators, ERP inventory specialists, category leads" },
 ];
 
 function IndustriesSection() {
@@ -418,146 +388,71 @@ function IndustriesSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-[#F4F7FC]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+    <section ref={ref} className="py-20 bg-slate-50/60 dark:bg-[#0c0e0f]/50 transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center max-w-xl mx-auto mb-14"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <Eyebrow>Industries We Support</Eyebrow>
-          <H2>Managed Services Across<br />Every Major Sector</H2>
-          <NavyRule />
+          <SectionBadge>Industry Delivery</SectionBadge>
+          <SectionHeading>Managed Operations Across Major Verticals</SectionHeading>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {industries.map((ind, i) => (
-            <motion.div
-              key={ind.name}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.08}
-              className="group flex items-start gap-5 bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-[#1A3A8F]/20 transition-all duration-300"
-            >
-              <div className="w-11 h-11 rounded-xl bg-[#EEF2FB] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0D1F4E] transition-colors duration-300">
-                <ind.icon size={20} strokeWidth={1.7} className="text-[#1A3A8F] group-hover:text-white transition-colors duration-300" />
-              </div>
-              <div>
-                <h4 className="text-[#0D1F4E] font-semibold text-sm mb-1">{ind.name}</h4>
-                <p className="text-slate-600 text-xs leading-relaxed">{ind.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {industries.map((ind, i) => {
+            const Icon = ind.icon;
+            return (
+              <motion.div
+                key={ind.name}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.07}
+                className="flex items-start gap-4 bg-white dark:bg-slate-900/80 rounded-2xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0 text-primary dark:text-[#a9c7ff]">
+                  <Icon size={22} strokeWidth={2} />
+                </div>
+                <div>
+                  <h4 className="text-slate-900 dark:text-white font-bold text-base mb-1">{ind.name}</h4>
+                  <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{ind.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-// ─── 6. WHY PARTNER WITH US ───────────────────────────────────────────────────
-const partnerPoints = [
-  { label: "Dedicated account management with single-point ownership" },
-  { label: "Real-time operational visibility through live reporting dashboards" },
-  { label: "Scalable delivery that adapts to business growth or seasonal peaks" },
-  { label: "Quality assurance frameworks embedded in every delivery process" },
-  { label: "Business continuity planning and risk mitigation built in by default" },
-  { label: "Transparent SLA structure with defined escalation and resolution paths" },
-];
-
-function WhyPartnerSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-
-  return (
-    <section ref={ref} className="py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          {/* Left */}
-          <div>
-            <motion.div variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
-              <Eyebrow>Why Partner With Us</Eyebrow>
-              <H2>
-                More Than a Provider —<br />
-                <span className="text-[#1A3A8F]">An Operational Extension</span>
-              </H2>
-              <NavyRule />
-            </motion.div>
-            <motion.div variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"} custom={1}>
-              <Lead className="mb-9">
-                Enterprise organizations don't need another vendor. They need a partner
-                who takes on real accountability — one who understands the stakes, owns
-                the outcomes, and keeps service quality non-negotiable.
-              </Lead>
-            </motion.div>
-
-            <ul className="space-y-4">
-              {partnerPoints.map((p, i) => (
-                <motion.li
-                  key={p.label}
-                  variants={fadeUp}
-                  initial="hidden"
-                  animate={inView ? "visible" : "hidden"}
-                  custom={i * 0.07 + 0.2}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle2 size={17} strokeWidth={2.2} className="text-[#1A3A8F] mt-[2px] flex-shrink-0" />
-                  <span className="text-slate-600 text-sm leading-relaxed">{p.label}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Right */}
-          <motion.div
-            variants={fadeIn}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="relative"
-          >
-            <div className="rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 aspect-[4/3]">
-              <img
-                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&q=80"
-                alt="Enterprise team managing operations"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0D1F4E]/20 to-transparent" />
-            </div>
-            <div className="absolute -bottom-5 -right-5 w-28 h-28 rounded-2xl border-2 border-[#1A3A8F]/10 -z-10" />
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── 7. OUTCOMES SECTION ──────────────────────────────────────────────────────
+// ─── 6. OUTCOMES SECTION ──────────────────────────────────────────────────────
 const outcomes = [
   {
     icon: Zap,
-    title: "Efficiency",
-    metric: "Leaner Operations",
-    desc: "Structured managed delivery removes inefficiencies, duplication, and coordination overhead from day-to-day operations.",
+    title: "Operational Efficiency",
+    metric: "Leaner Execution",
+    desc: "Standardized workflows remove vendor duplication, payroll delays, and administrative overhead.",
   },
   {
     icon: Eye,
-    title: "Control",
-    metric: "Full Visibility",
-    desc: "Live dashboards, regular reviews, and structured reporting give leadership complete operational transparency.",
+    title: "Complete Transparency",
+    metric: "Live Governance",
+    desc: "Real-time executive dashboards give leadership 100% visibility into headcount, spend, and vendor performance.",
   },
   {
     icon: Shield,
-    title: "Reliability",
-    metric: "SLA-Backed Quality",
-    desc: "Every service function is governed by defined standards — not best-effort delivery. Consistency is designed in.",
+    title: "Risk Mitigation",
+    metric: "100% Compliant",
+    desc: "All contractors and suppliers are audited against statutory regulations, eliminating co-employment liabilities.",
   },
   {
     icon: TrendingUp,
-    title: "Growth",
-    metric: "Scale Without Strain",
-    desc: "Managed capacity scales with your business. Expanding into new markets or volumes doesn't mean rebuilding operations.",
+    title: "Financial Optimization",
+    metric: "15-25% Cost Savings",
+    desc: "Standardized rate cards and consolidated billing unlock immediate hard-dollar cost reductions.",
   },
 ];
 
@@ -566,156 +461,106 @@ function OutcomesSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-[#0D1F4E] relative overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: "radial-gradient(circle, #fff 1.5px, transparent 1.5px)",
-          backgroundSize: "30px 30px",
-        }}
-      />
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-16">
+    <section ref={ref} className="py-20 bg-white dark:bg-[#0c0e0f] transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center max-w-xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <Eyebrow inverted>Outcomes</Eyebrow>
-          <H2 inverted>
-            What Managed Services<br />Delivers for Your Business
-          </H2>
+          <SectionBadge>Enterprise Value</SectionBadge>
+          <SectionHeading>Measurable Benefits of Our MSP Model</SectionHeading>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {outcomes.map((o, i) => (
-            <motion.div
-              key={o.title}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.1}
-              className="group rounded-2xl border border-white/10 bg-white/5 p-7 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-            >
-              <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center mb-5 group-hover:bg-[#1A3A8F] transition-colors duration-300">
-                <o.icon size={19} strokeWidth={1.75} className="text-sky-300 group-hover:text-white transition-colors duration-300" />
-              </div>
-              <p className="text-sky-200 text-[11px] font-semibold tracking-widest uppercase mb-2">{o.metric}</p>
-              <h4 className="text-white font-bold text-[0.9375rem] mb-2">{o.title}</h4>
-              <p className="text-slate-400 text-[0.8125rem] leading-relaxed">{o.desc}</p>
-            </motion.div>
-          ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {outcomes.map((o, i) => {
+            const Icon = o.icon;
+            return (
+              <motion.div
+                key={o.title}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.08}
+                className="bg-slate-50/70 dark:bg-slate-900/80 rounded-2xl p-6 border border-slate-200/80 dark:border-slate-800 hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4 text-primary dark:text-[#a9c7ff]">
+                  <Icon size={22} strokeWidth={2} />
+                </div>
+                <span className="text-xs font-bold text-primary dark:text-[#a9c7ff] uppercase tracking-wider block mb-1">
+                  {o.metric}
+                </span>
+                <h4 className="text-slate-900 dark:text-white font-bold text-base mb-2">{o.title}</h4>
+                <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{o.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-// ─── 8. FINAL CTA ─────────────────────────────────────────────────────────────
+// ─── 7. FINAL CTA ─────────────────────────────────────────────────────────────
 function CTASection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-
   return (
-    <section ref={ref} className="py-28 bg-[#F4F7FC]">
-      <div className="max-w-5xl mx-auto px-6">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/80 px-10 py-16 md:px-20 md:py-20 text-center relative overflow-hidden"
-        >
-          {/* Blueprint corner marks */}
-          <span className="absolute top-5 left-5 w-6 h-6 border-t-2 border-l-2 border-[#1A3A8F]/20 rounded-tl-sm" />
-          <span className="absolute top-5 right-5 w-6 h-6 border-t-2 border-r-2 border-[#1A3A8F]/20 rounded-tr-sm" />
-          <span className="absolute bottom-5 left-5 w-6 h-6 border-b-2 border-l-2 border-[#1A3A8F]/20 rounded-bl-sm" />
-          <span className="absolute bottom-5 right-5 w-6 h-6 border-b-2 border-r-2 border-[#1A3A8F]/20 rounded-br-sm" />
-
-          <motion.div variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
-            <Eyebrow>Get Started</Eyebrow>
-            <H2 className="mb-6">
-              Focus On Growth.<br />
-              <span className="text-[#1A3A8F]">We Handle Delivery.</span>
-            </H2>
-          </motion.div>
-
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            custom={1}
-            className="text-slate-500 text-base max-w-xl mx-auto mb-10 leading-relaxed"
-          >
-            Let our managed services team take ownership of your operational delivery —
-            so your people spend their energy on what moves the business forward, not
-            what keeps it running.
-          </motion.p>
-
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            custom={2}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-[#1A3A8F] hover:bg-[#0D1F4E] text-white font-semibold text-sm transition-colors duration-200 shadow-lg shadow-[#1A3A8F]/20"
+    <section className="py-16 bg-slate-50 dark:bg-[#0c0e0f]/80">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-2xl">
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#a9c7ff] mb-4">
+              Focus On Growth
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black mb-4 tracking-tight">
+              Transform Your Contingent Workforce Operations
+            </h2>
+            <p className="text-slate-200 text-sm sm:text-base mb-8 font-light">
+              Let Smart Brains assume total responsibility for your vendor and contingent labor ecosystem with SLA-backed accountability.
+            </p>
+            <Link
+              to="/contact-us"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-primary hover:bg-[#a9c7ff] hover:text-[#002a58] font-bold text-xs uppercase tracking-wider shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
-              Contact Us <ArrowRight size={16} strokeWidth={2.5} />
-            </a>
-            <a
-              href="/services"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border border-slate-200 hover:border-[#1A3A8F]/40 hover:bg-slate-50 text-slate-700 font-semibold text-sm transition-colors duration-200"
-            >
-              <Building2 size={16} strokeWidth={1.9} />
-              Explore Services
-            </a>
-          </motion.div>
-        </motion.div>
+              <span>Request an MSP Consultation</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-// --- 9. ------
-
+// ─── TAB EMBED COMPONENT ───────────────────────────────────────────────────────
 export function ManagedProvider() {
-  const animRef = useScrollAnimation()
-
   return (
-    <main className="mt-20 min-h-screen bg-slate-50 dark:bg-[#0c0e0f] text-on-surface" ref={animRef}>
-      {/* <OverviewSection /> */}
+    <div className="w-full">
       <WhatWeManageSection />
       <DeliveryModelSection />
       <StatsSection />
       <IndustriesSection />
-      {/* <WhyPartnerSection /> */}
       <OutcomesSection />
-      {/* <CTASection /> */}
-    </main>
+      <CTASection />
+    </div>
   );
 }
 
-
-
-// ─── ROOT EXPORT ──────────────────────────────────────────────────────────────
-function ManagedServiceProvider() {
-  const animRef = useScrollAnimation()
+// ─── STANDALONE PAGE COMPONENT ────────────────────────────────────────────────
+const ManagedServiceProvider = () => {
+  const animRef = useScrollAnimation();
 
   return (
-    <main className="mt-20 min-h-screen bg-slate-50 dark:bg-[#0c0e0f] text-on-surface" ref={animRef}>
-      <OverviewSection />
+    <main className="mt-20 min-h-screen bg-[#f8f9fa] dark:bg-[#0c0e0f] text-slate-900 dark:text-slate-100 transition-colors duration-300" ref={animRef}>
+      <StandaloneHero />
       <WhatWeManageSection />
       <DeliveryModelSection />
       <StatsSection />
       <IndustriesSection />
-      {/* <WhyPartnerSection />
-      <OutcomesSection /> */}
+      <OutcomesSection />
       <CTASection />
     </main>
   );
-}
+};
 
 export default ManagedServiceProvider;
-

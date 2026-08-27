@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
-import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import {
   Users,
   Zap,
@@ -15,8 +15,6 @@ import {
   TrendingUp,
   CheckCircle2,
   ArrowRight,
-  Building2,
-  ChevronRight,
   Code2,
   Server,
   Cloud,
@@ -26,127 +24,78 @@ import {
   Timer,
   CalendarRange,
   FolderKanban,
-  Contact,
-  Shield,
-  Eye,
+  Sparkles,
+  Award,
+  ShieldCheck
 } from "lucide-react";
 
-// ─── Motion Presets ───────────────────────────────────────────────────────────
+// ─── Animation Presets ────────────────────────────────────────────────────────
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.58, delay: i * 0.09, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.58, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
 const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.72, ease: "easeOut" } },
+  hidden: { opacity: 0, scale: 0.96 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
-// ─── Shared Primitives ────────────────────────────────────────────────────────
-function Eyebrow({ children, inverted = false }) {
+function SectionBadge({ children }) {
   return (
-    <p
-      className={`text-[11px] font-bold tracking-[0.22em] uppercase mb-3 flex items-center gap-2 ${
-        inverted ? "text-sky-300" : "text-[#1A3A8F]"
-      }`}
-    >
-      <span
-        className={`inline-block w-6 h-[2px] rounded-full ${
-          inverted ? "bg-sky-400" : "bg-[#1A3A8F]"
-        }`}
-      />
+    <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 dark:bg-primary/25 text-primary dark:text-[#a9c7ff] border border-primary/20 dark:border-[#a9c7ff]/20 mb-4">
+      <Sparkles className="w-3 h-3 text-primary dark:text-[#a9c7ff]" />
       {children}
-    </p>
+    </span>
   );
 }
 
-function H2({ children, inverted = false, className = "" }) {
+function SectionHeading({ children, className = "", light = false }) {
   return (
-    <h2
-      className={`text-[1.95rem] md:text-[2.55rem] font-bold leading-[1.17] tracking-tight ${
-        inverted ? "text-white" : "text-[#0D1F4E]"
-      } ${className}`}
-    >
+    <h2 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight ${light ? "text-white" : "text-slate-900 dark:text-white"} ${className}`}>
       {children}
     </h2>
   );
 }
 
-function Lead({ children, inverted = false, className = "" }) {
+// ─── 1. HERO SECTION (Standalone) ─────────────────────────────────────────────
+function StandaloneHero() {
   return (
-    <p
-      className={`text-[0.9375rem] leading-[1.8] ${
-        inverted ? "text-slate-300" : "text-slate-500"
-      } ${className}`}
-    >
-      {children}
-    </p>
-  );
-}
+    <section className="relative min-h-[460px] flex items-center bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] text-white overflow-hidden py-14">
+      <div className="absolute inset-0 z-0">
+        <img
+          className="w-full h-full object-cover opacity-15 mix-blend-luminosity scale-105"
+          src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1600&auto=format&fit=crop"
+          alt="Staff Augmentation Solutions"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#002a58] via-[#002a58]/90 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(#a9c7ff_1px,transparent_1px)] [background-size:28px_28px] opacity-10" />
+      </div>
 
-function NavyRule() {
-  return (
-    <span className="block w-10 h-[3px] rounded-full bg-[#1A3A8F] mt-4 mb-7" />
-  );
-}
-
-// ─── 1. OVERVIEW ─────────────────────────────────────────────────────────────
-const overviewHighlights = [
-  {
-    icon: Users,
-    label: "Team Extension",
-    sub: "Augment existing teams without restructuring",
-  },
-  {
-    icon: Zap,
-    label: "Accelerated Delivery",
-    sub: "Skilled professionals ready within 72 hours",
-  },
-  {
-    icon: Shuffle,
-    label: "Flexible Engagement",
-    sub: "Scale up or down as project needs evolve",
-  },
-];
-
-function OverviewSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-
-  return (
-           <section className="relative h-[480px] flex items-center bg-primary text-white overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            className="w-full h-full object-cover opacity-20"
-            src="https://visiontechtechnology.com/assets/images/services/contract-Staffing.jpg"
-            alt="Contract Staffing"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary to-transparent" />
-        </div>
-
-      <div className="max-w-[1280px] mx-auto px-gutter relative z-10 w-full">
-          <div className="max-w-2xl">
-            <span data-animate="fade-up" className="inline-block bg-white/10 border border-white/20 text-[#a9c7ff] px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4">
-              FLEXIBLE CAPABILITY
-            </span>
-            <h1 data-animate="fade-up" data-animate-delay="0.1" className="font-headline-xl text-3xl sm:text-5xl font-black mb-4 tracking-tight leading-none uppercase">
-              STAFF AUGMENTATION
-            </h1>
-            <p data-animate="fade-up" data-animate-delay="0.2" className="text-sm sm:text-base text-slate-300 font-light mb-6 leading-relaxed">
-              A powerful outsourcing strategy that allows you to quickly inject specialized tech talent and skilled engineers into your existing internal teams to meet immediate project deadlines and scale your capabilities
-            </p>
-            <div data-animate="fade-up" data-animate-delay="0.3">
-              <Link to="/contact-us" className="inline-block px-5 py-3 bg-white text-primary hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all font-bold rounded-xl text-xs uppercase tracking-wider shadow-md">
-                Contact us button
-              </Link>
-            </div>
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="max-w-3xl">
+          <SectionBadge>On-Demand Engineering Bandwidth</SectionBadge>
+          <h1 className="text-3xl sm:text-5xl font-black mb-4 tracking-tight leading-tight uppercase text-white">
+            Staff <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a9c7ff] to-white">Augmentation</span> Solutions
+          </h1>
+          <p className="text-base sm:text-lg text-slate-200 font-light mb-8 leading-relaxed max-w-2xl">
+            Quickly inject elite software engineers, technical architects, and domain experts into your existing product teams to meet critical release deadlines and bridge skill gaps.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              to="/contact-us"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-primary hover:bg-[#a9c7ff] hover:text-[#002a58] transition-all duration-300 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-black/20 hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <span>Augment Your Team in 72h</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
-        </section>
+      </div>
+    </section>
   );
 }
 
@@ -154,33 +103,33 @@ function OverviewSection() {
 const benefits = [
   {
     icon: Rocket,
-    title: "Rapid Team Expansion",
-    desc: "Add skilled professionals to your team within days — no lengthy recruitment cycles or onboarding delays.",
+    title: "Rapid Team Ramp-Up",
+    desc: "Integrate pre-screened technical experts into your active sprints within 72 hours, bypassing long hiring cycles.",
   },
   {
     icon: BarChart2,
-    title: "Specialized Skills",
-    desc: "Access niche technical expertise your internal team may not have, exactly when a project demands it.",
+    title: "Niche Specialized Stacks",
+    desc: "Gain instant access to hard-to-find skills across modern frameworks, legacy systems, cloud migrations, and AI.",
   },
   {
     icon: Shuffle,
-    title: "Flexible Engagement",
-    desc: "Ramp capacity up or down based on project milestones without restructuring your permanent workforce.",
+    title: "Zero Headcount Friction",
+    desc: "Scale developers up or down based on release milestones without expanding permanent corporate overhead.",
   },
   {
     icon: Zap,
-    title: "Faster Delivery",
-    desc: "Augmented teams reduce time-to-market by closing skill and bandwidth gaps that slow delivery velocity.",
+    title: "Accelerated Time-to-Market",
+    desc: "Instantly remove product development bottlenecks and deliver features ahead of roadmap schedules.",
   },
   {
     icon: Clock,
-    title: "Lower Hiring Delay",
-    desc: "Skip the full-cycle recruitment process — pre-screened professionals are ready to engage immediately.",
+    title: "Day-One Productivity",
+    desc: "Augmented engineers adapt quickly to your CI/CD workflows, Git repos, Slack channels, and Agile ceremonies.",
   },
   {
     icon: RefreshCw,
-    title: "Business Continuity",
-    desc: "Prevent delivery gaps during transitions, sudden departures, or unplanned capacity shortfalls.",
+    title: "Continuity Safeguard",
+    desc: "Prevent critical delivery stalls caused by sudden internal attrition or unexpected project scope increases.",
   },
 ];
 
@@ -189,50 +138,41 @@ function HowItHelpsSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-[#F4F7FC]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+    <section ref={ref} className="py-20 bg-slate-50/60 dark:bg-[#0c0e0f]/50 transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="max-w-xl mb-14"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <Eyebrow>How It Helps</Eyebrow>
-          <H2>
-            Why Teams Choose<br />
-            Staff Augmentation
-          </H2>
-          <NavyRule />
-          <Lead>
-            When internal teams hit capacity ceilings or skill walls,
-            augmentation is the fastest path back to full delivery momentum.
-          </Lead>
+          <SectionBadge>Agile Capacity</SectionBadge>
+          <SectionHeading>Why High-Growth Teams Choose Staff Augmentation</SectionHeading>
+          <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+            When internal engineering capacity hits a bottleneck, augmentation provides the fastest route back to peak velocity.
+          </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {benefits.map((b, i) => (
-            <motion.div
-              key={b.title}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.07}
-              className="group relative bg-white rounded-2xl p-7 border border-slate-100 shadow-sm overflow-hidden hover:shadow-lg hover:border-[#1A3A8F]/20 transition-all duration-300"
-            >
-              <span className="absolute inset-x-0 top-0 h-[3px] bg-[#1A3A8F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 rounded-t-2xl" />
-              <div className="w-12 h-12 rounded-xl bg-[#EEF2FB] flex items-center justify-center mb-5 group-hover:bg-[#0D1F4E] transition-colors duration-300">
-                <b.icon
-                  size={20}
-                  strokeWidth={1.75}
-                  className="text-[#1A3A8F] group-hover:text-white transition-colors duration-300"
-                />
-              </div>
-              <h3 className="text-[#0D1F4E] font-semibold text-[0.9375rem] mb-2">
-                {b.title}
-              </h3>
-              <p className="text-slate-500 text-sm leading-relaxed">{b.desc}</p>
-            </motion.div>
-          ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map((b, i) => {
+            const Icon = b.icon;
+            return (
+              <motion.div
+                key={b.title}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.06}
+                className="group relative bg-white dark:bg-slate-900/80 rounded-2xl p-7 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all duration-300 text-primary dark:text-[#a9c7ff]">
+                  <Icon size={22} strokeWidth={2} />
+                </div>
+                <h3 className="text-slate-900 dark:text-white font-bold text-lg mb-2">{b.title}</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{b.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -243,28 +183,33 @@ function HowItHelpsSection() {
 const modelSteps = [
   {
     icon: Search,
-    step: "Identify Needs",
-    desc: "We work with your team to map skill gaps, delivery timelines, and the exact profile needed.",
+    step: "Identify Gaps",
+    title: "Skill & Stack Scoping",
+    desc: "Mapping specific language frameworks, seniority levels, project milestones, and time zones.",
   },
   {
     icon: UserCheck,
     step: "Select Talent",
-    desc: "Pre-screened candidates are presented within days — matched on skills, experience, and team fit.",
+    title: "Curated Profiles in 48h",
+    desc: "Receiving verified senior developer profiles matched for codebase familiarity and culture fit.",
   },
   {
     icon: Users,
-    step: "Integrate Team",
-    desc: "Augmented professionals onboard directly into your workflows, tools, and communication channels.",
+    step: "Integrate",
+    title: "Day-One Onboarding",
+    desc: "Direct integration into your sprint boards (Jira, GitHub), Slack channels, and standups.",
   },
   {
     icon: Rocket,
-    step: "Deliver Results",
-    desc: "Your expanded team executes against project goals with full accountability and performance visibility.",
+    step: "Deliver",
+    title: "High-Velocity Output",
+    desc: "Executing against sprint commits with full accountability, pull-request reviews, and quality gates.",
   },
   {
     icon: TrendingUp,
-    step: "Scale",
-    desc: "Add more professionals, extend engagements, or transition talent as your program evolves.",
+    step: "Scale or Pivot",
+    title: "Flexible Elasticity",
+    desc: "Expanding team size or adjusting developer focus as technical requirements evolve.",
   },
 ];
 
@@ -273,96 +218,95 @@ function AugmentationModelSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+    <section ref={ref} className="py-20 bg-white dark:bg-[#0c0e0f] overflow-hidden transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <Eyebrow>The Augmentation Model</Eyebrow>
-          <H2>From Requirement to Running Team</H2>
-          <NavyRule />
-          <Lead>
-            A structured five-stage process that gets the right professionals
-            embedded in your team — fast, with zero disruption to current delivery.
-          </Lead>
+          <SectionBadge>Execution Lifecycle</SectionBadge>
+          <SectionHeading>From Requirement to Embedded Engineers</SectionHeading>
+          <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+            A frictionless 5-stage augmentation model designed to keep your delivery timelines moving forward.
+          </p>
         </motion.div>
 
-        {/* Desktop: circle-node connector */}
-        <div className="hidden lg:block relative">
-          <div className="absolute top-[52px] left-[10%] right-[10%] h-[2px] bg-slate-100" />
+        {/* Desktop connected layout */}
+        <div className="hidden lg:grid grid-cols-5 gap-4 relative">
+          <div className="absolute top-8 left-[8%] right-[8%] h-[2px] bg-slate-200 dark:bg-slate-800 z-0" />
           <motion.div
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 1.3, delay: 0.35, ease: "easeInOut" }}
+            transition={{ duration: 1.1, ease: "easeInOut", delay: 0.2 }}
             style={{ transformOrigin: "left" }}
-            className="absolute top-[52px] left-[10%] right-[10%] h-[2px] bg-[#1A3A8F]"
+            className="absolute top-8 left-[8%] right-[8%] h-[2px] bg-primary dark:bg-[#a9c7ff] z-10"
           />
-          <div className="grid grid-cols-5 gap-4 relative z-10">
-            {modelSteps.map((s, i) => (
+
+          {modelSteps.map((s, i) => {
+            const Icon = s.icon;
+            return (
               <motion.div
                 key={s.step}
                 variants={fadeUp}
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
-                custom={i * 0.12}
-                className="flex flex-col items-center text-center px-2"
+                custom={i * 0.1}
+                className="flex flex-col items-center text-center px-2 relative z-10"
               >
-                <div className="relative z-10 w-[104px] h-[104px] rounded-full bg-white border-[3px] border-[#1A3A8F] flex flex-col items-center justify-center mb-6 shadow-md shadow-[#1A3A8F]/10">
-                  <s.icon
-                    size={22}
-                    strokeWidth={1.7}
-                    className="text-[#1A3A8F] mb-1"
-                  />
-                  <span className="text-[#0D1F4E] font-bold text-[11px] tracking-wide uppercase">
-                    {s.step}
-                  </span>
+                <div className="w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center mb-4 shadow-md font-bold">
+                  <Icon size={24} strokeWidth={2} />
                 </div>
-                <p className="text-slate-500 text-xs leading-relaxed">{s.desc}</p>
+                <span className="text-xs font-bold text-primary dark:text-[#a9c7ff] uppercase tracking-wider mb-1">
+                  Step 0{i + 1} • {s.step}
+                </span>
+                <h4 className="text-slate-900 dark:text-white font-bold text-sm mb-2">{s.title}</h4>
+                <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{s.desc}</p>
               </motion.div>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
-        {/* Mobile: vertical stacked */}
-        <div className="lg:hidden flex flex-col gap-0 relative">
-          <div className="absolute left-6 top-6 bottom-6 w-[2px] bg-slate-100" />
-          <div
-            className="absolute left-6 top-6 w-[2px] bg-[#1A3A8F] transition-all duration-[1400ms]"
-            style={{ height: inView ? "calc(100% - 24px)" : "0" }}
-          />
-          {modelSteps.map((s, i) => (
-            <motion.div
-              key={s.step}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.1}
-              className="flex gap-6 pb-10 last:pb-0"
-            >
-              <div className="relative z-10 w-12 h-12 rounded-full bg-[#1A3A8F] flex-shrink-0 flex items-center justify-center shadow-md">
-                <s.icon size={18} strokeWidth={1.8} className="text-white" />
-              </div>
-              <div className="pt-2">
-                <h4 className="text-[#0D1F4E] font-bold text-sm mb-1">{s.step}</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+        {/* Mobile vertical layout */}
+        <div className="lg:hidden flex flex-col gap-6 relative pl-4">
+          <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-slate-200 dark:bg-slate-800" />
+          {modelSteps.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <motion.div
+                key={s.step}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.1}
+                className="flex gap-5 items-start relative z-10"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary text-white flex-shrink-0 flex items-center justify-center shadow">
+                  <Icon size={20} strokeWidth={2} />
+                </div>
+                <div className="pt-1">
+                  <span className="text-xs font-bold text-primary dark:text-[#a9c7ff] uppercase tracking-wider block">
+                    Step 0{i + 1} • {s.step}
+                  </span>
+                  <h4 className="text-slate-900 dark:text-white font-bold text-base mb-1">{s.title}</h4>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{s.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-// ─── 4. BUSINESS IMPACT ───────────────────────────────────────────────────────
+// ─── 4. STATS / IMPACT ───────────────────────────────────────────────────────
 const stats = [
-  { raw: "72h", label: "Faster Deployment", sub: "From requirement to team integration" },
-  { target: 500, suffix: "+", label: "Professionals Available", sub: "Across tech and functional domains" },
-  { target: 95, suffix: "%", label: "Client Satisfaction", sub: "On delivery quality and team fit" },
-  { target: 80, suffix: "%", label: "Delivery Acceleration", sub: "Reduction in delivery lag for augmented teams" },
+  { raw: "72h", label: "Average Integration Speed" },
+  { target: 50, suffix: "k+", label: "Vetted Tech Professionals" },
+  { target: 95, suffix: "%", label: "Client Project Success Rate" },
+  { target: 40, suffix: "%", label: "Sprint Velocity Acceleration" },
 ];
 
 function Counter({ target, suffix, inView }) {
@@ -378,8 +322,9 @@ function Counter({ target, suffix, inView }) {
     }, 16);
     return () => clearInterval(id);
   }, [inView, target]);
+
   return (
-    <span className="text-5xl md:text-6xl font-bold text-white tabular-nums leading-none">
+    <span className="text-4xl sm:text-5xl font-black text-white tabular-nums leading-none">
       {val}{suffix}
     </span>
   );
@@ -390,50 +335,40 @@ function StatsSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-[#0D1F4E] relative overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-[0.045]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#1A3A8F]/30 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#1A3A8F]/20 blur-3xl pointer-events-none" />
+    <section ref={ref} className="py-20 bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(#a9c7ff_1px,transparent_1px)] [background-size:32px_32px] opacity-10" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-16">
+      <div className="relative max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center mb-16"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <Eyebrow inverted>Business Impact</Eyebrow>
-          <H2 inverted>
-            Speed and Quality,<br />Measured
-          </H2>
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#a9c7ff] border border-white/20 mb-4">
+            <Award className="w-3.5 h-3.5" /> Benchmarked Results
+          </span>
+          <SectionHeading light>Speed &amp; Quality Delivered at Scale</SectionHeading>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
               variants={fadeUp}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              custom={i * 0.1}
-              className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center"
+              custom={i * 0.08}
+              className="text-center bg-white/10 dark:bg-white/5 rounded-2xl p-6 backdrop-blur-md border border-white/10"
             >
               {s.raw ? (
-                <span className="text-5xl md:text-6xl font-bold text-white leading-none">
+                <span className="text-4xl sm:text-5xl font-black text-white leading-none">
                   {s.raw}
                 </span>
               ) : (
                 <Counter target={s.target} suffix={s.suffix} inView={inView} />
               )}
-              <p className="text-white font-semibold text-sm mt-3">{s.label}</p>
-              <p className="text-slate-400 text-xs mt-1">{s.sub}</p>
+              <p className="text-[#a9c7ff] text-sm mt-2 font-medium">{s.label}</p>
             </motion.div>
           ))}
         </div>
@@ -446,33 +381,33 @@ function StatsSection() {
 const talentAreas = [
   {
     icon: Code2,
-    name: "Frontend Development",
-    desc: "React, Vue, Angular, and modern web UI engineering",
+    name: "Frontend Engineering",
+    desc: "React, Next.js, Vue, Angular, TypeScript, Tailwind, micro-frontends",
   },
   {
     icon: Server,
-    name: "Backend Development",
-    desc: "Node.js, Java, Python, .NET, and API architecture",
+    name: "Backend & Cloud APIs",
+    desc: "Node.js, Python/Django, Java/Spring, Go, .NET Core, GraphQL, REST",
   },
   {
     icon: Cloud,
     name: "Cloud & Infrastructure",
-    desc: "AWS, Azure, GCP, DevSecOps, and cloud migrations",
+    desc: "AWS, Microsoft Azure, Google Cloud, Terraform, Kubernetes, Helm",
   },
   {
     icon: TestTube2,
-    name: "Quality Assurance",
-    desc: "Manual, automation, performance, and regression testing",
+    name: "QA & Test Automation",
+    desc: "Selenium, Cypress, Playwright, performance benchmarking, security testing",
   },
   {
     icon: GitBranch,
-    name: "DevOps & CI/CD",
-    desc: "Pipeline engineering, containerization, and release management",
+    name: "DevOps & CI/CD Pipelines",
+    desc: "GitHub Actions, GitLab CI, Docker containerization, DevSecOps governance",
   },
   {
     icon: Database,
-    name: "Data & Analytics",
-    desc: "Engineering, BI, ML pipelines, and data platform support",
+    name: "Data & AI Engineering",
+    desc: "PostgreSQL, MongoDB, Snowflake, Spark, PyTorch, LLM pipeline integrations",
   },
 ];
 
@@ -481,164 +416,71 @@ function TalentCapabilitiesSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-[#F4F7FC]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+    <section ref={ref} className="py-20 bg-slate-50/60 dark:bg-[#0c0e0f]/50 transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center max-w-xl mx-auto mb-14"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <Eyebrow>Talent Capabilities</Eyebrow>
-          <H2>Skills We Bring to Your Team</H2>
-          <NavyRule />
+          <SectionBadge>Technical Stack</SectionBadge>
+          <SectionHeading>Engineering Stacks Ready For Deployment</SectionHeading>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {talentAreas.map((t, i) => (
-            <motion.div
-              key={t.name}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.08}
-              className="group flex items-start gap-5 bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-[#1A3A8F]/20 transition-all duration-300"
-            >
-              <div className="w-11 h-11 rounded-xl bg-[#EEF2FB] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0D1F4E] transition-colors duration-300">
-                <t.icon
-                  size={20}
-                  strokeWidth={1.7}
-                  className="text-[#1A3A8F] group-hover:text-white transition-colors duration-300"
-                />
-              </div>
-              <div>
-                <h4 className="text-[#0D1F4E] font-semibold text-sm mb-1">{t.name}</h4>
-                <p className="text-slate-400 text-xs leading-relaxed">{t.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {talentAreas.map((t, i) => {
+            const Icon = t.icon;
+            return (
+              <motion.div
+                key={t.name}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.07}
+                className="flex items-start gap-4 bg-white dark:bg-slate-900/80 rounded-2xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0 text-primary dark:text-[#a9c7ff]">
+                  <Icon size={22} strokeWidth={2} />
+                </div>
+                <div>
+                  <h4 className="text-slate-900 dark:text-white font-bold text-base mb-1">{t.name}</h4>
+                  <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{t.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-// ─── 6. WHY ORGANIZATIONS CHOOSE US ──────────────────────────────────────────
-const choicePoints = [
-  { label: "Fast onboarding — professionals ready to contribute from day one" },
-  { label: "Rigorously screened talent matched to your team culture and stack" },
-  { label: "Flexible scaling — add or release capacity without friction" },
-  { label: "Dedicated engagement managers as your single point of contact" },
-  { label: "Full delivery transparency through weekly updates and reporting" },
-  { label: "Replacement guarantee if a professional is not the right fit" },
-];
-
-function WhyChooseSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-
-  return (
-    <section ref={ref} className="py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          {/* Right image — reversed layout vs Overview */}
-          <motion.div
-            variants={fadeIn}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="relative order-2 lg:order-1"
-          >
-            <div className="rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 aspect-[4/3]">
-              <img
-                src="https://images.unsplash.com/photo-1565728744382-61accd4aa148?w=900&q=80"
-                alt="Enterprise engineering team reviewing project architecture"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0D1F4E]/20 to-transparent" />
-            </div>
-            <div className="absolute -bottom-5 -left-5 w-28 h-28 rounded-2xl border-2 border-[#1A3A8F]/10 -z-10" />
-          </motion.div>
-
-          {/* Left content */}
-          <div className="order-1 lg:order-2">
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={0}
-            >
-              <Eyebrow>Why Choose Us</Eyebrow>
-              <H2>
-                The Augmentation Partner<br />
-                <span className="text-[#1A3A8F]">Your Teams Can Rely On</span>
-              </H2>
-              <NavyRule />
-            </motion.div>
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={1}
-            >
-              <Lead className="mb-9">
-                We don't just fill seats. Every professional we place is evaluated
-                against your specific environment, delivery expectations, and
-                team dynamics — so integration is seamless and contribution is immediate.
-              </Lead>
-            </motion.div>
-
-            <ul className="space-y-4">
-              {choicePoints.map((p, i) => (
-                <motion.li
-                  key={p.label}
-                  variants={fadeUp}
-                  initial="hidden"
-                  animate={inView ? "visible" : "hidden"}
-                  custom={i * 0.07 + 0.2}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle2
-                    size={17}
-                    strokeWidth={2.2}
-                    className="text-[#1A3A8F] mt-[2px] flex-shrink-0"
-                  />
-                  <span className="text-slate-600 text-sm leading-relaxed">{p.label}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── 7. ENGAGEMENT OPTIONS ────────────────────────────────────────────────────
+// ─── 6. ENGAGEMENT OPTIONS ────────────────────────────────────────────────────
 const engagements = [
   {
     icon: Timer,
-    title: "Short-Term",
-    tag: "Weeks to 3 months",
-    desc: "Rapid support for delivery sprints, go-live periods, or sudden capacity surges with immediate availability.",
+    title: "Short-Term Sprints",
+    tag: "2 to 12 Weeks",
+    desc: "Rapid reinforcement for feature launches, crunch periods, or bug fixes with immediate availability.",
   },
   {
     icon: CalendarRange,
-    title: "Long-Term",
-    tag: "3 months and beyond",
-    desc: "Extended augmentation for sustained program delivery, platform build-outs, or ongoing product development.",
+    title: "Long-Term Integration",
+    tag: "3 to 12+ Months",
+    desc: "Extended engineering capacity for multi-quarter core platform buildouts and ongoing feature delivery.",
   },
   {
     icon: FolderKanban,
-    title: "Project Support",
-    tag: "Scope-defined",
-    desc: "Outcome-oriented augmentation for defined project phases — scoped to milestones and managed against deliverables.",
+    title: "Milestone-Based Pods",
+    tag: "Deliverable Driven",
+    desc: "Scoped development pods tied to specific functional outcomes and governed against sprint metrics.",
   },
   {
     icon: Users,
-    title: "Dedicated Teams",
-    tag: "Fully embedded",
-    desc: "A complete cross-functional team — engineering, QA, DevOps — operating as a managed delivery unit within your organization.",
+    title: "Full Dedicated Teams",
+    tag: "Cross-Functional",
+    desc: "Self-contained pods (Frontend, Backend, QA, Tech Lead) operating as an embedded unit within your business.",
   },
 ];
 
@@ -647,165 +489,106 @@ function EngagementOptionsSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="py-28 bg-[#0D1F4E] relative overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: "radial-gradient(circle, #fff 1.5px, transparent 1.5px)",
-          backgroundSize: "30px 30px",
-        }}
-      />
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-16">
+    <section ref={ref} className="py-20 bg-white dark:bg-[#0c0e0f] transition-colors duration-300">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center max-w-xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <Eyebrow inverted>Engagement Options</Eyebrow>
-          <H2 inverted>
-            Flexible Models for<br />Every Project Type
-          </H2>
+          <SectionBadge>Flexible Models</SectionBadge>
+          <SectionHeading>Engagement Frameworks Tailored To Your Needs</SectionHeading>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {engagements.map((e, i) => (
-            <motion.div
-              key={e.title}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={i * 0.1}
-              className="group rounded-2xl border border-white/10 bg-white/5 p-7 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-            >
-              <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center mb-5 group-hover:bg-[#1A3A8F] transition-colors duration-300">
-                <e.icon
-                  size={19}
-                  strokeWidth={1.75}
-                  className="text-sky-300 group-hover:text-white transition-colors duration-300"
-                />
-              </div>
-              <p className="text-sky-200 text-[11px] font-semibold tracking-widest uppercase mb-2">
-                {e.tag}
-              </p>
-              <h4 className="text-white font-bold text-[0.9375rem] mb-2">{e.title}</h4>
-              <p className="text-slate-400 text-[0.8125rem] leading-relaxed">{e.desc}</p>
-            </motion.div>
-          ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {engagements.map((e, i) => {
+            const Icon = e.icon;
+            return (
+              <motion.div
+                key={e.title}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={i * 0.08}
+                className="bg-slate-50/70 dark:bg-slate-900/80 rounded-2xl p-6 border border-slate-200/80 dark:border-slate-800 hover:border-primary/40 dark:hover:border-[#a9c7ff]/40 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4 text-primary dark:text-[#a9c7ff]">
+                  <Icon size={22} strokeWidth={2} />
+                </div>
+                <span className="text-xs font-bold text-primary dark:text-[#a9c7ff] uppercase tracking-wider block mb-1">
+                  {e.tag}
+                </span>
+                <h4 className="text-slate-900 dark:text-white font-bold text-base mb-2">{e.title}</h4>
+                <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{e.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-// ─── 8. FINAL CTA ─────────────────────────────────────────────────────────────
+// ─── 7. FINAL CTA ─────────────────────────────────────────────────────────────
 function CTASection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-
   return (
-    <section ref={ref} className="py-28 bg-[#F4F7FC]">
-      <div className="max-w-5xl mx-auto px-6">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/80 px-10 py-16 md:px-20 md:py-20 text-center relative overflow-hidden"
-        >
-          {/* Blueprint corner marks */}
-          <span className="absolute top-5 left-5 w-6 h-6 border-t-2 border-l-2 border-[#1A3A8F]/20 rounded-tl-sm" />
-          <span className="absolute top-5 right-5 w-6 h-6 border-t-2 border-r-2 border-[#1A3A8F]/20 rounded-tr-sm" />
-          <span className="absolute bottom-5 left-5 w-6 h-6 border-b-2 border-l-2 border-[#1A3A8F]/20 rounded-bl-sm" />
-          <span className="absolute bottom-5 right-5 w-6 h-6 border-b-2 border-r-2 border-[#1A3A8F]/20 rounded-br-sm" />
-
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            custom={0}
-          >
-            <Eyebrow>Get Started</Eyebrow>
-            <H2 className="mb-6">
-              Extend Teams.<br />
-              <span className="text-[#1A3A8F]">Accelerate Outcomes.</span>
-            </H2>
-          </motion.div>
-
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            custom={1}
-            className="text-slate-500 text-base max-w-xl mx-auto mb-10 leading-relaxed"
-          >
-            Tell us where your team needs reinforcement. We'll match the right
-            professionals to your project within 72 hours — ready to integrate
-            and deliver from day one.
-          </motion.p>
-
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            custom={2}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-[#1A3A8F] hover:bg-[#0D1F4E] text-white font-semibold text-sm transition-colors duration-200 shadow-lg shadow-[#1A3A8F]/20"
+    <section className="py-16 bg-slate-50 dark:bg-[#0c0e0f]/80">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-2xl">
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#a9c7ff] mb-4">
+              Extend Your Engineering Power
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black mb-4 tracking-tight">
+              Ready to Accelerate Your Sprint Releases?
+            </h2>
+            <p className="text-slate-200 text-sm sm:text-base mb-8 font-light">
+              Tell us your tech stack and target start date. We'll match pre-vetted senior engineers ready to start within 72 hours.
+            </p>
+            <Link
+              to="/contact-us"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-primary hover:bg-[#a9c7ff] hover:text-[#002a58] font-bold text-xs uppercase tracking-wider shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
-              Contact Us <ArrowRight size={16} strokeWidth={2.5} />
-            </a>
-            <a
-              href="/services"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border border-slate-200 hover:border-[#1A3A8F]/40 hover:bg-slate-50 text-slate-700 font-semibold text-sm transition-colors duration-200"
-            >
-              <Building2 size={16} strokeWidth={1.9} />
-              Explore Services
-            </a>
-          </motion.div>
-        </motion.div>
+              <span>Request Developer Profiles</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-// --- 9. -----
-
+// ─── TAB EMBED COMPONENT ───────────────────────────────────────────────────────
 export function Augmentation() {
-
-  const animRef = useScrollAnimation()
-
   return (
-    <main className="mt-20 min-h-screen bg-slate-50 dark:bg-[#0c0e0f] text-on-surface" ref={animRef}>
+    <div className="w-full">
       <HowItHelpsSection />
       <AugmentationModelSection />
       <StatsSection />
       <TalentCapabilitiesSection />
-      <WhyChooseSection />
       <EngagementOptionsSection />
-    </main>
+      <CTASection />
+    </div>
   );
 }
 
-
-// ─── ROOT EXPORT ──────────────────────────────────────────────────────────────
-function StaffAugmentation() {
-
-  const animRef = useScrollAnimation()
+// ─── STANDALONE PAGE COMPONENT ────────────────────────────────────────────────
+const StaffAugmentation = () => {
+  const animRef = useScrollAnimation();
 
   return (
-    <main className="mt-20 min-h-screen bg-slate-50 dark:bg-[#0c0e0f] text-on-surface" ref={animRef}>
-      <OverviewSection />
+    <main className="mt-20 min-h-screen bg-[#f8f9fa] dark:bg-[#0c0e0f] text-slate-900 dark:text-slate-100 transition-colors duration-300" ref={animRef}>
+      <StandaloneHero />
       <HowItHelpsSection />
       <AugmentationModelSection />
       <StatsSection />
       <TalentCapabilitiesSection />
-      <WhyChooseSection />
       <EngagementOptionsSection />
       <CTASection />
     </main>
   );
-}
+};
 
-export default StaffAugmentation
+export default StaffAugmentation;
