@@ -12,7 +12,7 @@ const timelineEvents = [
   },
   {
     year: "2013",
-    title: "Workforce Expansion",
+    title: "EPC Projects & Staffing",
     tag: "NORTH INDIA EXPANSION",
     desc: "Expanded vocational training network across North India, building a 50,000+ skilled engineering talent pipeline.",
     iconPath: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
@@ -20,7 +20,7 @@ const timelineEvents = [
   },
   {
     year: "2017",
-    title: "Multi-Vertical Growth",
+    title: "Govt. Skilling - PMKVY",
     tag: "6 BUSINESS DIVISIONS",
     desc: "Diversified into 6 core divisions: EPC, IT & ITeS, Technical Staffing, Solar EPC, Hydroponics, and STEAM.",
     iconPath: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
@@ -28,7 +28,7 @@ const timelineEvents = [
   },
   {
     year: "2020",
-    title: "Pan-India Digital Reach",
+    title: "Govt. Skilling - PMKVY | DDUGKY | PM VIKAS | Skill India",
     tag: "20+ STATES NETWORK",
     desc: "Scaled STEAM labs, modern digital workforce platforms, and remote skilling models across 20+ Indian states.",
     iconPath: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
@@ -36,15 +36,15 @@ const timelineEvents = [
   },
   {
     year: "2023",
-    title: "Green Energy & Sustainability",
+    title: "IT Staffing & Payrolling- HCL, ",
     tag: "SOLAR EPC & AGRITECH",
     desc: "Accelerated Solar EPC net-metering projects and state-of-the-art commercial Hydroponics AgriTech setups.",
     iconPath: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z",
     image: "https://media.istockphoto.com/id/1291751221/photo/the-sales-department-scores-again.webp?a=1&b=1&s=612x612&w=0&k=20&c=eLEEzx6Bt0-Y3Cj2QKudklHo9sBd4vzXO4Fvt9eLzjk=",
   },
   {
-    year: "2026+",
-    title: "Scale & AI Transformation",
+    year: "2026",
+    title: "Infra & Data Centers Projects",
     tag: "1.5L+ WORKFORCE VISION",
     desc: "Empowering 1.5 Lakh+ professionals with AI-enabled industrial workforce skilling and nationwide execution.",
     iconPath: "M13 10V3L4 14h7v7l9-11h-7z",
@@ -64,14 +64,13 @@ const CARD_W = 300;
 const CARD_H = 80;
 
 const SLICES = [
-  { type: "intro", start: -110, end: -88, mid: -99, fill: "#001834" },
-  { type: "milestone", start: -86, end: -66, mid: -76, fill: "url(#sb-slice-0)", idx: 0, cardX: 180, cardY: 22 },
-  { type: "milestone", start: -64, end: -42, mid: -53, fill: "url(#sb-slice-1)", idx: 1, cardX: 310, cardY: 118 },
-  { type: "milestone", start: -40, end: -18, mid: -29, fill: "url(#sb-slice-2)", idx: 2, cardX: 400, cardY: 214 },
-  { type: "milestone", start: -16, end: 6, mid: -5, fill: "url(#sb-slice-3)", idx: 3, cardX: 430, cardY: 310 },
-  { type: "milestone", start: 8, end: 30, mid: 19, fill: "url(#sb-slice-4)", idx: 4, cardX: 390, cardY: 406 },
-  { type: "milestone", start: 32, end: 54, mid: 43, fill: "url(#sb-slice-5)", idx: 5, cardX: 280, cardY: 502 },
-  { type: "outro", start: 56, end: 78, mid: 67, fill: "#001c3d" },
+  { type: "milestone", start: -84, end: -58, mid: -71, fill: "url(#sb-slice-0)", idx: 0, cardX: 180, cardY: 22 },
+  { type: "milestone", start: -56, end: -34, mid: -45, fill: "url(#sb-slice-1)", idx: 1, cardX: 310, cardY: 118 },
+  { type: "milestone", start: -32, end: -10, mid: -21, fill: "url(#sb-slice-2)", idx: 2, cardX: 400, cardY: 214 },
+  { type: "milestone", start: -8, end: 14, mid: 3, fill: "url(#sb-slice-3)", idx: 3, cardX: 430, cardY: 310 },
+  { type: "milestone", start: 16, end: 38, mid: 27, fill: "url(#sb-slice-4)", idx: 4, cardX: 390, cardY: 406 },
+  { type: "milestone", start: 40, end: 66, mid: 53, fill: "url(#sb-slice-5)", idx: 5, cardX: 280, cardY: 502 },
+  { type: "outro", start: 68, end: 84, mid: 76, fill: "#001c3d" },
 ];
 
 function toRad(deg) { return (deg * Math.PI) / 180; }
@@ -93,7 +92,7 @@ const AboutTimeline = () => {
   const [activeIdx, setActiveIdx] = useState(2); // default highlight: 2017
 
   return (
-    <section className="py-12 md:py-16 w-full bg-gradient-to-b from-[#f8f9fa] via-white to-[#f8f9fa] dark:from-[#0a0d10] dark:via-[#101419] dark:to-[#0a0d10] border-b border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden">
+    <section className="py-12 md:py-16 w-full bg-[#f8f9fa] dark:bg-[#0a0d10] border-b border-slate-200 dark:border-slate-800 relative overflow-hidden transition-colors duration-300">
       {/* Subtle brand grid pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#002a58_1.5px,transparent_1.5px)] [background-size:24px_24px]" />
 
@@ -101,54 +100,36 @@ const AboutTimeline = () => {
 
         {/* ── Section Header ── */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-[#121517] border border-slate-200/90 dark:border-slate-800 text-xs font-black uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff] mb-3 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-bold uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff] mb-3 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#002a58] dark:bg-[#a9c7ff] animate-pulse" />
-            SmartBrains Evolution & Milestones
+            SmartBrains Evolution &amp; Milestones
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#002a58] dark:text-white uppercase tracking-tight leading-tight">
-            Our Journey & Growth
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#002a58] dark:text-white uppercase tracking-tight leading-tight">
+            Our Journey &amp; Growth
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#002a58] via-blue-600 to-[#a9c7ff] dark:from-[#a9c7ff] dark:to-white mx-auto mt-3 rounded-full" />
         </div>
 
-        {/* ── Main Layout: Perfectly Aligned 2-Column Grid (White Theme) ── */}
+        {/* ── Main Layout: Perfectly Aligned 2-Column Grid ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
 
           {/* ── LEFT COLUMN: Interactive Timeline Dashboard (col-span-7) ── */}
           <div className="lg:col-span-7 flex flex-col h-full">
 
-            {/* Interactive Dashboard Card (Visible & Responsive on Mobile, Tablet & Desktop) */}
-            <div className="flex flex-col h-full w-full rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,42,88,0.07)] dark:shadow-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] select-none relative transition-all duration-300">
+            {/* Interactive Dashboard Card (Clean White Surface with Brand Accents) */}
+            <div className="flex flex-col h-full w-full rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c0e0f] select-none relative transition-all duration-300">
 
-              {/* Header Bar with Year Selector Tabs */}
-              <div className="px-4 sm:px-6 py-3.5 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md z-20">
+              {/* Header Bar */}
+              <div className="px-4 sm:px-6 py-3.5 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2.5 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/90 z-20">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#002a58] dark:bg-[#a9c7ff]" />
-                  <span className="text-xs font-black uppercase tracking-widest text-[#002a58] dark:text-[#a9c7ff]">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#002a58] dark:text-[#a9c7ff]">
                     Milestone Matrix (2009 — 2026+)
                   </span>
                 </div>
-
-                {/* Corporate Interactive Year Buttons with Touch & Click */}
-                <div className="flex items-center gap-1.5 overflow-x-auto max-w-full pb-0.5 scrollbar-none">
-                  {timelineEvents.map((evt, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setActiveIdx(idx)}
-                      onMouseEnter={() => setActiveIdx(idx)}
-                      className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-lg text-xs font-black font-mono shrink-0 transition-all duration-200 ${activeIdx === idx
-                        ? "bg-[#002a58] text-white shadow-md shadow-[#002a58]/25 scale-105"
-                        : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-[#002a58] dark:hover:text-white border border-slate-200/80 dark:border-slate-700"
-                        }`}
-                    >
-                      {evt.year}
-                    </button>
-                  ))}
-                </div>
               </div>
 
-              {/* Central SVG Canvas with Dynamic Active Milestone Backdrop Image */}
-              <div className="flex-1 w-full flex items-center justify-center p-1 relative overflow-hidden bg-gradient-to-b from-[#f8fafc] via-slate-50 to-[#f1f5f9] dark:from-[#020617] dark:via-[#090d16] dark:to-[#020617]">
+              {/* Central SVG Canvas with Clean Backdrop */}
+              <div className="flex-1 w-full flex items-center justify-center p-0 relative overflow-hidden bg-slate-50 dark:bg-[#090d14]">
 
                 {/* Background Ambient Active Era Image */}
                 <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -158,7 +139,7 @@ const AboutTimeline = () => {
                     alt={timelineEvents[activeIdx].title}
                     className="w-full h-full object-cover object-center opacity-10 dark:opacity-20 filter saturate-150 transition-all duration-700 ease-out scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-slate-50/80 via-slate-50/60 to-transparent dark:from-[#020617]/90 dark:via-[#090d16]/75 dark:to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-50/90 via-slate-50/60 to-transparent dark:from-[#090d14]/90 dark:via-[#090d14]/75 dark:to-transparent" />
                 </div>
 
                 <svg
@@ -218,12 +199,12 @@ const AboutTimeline = () => {
                         <path
                           d={wedgePath(CX, CY, R_HUB, R_OUTER, sl.start, sl.end)}
                           fill={sl.fill}
-                          stroke={active ? "#a9c7ff" : "rgba(255,255,255,0.15)"}
-                          strokeWidth={active ? 3 : 1}
+                          stroke={active ? "#ffffff" : "rgba(255,255,255,0.25)"}
+                          strokeWidth={active ? 2.5 : 1.2}
                           style={{
                             cursor: sl.type === "milestone" ? "pointer" : "default",
                             transition: "all .25s ease",
-                            opacity: sl.type === "milestone" && !active ? 0.92 : 1,
+                            opacity: sl.type === "milestone" && !active ? 0.94 : 1,
                           }}
                           onClick={() => sl.type === "milestone" && setActiveIdx(sl.idx)}
                           onMouseEnter={() => sl.type === "milestone" && setActiveIdx(sl.idx)}
@@ -234,7 +215,7 @@ const AboutTimeline = () => {
                           <path
                             d={wedgePath(CX, CY, R_HUB, R_OUTER, sl.start, sl.end)}
                             fill={`url(#sb-slice-img-${sl.idx})`}
-                            opacity="0.30"
+                            opacity="0.25"
                             style={{
                               pointerEvents: "none",
                               mixBlendMode: "luminosity",
@@ -257,22 +238,23 @@ const AboutTimeline = () => {
                         y1={p1.y}
                         x2={p2.x}
                         y2={p2.y}
-                        stroke="rgba(255,255,255,0.25)"
-                        strokeWidth="1.2"
+                        stroke="#ffffff"
+                        strokeWidth="1.8"
                       />
                     );
                   })}
 
-                  {/* ── Clean arc line ── */}
+                  {/* ── Clean white connecting arc line ── */}
                   {(() => {
-                    const arcStart = polar(CX, CY, R_ARC, -110);
-                    const arcEnd = polar(CX, CY, R_ARC, 78);
+                    const arcStart = polar(CX, CY, R_ARC, -84);
+                    const arcEnd = polar(CX, CY, R_ARC, 66);
                     return (
                       <path
                         d={`M${arcStart.x} ${arcStart.y} A${R_ARC} ${R_ARC} 0 0 1 ${arcEnd.x} ${arcEnd.y}`}
                         fill="none"
-                        stroke="rgba(255,255,255,0.85)"
+                        stroke="#ffffff"
                         strokeWidth="2.5"
+                        strokeLinecap="round"
                       />
                     );
                   })()}
@@ -396,7 +378,7 @@ const AboutTimeline = () => {
                               <div style={{ flex: 1, minWidth: 0 }}>
                                 <div
                                   style={{
-                                    fontSize: "11.5px",
+                                    fontSize: "13px",
                                     fontWeight: 800,
                                     color: "#002a58",
                                     textTransform: "uppercase",
@@ -428,7 +410,7 @@ const AboutTimeline = () => {
                             </div>
 
                             {/* Description */}
-                            <p
+                            {/* <p
                               style={{
                                 fontSize: "10px",
                                 color: "#334155",
@@ -442,7 +424,7 @@ const AboutTimeline = () => {
                               }}
                             >
                               {evt.desc}
-                            </p>
+                            </p> */}
                           </div>
                         </foreignObject>
                       </g>
@@ -455,9 +437,9 @@ const AboutTimeline = () => {
                     <circle cx={CX} cy={CY} r={R_HUB} fill="#002a58" stroke="#ffffff" strokeWidth="3" />
                     <text
                       x={CX}
-                      y={CY - 16}
+                      y={CY - 6}
                       textAnchor="middle"
-                      fontSize="18"
+                      fontSize="17"
                       fontWeight="900"
                       fill="#ffffff"
                       letterSpacing="3"
@@ -466,25 +448,14 @@ const AboutTimeline = () => {
                     </text>
                     <text
                       x={CX}
-                      y={CY + 4}
+                      y={CY + 14}
                       textAnchor="middle"
-                      fontSize="10.5"
+                      fontSize="10"
                       fontWeight="800"
                       fill="#a9c7ff"
-                      letterSpacing="1.2"
+                      letterSpacing="1.5"
                     >
                       SMARTBRAINS
-                    </text>
-                    <text
-                      x={CX}
-                      y={CY + 22}
-                      textAnchor="middle"
-                      fontSize="11"
-                      fontWeight="800"
-                      fill="#ffffff"
-                      fontFamily="monospace"
-                    >
-                      2009 — 2026+
                     </text>
                   </g>
 
@@ -492,11 +463,11 @@ const AboutTimeline = () => {
               </div>
 
               {/* Bottom Guidance Bar */}
-              <div className="px-4 sm:px-6 py-3 bg-slate-50/90 dark:bg-slate-900/90 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              <div className="px-4 sm:px-6 py-3 bg-slate-50 dark:bg-slate-900/90 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                 <span className="flex items-center gap-1.5">
                   <span className="text-[#002a58] dark:text-[#a9c7ff] font-bold">✦</span> 
                 </span>
-                <span className="font-mono text-[#002a58] dark:text-[#a9c7ff] text-xs font-bold">15+ YEARS OF EXCELLENCE</span>
+                <span className="font-mono text-[#002a58] dark:text-[#a9c7ff] text-xs font-bold tracking-wider">15+ YEARS OF EXCELLENCE</span>
               </div>
 
             </div>
@@ -531,7 +502,7 @@ const AboutTimeline = () => {
               </div>
 
               {/* Selected Milestone Spotlight Box */}
-              <div className="p-4 sm:p-4.5 rounded-2xl bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3d] text-white shadow-lg relative overflow-hidden transition-all duration-300">
+              {/* <div className="p-4 sm:p-4.5 rounded-2xl bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3d] text-white shadow-lg relative overflow-hidden transition-all duration-300">
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-[9.5px] font-extrabold uppercase tracking-wider text-amber-300 bg-amber-400/15 px-2.5 py-0.5 rounded-full border border-amber-400/20">
                     Era Spotlight • {timelineEvents[activeIdx].tag}
@@ -546,7 +517,7 @@ const AboutTimeline = () => {
                 <p className="text-xs text-slate-200 leading-relaxed font-light">
                   {timelineEvents[activeIdx].desc}
                 </p>
-              </div>
+              </div> */}
             </div>
 
           </div>

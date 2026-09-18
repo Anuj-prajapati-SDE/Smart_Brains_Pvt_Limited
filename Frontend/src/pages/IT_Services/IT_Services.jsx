@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import CompanySlider from "../../components/CompanySlider";
 
 function IT_Services() {
   const [imgErrors, setImgErrors] = useState({});
@@ -393,8 +394,7 @@ function IT_Services() {
           ))}
         </div>
       </section>
-
-      {/* CTA Section */}
+      <CompanySlider/>
       <section className="bg-primary text-on-primary py-xl px-gutter text-center relative overflow-hidden mb-20 max-w-6xl rounded-2xl mx-auto">
         {/* Decorative graphics */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary-container/20 rounded-full blur-xl pointer-events-none" />

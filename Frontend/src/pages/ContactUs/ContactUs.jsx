@@ -222,7 +222,7 @@ const ContactUs = () => {
                       </h4>
                       <div className="text-sm text-slate-600 dark:text-slate-300">
                         <span className="block font-medium"> <a href="mailto:info@smartbrains.in" className="text-[#002a58] dark:text-[#a9c7ff] font-semibold hover:underline">info@smartbrains.in</a></span>
-                        <span className="block mt-1 font-medium"><a href="tel:+919891108002" className="text-slate-800 dark:text-white font-bold hover:underline">+91 9891108002</a></span>
+                        <span className="block mt-1 font-medium"><a href="tel:+919891108002" className="text-slate-800 dark:text-white font-bold hover:underline">+91 9759253330</a></span>
                       </div>
                     </div>
                   </div>
@@ -476,15 +476,7 @@ const ContactUs = () => {
           <div className="bg-white dark:bg-[#121517] border border-slate-200/60 dark:border-slate-800/40 p-4 rounded-3xl shadow-lg overflow-hidden h-[450px] relative group">
 
             {/* Map Frame Overlay */}
-            <div className="absolute top-4 left-4 z-10 bg-white/90 dark:bg-[#121517]/90 border border-slate-200/60 dark:border-slate-800/60 p-4 rounded-2xl shadow-lg backdrop-blur-md max-w-sm hidden sm:block">
-              <h4 className="font-bold text-slate-800 dark:text-white text-xs uppercase tracking-wider flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                SmartBrains Headquarters Location
-              </h4>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-normal font-light">
-                A-25, Sector 59, Noida, Uttar Pradesh 201301. Visit our offices for custom demos of S.T.E.A.M. kits.
-              </p>
-            </div>
+            
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.764197086163!2d77.36771403484758!3d28.606850022976516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce557e6cc86cb%3A0x508ab9aee5024096!2sSmartBrains%20Engineers%20and%20Technologist%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1781241568343!5m2!1sen!2sin" width="100%" height="450" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </section>

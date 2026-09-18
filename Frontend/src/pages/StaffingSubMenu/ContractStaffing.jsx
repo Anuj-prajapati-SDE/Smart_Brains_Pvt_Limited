@@ -476,35 +476,7 @@ function WhyPartnerSection() {
   );
 }
 
-// ─── 7. FINAL CTA ─────────────────────────────────────────────────────────────
-function CTASection() {
-  return (
-    <section className="py-16 bg-slate-50 dark:bg-[#0c0e0f]/80">
-      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-[#002a58] via-[#003875] to-[#001c3b] rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-2xl">
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#a9c7ff] mb-4">
-              Get Started
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black mb-4 tracking-tight">
-              Ready to Accelerate Your Projects?
-            </h2>
-            <p className="text-slate-200 text-sm sm:text-base mb-8 font-light">
-              Connect with our staffing specialists to deploy compliant, high-performing contract talent within 48 to 72 hours.
-            </p>
-            <Link
-              to="/contact-us"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-primary hover:bg-[#a9c7ff] hover:text-[#002a58] font-bold text-xs uppercase tracking-wider shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <span>Consult Our Staffing Team</span>
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+
 
 // ─── TAB EMBED COMPONENT ───────────────────────────────────────────────────────
 export function ContractStaff() {
@@ -515,7 +487,7 @@ export function ContractStaff() {
       <StatsSection />
       <IndustriesSection />
       <WhyPartnerSection />
-      <CTASection />
+      {/* <CTASection /> */}
     </div>
   );
 }
@@ -532,7 +504,7 @@ const ContractStaffing = () => {
       <StatsSection />
       <IndustriesSection />
       <WhyPartnerSection />
-      <CTASection />
+      {/* <CTASection /> */}
     </main>
   );
 };

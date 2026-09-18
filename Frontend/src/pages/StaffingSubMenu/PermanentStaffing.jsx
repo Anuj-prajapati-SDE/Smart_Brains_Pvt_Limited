@@ -588,7 +588,7 @@ export function PermanentStaff() {
       <JourneySection />
       <TrustStatsSection />
       <IndustriesSection />
-      <WhyChooseSection />
+      {/* <WhyChooseSection /> */}
       <WorkforceExcellenceSection />
       <CTASection />
     </div>

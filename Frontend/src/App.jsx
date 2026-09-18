@@ -40,7 +40,6 @@ import VocationalLabsPage from './pages/VocationalLabs/VocationalLabsPage';
 
 // Projects Dropdown Pages
 import TechDigitalInfraPage from './pages/Projects/TechDigitalInfraPage';
-import WorkforceSolutionsPage from './pages/Projects/WorkforceSolutionsPage';
 import EducationSkillDevPage from './pages/Projects/EducationSkillDevPage';
 import AgriSustainabilityPage from './pages/Projects/AgriSustainabilityPage';
 import PermanentStaffing from './pages/StaffingSubMenu/PermanentStaffing';
@@ -49,7 +48,6 @@ import ManagedServiceProvider from './pages/StaffingSubMenu/ManagedServiceProvid
 import StaffAugmentation from './pages/StaffingSubMenu/StaffAugmentation';
 import RemoteIt from './pages/StaffingSubMenu/RemoteIt';
 import ProjectBased from './pages/StaffingSubMenu/ProjectBased';
-import HIreTrainDeploy from './pages/HireTrainDeploy/HIreTrainDeploy';
 import WebDevlopment from './pages/HireSubMenu/WebDevlopment';
 import EmergingTechnology from './pages/HireSubMenu/EmergingTechnology';
 import MainFrameTraining from './pages/HireSubMenu/MainFrameTraining';

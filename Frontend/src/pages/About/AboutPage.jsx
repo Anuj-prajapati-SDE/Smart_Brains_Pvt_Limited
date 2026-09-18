@@ -623,7 +623,7 @@ const AboutPage = () => {
           <div className="relative z-10 max-w-[1280px] mx-auto px-gutter w-full">
             <div className="max-w-4xl space-y-4 sm:space-y-5">
               <div data-animate="fade-up" className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold uppercase tracking-widest text-[#a9c7ff] backdrop-blur-md">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#a9c7ff] animate-ping" />
+                {/* <span className="w-1.5 h-1.5 rounded-full bg-[#a9c7ff] animate-ping" /> */}
                 Established 2009
               </div>
               <h4

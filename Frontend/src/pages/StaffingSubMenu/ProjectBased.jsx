@@ -32,10 +32,7 @@ const fadeUp = {
   }),
 };
 
-const fadeIn = {
-  hidden: { opacity: 0, scale: 0.96 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: "easeOut" } },
-};
+
 
 function SectionBadge({ children }) {
   return (

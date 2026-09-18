@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  Flame,
-  Layers,
   Cpu,
   ShieldCheck,
   CheckCircle2,
@@ -14,22 +12,15 @@ import {
   Factory,
   Compass,
   Hammer,
-  GraduationCap,
-  FolderGit2,
   Clock3,
   TrendingUp,
   HardHat,
   Zap,
-  Activity,
-  FileText,
-  ChevronRight,
-  Shield,
   Gauge,
   Droplets,
-  Building,
-  Check,
-  PhoneCall
+  
 } from 'lucide-react'
+import CompanySlider from '../../components/CompanySlider'
 
 // ─── Animation Presets ────────────────────────────────────────────────────────
 const fadeUp = {
@@ -600,7 +591,7 @@ const EPCOilGasEnergyPage = () => {
           </div>
         </div>
       </section>
-
+      <CompanySlider/>
       {/* ─── 6. BOTTOM CTA / RFP BANNER ─────────────────────────────────────── */}
       <section className="py-16 bg-white dark:bg-[#0c0e0f] transition-colors duration-300">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
